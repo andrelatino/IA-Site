@@ -360,9 +360,7 @@ min-height: 100vh;
 gap: 5px;
 background: white;
 }
-img.addIcon {
-    filter: invert(1);
-}
+
 #grid-wrapper {
     box-sizing: border-box;
     display:grid;
@@ -771,8 +769,8 @@ transition-delay: 300ms;
 
 button#editor-new {
     position: fixed;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     left: 50%;
     right: 50%;
     transform: translate(-50%, -50%);
