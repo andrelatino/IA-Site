@@ -1,0 +1,269 @@
+
+.sites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(auto, 360px));   
+    gap: 1%;
+    padding-bottom: 200px;
+    place-content: center;
+}
+h2.sites-name {
+    background: white;
+    padding-bottom: 15px;
+    font-size: 33px;
+    font-weight: 200;
+}
+.sites-items{
+    position: relative;
+    background: white;
+    padding: 0px;
+    border-radius: 10px;
+    display: grid;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    overflow: hidden;
+}
+.sites-subtitle {
+    grid-column: 1 / -1;
+    padding: 0px 0px;
+    display: flex;
+    grid-gap: 20px;
+    place-items: center;
+}
+.sites-add {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.sites-cta {
+    padding: 25px;
+    background: white;
+}
+.sites-content {
+    display: grid;
+    gap: 1px;
+    
+}
+img.sites-icon {
+    width: 100px;
+    height: 100px;
+}
+button.sites-edit {
+    background:#f1f1f1;
+    width: auto;
+    height: 35px;
+    border: none;
+    color: #8a8a8a;
+    border-radius: 7px;
+    max-width: 150px;
+    padding: 0 15px;
+}
+button.sites-domain {
+    background: #f1f1f1;
+    width: auto;
+    height: 35px;
+    border: none;
+    color: #8a8a8a;
+    border-radius: 7px;
+    max-width: 150px;
+    padding: 0 15px;
+}
+button.sites-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    margin: 10px;
+    padding: 7px;
+    box-sizing: border-box;
+    width: 35px;
+    height:35px;
+    border-radius: 50%;
+    border:none;
+}
+p.sites-name {
+    font-size: 14px;
+    color: #909090;
+    background: white;
+    padding: 5px;
+}
+.sites-modal-content, 
+.sites-modal-header {
+    display: grid;
+    padding: 20px;
+    gap: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+.sites-modal-header {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+.sites-modal-content input {
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    padding:10px;
+}
+p.help {
+    text-align: left;
+    margin: 0!important;
+    padding: 0!important;
+    color: #cccccc;
+}
+button#createRepoButton {
+    height: 50px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+input#inputDescriptionValue {
+    display: none;
+}
+
+div#deleteBox {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.deleteContent {
+    padding: 35px;
+    background: #f2f2f2;
+    display: grid;
+    grid-template-columns: 250px;
+    gap: 20px;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+form#btnBox {
+    display: grid;
+    gap: 0px;
+}
+input#checkText {
+    padding: 10px;
+    border: none;
+}
+button#deleteBtn {
+    background: red;
+    padding: 10px;
+    border: none;
+    color: white;
+}
+span#numberID {
+    font-weight: 600;
+    color: #F44336;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+div#deleteBox {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.deleteContent {
+    padding: 35px;
+    background: #f2f2f2;
+    display: grid;
+    grid-template-columns: 250px;
+    gap: 20px;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+form#btnBox {
+    display: grid;
+    gap: 0px;
+}
+input#fileInput {
+    padding: 10px;
+    border: none;
+}
+button#deleteFile {
+    background: red;
+    padding: 10px;
+    border: none;
+    color: white;
+}
+span#fileName {
+    font-weight: 600;
+    color: #F44336;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+a.files-add {
+    display: none;
+}
+
+.sites-domain-content{
+    display: grid;
+    padding: 20px;
+    gap: 20px;
+
+    font-size: 14px;
+}
+.sites-domain-header {
+    text-align: center;
+    font-size: 30px;
+}
+.sites-domain-content input {
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    padding:10px;
+}
+p#message {
+    font-size: 16px;
+}
+p#fileMessage {
+    text-align: center!important;
+}
+select#projectOptions {
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    padding: 0 10px;
+    display: none;
+}
+select#projectTemplates {
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    padding: 0 10px;
+}
+select#templateSelector{
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    padding: 0 10px;
+}
+button#cloneRepoBtn {
+    background: blue;
+    width: 100%;
+    height: 35px;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+p.sites-type,
+p.sites-user,
+p.sites-updated,
+p.sites-created {
+    display: none;
+}
+h2.sites-title {
+    font-size: xx-large;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+.sites-buttons {
+    margin: 20px 0px;
+}
