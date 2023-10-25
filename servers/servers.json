@@ -1,0 +1,17 @@
+[
+    {
+        "id": "github",
+        "icon": "../global/file/github.svg",
+        "title": "Github"
+    },
+    {
+        "id": "gitlab",
+        "icon": "../global/file/gitlab.svg",
+        "title": "GitLab"
+    },
+    {
+        "id": "netlify",
+        "icon": "../global/file/netlify.svg",
+        "title": "Netlify"
+    }
+]
