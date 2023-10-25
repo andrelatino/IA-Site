@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../global/css/admin-sidebar.css">
+		<link rel="stylesheet" type="text/css" href="../global/css/admin-reset.css">
+	</head>
+	<body>
+		<div class="admin-container">
+			<div class="admin-sidebar">
+				<button id="admin-sidebar-brand" class="admin-sidebar-button" >
+					<img class ="admin-sidebar-icon" src="../global/file/logo.svg">
+					<span class="admin-sidebar-title">Icheff</span>
+				</button>
+				<button class="admin-sidebar-button" >
+					<img class ="admin-sidebar-icon" src="../global/file/plugins.svg">
+					<span class="admin-sidebar-title">Plugins</span>
+				</button>
+				<button class="admin-sidebar-button" >
+					<img class ="admin-sidebar-icon" src="../global/file/projects.svg">
+					<span class="admin-sidebar-title">Projects</span>
+				</button>
+				<button class="admin-sidebar-button" >
+					<img class ="admin-sidebar-icon" src="../global/file/settings.svg">
+					<span class="admin-sidebar-title">Settings</span>
+				</button>
+				<button class="admin-sidebar-button" >
+					<img class ="admin-sidebar-icon" src="../global/file/account.svg">
+					<span class="admin-sidebar-title">Account</span>
+				</button>
+			</div>
+			<div class="admin-content">				
+				<div class="admin-content-title">
+					<h1 class="admin-title-text">Plugins</h1>
+									
+				</div>
+				<div class="admin-content-grid">
+
+					<div class="admin-content-items">						
+						<img class ="admin-sidebar-plugin-icon" src="../global/file/unsplash.svg">
+						<h2>Unsplash</h2>				
+						<input id="unsplash_input" type="password" required>
+						<button id="unsplash_btn">Check API Key</button>							
+					</div>
+
+					<div class="admin-content-items">						
+						<img class ="admin-sidebar-plugin-icon" src="../global/file/chatgpt.svg">
+						<h2>ChatGPT</h2>						
+						<input id="chatgpt_input" type="password" required>
+						<button id="chatgpt_btn">Check API Key</button>						
+					</div>
+					
+
+					<div class="admin-content-items">						
+						<img class ="admin-sidebar-plugin-icon" src="../global/file/github.svg">
+						<h2>Github</h2>						
+						<input id="github_input" type="password" required>
+						<button id="github_btn">Check API Key</button>						
+					</div>
+
+					<div class="admin-content-items">						
+						<img class ="admin-sidebar-plugin-icon" src="../global/file/pexels.svg">
+						<h2>Pexels</h2>						
+						<input id="pexels_input" type="password" required>
+						<button id="pexels_btn">Check API Key</button>								
+					</div>
+
+					<div class="admin-content-items">						
+						<img class ="admin-sidebar-plugin-icon" src="../global/file/aws.png">
+						<h2>AWS (Coming soon)</h2>						
+						<input disabled id="aws_input" type="password" required>
+						<button disabled id="aws_btn">Check API Key</button>						
+					</div>
+
+				</div>
+						
+			</div>
+		</div>
+
+		<footer>
+			<script src="./check-apis.js"></script>
+			<script src="./save-apis.js"></script>
+		</footer>
+		
+	</body>
+</html>

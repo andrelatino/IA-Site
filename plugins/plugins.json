@@ -1,0 +1,12 @@
+[
+    {
+        "id": "unsplash",
+        "icon": "../global/file/unsplash.svg",
+        "title": "Unsplash"
+    },
+    {
+        "id": "pexels",
+        "icon": "../global/file/pexels.svg",
+        "title": "Pexels"
+    }
+]
