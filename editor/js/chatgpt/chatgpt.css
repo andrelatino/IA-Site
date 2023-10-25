@@ -1,0 +1,125 @@
+.chatgpt-modal {
+z-index: 1;
+position: fixed;
+display: grid;
+place-content: center;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #b9b9b9;
+border-radius: 10px;
+overflow: hidden;
+}
+div#chatgpt-header {
+display: grid;
+width:300px;
+}
+div#chatgpt-header {
+display: grid;
+grid-template-columns: 50px 1fr 50px;
+place-content: center;
+width: 100%;
+background: #f4f4f4;
+}
+button.chatgpt-close {
+background: red;
+}
+p#chatgptSectionID {
+display: grid;
+place-content: center;
+}
+div#chatgpt-buttons {
+display: grid;
+grid-template-columns: repeat(6, 50px);
+padding: 25px;
+background: white;
+}
+div#chatgpt-buttons button {
+width: 50px;
+}
+.dropzone {
+min-width: 100px; /* Minimum width */
+min-height: 50px; /* Minimum height */
+border: 1px dashed #ccc;
+padding: 30px;
+position: relative;
+}
+
+.hover {
+background-color: #f0f0f0;
+}
+
+.icon {
+width: 50px;
+height: 50px;
+border: 1px solid #000;
+margin-right: 10px;
+display: inline-block;
+text-align: center;
+vertical-align: middle;
+line-height: 50px;
+}
+
+.icon span {
+cursor: pointer;
+background-color: #f7f7f7;
+display: block;
+transition: background-color 0.2s;
+}
+
+.icon span:hover {
+background-color: #e0e0e0;
+}
+div#chatgpt-content {
+    width: auto;
+    height: 100%;
+    display: grid;
+    padding: 20px;
+    background: gainsboro;
+}
+.chatgpt-grid {
+    background: white;
+    width: 100%;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+    padding: 4px;
+    border-radius: 10px;
+}
+p#chatgptTitle {
+    display: grid;
+    place-content: center;
+    font-size: 25px;
+}
+input#chatgptPrompt {
+    border: 5px solid #f1f1f1;
+    border-radius: 10px;
+    padding: 0 7px;
+    height: 43px;
+}
+p#chatgptResult {
+    max-height: 50vh;
+    overflow: scroll;
+    padding: 15px;
+    margin: 15px;
+    min-height: 100px;
+}
+.chatgpt-content {
+    display: grid;
+    width: 600px;
+    resize: horizontal;
+    overflow: auto;
+    min-width: 300px;
+    max-width: 80vw;
+}
+select#chatgpt-selected {
+    border: none;
+}
+button#chatgptStop {
+    display: none;
+}
+p#chatgptElementID {
+    text-align: center;
+    margin-bottom: 15px;
+}

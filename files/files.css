@@ -1,8 +1,9 @@
 .files-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(auto,300px));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 25px;
     padding-bottom: 200px;
+    place-content: center;
 }
 h2.files-txt {
     background: white;

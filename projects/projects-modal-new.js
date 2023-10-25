@@ -18,6 +18,7 @@
             <p class="help">Choose a template</p>
             <select id="templateSelector">
                 <option disabled selected value> -- select an option -- </option>
+                <option value="energia.fr">energia.fr</option>
                 <option value="skeleton">skeleton</option>
                 <option value="starter">starter</option>
             </select>

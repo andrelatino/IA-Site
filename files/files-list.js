@@ -1,9 +1,4 @@
 
-//  pageJsonSha = '';
-//  pageJsonUrl = '';
- 
-
-// Function to get URL parameter value by name
     function getUrlParameter(name) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
@@ -31,12 +26,12 @@
 
     function loadFiles() {
         const baseURL = 'https://api.github.com/repos';
-        const owner = 'icheff';
+        const owner = githubUser;
         const repo = repoName;
         const url = `${baseURL}/${owner}/${repo}/contents/${dirName}`;
     
         const headers = new Headers({
-            'Authorization': 'Bearer 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',
+            'Authorization': `Bearer ${githubApi}`,
             'Accept': 'application/vnd.github.v3+json',
             'X-GitHub-Api-Version': '2022-11-28',
             'If-None-Match': '' // Include this line to bypass caching           
