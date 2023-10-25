@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google" content="notranslate">
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-reset.css">
 		<link rel="stylesheet" type="text/css" href="./projects.css">
@@ -23,13 +24,15 @@
 		</div>
 		<div id="deleteBox" style="visibility: hidden;">
 			<div class = "deleteContent">
+				<p class="delete-title">Delete Site</p>
 				<p>Type: <span id='fileName'></span><span> to delete this file. This is irreversible</span></p>
 				
 				<input id="fileInput" type="text" required>
-				<button id="deleteFile" onclick="deleteCheck()">DELETE</button>
+				<button id="deleteFile" onclick="deleteCheck()">Delete Site</button>
 				<p id="fileUrl" style="display:none;"></p>
 				<p id="fileSha" style="display:none;"></p>
 				<p id="fileMessage"></p>
+				<span id="modalNewClose" onclick="modalDeleteClose()"><img src="../global/file/close-white.svg"></span>
 				
 			</div>	
 		</div>

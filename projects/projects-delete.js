@@ -1,12 +1,13 @@
 async function deleteFile(repo) {
-  
   var apiUrl = 'https://api.github.com';
   var repoName = repo;
-  var userName = 'icheff';
+  var userName = githubUser;
+  var token = githubApi;
+  var message = document.getElementById('fileMessage');
 
   const url = `${apiUrl}/repos/${userName}/${repoName}`;
   const headers = {
-    'Authorization': 'Bearer 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',
+    'Authorization': `token ${token}`,
     'Accept': 'application/vnd.github.v3+json',
     'X-GitHub-Api-Version': '2022-11-28'       
   };
@@ -18,13 +19,14 @@ async function deleteFile(repo) {
     });
 
     if (response.status === 204) {
-      const message = document.getElementById('fileMessage');
-      message.textContent = 'Site deleted!';
+      
+      message.textContent = 'Site was deleted!';
     } else if (response.status === 403) {
-      message.textContent = 'Delete is forbidden!';
+      message.textContent = 'Delete site is forbidden!';
     } else if (response.status === 404) {
       message.textContent = 'Site not found!';
     } else {
+      message.textContent = 'Error deleting site!';
       console.error(
         'Failed to delete repository:',
         response.status,
@@ -33,29 +35,28 @@ async function deleteFile(repo) {
     }
   } catch (error) {
     message.textContent = 'Error deleting site!';
-    console.error('Error deleting repository:', error);
   }
 }
 function deleteCheck() {
-  // alert('deletecheck');
   const name = document.getElementById('fileName').innerText;
   const input = document.getElementById('fileInput').value;
-  // // const message = document.getElementById('message');
-  // const url = document.getElementById('fileUrl').innerText;
-  // const sha = document.getElementById('fileSha').innerText;
   const message = document.getElementById('fileMessage');
 
-  if (input) {  // Non-empty strings are considered truthy in JavaScript
+  if (input) {
       if (name === input) {
-        
           deleteFile(name);
           message.textContent = 'Deleting project ...';
       } else{
-         
-          message.textContent = 'Project name is WRONG';
+          message.textContent = 'Site name is wrong';
       }
   }else{
-    
-      message.textContent = 'Project name is EMPTY';
+      message.textContent = 'Site name is empty!';
   }
+}
+
+function modalDeleteClose() {
+  const modalOverlay = document.querySelector('.overlay');
+  const modalDelete = document.getElementById("deleteBox");
+  modalOverlay.style.display = "none";
+  modalDelete.style.visibility = "hidden";
 }

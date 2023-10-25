@@ -132,6 +132,7 @@ div#deleteBox {
     height: 100vh;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 .deleteContent {
     padding: 35px;
@@ -172,13 +173,16 @@ div#deleteBox {
     left: 0;
 }
 .deleteContent {
+    position:relative;
+    width:300px;
     padding: 35px;
-    background: #f2f2f2;
+    background: white;
     display: grid;
-    grid-template-columns: 250px;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 10px;
     border-radius: 10px;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    z-index: 5;
 }
 form#btnBox {
     display: grid;
@@ -187,6 +191,7 @@ form#btnBox {
 input#fileInput {
     padding: 10px;
     border: none;
+    border: 1px solid #c6c6c6;
 }
 button#deleteFile {
     background: red;
@@ -266,4 +271,46 @@ h2.sites-title {
 }
 .sites-buttons {
     margin: 20px 0px;
+}
+
+#modalNewOverlay{
+    visibility:hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+#modalContent{
+    visibility:hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 999999;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    background: white;
+    padding: 20px;
+    border-radius:10px;
+}
+#modalNewClose{
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    width: 50px;
+    padding:10px;
+    background: red!important;
+    border-radius: 50%;
+    height: 50px!important;
+}
+p.new-title,
+p.delete-title {
+    font-size: 25px;
+    text-align:center;
 }

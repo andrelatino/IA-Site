@@ -10,8 +10,8 @@ document.getElementById('cloneRepoBtn').addEventListener('click', function() {
 
     message.textContent = "0/2 Cloning template...";
 
-    const token = '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';
-    const templateOwner = 'icheff';  // Asegúrate de cambiar esto si es necesario
+    const token = githubApi;
+    const templateOwner = githubUser;  // Asegúrate de cambiar esto si es necesario
 
     fetch(`https://api.github.com/repos/${templateOwner}/${templateRepo}/generate`, {
         method: 'POST',

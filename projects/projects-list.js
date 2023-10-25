@@ -100,14 +100,15 @@ function github_get_sites() {
                 localStorage.setItem('repo', api.name);
                 
             });
-            buttonDelete.addEventListener('click', () => {       
-                // localStorage.setItem("repoName", api.name);
-                
+            buttonDelete.addEventListener('click', () => {
+                const showOverlay =document.querySelector('.overlay');
+                showOverlay.style.visibility = "visible";
+                showOverlay.style.display = "grid";
                 const showDeleteBox = document.getElementById('deleteBox');
                 showDeleteBox.style.visibility='visible';
                 const getApiName = document.getElementById('fileName');
                 getApiName.textContent = api.name;
-                // alert(api.name);
+              
             });
         }
     })

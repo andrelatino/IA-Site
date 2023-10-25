@@ -5,13 +5,8 @@
         "title": "Github"
     },
     {
-        "id": "gitlab",
-        "icon": "../global/file/gitlab.svg",
-        "title": "GitLab"
-    },
-    {
-        "id": "netlify",
-        "icon": "../global/file/netlify.svg",
-        "title": "Netlify"
+        "id": "s3",
+        "icon": "../global/file/amazons3.svg",
+        "title": "Amazon S3"
     }
 ]
