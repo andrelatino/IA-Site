@@ -7,10 +7,10 @@ function createDeleteButton() {
 }
 
 function deleteItem(sha,path,repo) {
-  const owner = 'icheff'; 
+  const owner = githubUser; 
   const baseURL = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const headers = new Headers({
-      'Authorization': 'Bearer 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',
+      'Authorization': `Bearer ${githubApi}`,
       'Accept': 'application/vnd.github.v3+json',
       'X-GitHub-Api-Version': '2022-11-28',
   });
@@ -21,7 +21,7 @@ function deleteItem(sha,path,repo) {
     path: path,  
     message: 'Delete file', // You can customize the commit message
       committer: {
-          name: 'Monalisa Octocat',
+          name: githubUser,
           email: 'octocat@github.com'
       },
       sha: sha,

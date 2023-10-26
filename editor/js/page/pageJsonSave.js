@@ -78,17 +78,17 @@ const pageJsonSave = async () => {
   const method = 'PUT';
   const headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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',
+      'Authorization': `Bearer ${githubApi}`,
       'X-GitHub-Api-Version': '2022-11-28'
   };
 
   const content = btoa(json);
 
   const body = JSON.stringify({
-      message: 'File updated',
+      message: 'Site updated',
       committer: {
-          name: 'Icheff',
-          email: 'icheff.com@gmail.com'
+          name: githubUser,
+          email: 'octocat@github.com'
       },
       content: content,
       // sha:sha
@@ -179,7 +179,7 @@ function devJsonEncodeNewUrl (devJsonSha, devJsonRaw, devJsonApi){
   async function devJsonDeleteOldUrl(oldUrl, oldSha) {
     const url = oldUrl;
     const headers = {
-      'Authorization': 'Bearer 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',
+      'Authorization': `Bearer ${githubApi}`,
       'Accept': 'application/vnd.github.v3+json',
       'X-GitHub-Api-Version': '2022-11-28',
       'If-None-Match': '' // Include this line to bypass caching   

@@ -1,99 +1,58 @@
-// // Function to get URL parameter value by name
-// function getUrlParameter(name) {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get(name);
-// }
-
-// window.onload = function() {
-//     const encodedValue = getUrlParameter('id');
-//     const decodedValues = JSON.parse(atob(encodedValue));
-
-//     for (const item of decodedValues) {
-//       // var repoName = item.repoName;
-//       // var dirName = item.dirName;
-//       // var indexName = item.indexName;
-//       // var indexSha = item.indexSha;
-//       // var indexUrl = item.indexUrl;
-//       // var pageName = item.pageName;
-//       // var pageSha = item.pageSha;
-//       var pageUrl = item.pageUrl;
-
-//       importPageFromURL(pageUrl);
-
-//     }
-// };
-
-// function generateRandomID(length) {
-//     var result = '';
-//     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-//     var charactersLength = characters.length;
-//     for ( var i = 0; i < length; i++ ) {result += characters.charAt(Math.floor(Math.random() * charactersLength));}
-//     return result;
+// function editorMenu() {
+//     /** NAV BOTTOM */
+//     var overlay = document.createElement('div'); // Create an overlay
+//     overlay.className = 'overlay'; // Add a class for styling
+//     overlay.style.display = 'none'; // Initially hide the overlay
+//     document.body.appendChild(overlay); // Append the overlay to the body
+  
+//     var openBtn = document.createElement('button');
+//     openBtn.innerHTML = '<img id="menu" src="../global/file/menu.svg">';
+//     openBtn.className = 'nav-style open-btn';
+//     document.body.appendChild(openBtn);
+  
+//     var closeBtn = document.createElement('button');
+//     closeBtn.innerHTML = 'X';
+//     closeBtn.className = 'nav-style close-btn';
+//     document.body.appendChild(closeBtn);
+  
+//     var popup = document.createElement('div');
+//     popup.innerHTML = `
+//       <div id="popup">
+//         <div id="projects" class="navigation">
+//           <img src="../global/file/user.svg">
+//           <a id='projects' href='../projects/'> Account </a>
+//         </div>
+//         <div id="managers" class="navigation">
+//           <img src="../global/file/servers.svg">
+//           <a id='managers' href='../servers/'> Servers </a>
+//         </div>
+//         <div id="managers" class="navigation">
+//           <img src="../global/file/plugins.svg">
+//           <a id='managers' href='../plugins/'> Plugins </a>
+//         </div>
+//         <div id="projects" class="navigation">
+//           <img src="../global/file/sites.svg">
+//           <a id='projects' href='../projects/'> Sites </a>
+//         </div>
+//       </div>
+//     `;
+//     popup.style.display = 'none';
+//     document.body.appendChild(popup);
+  
+//     openBtn.addEventListener('click', function() {
+//       popup.style.display = 'block';
+//       overlay.style.display = 'block'; // Show the overlay
+//       openBtn.style.display = 'none';
+//       closeBtn.style.display = 'grid';
+//     });
+  
+//     closeBtn.addEventListener('click', function() {
+//       popup.style.display = 'none';
+//       overlay.style.display = 'none'; // Hide the overlay
+//       openBtn.style.display = 'grid';
+//       closeBtn.style.display = 'none';
+//     });
 //   }
-//   function importPageFromURL(url) {
-//     fetch(url)
-//       .then(response => response.json())
-//       .then(sectionData => {
-//         var sectionsHtml = sectionData.pageHtml;
   
-//         var container = document.createElement('div'); // Create a temporary container
-//         container.innerHTML = sectionsHtml;
-  
-//         var sections = container.querySelectorAll('section'); // Retrieve all sections from the container
-  
-//         // Loop through each section
-//         Array.from(sections).forEach(function(section) {
-//           var sectionHtml = section.innerHTML;
-//           var newSectionId = generateRandomID(7);
-//           var newSection = document.createElement('section');
-//           newSection.id = newSectionId;
-//           newSection.innerHTML = sectionHtml;
-  
-//           // Generate new IDs for the section and its child elements
-//           var oldIds = new Set();
-//           newSection.querySelectorAll('[id]').forEach(function(element) {
-//             oldIds.add(element.id);
-//           });
-//           var newIds = new Map();
-//           oldIds.forEach(function(oldId) {
-//             var newId = generateRandomID(7);
-//             newIds.set(oldId, newId);
-//           });
-  
-//           // Update the IDs in the section and its child elements
-//           newSection.querySelectorAll('[id]').forEach(function(element) {
-//             var oldId = element.id;
-//             var newId = newIds.get(oldId) || generateRandomID(7);
-//             element.id = newId;
-//           });
-//           newSectionId = newIds.get(newSectionId) || newSectionId;
-  
-//           // Update the CSS styles with the new IDs
-//           var style = newSection.querySelector('style');
-//           if (style) {
-//             var oldCssText = style.textContent;
-//             var newCssText = oldCssText;
-//             newIds.forEach(function(newId, oldId) {
-//               newCssText = newCssText.replace(new RegExp(oldId, 'g'), newId);
-//             });
-//             style.textContent = newCssText;
-//           }
-  
-//           // Add the new section to the "grid" div
-//           var grid = document.getElementById('grid');
-//           if (grid) {
-//             grid.appendChild(newSection);
-//           }
-  
-//           // Add custom HTML code at the end of the new section
-//           var customHtml = sectionButtons();
-//           addCustomHTMLToImportedSection(newSectionId, customHtml);
-//         //   //savePage();
-//         });
-//       })
-//       .catch(error => {
-//         console.error("There was an error fetching the JSON from the URL:", error);
-//       });
-//   }
-// //   const pageJson = localStorage.getItem('pageJsonUrl');
-// //   alert(pageJson);
+//   // Call the editorMenu function to generate the sidebar menu
+//   editorMenu();
