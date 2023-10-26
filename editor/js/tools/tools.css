@@ -9,6 +9,7 @@ transform: translate(-50%, -50%);
 background: #b9b9b9;
 border-radius: 10px;
 overflow: hidden;
+visibility:hidden;
 }
 div#toolbar-header {
   display: grid;
@@ -72,4 +73,13 @@ div#toolbar-buttons button {
 
 .icon span:hover {
   background-color: #e0e0e0;
+}
+.toolbarTitles {
+  display: flex;
+  place-content: center;
+  gap: 10px;
+  place-items: center;
+}
+span#toolbarSectionID {
+  font-weight: 900;
 }

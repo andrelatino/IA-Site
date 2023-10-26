@@ -1,82 +1,7 @@
 
+  
    function toolsOpenModal(button) {
-    var toolbarModal = document.getElementById('toolbarModal');
-    if (toolbarModal) {
-      // Remove the element
-      toolbarModal.remove();
-    } else {
-      console.log('Element with ID "toolbarModal" not found.');
-    }
-    // create the modal HTML
-    var modalHtml = `
-      <div id="toolbarModal" class="modal tools-modal"> 
-        <div class="tools-content">
-
-            
-            <div id="toolbar-header"> 
-              <button id="toolbar-drag">
-                <img src="./assets/svg/icons/drag.svg">
-              </button>
-              <p id="toolbarSectionID"></p>
-              <button onClick="toolsCloseModal();" class="toolbar-close">
-                <img src="./assets/svg/icons/close.svg">
-              </button>
-            </div>
-
-            <div id="toolbar-buttons"> 
-
-              <button class="delete-section" onclick="deleteSection()">
-                <img src="./assets/svg/icons/delete.svg">
-              </button> 
-
-              <button class="export-section" onclick="exportSection()">
-                <img src="./assets/svg/icons/export.svg">
-              </button>
-
-              <button class="duplicate-section" onclick="duplicateSection()">
-                <img src="./assets/svg/icons/duplicate.svg">
-              </button>
-
-              <button class="move-down-section" onclick="moveDownSection()">
-                <img src="./assets/svg/icons/down.svg">
-              </button>
-
-              <button class="move-up-section" onclick="moveUpSection()">
-                <img src="./assets/svg/icons/up.svg">
-              </button>
-
-              <button class="image-section" onclick="sectionImage(); imageAllButton()">
-                <img src="./assets/svg/icons/image.svg">
-              </button>
-
-              <button class="responsive-section" onclick="showFullScreen()">
-                <img src="./assets/svg/icons/full.svg">
-              </button>
-              
-              <button onclick="addLink()">
-                <img src="./assets/svg/icons/link.svg">
-              </button>
-
-              <button onclick="removeLink()">
-                <img src="./assets/svg/icons/unlink.svg">
-              </button>
-              
-              <button onclick="addSpan()">
-                <img src="./assets/svg/icons/code.svg">
-              </button>
-
-              <button onclick="removeSpan()">
-                <img src="./assets/svg/icons/code.svg">
-              </button>
-
-            </div>
-      </div>
-        
-    </div>
-        
-    `;  
-    // add the modal to the document body
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    
     const section = button.closest('section');
     const addSectionID = section.id;
     const textID = document.getElementById('toolbarSectionID');
@@ -85,15 +10,21 @@
     var dragToolbarModal = document.querySelector("#toolbarModal");
     var dragToolbarButton = document.querySelector("#toolbar-drag");
     makeElementDraggable(dragToolbarModal, dragToolbarButton);
-    
+
+    const openModal = document.getElementById('toolbarModal');
+    const overlay = document.getElementById('overlay');
+    openModal.style.visibility='visible';
+    overlay.style.display = 'block'; 
+
   }
+ 
   
   function toolsCloseModal() {
     // find the modal and remove it from the DOM
-    const modal = document.getElementById('toolbarModal');
-    if (modal) {
-      modal.remove();
-    }
+    const openModal = document.getElementById('toolbarModal');
+    const overlay = document.getElementById('overlay');
+    openModal.style.visibility='hidden';
+    overlay.style.display = 'none'; 
   }
 
   function deleteSection() {

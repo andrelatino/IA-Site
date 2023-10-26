@@ -2,6 +2,7 @@ function editorMenu() {
     /** NAV BOTTOM */
     var overlay = document.createElement('div'); // Create an overlay
     overlay.className = 'overlay'; // Add a class for styling
+    overlay.id = 'overlay'; // Add a class for styling
     overlay.style.display = 'none'; // Initially hide the overlay
     document.body.appendChild(overlay); // Append the overlay to the body
   
