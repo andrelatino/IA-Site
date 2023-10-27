@@ -274,7 +274,7 @@ function loadNextPage() {
         // Trigger reflow by accessing the style property
         sidebar.offsetHeight;
         // Slide to the right
-        sidebar.style.right = "75px";
+        sidebar.style.right = "0";
       }
 
       function closeImageSidebar() {

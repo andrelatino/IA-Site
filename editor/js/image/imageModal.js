@@ -42,6 +42,7 @@ function sectionImage() {
     <div id="image-container">
 
           <div id="image-github-buttons">
+          
             <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
             <button id="image-btn-all" onclick="imageAllButton();">ALL</button>
             <button id="image-btn-xl" onclick="imageXlButton();">XL</button>
@@ -49,15 +50,14 @@ function sectionImage() {
             <button id="image-btn-m" onclick="imageMButton();">M</button>
             <button id="image-btn-s" onclick="imageSButton();">S</button>
             <button id="image-btn-xs" onclick=" imageXsButton();">XS</button>
-            <button onclick="hideImageModal(); closeImageSidebar();" class="image-close">
-        <img src="./assets/svg/icons/close.svg">
-      </button>
+            <button onclick="hideImageModal()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
                      
           </div>
           
           <div id="image-all">          
               <img id="image-all-thumbnail" src="">           
               <input type="text" id="image-all-input">
+              <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button> 
               <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
           </div>
           <div id="image-xl">
@@ -80,13 +80,15 @@ function sectionImage() {
               <input type="text" id="image-s-input">
               <button id="image-s-save" onclick="updateSImage();">SAVE (S)</button>    
           </div>
+          
           <div id="image-xs">
               <img id="image-xs-thumbnail" src=""> 
               <input type="text" id="image-xs-input">
               <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
           </div>
 
-      </div>
+      </div> 
+       
       
     </div>  
     `;

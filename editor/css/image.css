@@ -85,7 +85,7 @@
 /*SIDEBAR*/
 
 #image-sidebar{
-    width: 300px;
+    width: auto;
     height: 100%;
     position: fixed;
     overflow: auto;
@@ -125,8 +125,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(auto,170px));
     place-content: space-evenly;
-    grid-gap: 40px;
-    padding:40px;  
+    grid-gap: 15px;
+    padding:15px;  
   }
   
 .image-sidebar-items{ 
