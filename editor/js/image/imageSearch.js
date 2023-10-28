@@ -249,6 +249,12 @@ function loadNextPage() {
     loadImages();
   }
   
+  document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13 && event.target.id === "image-sidebar-search-input") {
+      event.preventDefault(); // Prevent the default form submission behavior (if any)
+    }
+  });
+  
   document.addEventListener("keyup", function(event) {
     if (event.keyCode === 13 && event.target.id === "image-sidebar-search-input") {
       searchImages();

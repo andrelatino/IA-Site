@@ -53,11 +53,15 @@ function sectionImage() {
             <button onclick="hideImageModal(); closeImageSidebar()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
                      
           </div>
+          <div id = "image-libraries">
+            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
+            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
+            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
+          </div>  
           
           <div id="image-all">          
               <img id="image-all-thumbnail" src="">           
-              <input type="text" id="image-all-input">
-              <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button> 
+              <input type="text" id="image-all-input"> 
               <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
           </div>
           <div id="image-xl">
