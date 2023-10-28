@@ -123,11 +123,7 @@
 }
 
 #image-sidebar-search-button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 15px;
-    display:none;
+    width: 35px;
 }
 #image-sidebar-total {
     text-align: center;
