@@ -288,3 +288,29 @@ function loadNextPage() {
         // Slide to the right
         sidebar.style.bottom = "-135px";
       }
+
+      function cleanView(){
+        const imageModal = document.getElementById('image-modal');
+        const toolbarModal = document.getElementById('toolbarModal');
+        const overlay = document.getElementById('overlay');
+        const toolbarOpen = document.querySelector('.toolbar-open');
+
+        imageModal.style.display='none';
+        toolbarModal.style.display='none';
+        overlay.style.display='none';
+        toolbarOpen.style.visibility='hidden';
+
+      }
+
+      function cleanShow(){
+        const imageModal = document.getElementById('image-modal');
+        const toolbarModal = document.getElementById('toolbarModal');
+        const overlay = document.getElementById('overlay');
+        const toolbarOpen = document.querySelector('.toolbar-open');
+
+        imageModal.style.display='grid';
+        toolbarModal.style.display='grid';
+        overlay.style.display='grid';
+        toolbarOpen.style.visibility='visible';
+
+      }

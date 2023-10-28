@@ -114,6 +114,8 @@
     align-items: center;
     position: relative;
     background: white;
+    height: 35px;
+    overflow: hidden;
 }
 #image-sidebar-search-input {
     padding: 10px;
@@ -123,7 +125,7 @@
 }
 
 #image-sidebar-search-button {
-    width: 35px;
+    width: 40px;
 }
 #image-sidebar-total {
     text-align: center;
