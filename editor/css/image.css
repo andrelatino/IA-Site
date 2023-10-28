@@ -63,6 +63,7 @@
     border: none;
     background: #ffffff;
     padding: 15px;
+    display: none;
 }
 #image-all-save,
 #image-xs-save,
@@ -71,7 +72,8 @@
 #image-l-save,
 #image-xl-save{
     background: #2196f3;
-    color: white;  
+    color: white;
+    display: none;
 }
 
 
@@ -87,14 +89,13 @@
 
 #image-sidebar {
     width: auto;
-    height: auto;
+    height: 135px;
     position: fixed;
-    overflow: auto;
     bottom: 0px;
     left: 0px;
-    background-color: rgb(241 241 241 / 0%);
+    background-color: #f4f4f4;
     z-index: 9999;
-    backdrop-filter: blur(20px) brightness(1.5);
+
 }
 #image-sidebar-grid {
     padding: 25px;
@@ -108,16 +109,17 @@
 }
 
 #image-sidebar-search {
-    display: none;
-    grid-template-columns: 1fr 50px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
 }
 #image-sidebar-search-input {
     padding: 10px;
     border: none;
     text-align: center;
+    border-radius: 7px;
 }
 
 #image-sidebar-search-button {
@@ -125,6 +127,7 @@
     color: white;
     border: none;
     padding: 15px;
+    display:none;
 }
 #image-sidebar-total {
     text-align: center;

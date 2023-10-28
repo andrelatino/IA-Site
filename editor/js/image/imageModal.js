@@ -50,7 +50,7 @@ function sectionImage() {
             <button id="image-btn-m" onclick="imageMButton();">M</button>
             <button id="image-btn-s" onclick="imageSButton();">S</button>
             <button id="image-btn-xs" onclick=" imageXsButton();">XS</button>
-            <button onclick="hideImageModal()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
+            <button onclick="hideImageModal(); closeImageSidebar()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
                      
           </div>
           

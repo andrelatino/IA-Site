@@ -268,23 +268,23 @@ function loadNextPage() {
     function openImageSidebar() {
         sidebar = document.getElementById("image-sidebar");
         // Set initial position
-        sidebar.style.right = "-300px";
+        sidebar.style.bottom = "-135px";
         // Apply CSS transition
-        sidebar.style.transition = "right 0.5s";
+        sidebar.style.transition = "bottom 0.5s";
         // Trigger reflow by accessing the style property
         sidebar.offsetHeight;
         // Slide to the right
-        sidebar.style.right = "0";
+        sidebar.style.bottom = "0";
       }
 
       function closeImageSidebar() {
         sidebar = document.getElementById("image-sidebar");
         // Set initial position
-        sidebar.style.right = "300px";
+        sidebar.style.bottom = "0px";
         // Apply CSS transition
-        sidebar.style.transition = "right 0.5s";
+        sidebar.style.transition = "bottom 0.5s";
         // Trigger reflow by accessing the style property
         sidebar.offsetHeight;
         // Slide to the right
-        sidebar.style.right = "-300px";
+        sidebar.style.bottom = "-135px";
       }
