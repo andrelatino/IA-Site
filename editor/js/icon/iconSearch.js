@@ -47,7 +47,7 @@ function loadDefaultIcons(){
       }
   });
 }
-// loadDefaultIcons();
+loadDefaultIcons();
 
 
 function loadSearchIcons() { 

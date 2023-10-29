@@ -5,7 +5,7 @@ function sidebarOpenClose(button) {
     switch (buttonId) {
       case 'imageWebSidebarButton':
         openImageSidebar();
-        loadDefaultImages();
+        // loadDefaultImages();
         // closeImageSidebar();
         closeIconSidebar();
         // closeVideoSidebar();
@@ -17,7 +17,7 @@ function sidebarOpenClose(button) {
         break;
       case 'iconWebSidebarButton':
         openIconSidebar();
-        loadDefaultIcons();
+        // loadDefaultIcons();
         closeImageSidebar();
         // closeIconSidebar();
         // closeVideoSidebar();

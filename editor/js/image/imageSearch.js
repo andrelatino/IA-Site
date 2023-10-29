@@ -9,7 +9,6 @@ var imageType = 'landscape';
 // var imageWidth = '1280';
 var count = 1; 
 var searchTerm = "food";
-var countItems = 20;
 
  // landscape  portrait 
 
@@ -92,9 +91,6 @@ imageTypeInput.addEventListener('input', function() {
 
 
 function loadDefaultImages(){
-  const countItemsShow = document.getElementById('image-sidebar-subtotal');
-    const slash = '/';
-    countItemsShow.textContent =  '20'+slash; 
     
     clientId = "0THX8x74rPkykb3IWWDE5j6PzWPSshwSQgISn_uKHfA";
     // clientId = "22b7b54287910389edfae878f576488bbc5b540a46daa0d2833ba858ce03b143";
@@ -126,7 +122,7 @@ function loadDefaultImages(){
         }
     });
 }
-// loadDefaultImages();
+loadDefaultImages();
 
   function loadImages(){
     
@@ -216,14 +212,10 @@ function loadDefaultImages(){
 // loadImages();
     
 function loadNextPage() { 
+
     removeExistingItems();
     count += 1;
     const page = count;
-
-    countItems += 20;
-    const countItemsShow = document.getElementById('image-sidebar-subtotal');
-    countItemsShow.textContent =  countItems; 
-
 
     const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;    
     fetch(imageThumbnail)
@@ -253,9 +245,6 @@ function loadNextPage() {
   }
 
   function searchImages() {
-
-    const countItemsShow = document.getElementById('image-sidebar-subtotal');
-    countItemsShow.textContent =  '20'; 
 
     // Get the input and button elements by their ids
     searchInput = document.getElementById("image-sidebar-search-input");
