@@ -129,10 +129,10 @@
 #image-sidebar-search-button {
     width: 40px;
 }
-#image-sidebar-total {
-
+#image-sidebar-total,
+#image-sidebar-subtotal {
     font-size: 12px;
-
+    display: none;
 }
 
   
@@ -156,6 +156,7 @@
 #image-sidebar-next-button {
     height: 50px;
     width: 50px;
+    font-size: 1rem;
 
 }
 

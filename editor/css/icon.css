@@ -33,6 +33,7 @@ button#icon-sidebar-search-button {
 }
 #icon-sidebar-total {
     text-align: center;
+    display: none;;
 }
 
 
@@ -65,7 +66,7 @@ button#icon-sidebar-next-button {
     width: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 20px;
+    font-size: 1rem;
     color: black;
     visibility: visible;
 }
