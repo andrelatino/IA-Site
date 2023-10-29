@@ -54,9 +54,15 @@ function sectionImage() {
                      
           </div>
           <div id = "image-libraries">
-            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
-            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
-            <button id="image-unsplash" onclick="openImageSidebar();">Unsplash</button>
+            <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this);">
+              
+              <span class="tooltiptext-right">Images Web</span>	
+            </button>
+            <button id="iconWebSidebarButton" onclick="sidebarOpenClose(this);">
+							<span class="tooltiptext-right">Icons Web</span>	
+						</button>
+            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this);">
+              <span class="tooltiptext-right">My Images</span>	
           </div>  
           
           <div id="image-all">          

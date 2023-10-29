@@ -8,11 +8,11 @@ function sidebarOpenClose(button) {
         loadDefaultImages();
         // closeImageSidebar();
         closeIconSidebar();
-        closeVideoSidebar();
-        closeGithubImageSidebar();
-        closeGithubVideoSidebar();
-        closeGithubFileSidebar();
-        closeColorSidebar();
+        // closeVideoSidebar();
+        // closeGithubImageSidebar();
+        // closeGithubVideoSidebar();
+        // closeGithubFileSidebar();
+        // closeColorSidebar();
 
         break;
       case 'iconWebSidebarButton':
@@ -20,25 +20,23 @@ function sidebarOpenClose(button) {
         loadDefaultIcons();
         closeImageSidebar();
         // closeIconSidebar();
-        closeVideoSidebar();
-        closeGithubImageSidebar();
-        closeGithubVideoSidebar();
-        closeGithubFileSidebar();
-        closeColorSidebar();
+        // closeVideoSidebar();
+        // closeGithubImageSidebar();
+        // closeGithubVideoSidebar();
+        // closeGithubFileSidebar();
+        // closeColorSidebar();
 
         break;
 
       case 'colorWebSidebarButton':
         
         openColorSidebar();
-        
-        
         closeImageSidebar();
         closeIconSidebar();
-        closeVideoSidebar();
-        closeGithubImageSidebar();
-        closeGithubVideoSidebar();
-        closeGithubFileSidebar();
+        // closeVideoSidebar();
+        // closeGithubImageSidebar();
+        // closeGithubVideoSidebar();
+        // closeGithubFileSidebar();
 
         break;
 

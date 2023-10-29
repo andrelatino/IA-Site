@@ -20,7 +20,7 @@ function loadDefaultIcons(){
     const totalInput = document.getElementById('icon-sidebar-total');
     const totalCount = data.count;
     
-    totalInput.textContent = "total "+totalCount;
+    totalInput.textContent = ""+totalCount;
 
     if (totalCount >= 20) {
       nextButton.style.visibility = 'visible'; 
@@ -69,7 +69,7 @@ function loadSearchIcons() {
     var totalInput = document.getElementById('icon-sidebar-total');
     var totalCount = data.count;
     var nextButton = document.getElementById('icon-sidebar-next-button');
-    totalInput.textContent = "total "+totalCount;
+    totalInput.textContent = ""+totalCount;
 
     if (totalCount >= 20) {
       nextButton.style.visibility = 'visible'; 
@@ -105,7 +105,7 @@ function loadSearchIcons() {
 function loadNextIcons() {
   iconCount += 20;
   iconStart = iconCount;
-  
+  removeExistingIcons();
 
   const container = document.getElementById('icon-sidebar-grid');
   const iconApiUrl = `https://api.svgapi.com/v1/Ty5WcDa63E/list/?search=${iconSearch}&limit=${iconLimit}&start=${iconStart}`;
@@ -117,7 +117,7 @@ function loadNextIcons() {
 
       const textElement = document.getElementById('icon-sidebar-total');
       const totalIcons = data.count;
-      textElement.textContent = "total " + totalIcons;
+      textElement.textContent = "" + totalIcons;
 
 
       if (iconStart < totalIcons){
@@ -160,7 +160,7 @@ function searchIcons() {
   loadSearchIcons(); 
 }
 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keydown", function(event) {
   if (event.keyCode === 13 && event.target.id === "icon-sidebar-input") {
     searchIcons();
   }
@@ -170,16 +170,16 @@ document.addEventListener("keyup", function(event) {
 
 function openIconSidebar() {
   icon = document.getElementById("icon-sidebar");
-  icon.style.right = "-300px";
-  icon.style.transition = "right 0.5s";
+  icon.style.bottom = "-135px";
+  icon.style.transition = "bottom 0.5s";
   icon.offsetHeight;
-  icon.style.right = "75px";
+  icon.style.bottom = "0";
 }
 
 function closeIconSidebar() {
   icon = document.getElementById("icon-sidebar");
-  icon.style.right = "300px";
-  icon.style.transition = "right 0.5s";
+  icon.style.bottom = "135px";
+  icon.style.transition = "bottom 0.5s";
   icon.offsetHeight;
-  icon.style.right = "-300px";
+  icon.style.bottom = "-135px";
 }

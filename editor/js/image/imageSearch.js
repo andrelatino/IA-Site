@@ -9,6 +9,8 @@ var imageType = 'landscape';
 // var imageWidth = '1280';
 var count = 1; 
 var searchTerm = "food";
+var countItems = 20;
+
  // landscape  portrait 
 
 /**Other APIS to try
@@ -90,11 +92,14 @@ imageTypeInput.addEventListener('input', function() {
 
 
 function loadDefaultImages(){
+  const countItemsShow = document.getElementById('image-sidebar-subtotal');
+    const slash = '/';
+    countItemsShow.textContent =  '20'+slash; 
     
     clientId = "0THX8x74rPkykb3IWWDE5j6PzWPSshwSQgISn_uKHfA";
     // clientId = "22b7b54287910389edfae878f576488bbc5b540a46daa0d2833ba858ce03b143";
     page = '1'
-    perPage = '30';
+    perPage = '20';
     
     const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;
     // alert (imageThumbnail);
@@ -102,7 +107,7 @@ function loadDefaultImages(){
     .then(response => response.json())
     .then(data => {
         const totalImages = data.total;
-        document.getElementById('image-sidebar-total').textContent = totalImages+ " images";
+        document.getElementById('image-sidebar-total').textContent = totalImages+ "";
         document.getElementById("image-sidebar-next-button").style.opacity = 1; 
         const imageGridList = document.getElementById('image-sidebar-grid');
         for (const api of data.results) { 
@@ -121,9 +126,11 @@ function loadDefaultImages(){
         }
     });
 }
-loadDefaultImages();
+// loadDefaultImages();
 
-  function loadImages(){ 
+  function loadImages(){
+    
+
     searchTerm = searchQuery;
     // clientId = "8ba7daec662eb3e3f18f31a571b61faece5beb250fe546925e79e21ca827672f";
     const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;
@@ -132,7 +139,7 @@ loadDefaultImages();
     .then(response => response.json())
     .then(data => {
         const totalImages = data.total;
-        document.getElementById('image-sidebar-total').textContent = totalImages+ " images";
+        document.getElementById('image-sidebar-total').textContent = totalImages+ "";
         document.getElementById("image-sidebar-next-button").style.opacity = 1; 
         const imageGridList = document.getElementById('image-sidebar-grid');
         for (const api of data.results) {
@@ -209,15 +216,21 @@ loadDefaultImages();
 // loadImages();
     
 function loadNextPage() { 
-     
+    removeExistingItems();
     count += 1;
-    const page = count;        
+    const page = count;
+
+    countItems += 20;
+    const countItemsShow = document.getElementById('image-sidebar-subtotal');
+    countItemsShow.textContent =  countItems; 
+
+
     const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;    
     fetch(imageThumbnail)
     .then(response => response.json())
     .then(data => {
         const totalImages = data.total;
-        document.getElementById('image-sidebar-total').textContent = totalImages+ " images";
+        document.getElementById('image-sidebar-total').textContent = totalImages+ "";
         
         const imageGridList = document.getElementById('image-sidebar-grid');
         for (const api of data.results) {
@@ -240,6 +253,10 @@ function loadNextPage() {
   }
 
   function searchImages() {
+
+    const countItemsShow = document.getElementById('image-sidebar-subtotal');
+    countItemsShow.textContent =  '20'; 
+
     // Get the input and button elements by their ids
     searchInput = document.getElementById("image-sidebar-search-input");
     searchButton = document.getElementById("image-sidebar-search-button");
@@ -267,25 +284,17 @@ function loadNextPage() {
     
     function openImageSidebar() {
         sidebar = document.getElementById("image-sidebar");
-        // Set initial position
         sidebar.style.bottom = "-135px";
-        // Apply CSS transition
         sidebar.style.transition = "bottom 0.5s";
-        // Trigger reflow by accessing the style property
         sidebar.offsetHeight;
-        // Slide to the right
         sidebar.style.bottom = "0";
       }
 
       function closeImageSidebar() {
         sidebar = document.getElementById("image-sidebar");
-        // Set initial position
         sidebar.style.bottom = "0px";
-        // Apply CSS transition
         sidebar.style.transition = "bottom 0.5s";
-        // Trigger reflow by accessing the style property
         sidebar.offsetHeight;
-        // Slide to the right
         sidebar.style.bottom = "-135px";
       }
 
