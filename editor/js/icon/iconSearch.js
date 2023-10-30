@@ -36,11 +36,16 @@ function loadDefaultIcons(){
 
           const imageId = generateRandomID(7); // Generate a random ID
           img.id = imageId; // Set the random ID as the id attribute
-
           img.src = item.url;
           img.setAttribute('draggable', true);
           gridItem.appendChild(img);
           container.appendChild(gridItem);
+
+          // Añadir event listener para el click
+          img.addEventListener('click', function() {
+              iconCheckSize(item.url);
+          });
+
         });
       } else {
         console.error('Invalid data format:', data);
@@ -90,6 +95,12 @@ function loadSearchIcons() {
           img.setAttribute('draggable', true);
           gridItem.appendChild(img);
           container.appendChild(gridItem);
+
+          // Añadir event listener para el click
+          img.addEventListener('click', function() {
+            iconCheckSize(item.url);
+        });
+          
         });
 
         
@@ -141,6 +152,11 @@ function loadNextIcons() {
           img.setAttribute('draggable', true);
           gridItem.appendChild(img);
           container.appendChild(gridItem);
+
+          // Añadir event listener para el click
+          img.addEventListener('click', function() {
+            iconCheckSize(item.url);
+        });
         });
       
 
@@ -182,4 +198,44 @@ function closeIconSidebar() {
   icon.style.transition = "bottom 0.5s";
   icon.offsetHeight;
   icon.style.bottom = "-135px";
+}
+
+function iconCheckSize(imageURL){
+  console.log("Clicked image URL:", imageURL);
+//     document.getElementById("image-all-input").value = imageThumbnail;
+  const getImageSize = localStorage.getItem('imageSize');
+  if (getImageSize !== null) {
+    // Remove any leading or trailing white spaces from the retrieved value
+    const imageSize = getImageSize.trim();
+    // Check the value against different image size options
+    if (imageSize === 'All') {
+      // Do something for 'All' image size
+      document.getElementById("image-all-input").value = imageURL;
+      clickAllImage()
+
+    } else if (imageSize === 'Xl') {
+      // Do something for 'Xl' image size
+      console.log("Do something for 'Xl' image size.");
+    } else if (imageSize === 'L') {
+      // Do something for 'L' image size
+      console.log("Do something for 'L' image size.");
+    } else if (imageSize === 'M') {
+      // Do something for 'M' image size
+      console.log("Do something for 'M' image size.");
+    } else if (imageSize === 'S') {
+      // Do something for 'S' image size
+      console.log("Do something for 'S' image size.");
+    } else if (imageSize === 'Xs') {
+      // Do something for 'Xs' image size
+      document.getElementById("image-xs-input").value = imageURL;
+      clickXsImage();
+    } else {
+      // Handle the case where the value is not one of the valid options
+      console.log("Invalid image size:", imageSize);
+     
+    }
+  } else {
+    console.log("No data found in local storage for 'imageSize'.");
+    // Handle the case where no data is found in local storage.
+  }
 }

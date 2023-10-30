@@ -18,18 +18,18 @@ var getRepoName = getRepoNameFromUrlParam('id');
 
 function openGithubImageSidebar() {
     image = document.getElementById("image-github-sidebar");
-    image.style.right = "-300px";
-    image.style.transition = "right 0.5s";
+    image.style.bottom = "-135px";
+    image.style.transition = "bottom 0.5s";
     image.offsetHeight;
-    image.style.right = "75px";
+    image.style.bottom = "0px";
   }
   
   function closeGithubImageSidebar() {
     image = document.getElementById("image-github-sidebar");
-    image.style.right = "300px";
+    image.style.bottom = "135px";
     image.style.transition = "right 0.5s";
     image.offsetHeight;
-    image.style.right = "-300px";
+    image.style.bottom = "-135px";
   }
 
   function loadGithubImages() {
@@ -37,10 +37,10 @@ function openGithubImageSidebar() {
 
     removeAllContent();
 
-    const username = "icheff";
+    const username = githubUser;
     const folderName = "media/images/";
     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-    const accessToken = "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";
+    const accessToken = githubApi;
 
     fetch(apiUrl, {
       headers: {
@@ -92,7 +92,7 @@ function openGithubImageSidebar() {
         DivItems.id = api.sha;
         DivItems.className = 'image-github-sidebar-items';
         DivItems.innerHTML = `
-          <img src="${imageThumbnail}" loading="lazy" onclick="addGithubImageToBg('${imageThumbnail}')">          
+          <img src="${imageThumbnail}" loading="lazy" class="thumbnail" onclick="addGithubImageToBg('${imageThumbnail}')">          
           <div class="image-github-item">  
             <p class="image-github-sidebar-url">${api.name}</p>
             <p class="image-github-sidebar-dimension">${sizeText}</p>
@@ -128,7 +128,7 @@ function getImageSize(imageUrl, callback) {
 
 async function deleteImage(imageSha , imagePath) {
   const url = imagePath;
-  const token = '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';
+  const token = githubApi;
 
   const options = {
     method: 'DELETE',

@@ -44,11 +44,11 @@ function githubUploadImage() {
 
     reader.onloadend = function() {
       const imageContent = reader.result.split(",")[1];
-      const username = "icheff";
+      const username = githubUser;
       const repoName = repo;
       const folderName = "media/images/";
       const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}${file.name}`;
-      const accessToken = "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";
+      const accessToken = githubApi;
       const headers = {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
