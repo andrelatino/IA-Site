@@ -40,11 +40,14 @@ function openGithubImageSidebar() {
     const username = githubUser;
     const folderName = "media/images/";
     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-    const accessToken = githubApi;
+    // const accessToken = githubApi;
 
     fetch(apiUrl, {
       headers: {
-        Authorization: `${accessToken}`
+        'Authorization': `Bearer ${githubApi}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        'If-None-Match': '' // Include this line to bypass caching           
       }
     })
     .then(response => {
@@ -92,7 +95,7 @@ function openGithubImageSidebar() {
         DivItems.id = api.sha;
         DivItems.className = 'image-github-sidebar-items';
         DivItems.innerHTML = `
-          <img src="${imageThumbnail}" loading="lazy" class="thumbnail" onclick="addGithubImageToBg('${imageThumbnail}')">          
+          <img src="${imageThumbnail}" loading="lazy" class="thumbnail" onclick="githubImageCheckSize('${imageThumbnail}')">          
           <div class="image-github-item">  
             <p class="image-github-sidebar-url">${api.name}</p>
             <p class="image-github-sidebar-dimension">${sizeText}</p>
@@ -140,7 +143,7 @@ async function deleteImage(imageSha , imagePath) {
     body: JSON.stringify({
       message: 'Delete file',
       committer: {
-        name: 'icheff',
+        name: githubUser,
         email: 'icheff.com@gmail.com'
       },
       sha:imageSha,
@@ -186,4 +189,40 @@ function removeImagefromDom(id) {
 function removeAllContent() {
   const imageGridList = document.getElementById('image-github-sidebar-grid');
   imageGridList.innerHTML = '';
+}
+
+
+function githubImageCheckSize(imageURL){
+  console.log("Clicked image URL:", imageURL);
+//     document.getElementById("image-all-input").value = imageThumbnail;
+  const getImageSize = localStorage.getItem('imageSize');
+  if (getImageSize !== null) {
+    // Remove any leading or trailing white spaces from the retrieved value
+    const imageSize = getImageSize.trim();
+    // Check the value against different image size options
+    if (imageSize === 'All') {
+      document.getElementById("image-all-input").value = imageURL;
+      clickAllImage()
+    } else if (imageSize === 'Xl') {
+      document.getElementById("image-xl-input").value = imageURL;
+      clickXlImage()
+    } else if (imageSize === 'L') {
+      document.getElementById("image-l-input").value = imageURL;
+      clickLImage()
+    } else if (imageSize === 'M') {
+      document.getElementById("image-m-input").value = imageURL;
+      clickMImage()
+    } else if (imageSize === 'S') {
+      document.getElementById("image-s-input").value = imageURL;
+      clickSImage()
+    } else if (imageSize === 'Xs') {
+      document.getElementById("image-xs-input").value = imageURL;
+      clickXsImage();
+    } else {
+      console.log("Invalid image size:", imageSize);
+    }
+  } else {
+    console.log("No data found in local storage for 'imageSize'.");
+    // Handle the case where no data is found in local storage.
+  }
 }

@@ -29,17 +29,32 @@
 		<div id="editor" style="visibility:hidden;"></div>
 		<div id="image-modal" style="display:none;"></div>
 		
-		<div id="image-github-modal" style="visibility:hidden;">			
-			<div id="image-github-buttons"><button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
-			<div class="image-github-modal-content">	
+		<div id="image-github-modal" style="visibility:hidden;">
+			<div id="image-github-buttons">
+			  <button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button>
+			</div>
+			<div class="image-github-modal-content">
+			  <div class="image-github-input-container">
+				<input type="file" id="image-github-input" accept="image/*" onchange="document.getElementById('image-github-upload-preview').src = window.URL.createObjectURL(this.files[0])">
+			  </div>
+			  <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>
+			 <div class= "crop">
+				<label for="widthInput">Width</label>
+				<input type="number" id="widthInput" min="1" value="500">
 				
+				<label for="heightInput">Height</label>
+				<input type="number" id="heightInput" min="1" value="500">
+				
+				<p id="widthRatioDisplay">Width Ratio: 0</p>
+				<p id="heightRatioDisplay">Height Ratio: 0</p>
 
-			  <div class="image-github-input-container"><input type="file" id="image-github-input" accept="image/*" onchange="document.getElementById('image-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
-			  <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
-			  <button onclick="githubImageCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
+			</div> 
+			  
+			  <button onclick="githubImageCloseModal();" class="githubImageClose"><img src="./assets/svg/icons/close.svg"></button>
 			  <button id="image-github-upload-button">Upload your image</button>
 			</div>
-		</div>
+		  </div>
+		  
 
 		<div id="video-github-modal" style="visibility:hidden;">			
 			<div id="video-github-buttons"><button id="video-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
@@ -251,10 +266,13 @@
 			<script src="./js/github/page/githubAdd.js"></script>
 			<script src="./js/github/page/githubUpdate.js"></script>
 			<script src="./js/github/page/githubDelete.js"></script>
+			
 
+			<script src="./js/github/image/githubCheckSize.js"></script>
 			<script src="./js/github/image/githubLoadImages.js"></script>
 			<script src="./js/github/image/githubSearchImages.js"></script>
 			<script src="./js/github/image/githubUploadImages.js"></script>
+			
 
 			<script src="./js/github/template/githubLoadTemplates.js"></script>
 			<script src="./js/github/template/githubAddTemplates.js"></script>
@@ -351,7 +369,7 @@
 			
 			<script src="./js/video/videoSearch.js"></script>
 
-			<script src="./js/image/imageGetUrl.js"></script>
+			<!-- <script src="./js/image/imageGetUrl.js"></script> -->
 
 			<script src="./js/page/pageBuilderSave.js"></script>
 			<script src="./js/page/pageEncodeFr.js"></script>

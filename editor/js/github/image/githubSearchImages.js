@@ -32,10 +32,17 @@ function githubImageSearchEnter(event) {
     const username = "icheff";
     const repoName = getRepoName;
     const folderName = "media/images/";
-    const url = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-    // const accessToken = "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";
-    // const url = 'https://api.github.com/repositories/631291170/contents/media/images';
-    fetch(url)
+    const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
+    // const accessToken = githubApi;
+
+    fetch(apiUrl, {
+      headers: {
+        'Authorization': `Bearer ${githubApi}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        'If-None-Match': '' // Include this line to bypass caching           
+      }
+    })
       .then(response => response.json())
       .then(data => {
         
@@ -59,7 +66,8 @@ function githubImageSearchEnter(event) {
                         DivItems.className = 'image-github-sidebar-items';
 
                         DivItems.innerHTML = `
-                        <img src="${image.download_url}" loading="lazy">
+                        
+                        <img src="${image.download_url}" loading="lazy" class="thumbnail" onclick="githubImageCheckSize('${image.download_url}')">
                         <div class="image-github-item">  
                             <p class="image-github-sidebar-url">${image.name}</p>
                             <p class="image-github-sidebar-dimension">${sizeText}</p>
@@ -109,15 +117,15 @@ function getSearchImageSize(imageUrl, callback) {
 }
 
 
-function addGithubImageToBg(imageURL) {    
-    console.log("Clicked image URL:", imageURL);
-    var storedImageID = localStorage.getItem('imageID');
-    console.log ('storedImageID is ' + storedImageID);
+// function addGithubImageToBg(imageURL) {    
+//     console.log("Clicked image URL:", imageURL);
+//     var storedImageID = localStorage.getItem('imageID');
+//     console.log ('storedImageID is ' + storedImageID);
  
-    var imgElementWW = document.getElementById(storedImageID);
-    imgElementWW.src = imageURL;
+//     var imgElementWW = document.getElementById(storedImageID);
+//     imgElementWW.src = imageURL;
 
-    var relativePath = imageURL;
-    var thumbnail = document.getElementById("image-all-thumbnail");
-    thumbnail.src = relativePath;
-}
+//     var relativePath = imageURL;
+//     var thumbnail = document.getElementById("image-all-thumbnail");
+//     thumbnail.src = relativePath;
+// }

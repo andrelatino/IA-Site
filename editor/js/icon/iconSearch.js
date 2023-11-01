@@ -209,24 +209,22 @@ function iconCheckSize(imageURL){
     const imageSize = getImageSize.trim();
     // Check the value against different image size options
     if (imageSize === 'All') {
-      // Do something for 'All' image size
       document.getElementById("image-all-input").value = imageURL;
       clickAllImage()
 
     } else if (imageSize === 'Xl') {
-      // Do something for 'Xl' image size
-      console.log("Do something for 'Xl' image size.");
+      document.getElementById("image-xl-input").value = imageURL;
+      clickXlImage()
     } else if (imageSize === 'L') {
-      // Do something for 'L' image size
-      console.log("Do something for 'L' image size.");
+      document.getElementById("image-l-input").value = imageURL;
+      clickLImage()
     } else if (imageSize === 'M') {
-      // Do something for 'M' image size
-      console.log("Do something for 'M' image size.");
+      document.getElementById("image-m-input").value = imageURL;
+      clickMImage()
     } else if (imageSize === 'S') {
-      // Do something for 'S' image size
-      console.log("Do something for 'S' image size.");
+      document.getElementById("image-s-input").value = imageURL;
+      clickSImage()
     } else if (imageSize === 'Xs') {
-      // Do something for 'Xs' image size
       document.getElementById("image-xs-input").value = imageURL;
       clickXsImage();
     } else {
