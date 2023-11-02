@@ -39,12 +39,14 @@
 			  </div>
 			  <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>
 			 <div class= "crop">
-				<label for="widthInput">Width</label>
-				<input type="number" id="widthInput" min="1" value="500">
-				
-				<label for="heightInput">Height</label>
-				<input type="number" id="heightInput" min="1" value="500">
-				
+				<!-- Estos son tus inputs actuales que actuarán como referencia -->
+				<input type="text" id="widthInput" value="000" readonly>
+				<input type="text" id="heightInput" value="000" readonly>
+
+				<!-- Estos son los nuevos inputs para el cambio de tamaño -->
+				<input type="text" id="sizeWidthInput" value="">
+				<input type="text" id="sizeHeightInput" value="">
+								
 				<p id="widthRatioDisplay">Width Ratio: 0</p>
 				<p id="heightRatioDisplay">Height Ratio: 0</p>
 

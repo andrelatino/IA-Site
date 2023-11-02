@@ -32,8 +32,8 @@ function githubUploadImage() {
       const username = githubUser;
       const repoName = repo;
       const folderName = "media/images/";
-      const width = parseInt(document.getElementById('widthInput').value);
-      const height = parseInt(document.getElementById('heightInput').value);
+      const width = parseInt(document.getElementById('sizeWidthInput').value);
+      const height = parseInt(document.getElementById('sizeHeightInput').value);
 
       // Create an image element and load the image from the file
       const image = new Image();
@@ -146,6 +146,8 @@ function githubUploadImage() {
     var files2 = fileInput2.files;
     var widthInput = document.getElementById('widthInput');
     var heightInput = document.getElementById('heightInput');
+    var sizeWidthInput = document.getElementById('sizeWidthInput');
+    var sizeHeightInput = document.getElementById('sizeHeightInput');
   
     if (files2.length === 0) {
       console.log("No file selected.");
@@ -166,10 +168,15 @@ function githubUploadImage() {
       img.onload = function () {
         var imgWidth = img.width;
         var imgHeight = img.height;
+        
   
         // Update the width and height input fields
         widthInput.value = imgWidth;
         heightInput.value = imgHeight;
+        sizeWidthInput.value = imgWidth;
+        sizeHeightInput.value = imgHeight;
+
+
 
         initialize();
   

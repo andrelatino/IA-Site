@@ -1,52 +1,45 @@
 let initialRatio = null;
 
+function isValidValue(value) {
+    return !isNaN(value) && value > 0;
+}
+
 function initialize() {
     const widthInput = document.getElementById("widthInput");
     const heightInput = document.getElementById("heightInput");
 
-    const initialWidth = parseFloat(widthInput.value.replace(",", "."));
-    const initialHeight = parseFloat(heightInput.value.replace(",", "."));
+    // Usar los valores de los inputs actuales como referencia
+    const referenceWidth = parseFloat(widthInput.value.replace(",", "."));
+    const referenceHeight = parseFloat(heightInput.value.replace(",", "."));
 
-    if (!isNaN(initialWidth) && !isNaN(initialHeight) && initialWidth > 0 && initialHeight > 0) {
-        initialRatio = initialWidth / initialHeight;
+    if (isValidValue(referenceWidth) && isValidValue(referenceHeight)) {
+        initialRatio = referenceWidth / referenceHeight;
     }
-    
+
     updateValues();
 }
 
 function updateValues() {
-    const widthInput = document.getElementById("widthInput");
-    const heightInput = document.getElementById("heightInput");
-    const widthRatioDisplay = document.getElementById("widthRatioDisplay");
-    const heightRatioDisplay = document.getElementById("heightRatioDisplay");
+    const sizeWidthInput = document.getElementById("sizeWidthInput");
+    const sizeHeightInput = document.getElementById("sizeHeightInput");
 
-    const width = parseFloat(widthInput.value.replace(",", "."));
-    const height = parseFloat(heightInput.value.replace(",", "."));
+    const width = parseFloat(sizeWidthInput.value.replace(",", "."));
+    const height = parseFloat(sizeHeightInput.value.replace(",", "."));
 
-    if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
-        const widthRatio = width / height;
-        const heightRatio = height / width;
-
-        widthRatioDisplay.textContent = `Width Ratio: ${Math.round(widthRatio)}`;
-        heightRatioDisplay.textContent = `Height Ratio: ${Math.round(heightRatio)}`;
-
-        if (initialRatio !== null) {
-            if (document.activeElement === widthInput) {
-                heightInput.value = Math.round(width / initialRatio);
-            } else if (document.activeElement === heightInput) {
-                widthInput.value = Math.round(height * initialRatio);
-            }
-        }
-    } else {
-        widthRatioDisplay.textContent = "Width Ratio: 0";
-        heightRatioDisplay.textContent = "Height Ratio: 0";
-        initialRatio = null;
+    if (document.activeElement === sizeWidthInput) {
+        sizeHeightInput.value = isValidValue(width) ? Math.round(width / initialRatio) : "";
+    } else if (document.activeElement === sizeHeightInput) {
+        sizeWidthInput.value = isValidValue(height) ? Math.round(height * initialRatio) : "";
     }
 }
 
-const widthInput = document.getElementById("widthInput");
-const heightInput = document.getElementById("heightInput");
-widthInput.addEventListener("input", updateValues);
-heightInput.addEventListener("input", updateValues);
+const sizeWidthInput = document.getElementById("sizeWidthInput");
+const sizeHeightInput = document.getElementById("sizeHeightInput");
+sizeWidthInput.addEventListener("input", function() {
+    setTimeout(updateValues, 0);
+});
+sizeHeightInput.addEventListener("input", function() {
+    setTimeout(updateValues, 0);
+});
 
 initialize();
