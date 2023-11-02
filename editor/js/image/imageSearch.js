@@ -171,15 +171,9 @@ loadDefaultImages();
       } else if (imageSize === 'Xl') {
         document.getElementById("image-xl-input").value = imageURL;
         clickXlImage();
-      } else if (imageSize === 'L') {
-        document.getElementById("image-l-input").value = imageURL;
-        clickLImage();
       } else if (imageSize === 'M') {
         document.getElementById("image-m-input").value = imageURL;
         clickMImage();
-      } else if (imageSize === 'S') {
-        document.getElementById("image-s-input").value = imageURL;
-        clickSImage();
       } else if (imageSize === 'Xs') {
         document.getElementById("image-xs-input").value = imageURL;
         clickXsImage();

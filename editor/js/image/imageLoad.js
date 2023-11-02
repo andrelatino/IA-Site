@@ -1,10 +1,10 @@
 //Responsive Queries
 
-var imageXsQuery =  '(max-width:640px)';
-var imageSQuery =  '(min-width:641px) and (max-width:768px)';
-var imageMQuery =  '(min-width:769px) and (max-width:1024px)';
-var imageLQuery =  '(min-width:1025px) and (max-width:1280px)';
-var imageXlQuery =  '(min-width:1281px)';
+// var imageXsQuery =  '(max-width:640px)';
+// var imageSQuery =  '(min-width:641px) and (max-width:768px)';
+// var imageMQuery =  '(min-width:641px) and (max-width:1024px)';
+// var imageLQuery =  '(min-width:1025px) and (max-width:1280px)';
+// var imageXlQuery =  '(min-width:1025px)';
 
 var imageEmpty = './assets/svg/icons/upload-empty.svg';
 var imagePlaceholder = 'Image URL (optional)';
@@ -24,6 +24,21 @@ function extractImgSrc(pictureID) {
   }
   
 
+  function extractImgSrcset(pictureID, mediaQuery) {
+    const pictureElement = document.getElementById(pictureID);
+    if (pictureElement) {
+      const sourceElement = pictureElement.querySelector(`source[media="${mediaQuery}"]`);
+      if (sourceElement) {
+        const srcset = sourceElement.getAttribute('srcset');
+        if (srcset && srcset.trim() !== '') {
+          return srcset;
+        }
+      }
+    }
+    return '';
+  }
+ 
+
   function loadAllImage() {
     const pictureID = localStorage.getItem('pictureID');
     const srcsetForMedia = extractImgSrc(pictureID);
@@ -41,26 +56,11 @@ function extractImgSrc(pictureID) {
       }
     console.log('Image ALL:', srcsetForMedia);
   }
-
-  function extractImgSrcset(pictureID, mediaQuery) {
-    const pictureElement = document.getElementById(pictureID);
-    if (pictureElement) {
-      const sourceElement = pictureElement.querySelector(`source[media="${mediaQuery}"]`);
-      if (sourceElement) {
-        const srcset = sourceElement.getAttribute('srcset');
-        if (srcset && srcset.trim() !== '') {
-          return srcset;
-        }
-      }
-    }
-    return '';
-  }
- 
  
   function loadXsImage() {
     const pictureID = localStorage.getItem('pictureID');
     // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = imageXsQuery;
+    const mediaQuery = '(max-width:640px)';
     const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
     const inputID = document.getElementById('image-xs-input');
     const thumbBG = document.getElementById('image-xs-thumbnail');
@@ -77,30 +77,30 @@ function extractImgSrc(pictureID) {
     console.log('Image XS:', srcsetForMedia);
   }
 
-  function loadSImage() {
-    const pictureID = localStorage.getItem('pictureID');
-    // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = imageSQuery;
-    const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-    const inputID = document.getElementById('image-s-input');
-    const thumbBG = document.getElementById('image-s-thumbnail');
-    if (srcsetForMedia) {
-        // The variable is not empty (has a value)
-        inputID.value = srcsetForMedia;
-        thumbBG.srcset = srcsetForMedia;
+  // function loadSImage() {
+  //   const pictureID = localStorage.getItem('pictureID');
+  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
+  //   const mediaQuery = imageSQuery;
+  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
+  //   const inputID = document.getElementById('image-s-input');
+  //   const thumbBG = document.getElementById('image-s-thumbnail');
+  //   if (srcsetForMedia) {
+  //       // The variable is not empty (has a value)
+  //       inputID.value = srcsetForMedia;
+  //       thumbBG.srcset = srcsetForMedia;
         
 
-      } else {
-        thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-        inputID.setAttribute('placeholder', imagePlaceholder);
-      }
-    console.log('Image S:', srcsetForMedia);
-  }
+  //     } else {
+  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
+  //       inputID.setAttribute('placeholder', imagePlaceholder);
+  //     }
+  //   console.log('Image S:', srcsetForMedia);
+  // }
 
   function loadMImage() {
     const pictureID = localStorage.getItem('pictureID');
     // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = imageMQuery;
+    const mediaQuery = '(min-width:641px) and (max-width:1024px)';
     const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
     const inputID = document.getElementById('image-m-input');
     const thumbBG = document.getElementById('image-m-thumbnail');
@@ -117,30 +117,30 @@ function extractImgSrc(pictureID) {
     console.log('Image M:', srcsetForMedia);
   }
 
-  function loadLImage() {
-    const pictureID = localStorage.getItem('pictureID');
-    // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = imageLQuery;
-    const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-    const inputID = document.getElementById('image-l-input');
-    const thumbBG = document.getElementById('image-l-thumbnail');
-    if (srcsetForMedia) {
-        // The variable is not empty (has a value)
-        inputID.value = srcsetForMedia;
-        thumbBG.srcset = srcsetForMedia;
+  // function loadLImage() {
+  //   const pictureID = localStorage.getItem('pictureID');
+  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
+  //   const mediaQuery = imageLQuery;
+  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
+  //   const inputID = document.getElementById('image-l-input');
+  //   const thumbBG = document.getElementById('image-l-thumbnail');
+  //   if (srcsetForMedia) {
+  //       // The variable is not empty (has a value)
+  //       inputID.value = srcsetForMedia;
+  //       thumbBG.srcset = srcsetForMedia;
         
 
-      } else {
-        thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-        inputID.setAttribute('placeholder', imagePlaceholder);
-      }
-    console.log('Image L:', srcsetForMedia);
-  }
+  //     } else {
+  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
+  //       inputID.setAttribute('placeholder', imagePlaceholder);
+  //     }
+  //   console.log('Image L:', srcsetForMedia);
+  // }
 
   function loadXlImage() {
     const pictureID = localStorage.getItem('pictureID');
     // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = imageXlQuery;
+    const mediaQuery = '(min-width:1025px)';
     const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
     const inputID = document.getElementById('image-xl-input');
     const thumbBG = document.getElementById('image-xl-thumbnail');

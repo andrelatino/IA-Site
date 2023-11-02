@@ -44,12 +44,11 @@ function sectionImage() {
           <div id="image-github-buttons">
           
             <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
-            <button id="image-btn-all" onclick="imageAllButton();">ALL</button>
-            <button id="image-btn-xl" onclick="imageXlButton();">XL</button>
-            <button id="image-btn-l" onclick="imageLButton();">L</button>
-            <button id="image-btn-m" onclick="imageMButton();">M</button>
-            <button id="image-btn-s" onclick="imageSButton();">S</button>
-            <button id="image-btn-xs" onclick=" imageXsButton();">XS</button>
+            
+            <button id="image-btn-all" onclick="imageAllButton();">PC</button>
+            <button id="image-btn-m" onclick="imageMButton();">Tablet</button>
+            <button id="image-btn-xs" onclick=" imageXsButton();">Mobile</button>
+            
             <button onclick="hideImageModal(); closeImageSidebar()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
                      
           </div>
@@ -70,25 +69,11 @@ function sectionImage() {
               <input type="text" id="image-all-input"> 
               <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
           </div>
-          <div id="image-xl">
-              <img id="image-xl-thumbnail" src=""> 
-              <input type="text" id="image-xl-input">
-              <button id="image-xl-save" onclick="updateXlImage();">SAVE (XL)</button>    
-          </div>
-          <div id="image-l">
-              <img id="image-l-thumbnail" src=""> 
-              <input type="text" id="image-l-input">
-              <button id="image-l-save" onclick="updateLImage();">SAVE (L)</button>    
-          </div>
+          
           <div id="image-m">
               <img id="image-m-thumbnail" src=""> 
               <input type="text" id="image-m-input">
               <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
-          </div>
-          <div id="image-s">
-              <img id="image-s-thumbnail" src=""> 
-              <input type="text" id="image-s-input">
-              <button id="image-s-save" onclick="updateSImage();">SAVE (S)</button>    
           </div>
           
           <div id="image-xs">

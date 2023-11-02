@@ -62,10 +62,8 @@ function generateRandomID(length) {
       <div id="${containerID}" data-type="container">
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
-          <source srcset media="(min-width:641px) and (max-width:768px)">
-          <source srcset media="(min-width:769px) and (max-width:1024px)">
-          <source srcset media="(min-width:1025px) and (max-width:1280px)">
-          <source srcset media="(min-width:1281px)">        
+          <source srcset media="(min-width:641px) and (max-width:1024px)">
+          <source srcset media="(min-width:1025px)">        
           <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
         </picture>    
           <div id="${contentID}" data-type="content">
