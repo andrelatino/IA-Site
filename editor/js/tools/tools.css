@@ -1,15 +1,25 @@
 .tools-modal {
-z-index: 1;
-position: fixed;
-display: grid;
-place-content: center;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background: #b9b9b9;
-border-radius: 10px;
-overflow: hidden;
-visibility:hidden;
+  z-index: 1;
+  position: fixed;
+  display: grid;
+  place-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #b9b9b9;
+  border-radius: 10px;
+  overflow: hidden;
+  visibility:hidden;
+  width: 300px;
+  max-width: 300px;
+}
+.toolbar-open {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
 }
 div#toolbar-header {
   display: grid;
@@ -20,7 +30,8 @@ div#toolbar-header {
   grid-template-columns: 50px 1fr 50px;
   place-content: center;
   width: 100%;
-  background: #f4f4f4;
+  background: white;
+  border-bottom: 1px solid #f4f4f4;
 }
 button.toolbar-close {
 background: red;
@@ -31,12 +42,20 @@ place-content: center;
 }
 div#toolbar-buttons {
   display: grid;
-  grid-template-columns: repeat(6, 50px);
-  padding: 25px;
-  background: white;
+  grid-template-columns: repeat(4,1fr);
+  background: #dddddd;
+  min-width: 300px;
+  place-items: center;
+  gap: 1px;
 }
 div#toolbar-buttons button {
-  width: 50px;
+  width: 100%;
+  /* color: #838383; */
+  display: grid;
+  gap: 5px;
+}
+div#toolbar-header img {
+  width: 25px;
 }
 
 /* styles.css */
@@ -82,4 +101,7 @@ div#toolbar-buttons button {
 }
 span#toolbarSectionID {
   font-weight: 900;
+}
+div#toolbar-buttons img {
+  padding: 4px;
 }

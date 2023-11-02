@@ -133,14 +133,14 @@ button.nav-style.close-editor-btn img {
     position: fixed;
     bottom: 20px;
     right: 27px;
-    padding: 20px;
+    padding: 7px;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 35px;
+    height: 35px;
     display: grid;
     place-content: center;
     border: none;
-    
+    border: 3px solid white;
 }
 .navigation {
     display: grid;
@@ -150,14 +150,14 @@ button.nav-style.close-editor-btn img {
     align-items: center;
     text-align: left;
     gap: 5px;
-    height:80px;
+    height: 80px;
 }
 span.editor-items {
     font-size: 1rem;
     margin-top: 5px;
 }
 .open-editor-btn {
-    background: blue;
+    background: black;
     color: #040404;
     font-size: 16px;
     left: 50%;
@@ -197,10 +197,10 @@ div#popup {
     z-index: 99;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
     left: 50%;
-    bottom: 100px;
+    bottom: 70px;
     transform: translateX(-50%);
     text-align: center;
-    min-width: 350px;;
+    width: 300px;
 }
 div#popup a {
     color: #010101;
