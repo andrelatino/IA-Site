@@ -78,7 +78,7 @@ function toolsHtml(){
                   <span class="tooltiptext">Background Color</span>
                 </button> 
 
-                <button class="export-section">
+                <button class="export-section" onclick = "sectionImage(); imageAllButton()">
                   <img src="./assets/svg/icons/bg-image.svg">
                   <span class="tooltiptext">Background Image</span>
                 </button>
@@ -88,10 +88,6 @@ function toolsHtml(){
                   <span class="tooltiptext">Background Video</span>
                 </button>
 
-                <button class="edit-background">
-                  <img src="./assets/svg/icons/edit.svg">
-                  <span class="tooltiptext">Edit Background</span>
-                </button>
         </div>
         </div>
       </div>
