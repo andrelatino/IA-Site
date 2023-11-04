@@ -197,6 +197,7 @@ function devJsonEncodeNewUrl (devJsonSha, devJsonRaw, devJsonApi){
       });
       if (response.status === 200) {
         console.log('File deleted');
+        location.reload(true);
       }
         else {
         console.error(
