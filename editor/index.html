@@ -4,31 +4,11 @@
 		<meta charset="UTF-8">
 		<meta name="google" content="notranslate">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="./css/editor.css">
-		<link rel="stylesheet" type="text/css" href="./css/toogle.css">
-		<link rel="stylesheet" type="text/css" href="./css/image.css">
-		<link rel="stylesheet" type="text/css" href="./css/color.css">
-		<link rel="stylesheet" type="text/css" href="./css/image-github.css">
-		<link rel="stylesheet" type="text/css" href="./css/template-github.css">
-		<link rel="stylesheet" type="text/css" href="./css/video-github.css">
-		<link rel="stylesheet" type="text/css" href="./css/file-github.css">
-		<link rel="stylesheet" type="text/css" href="./css/openai-text.css">
-		<link rel="stylesheet" type="text/css" href="./css/icon.css">
-		<link rel="stylesheet" type="text/css" href="./css/video.css">
-		<link rel="stylesheet" type="text/css" href="./css/toolbar-sidebar.css">
-		<link rel="stylesheet" type="text/css" href="./css/modals.css">
-		<link rel="stylesheet" type="text/css" href="./css/mobile.css">
-		<link rel="stylesheet" type="text/css" href="./js/tools/tools.css">
-		<link rel="stylesheet" type="text/css" href="./js/chatgpt/chatgpt.css">
-		<link rel="stylesheet" type="text/css" href="./js/menu/menu.css">
+		<script src="./styles.js"></script>
 		<script src="./js/header/headerResetCss.js"></script>
 	</head>
 	<body>
-		
-		<div id="editor" style="visibility:hidden;"></div>
 		<div id="image-modal" style="display:none;"></div>
-		
 		<div id="image-github-modal" style="visibility:hidden;">
 			<div id="image-github-buttons">
 			  <button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button>
@@ -55,9 +35,7 @@
 			  <button onclick="githubImageCloseModal();" class="githubImageClose"><img src="./assets/svg/icons/close.svg"></button>
 			  <button id="image-github-upload-button">Upload your image</button>
 			</div>
-		  </div>
-		  
-
+		</div>
 		<div id="video-github-modal" style="visibility:hidden;">			
 			<div id="video-github-buttons"><button id="video-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
 			<div class="video-github-modal-content">		
@@ -67,7 +45,6 @@
 			  <button id="video-github-upload-button">Upload your video</button>
 			</div>
 		</div>
-
 		<div id="file-github-modal" style="visibility:hidden;">			
 			<div id="file-github-buttons"><button id="file-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
 			<div class="file-github-modal-content">		
@@ -77,8 +54,6 @@
 			  <button id="file-github-upload-button">Upload your file</button>
 			</div>
 		</div>
-
-
 		<div id="admin">
 			
 			<div id="page">
@@ -115,20 +90,6 @@
 			<div id="image-sidebar-grid"></div>
 			
 		</div>	
-
-		<div id="icon-sidebar">
-			<div id="icon-sidebar-header">
-				<input type="text" id="icon-sidebar-input" placeholder="Search..." required>
-				<button type="submit" id="icon-sidebar-search-button" onclick="searchIcons();"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button id="icon-sidebar-next-button" onclick="loadNextIcons();"> next </button>
-				<p id="icon-sidebar-total"></p>
-					
-			</div>
-			<p id="icon-sidebar-total"></p>
-			<div id="icon-sidebar-grid"></div>
-			
-		</div>
-
 		<div id="video-sidebar" style="right:-300px">
 			<div id="video-sidebar-header">
 				<input type="text" id="video-sidebar-input" placeholder="Search..." required>
@@ -140,7 +101,6 @@
 				<button id="video-sidebar-next-button" onclick="loadNextVideos();"> + </button>
 			</div>
 		</div>
-
 		<div id="color-sidebar" style="right:-300px">
 			<div id="color-sidebar-header">
 				<input type="text" id="color-sidebar-input" placeholder="Search..." required>
@@ -166,8 +126,6 @@
 			<div id="color-sidebar-grid"></div>
 			
 		</div>
-
-
 		<div id="image-github-sidebar" style="right:-300px">
 			<div id="image-github-sidebar-search">
 				<input type="text" id="image-github-sidebar-search-input" placeholder="Search..." required>
@@ -180,7 +138,6 @@
 				<button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
 			</div>
 		</div>
-		
 		<div id="video-github-sidebar" style="right:-300px">
 			<div id="video-github-sidebar-search">
 				<input type="text" id="video-github-sidebar-search-input" placeholder="Search..." required>
@@ -193,7 +150,6 @@
 				<button id="video-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
 			</div>
 		</div>	
-
 		<div id="file-github-sidebar" style="right:-300px">
 			<div id="file-github-sidebar-search">
 				<input type="text" id="file-github-sidebar-search-input" placeholder="Search..." required>
@@ -205,8 +161,7 @@
 			<div id="file-github-sidebar-next-div">
 				<button id="file-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
 			</div>
-		</div>	
-
+		</div>
 		<div id="template-github-sidebar" style="right:-300px">
 			<div id="template-github-sidebar-search">
 				<input type="text" id="template-github-sidebar-search-input" placeholder="Search..." required>
@@ -219,7 +174,6 @@
 				<button id="template-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
 			</div>
 		</div>
-
 		<div id="text-openai-sidebar" style="right:-300px">
 			<div id="text-openai-sidebar-search">
 				<p id="text-openai-sidebar-search-input">ChatGPT</p>
@@ -235,164 +189,37 @@
 			</div>
 			
 		</div>
-
 		<div id="mobileMenu"></div>
+		<div id="editor-css" style="visibility:hidden;">
+			<div id="editor-css-content">     
+				<div id="editor-css-buttons">
+					<button id="editor-drag"><img src="./assets/svg/icons/drag.svg"></button>
+					<button id="all-button">PC</button>
+					<button id="m-button">Laptop</button>
+					<button id="xs-button">Mobile</button>
+					<button id="editor-css-close" ><img src="./assets/svg/icons/close.svg"></button>
+				</div>
+				<div id="editor-css-inputs">
+					<p class ="inputCssRules" id="inputCssRules">a#YPsfcED {</span></p> 
+					<textarea id="all-textarea" autocomplete="off"></textarea>
+					<textarea id="m-textarea" autocomplete="off"></textarea>
+					<textarea id="xs-textarea" autocomplete="off"></textarea>
+					<p class="inputCssRules">}</p>
+				</div>	
+			
+				<div class="editor-css-ids">
+					<p class="inputTitleColor" id="elementsTagId"><span id="elementTag">Element:</span><span id="elementID-text"></span></p> 
+					<p class="inputTitleColor" style="display:block;"><span>Size:</span> <span id="buttonID-text"></span> </p>
+					<p class="inputTitleColor" style="display:block;"><span>Style:</span> <span id="styleID-text"></span> </p>
+					<p class="inputTitleColor" style="display:block;"><span>Section:</span> <span id="sectionID-text"></span> </p>        
+				</div>
+				
+				<select id="editor-css-select"></select>
 	
+		  </div>
+		</div>
 		<footer>
-
-			<!-- START PROD JS -->
-			
-			<script src="../global/js/apis.js"></script>
-			<script src="./js/menu/menu.js"></script>
-
-			<!-- PROD JS -->
-
-			
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script> -->
-			<script src="./js/dragElements.js"></script>
-			<script src="./js/image/imageSearch.js"></script>
-
-			
-			<script src="./js/image/imageAlt.js"></script>
-			<script src="./js/image/imageModal.js"></script>
-			<script src="./js/image/imageButtons.js"></script>
-			<script src="./js/image/imageUpdate.js"></script>
-			<!-- <script src="./js/image/imageToogle.js"></script> -->
-			<script src="./js/image/imageLoad.js"></script>
-			<script src="./js/image/imageClick.js"></script>
-
-			
-			
-			
-			<script src="./js/github/page/githubSha.js"></script>
-			<script src="./js/github/page/githubAdd.js"></script>
-			<script src="./js/github/page/githubUpdate.js"></script>
-			<script src="./js/github/page/githubDelete.js"></script>
-			
-
-			<script src="./js/github/image/githubCheckSize.js"></script>
-			<script src="./js/github/image/githubLoadImages.js"></script>
-			<script src="./js/github/image/githubSearchImages.js"></script>
-			<script src="./js/github/image/githubUploadImages.js"></script>
-			
-
-			<script src="./js/github/template/githubLoadTemplates.js"></script>
-			<script src="./js/github/template/githubAddTemplates.js"></script>
-			
-			
-
-			<script src="./js/github/video/githubLoadVideos.js"></script>
-			<script src="./js/github/video/githubSearchVideos.js"></script>
-			<script src="./js/github/video/githubUploadVideos.js"></script>
-
-			<!-- <script src="./js/color/colorSearch.js"></script> -->
-
-			<!-- <script src="./js/github/file/githubLoadFiles.js"></script>
-			<script src="./js/github/file/githubUploadFiles.js"></script>
-			<script src="./js/github/file/githubSearchFiles.js"></script> -->
-
-			<script src="./js/openai/text/openaiSearchAnswer.js"></script>
-			
-			<script src="./js/page/pageJsonSave.js"></script>
-			<script src="./js/page/pageJsonImport.js"></script>
-			<script src="./js/page/pageJsonExport.js"></script>
-
-			<script src="./js/page/pageJsonLoad.js"></script>
-
-
-
-			<script src="./js/pattern/footer1.js"></script>
-			<script src="./js/pattern/header1.js"></script>
-			<script src="./js/pattern/logo1.js"></script>
-			<script src="./js/pattern/section1.js"></script>
-
-
-			<script src="./js/github/commit/comit-file.js"></script>
-			
-			
-			<script src="./js/page/pageGridObserver.js"></script>
-			
-			<script src="./js/page/pageSaveProd.js"></script>
-			<script src="./js/page/pageSaveAdmin.js"></script>
-			<script src="./js/page/pageResize.js"></script>
-
-			<script src="./js/page/pagePublishModal.js"></script>
-			<script src="./js/page/pagePublish.js"></script>
-
-			<script src="./js/sidebar/sidebarOpenClose.js"></script>
-			<script src="./js/sidebar/sidebarGoToUrl.js"></script>
-
-
-			
-
-			<!-- <script src="./js/gridHeight.js"></script> -->
-			<script src="./js/moveSection.js"></script>
-			<script src="./js/replaceSection.js"></script>
-			<script src="./js/exportSection.js"></script>
-
-			
-			
-			<!-- <script src="./js/deletePage.js"></script> -->
-		 
-			 
-			<script src="./js/cssModal.js"></script>
-			<!-- <script src="./js/addSections.js"></script>
-			<script src="./js/addMenu.js"></script>
-			<script src="./js/addSectionBlank.js"></script> -->
-			
-			
-			
-			
-			<script src="./js/exportModal.js"></script>
-			<script src="./js/openOverlay.js"></script> 
-			<script src="./js/importModal.js"></script>
-			
-			<script src="./js/exportHtml.js"></script>
-			<script src="./js/editor/editorHtml.js"></script>
-			<script src="./js/editor/editorLoadCss.js"></script> 
-			<script src="./editor-list.js"></script>
-			
-			
-			
-			<script src="./js/section/sectionJsonImport.js"></script>
-
-			<script src="./js/element/elementToolbar.js"></script>
-
-			<!-- <script src="./js/editor/editorUpdateCss.js"></script>
-			<script src="./js/editor/editorButtons.js"></script>
-			<script src="./js/editor/editorGetIds.js"></script> -->
-			
-			<!-- <script src="./js/page/pageSaveProd.js"></script> -->
-
-			
-
-			<script src="./js/icon/iconSearch.js"></script>
-			<script src="./js/icon/iconClick.js"></script>
-			
-			<script src="./js/video/videoSearch.js"></script>
-
-			<!-- <script src="./js/image/imageGetUrl.js"></script> -->
-
-			<script src="./js/page/pageBuilderSave.js"></script>
-			<script src="./js/page/pageEncodeFr.js"></script>
-
-			<!-- <script src="./js/scrollPage.js"></script> -->
-			
-			
-			
-			<script src="./js/section/sectionToolbar.js"></script>
-			<script src="./js/section/sectionAutoIds.js"></script>
-
-			<script src="./js/tools/tools-drag.js"></script>
-			
-			<script src="./js/tools/toolsHtml.js"></script>
-			<script src="./js/tools/toolsModal.js"></script>
-
-
-			<script src="./js/chatgpt/chatgpt-modal.js"></script>
-			<script src="./js/chatgpt/chatgpt-apicall.js"></script>
-			
+			<script src="./scripts.js"></script>
 		</footer>
-		
 	</body>
 </html>

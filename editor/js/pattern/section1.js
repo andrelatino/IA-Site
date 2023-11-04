@@ -41,11 +41,9 @@ function generateRandomID(length) {
   
   const btn2ID = generateRandomID(7);
   const btn2Css = btn2ID;
-  
-  
+
   const customCSS = `
   @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
-  @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;background:white;position:absolute;top:0;z-index:-20;}}
   @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
   @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 1100px;gap:35px;}}
@@ -60,12 +58,14 @@ function generateRandomID(length) {
     <section id="${sectionID}" data-type="section">
       <style id="${generateRandomID(7)}" type="text/css">${customCSS}</style>
       <div id="${containerID}" data-type="container">
+      <div id="${generateRandomID(7)}" data-type="background">
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
-          <source srcset media="(min-width:641px) and (max-width:1024px)">
-          <source srcset media="(min-width:1025px)">        
+          <source srcset media="(min-width:641px) and (max-width:1024px)">     
           <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
-        </picture>    
+        </picture>
+      </div>
+         
           <div id="${contentID}" data-type="content">
             <div id="${div1ID}">
               <h2 id="${h2ID}" contenteditable="true">Lorem ipsum dolor sit amet</h2>

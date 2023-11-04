@@ -569,7 +569,7 @@ height: 35px;
 display: grid;
 place-content: center;
 }
-textarea#all-textarea,
+/* textarea#all-textarea,
 textarea#xl-textarea,
 textarea#l-textarea,
 textarea#m-textarea,
@@ -587,7 +587,7 @@ white-space: pre-line !important;
 list-style: disc inside !important;
 font-size: medium;
 line-height: 1.5; 
-}
+} */
 #tree {
 position: fixed;
 top: 10%;

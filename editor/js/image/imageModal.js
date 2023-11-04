@@ -2,6 +2,8 @@
 function sectionImage() {
     
   showImageModal();
+  loadUnsplashImages();
+  loadGithubImages()
 
   const textID = document.getElementById('toolbarSectionID');
   const sectionID = textID.textContent.trim();
@@ -53,14 +55,11 @@ function sectionImage() {
                      
           </div>
           <div id = "image-libraries">
-            <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this);">
-              
+            <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
               <span class="tooltiptext-right">Images Web</span>	
             </button>
-            <button id="iconWebSidebarButton" onclick="sidebarOpenClose(this);">
-							<span class="tooltiptext-right">Icons Web</span>	
-						</button>
-            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this);">
+            
+            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
               <span class="tooltiptext-right">My Images</span>	
           </div>  
           

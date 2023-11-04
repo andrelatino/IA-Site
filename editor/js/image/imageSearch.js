@@ -90,7 +90,7 @@ imageTypeInput.addEventListener('input', function() {
 // });
 
 
-function loadDefaultImages(){
+function loadUnsplashImages(){
     
     clientId = "0THX8x74rPkykb3IWWDE5j6PzWPSshwSQgISn_uKHfA";
     // clientId = "22b7b54287910389edfae878f576488bbc5b540a46daa0d2833ba858ce03b143";
@@ -122,7 +122,7 @@ function loadDefaultImages(){
         }
     });
 }
-loadDefaultImages();
+// loadUnsplashImages();
 
   function loadImages(){
     
