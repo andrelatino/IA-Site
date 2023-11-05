@@ -17,6 +17,10 @@ pointer-events: none;
 cursor: pointer;
 } */
 
+.mobile-box{
+    width:280px;
+    height:200px;
+}
   
 .tooltip {
 position: relative;

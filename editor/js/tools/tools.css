@@ -8,8 +8,6 @@
   background: none;
   border-radius: 10px;
   visibility:hidden;
-  width: 300px;
-  height: 300px;
   perspective: 1000px;
 }
 .toolbar-open {
@@ -23,7 +21,7 @@
 }
 div#toolbar-header {
   display: grid;
-  width:300px;
+  width:auto;
 }
 div#toolbar-header {
   display: grid;
@@ -44,7 +42,6 @@ div#toolbar-buttons {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   background: #dddddd;
-  min-width: 300px;
   place-items: center;
   gap: 1px;
 }
@@ -139,10 +136,11 @@ div#toolbar-buttons img {
     gap: 1px;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front, 
+.flip-card-back {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 10px;

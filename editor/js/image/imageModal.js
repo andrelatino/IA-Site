@@ -89,6 +89,7 @@ function sectionImage() {
     
     editorDiv.innerHTML = content;
     var imageModal = document.querySelector("#image-modal");
+    imageModal.className = "mobile-box";
     var imageDrag = document.querySelector("#image-drag");
     makeElementDraggable(imageModal, imageDrag);
 

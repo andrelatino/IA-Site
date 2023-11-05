@@ -1,6 +1,6 @@
 function toolsHtml(){
     var modalHtml = `
-      <div id="toolbarModal" class="flip-card">
+      <div id="toolbarModal" class="flip-card mobile-box">
         <div class="flip-card-inner">
           <div class="flip-card-front">
               
@@ -9,7 +9,7 @@ function toolsHtml(){
                   <img src="./assets/svg/icons/drag.svg">
                 </button>
                 <div class='toolbarTitles'>
-                  <span>Section Settings: </span><span id="toolbarSectionID"></span>
+                  <span>Section ID : </span><span id="toolbarSectionID"></span>
                 </div>
                 <button onClick="toolsCloseModal();" class="toolbar-close">
                   <img src="./assets/svg/icons/close.svg">

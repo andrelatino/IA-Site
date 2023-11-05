@@ -18,7 +18,7 @@ function editorMenu() {
 
   var popup = document.createElement('div');
   popup.innerHTML = `
-    <div id="popup">
+    <div id="popup" class="mobile-box">
 
       <button class="navigation" onclick="patternSection1()">
           <img class="editor-icons" src="./assets/svg/icons/pages.svg">

@@ -200,7 +200,6 @@ div#popup {
     bottom: 70px;
     transform: translateX(-50%);
     text-align: center;
-    width: 300px;
 }
 div#popup a {
     color: #010101;

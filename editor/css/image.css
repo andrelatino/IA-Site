@@ -11,14 +11,13 @@
     gap: 1px;
     background: white;
     padding: 10px;
-    width:300px;
     height: 370px;
     border-radius: 15px;
     overflow: hidden;
 }
 #image-container {
     position: absolute;
-    width: 300px;
+    width: 100%;
 }
 #image-github-buttons {
     display: flex;
@@ -32,7 +31,7 @@
 #image-xl
 {
     display: grid;
-    grid-template-columns: 200px 100px;
+    grid-template-columns:auto;
     position: absolute;
     
 }
@@ -44,8 +43,8 @@
 #image-l-thumbnail ,
 #image-xl-thumbnail
 {
-    height: 300px;
-    width: 300px;
+    height: 280px;
+    width: 280px;
     object-fit: contain;
     background: #dadada;
     padding: 10%;
@@ -183,7 +182,7 @@
 
 div#image-libraries {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
