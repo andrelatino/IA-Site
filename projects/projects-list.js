@@ -62,8 +62,8 @@ function github_get_sites() {
                     <p class="sites-link">Site Link : ${hasPages} </p>
                     <p class="sites-type">Type : ${api.description} </p>
                     <div class = "sites-buttons">
-                        <button class="sites-domain" id="site-domain" onclick="modalDomainOpen()">Custom Domain</button>
-                        <button class="sites-edit" id="buttonEdit${api.id}">Open project</button>
+                        <button class="sites-domain" id="site-domain" onclick="modalDomainOpen()">DOMAIN</button>
+                        <button class="sites-edit" id="buttonEdit${api.id}">EDIT</button>
                         <button class="sites-delete" id="buttonDelete${api.id}"><img src="../global/file/delete-white.svg"></button>
                     </div>   
                 </div>
