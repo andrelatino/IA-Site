@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-reset.css">
 		<link rel="stylesheet" type="text/css" href="./projects.css">
 		<link rel="stylesheet" type="text/css" href="./iframe.css">
+		<link rel="stylesheet" type="text/css" href="./flipcard.css">
 	</head>
 	<body>
 		<div class="admin-container">
@@ -36,6 +37,94 @@
 				
 			</div>	
 		</div>
+
+		<div class="card">
+			<div class="card-inner">
+			  <div class="card-front">
+				<div id="toolbar-header"> 
+					<button id="toolbar-drag">
+					  <img src="../global/file/drag.svg">
+					</button>
+					<div class="toolbarTitles flip-title-ellipsis flip-url"></div>
+					<button class="closeButton toolbar-close">
+					  <img src="../global/file/close.svg">
+					</button>
+				</div>
+				  <div id="toolbar-buttons"> 
+
+					<button class="duplicate-section flip-button" data-side="back1">
+						<img src="../global/file/duplicate.svg">
+						<span class="tooltiptext">Clone Site</span>
+					</button>
+
+					<button class="delete-section flip-button" data-side="back2">
+					  <img src="../global/file/delete.svg">
+					  <span class="tooltiptext">Delete Site</span>
+					</button> 
+	
+					<button class="export-section flip-button" data-side="back3">
+					  <img src="../global/file/domain.svg">
+					  <span class="tooltiptext">Add Domain</span>
+					</button>
+
+					<button class="image-section flip-button" data-side="back4">
+					  <img src="../global/file/image.svg">
+					  <span class="tooltiptext">Change Status</span>
+					</button>
+	
+				  </div>
+			
+			  </div>
+			  <div class="card-back card-back1">
+				<div id="toolbar-header"> 
+					<button id="toolbar-drag" class="back-to-front">
+					  <img src="../global/file/flip.svg">
+					</button>
+					<div class="toolbarTitles flip-title-ellipsis"></div>
+					<button class="closeButton toolbar-close">
+					  <img src="../global/file/close.svg">
+					</button>
+				</div>
+				<div class="flip-content"> 
+					<p>Coming soon...</p>
+				</div>
+			 </div> 
+
+			 <div class="card-back card-back2">
+				<div id="toolbar-header"> 
+					<button id="toolbar-drag" class="back-to-front">
+					  <img src="../global/file/flip.svg">
+					</button>
+					<div id="flip-title" class="flip-url toolbarTitles flip-title-ellipsis"></div>
+					<button class="closeButton toolbar-close">
+					  <img src="../global/file/close.svg">
+					</button>
+					
+				</div>
+				<div class="flip-content"> 
+					<div class = "deleteContent">
+						<p>To delete the site</p>
+						<p id="flip-url" class="flip-url flip-title-ellipsis flip-bold-text"></p>
+						<p>please type this number</p>
+						<p class="flip-bold-text"> 123456789</p>
+						
+						
+						<input id="fileInput" type="text" required>
+						<button id="deleteFile" onclick="deleteCheck()">Delete Site</button>
+						<p id="fileUrl" style="display:none;"></p>
+						<p id="fileSha" style="display:none;"></p>
+						<p id="fileMessage"></p>
+						
+					</div>	
+				</div>
+			 </div> 
+				
+			  <div class="card-back card-back3">Contenido del reverso 3 <button class="back-to-front">Regresar</button></div>
+			  <div class="card-back card-back4">Contenido del reverso 4 <button class="back-to-front">Regresar</button></div>
+			  <div class="card-back card-back5">Contenido del reverso 5 <button class="back-to-front">Regresar</button></div>
+			</div>
+		</div>
+
 		<footer>
 			
 			<script src="../global/js/sidebar.js"></script>
@@ -46,6 +135,10 @@
 			<script src="../projects/projects-delete.js"></script>
 			<script src="../projects/projects-create-domain.js"></script>
 			<script src="../projects/projects-modal-domain.js"></script>
+			<script src="../projects/flipcard.js"></script>
+			<script src="../global/js/functions.js"></script>
+
+
 			
 		</footer>
 		

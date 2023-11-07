@@ -54,15 +54,15 @@ function github_get_sites() {
                     </div>
                 </div>
                 <div class="sites-cta">     
-                    <h2 class="sites-title">${api.name}</h2>
+                    <p class="sites-link">${hasPages} </p>
                     <p class="sites-created">Created on : ${new Date(api.created_at).toLocaleString('fr-FR')}</p>
                     <p class="sites-updated">Updated on : ${new Date(api.updated_at).toLocaleString('fr-FR')}</p>
-                    <p class="sites-ID">Site ID : ${api.id} </p>
+                    <p class="sites-ID">ID : ${api.id} </p>
                     <p class="sites-user">User : ${api.owner.login} </p>
-                    <p class="sites-link">Site Link : ${hasPages} </p>
+                    
                     <p class="sites-type">Type : ${api.description} </p>
                     <div class = "sites-buttons">
-                        <button class="sites-domain" id="site-domain" onclick="modalDomainOpen()">DOMAIN</button>
+                        <button class="sites-domain" id="buttonSettings${api.id}">SETTINGS</button>
                         <button class="sites-edit" id="buttonEdit${api.id}">EDIT</button>
                         <button class="sites-delete" id="buttonDelete${api.id}"><img src="../global/file/delete-white.svg"></button>
                     </div>   
@@ -75,6 +75,24 @@ function github_get_sites() {
         gridDiv.appendChild(itemsDiv);
         const buttonEdit = document.getElementById(`buttonEdit${api.id}`);
         const buttonDelete = document.getElementById(`buttonDelete${api.id}`);
+        const buttonSettings = document.getElementById(`buttonSettings${api.id}`);
+
+            buttonSettings.addEventListener('click', () => {
+            const apiUrl = `${api.name}`;
+            const elementsWithApiUrlClass = document.querySelectorAll('.flip-url');
+            elementsWithApiUrlClass.forEach(function(element) {
+                element.textContent = apiUrl; // Establece el texto
+            });
+
+
+                const showOverlay = document.querySelector('.overlay');
+
+                showOverlay.style.visibility = "visible";
+                showOverlay.style.display = "grid";
+                openDiv('.card');
+                
+            
+            });
                 
             buttonEdit.addEventListener('click', () => {  
                 
@@ -101,7 +119,7 @@ function github_get_sites() {
                 
             });
             buttonDelete.addEventListener('click', () => {
-                const showOverlay =document.querySelector('.overlay');
+                const showOverlay = document.querySelector('.overlay');
                 showOverlay.style.visibility = "visible";
                 showOverlay.style.display = "grid";
                 const showDeleteBox = document.getElementById('deleteBox');
