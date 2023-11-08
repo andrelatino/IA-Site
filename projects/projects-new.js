@@ -77,8 +77,11 @@ function createPage(owner, repo, token) {
 
         setTimeout(() => {
             message.textContent = 'Site created successfully!';
-            return response.json();
+            // return response.json();
+            location.reload(true);
+            
         }, 5000); 
+        
         
       } else {
         const message = document.getElementById('message');

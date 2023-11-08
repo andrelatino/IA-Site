@@ -23,21 +23,7 @@
 				<div id="grid"></div>
 			</div>
 		</div>
-		<div id="deleteBox" style="visibility: hidden;">
-			<div class = "deleteContent">
-				<p class="delete-title">Delete Site</p>
-				<p>Type: <span id='fileName'></span><span> to delete this file. This is irreversible</span></p>
-				
-				<input id="fileInput" type="text" required>
-				<button id="deleteFile" onclick="deleteCheck()">Delete Site</button>
-				<p id="fileUrl" style="display:none;"></p>
-				<p id="fileSha" style="display:none;"></p>
-				<p id="fileMessage"></p>
-				<span id="modalNewClose" onclick="modalDeleteClose()"><img src="../global/file/close-white.svg"></span>
-				
-			</div>	
-		</div>
-
+		
 		<div class="card">
 			<div class="card-inner">
 			  <div class="card-front">
@@ -46,7 +32,7 @@
 					  <img src="../global/file/drag.svg">
 					</button>
 					<div class="toolbarTitles flip-title-ellipsis flip-url"></div>
-					<button class="closeButton toolbar-close">
+					<button id="closeButton" class="closeButton toolbar-close">
 					  <img src="../global/file/close.svg">
 					</button>
 				</div>
@@ -60,7 +46,7 @@
 					<button class="delete-section flip-button" data-side="back2">
 					  <img src="../global/file/delete.svg">
 					  <span class="tooltiptext">Delete Site</span>
-					</button> 
+					</button>
 	
 					<button class="export-section flip-button" data-side="back3">
 					  <img src="../global/file/domain.svg">
@@ -68,8 +54,8 @@
 					</button>
 
 					<button class="image-section flip-button" data-side="back4">
-					  <img src="../global/file/image.svg">
-					  <span class="tooltiptext">Change Status</span>
+					  <img src="../global/file/private.svg">
+					  <span class="tooltiptext">Add to Templates</span>
 					</button>
 	
 				  </div>
@@ -86,7 +72,7 @@
 					</button>
 				</div>
 				<div class="flip-content"> 
-					<p>Coming soon...</p>
+					
 				</div>
 			 </div> 
 
@@ -102,25 +88,43 @@
 					
 				</div>
 				<div class="flip-content"> 
-					<div class = "deleteContent">
-						<p>To delete the site</p>
-						<p id="flip-url" class="flip-url flip-title-ellipsis flip-bold-text"></p>
-						<p>please type this number</p>
-						<p class="flip-bold-text"> 123456789</p>
-						
-						
+					
+						<p>Type: <span class="flip-id"></span> to delete this site. This is irreversible</p>
 						<input id="fileInput" type="text" required>
 						<button id="deleteFile" onclick="deleteCheck()">Delete Site</button>
-						<p id="fileUrl" style="display:none;"></p>
-						<p id="fileSha" style="display:none;"></p>
-						<p id="fileMessage"></p>
+						<p id="siteID"></p>
+						<p id="siteName"></p>
+						<p id="siteMessage"></p>
 						
-					</div>	
+						
 				</div>
 			 </div> 
 				
 			  <div class="card-back card-back3">Contenido del reverso 3 <button class="back-to-front">Regresar</button></div>
-			  <div class="card-back card-back4">Contenido del reverso 4 <button class="back-to-front">Regresar</button></div>
+			  
+			  <div class="card-back card-back4">
+				<div id="toolbar-header"> 
+					<button id="toolbar-drag" class="back-to-front">
+					  <img src="../global/file/flip.svg">
+					</button>
+					<div id="flip-title" class="flip-url toolbarTitles flip-title-ellipsis"></div>
+					<button class="closeButton toolbar-close">
+					  <img src="../global/file/close.svg">
+					</button>
+					
+				</div>
+				<div class="flip-content"> 
+						<p>Enable this site to be a template, so you can reuse it or clone it</p>
+						<label class="switch">
+							<input type="checkbox"> 
+							<span class="slider round"></span>
+						</label>
+						<button id="addTemplate" onclick="convertToTemplate()">SAVE</button>
+						<p id="templateMessage"></p>
+						<p id="templateIs"></p>
+				</div>
+			  </div>
+
 			  <div class="card-back card-back5">Contenido del reverso 5 <button class="back-to-front">Regresar</button></div>
 			</div>
 		</div>
@@ -137,9 +141,8 @@
 			<script src="../projects/projects-modal-domain.js"></script>
 			<script src="../projects/flipcard.js"></script>
 			<script src="../global/js/functions.js"></script>
+			<script src="../projects/templates.js"></script>
 
-
-			
 		</footer>
 		
 	</body>

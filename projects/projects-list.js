@@ -33,8 +33,7 @@ function github_get_sites() {
             var hasPages = api.has_pages;
 
             var urlEncoded = `https://${githubUser}.github.io/${api.name}`;
-            
-            
+
             if (hasPages===true){
                 hasPages = `<a href='https://${githubUser}.github.io/${api.name}'>${api.name}</a>`;
             }else{
@@ -58,6 +57,7 @@ function github_get_sites() {
                     <p class="sites-created">Created on : ${new Date(api.created_at).toLocaleString('fr-FR')}</p>
                     <p class="sites-updated">Updated on : ${new Date(api.updated_at).toLocaleString('fr-FR')}</p>
                     <p class="sites-ID">ID : ${api.id} </p>
+                    <p class="sites-ID">Template : ${api.is_template} </p>
                     <p class="sites-user">User : ${api.owner.login} </p>
                     
                     <p class="sites-type">Type : ${api.description} </p>
@@ -65,7 +65,7 @@ function github_get_sites() {
                         <button class="sites-domain" id="buttonSettings${api.id}">SETTINGS</button>
                         <button class="sites-edit" id="buttonEdit${api.id}">EDIT</button>
                         <button class="sites-delete" id="buttonDelete${api.id}"><img src="../global/file/delete-white.svg"></button>
-                    </div>   
+                    </div>
                 </div>
                 
              </div>
@@ -78,24 +78,43 @@ function github_get_sites() {
         const buttonSettings = document.getElementById(`buttonSettings${api.id}`);
 
             buttonSettings.addEventListener('click', () => {
-            const apiUrl = `${api.name}`;
-            const elementsWithApiUrlClass = document.querySelectorAll('.flip-url');
-            elementsWithApiUrlClass.forEach(function(element) {
-                element.textContent = apiUrl; // Establece el texto
-            });
 
+                localStorage.setItem('githubRepoName', api.name);
+
+                const siteID = document.getElementById('siteID');
+                siteID.textContent = api.id;
+
+
+                const templateIs = document.getElementById('templateIs');
+                templateIs.textContent = api.is_template;
+
+
+                const siteName = document.getElementById('siteName');
+                siteName.textContent = api.name;
+                
+                
+
+                const apiID = `${api.id}`;
+                const apiIDText = document.querySelector('.flip-id');
+                apiIDText.textContent = apiID;
+
+                const apiUrl = `${api.name}`;
+                const elementsWithApiUrlClass = document.querySelectorAll('.flip-url');
+                elementsWithApiUrlClass.forEach(function(element) {
+                    element.textContent = apiUrl;
+                });
 
                 const showOverlay = document.querySelector('.overlay');
 
                 showOverlay.style.visibility = "visible";
                 showOverlay.style.display = "grid";
                 openDiv('.card');
-                
             
             });
                 
             buttonEdit.addEventListener('click', () => {  
-                
+
+                localStorage.setItem('githubRepoName', api.name);
                 localStorage.setItem ('Type', api.description);
                 
                 const values = 
@@ -124,7 +143,7 @@ function github_get_sites() {
                 showOverlay.style.display = "grid";
                 const showDeleteBox = document.getElementById('deleteBox');
                 showDeleteBox.style.visibility='visible';
-                const getApiName = document.getElementById('fileName');
+                const getApiName = document.getElementById('siteName');
                 getApiName.textContent = api.name;
               
             });

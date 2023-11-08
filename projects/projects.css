@@ -187,7 +187,7 @@ div#deleteBox {
     border-radius: 10px;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
     z-index: 5;
-    line-height: 0.7;
+    line-height: 1;
 }
 form#btnBox {
     display: grid;
@@ -319,4 +319,13 @@ p.delete-title {
     font-size: 25px;
     text-align:center;
 }
-
+p#fileUrl {
+    display: none;
+}
+p#siteID,
+p#siteName {
+    display: none;
+}
+span.flip-id {
+    color: red;
+}

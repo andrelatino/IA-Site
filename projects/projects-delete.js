@@ -3,7 +3,7 @@ async function deleteFile(repo) {
   var repoName = repo;
   var userName = githubUser;
   var token = githubApi;
-  var message = document.getElementById('fileMessage');
+  var message = document.getElementById('siteMessage');
 
   const url = `${apiUrl}/repos/${userName}/${repoName}`;
   const headers = {
@@ -20,7 +20,16 @@ async function deleteFile(repo) {
 
     if (response.status === 204) {
       
-      message.textContent = 'Site was deleted!';
+      message.textContent = 'Deleted succesfully!';
+      
+      setTimeout(function() {
+        message.textContent = 'Reloading page...';
+      }, 2000);
+
+      setTimeout(function() {
+        location.reload(true);
+      }, 4000);
+
     } else if (response.status === 403) {
       message.textContent = 'Delete site is forbidden!';
     } else if (response.status === 404) {
@@ -38,19 +47,20 @@ async function deleteFile(repo) {
   }
 }
 function deleteCheck() {
-  const name = document.getElementById('fileName').innerText;
+  const siteName = document.getElementById('siteName').innerText;
+  const siteID = document.getElementById('siteID').innerText;
   const input = document.getElementById('fileInput').value;
-  const message = document.getElementById('fileMessage');
+  const message = document.getElementById('siteMessage');
 
   if (input) {
-      if (name === input) {
-          deleteFile(name);
-          message.textContent = 'Deleting project ...';
+      if (siteID === input) {
+          deleteFile(siteName);
+          message.textContent = 'Deleting site ...';
       } else{
-          message.textContent = 'Site name is wrong';
+          message.textContent = 'Code is wrong';
       }
   }else{
-      message.textContent = 'Site name is empty!';
+      message.textContent = 'Code is empty!';
   }
 }
 
