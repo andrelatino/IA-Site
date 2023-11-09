@@ -116,12 +116,14 @@
 				<div class="flip-content"> 
 						<p>Enable this site to be a template, so you can reuse it or clone it</p>
 						<label class="switch">
-							<input type="checkbox"> 
-							<span class="slider round"></span>
+							<input id="checkbox-status" type="checkbox"> 
+							<span class="slider round"></span>	
 						</label>
+						
+						<p id="templateIs"></p>
 						<button id="addTemplate" onclick="convertToTemplate()">SAVE</button>
 						<p id="templateMessage"></p>
-						<p id="templateIs"></p>
+						
 				</div>
 			  </div>
 
@@ -130,6 +132,7 @@
 		</div>
 
 		<footer>
+			
 			
 			<script src="../global/js/sidebar.js"></script>
 			<script src="../global/js/apis.js"></script>
@@ -142,6 +145,7 @@
 			<script src="../projects/flipcard.js"></script>
 			<script src="../global/js/functions.js"></script>
 			<script src="../projects/templates.js"></script>
+			<script> document.getElementById("checkbox-status").addEventListener("change", alertCheckboxStatus); </script>
 
 		</footer>
 		

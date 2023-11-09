@@ -79,7 +79,10 @@ function github_get_sites() {
 
             buttonSettings.addEventListener('click', () => {
 
+                
+
                 localStorage.setItem('githubRepoName', api.name);
+                
 
                 const siteID = document.getElementById('siteID');
                 siteID.textContent = api.id;
@@ -87,6 +90,14 @@ function github_get_sites() {
 
                 const templateIs = document.getElementById('templateIs');
                 templateIs.textContent = api.is_template;
+                
+
+                if(api.is_template === true ){
+                    document.getElementById("checkbox-status").checked = true;
+                }else if(api.is_template === false ){
+                    document.getElementById("checkbox-status").checked = false;
+                }
+                
 
 
                 const siteName = document.getElementById('siteName');
@@ -155,3 +166,19 @@ function github_get_sites() {
 }
 
 github_get_sites();
+
+function alertCheckboxStatus() {
+    var checkbox = document.getElementById("checkbox-status");
+    const templateIS = document.getElementById('templateIs');
+    
+    if (checkbox.checked) {
+        templateIS.textContent = true;
+    } else {
+        templateIS.textContent = false;
+    }
+  }
+  
+  // Add an event listener to the checkbox to call the function when it changes
+  
+  
+

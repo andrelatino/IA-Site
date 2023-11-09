@@ -190,3 +190,9 @@ button.toolbar-close {
   background: none;
   filter: invert(1);
 }
+p#templateIs {
+  display: none;
+}
+p#templateMessage {
+  text-align: center;
+}
