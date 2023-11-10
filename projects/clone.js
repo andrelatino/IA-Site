@@ -1,19 +1,23 @@
-document.getElementById('cloneRepoBtn').addEventListener('click', function() {
-    const message = document.getElementById('message');
-    const templateRepo = document.getElementById('templateSelector').value;
-    const newRepoName = document.getElementById('newRepoNameInput').value;
+
+
+
+document.getElementById('clone_button').addEventListener('click', function() {
+    const message = document.getElementById('clone_message');
+    const template_from = localStorage.getItem('githubRepoName');
+    alert(template_from);
+    const newRepoName = document.getElementById('clone_input').value;
 
     if (!newRepoName) {
-        message.textContent = "Por favor, ingresa el nombre del nuevo repositorio.";
+        message.textContent = "Name is empty";
         return;
     }
 
     message.textContent = "0/2 Cloning template...";
 
     const token = githubApi;
-    const templateOwner = githubUser;  // Asegúrate de cambiar esto si es necesario
-
-    fetch(`https://api.github.com/repos/${templateOwner}/${templateRepo}/generate`, {
+    const templateOwner = githubUser;  
+    
+    fetch(`https://api.github.com/repos/${templateOwner}/${template_from}/generate`, {
         method: 'POST',
         headers: {
             'Authorization': `token ${token}`,
@@ -32,7 +36,7 @@ document.getElementById('cloneRepoBtn').addEventListener('click', function() {
             
             setTimeout(() => {
                 message.textContent = '1/2 Creating URL...';
-                createPage(templateOwner, newRepoName, token);
+                template_page(templateOwner, newRepoName, token);
             }, 3000); 
               
         } else {
@@ -45,7 +49,7 @@ document.getElementById('cloneRepoBtn').addEventListener('click', function() {
     });
 });
 
-function createPage(owner, repo, token) {
+function template_page(owner, repo, token) {
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -69,19 +73,19 @@ function createPage(owner, repo, token) {
     .then(response => {
       console.log(response);
       if (response.status === 201) {
-        const message = document.getElementById('message');
+        const message = document.getElementById('clone_message');
         setTimeout(() => {
             message.textContent = '2/2 URL Created!';
             return response.json();
         }, 3000); 
 
         setTimeout(() => {
-            message.textContent = 'Site created successfully!';
+            message.textContent = 'Cloned successfully!';
             return response.json();
         }, 5000); 
         
       } else {
-        const message = document.getElementById('message');
+        const message = document.getElementById('clone_message');
         message.textContent = 'URL Creation failed!';
         throw new Error('Failed to create project!');
       }
@@ -91,7 +95,7 @@ function createPage(owner, repo, token) {
     })
     .catch(error => {
       console.error('Error creating GitHub Pages:', error);
-      const message = document.getElementById('message');
+      const message = document.getElementById('clone_message');
       message.textContent = 'URL Creation failed!';
     });
-  }
+}

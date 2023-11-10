@@ -48,5 +48,3 @@ async function convertToTemplate() {
         console.error('Error al convertir el repositorio a plantilla:', error);
     }
 }
-
-

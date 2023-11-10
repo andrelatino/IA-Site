@@ -23,5 +23,8 @@ document.querySelectorAll('.closeButton').forEach(function(button) {
     button.addEventListener('click', function() {
         closeDiv('.card');
         closeDiv('.overlay');
+        const card = document.querySelector('.card-inner');
+        card.style.transform = `rotateY(0deg)`;
+
     });
 });

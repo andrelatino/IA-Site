@@ -28,7 +28,7 @@
 			<div class="card-inner">
 			  <div class="card-front">
 				<div id="toolbar-header"> 
-					<button id="toolbar-drag">
+					<button id="toolbar-drag-front">
 					  <img src="../global/file/drag.svg">
 					</button>
 					<div class="toolbarTitles flip-title-ellipsis flip-url"></div>
@@ -66,12 +66,21 @@
 					<button id="toolbar-drag" class="back-to-front">
 					  <img src="../global/file/flip.svg">
 					</button>
-					<div class="toolbarTitles flip-title-ellipsis"></div>
+					<div id="flip-title" class="flip-url toolbarTitles flip-title-ellipsis"></div>
 					<button class="closeButton toolbar-close">
 					  <img src="../global/file/close.svg">
 					</button>
+					
 				</div>
 				<div class="flip-content"> 
+					
+					
+						<p>To clone this site please enter your new site name</p>
+						<input type="text" id="clone_input">
+						<p class="help">Choose a template</p>
+						<button id="clone_button" class="flipcard-button">CLONE SITE</button>
+						<span id="clone_message"></span>
+							
 					
 				</div>
 			 </div> 
@@ -91,7 +100,7 @@
 					
 						<p>Type: <span class="flip-id"></span> to delete this site. This is irreversible</p>
 						<input id="fileInput" type="text" required>
-						<button id="deleteFile" onclick="deleteCheck()">Delete Site</button>
+						<button class="flipcard-button" onclick="deleteCheck()">DELETE</button>
 						<p id="siteID"></p>
 						<p id="siteName"></p>
 						<p id="siteMessage"></p>
@@ -100,7 +109,18 @@
 				</div>
 			 </div> 
 				
-			  <div class="card-back card-back3">Contenido del reverso 3 <button class="back-to-front">Regresar</button></div>
+			  <div class="card-back card-back3">
+				<div id="toolbar-header"> 
+					<button id="toolbar-drag" class="back-to-front">
+					  <img src="../global/file/flip.svg">
+					</button>
+					<div id="flip-title" class="flip-url toolbarTitles flip-title-ellipsis"></div>
+					<button class="closeButton toolbar-close">
+					  <img src="../global/file/close.svg">
+					</button>
+					
+				</div>
+			  </div>
 			  
 			  <div class="card-back card-back4">
 				<div id="toolbar-header"> 
@@ -127,7 +147,7 @@
 				</div>
 			  </div>
 
-			  <div class="card-back card-back5">Contenido del reverso 5 <button class="back-to-front">Regresar</button></div>
+			
 			</div>
 		</div>
 
@@ -145,6 +165,8 @@
 			<script src="../projects/flipcard.js"></script>
 			<script src="../global/js/functions.js"></script>
 			<script src="../projects/templates.js"></script>
+			<script src="../projects/clone.js"></script>
+			<script src="../projects/domain.js"></script>
 			<script> document.getElementById("checkbox-status").addEventListener("change", alertCheckboxStatus); </script>
 
 		</footer>

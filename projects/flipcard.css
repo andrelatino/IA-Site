@@ -66,7 +66,7 @@
     place-content: center;
     width: 100%;
     background: white;
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid #dddddd;
     place-items: center;
     height: 50px;
 }
@@ -83,6 +83,7 @@ div#toolbar-buttons button {
     height:100%;
     display: grid;
     gap: 5px;
+    background: #f2f2f2;
 }
 div#toolbar-buttons img {
     padding: 4px;
@@ -173,15 +174,17 @@ button#addTemplate {
 }
 
 .flip-content {
-  position: relative;
-  width: auto;
-  padding: 40px;
-  background: #f2f2f2;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  z-index: 5;
-  line-height: 1;
+    position: relative;
+    width: auto;
+    padding: 40px;
+    background: #f2f2f2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    z-index: 5;
+    line-height: 1;
+    height: 230px;
+    overflow: hidden;
 }
 div#toolbar-header img {
   width: 25px;
@@ -195,4 +198,18 @@ p#templateIs {
 }
 p#templateMessage {
   text-align: center;
+}
+button.flipcard-button {
+    border-radius: 10px!important;
+    color: black!important;
+    background: white!important;
+    border: 3px solid #cccccc!important;
+    padding: 10px!important;
+}
+/* button#toolbar-drag {
+  visibility: hidden;
+} */
+
+button#toolbar-drag-front {
+  visibility: hidden;
 }

@@ -53,12 +53,13 @@ function github_get_sites() {
                     </div>
                 </div>
                 <div class="sites-cta">     
-                    <p class="sites-link">${hasPages} </p>
+                    <p class="sites-link">Link enabled : ${hasPages} </p>
                     <p class="sites-created">Created on : ${new Date(api.created_at).toLocaleString('fr-FR')}</p>
                     <p class="sites-updated">Updated on : ${new Date(api.updated_at).toLocaleString('fr-FR')}</p>
                     <p class="sites-ID">ID : ${api.id} </p>
                     <p class="sites-ID">Template : ${api.is_template} </p>
                     <p class="sites-user">User : ${api.owner.login} </p>
+                    <p class="sites-name">Name : ${api.name} </p>
                     
                     <p class="sites-type">Type : ${api.description} </p>
                     <div class = "sites-buttons">

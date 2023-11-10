@@ -329,3 +329,6 @@ p#siteName {
 span.flip-id {
     color: red;
 }
+p#siteMessage {
+    text-align: center;
+}
