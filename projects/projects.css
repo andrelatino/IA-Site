@@ -20,7 +20,7 @@ h2.sites-name {
     border-radius: 10px;
     display: grid;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
-    overflow: hidden;
+    
 }
 .sites-subtitle {
     grid-column: 1 / -1;
@@ -46,6 +46,8 @@ h2.sites-name {
 .sites-content {
     display: grid;
     gap: 1px;
+    border-radius: 10px;
+    overflow: hidden;
     
 }
 img.sites-icon {
