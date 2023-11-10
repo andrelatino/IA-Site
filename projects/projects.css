@@ -2,10 +2,10 @@
 
 .sites-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(auto, 300px));   
-    gap: 1%;
+    grid-template-columns: repeat(auto-fit,minmax(auto, 300px));
+    gap: 20px;
     padding-bottom: 200px;
-    place-content: center;
+    place-content: start center;
 }
 h2.sites-name {
     background: white;
