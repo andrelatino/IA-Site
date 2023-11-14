@@ -80,7 +80,6 @@ function github_get_sites() {
 
             buttonSettings.addEventListener('click', () => {
 
-                
 
                 localStorage.setItem('githubRepoName', api.name);
                 
@@ -91,7 +90,8 @@ function github_get_sites() {
 
                 const templateIs = document.getElementById('templateIs');
                 templateIs.textContent = api.is_template;
-                
+
+     
 
                 if(api.is_template === true ){
                     document.getElementById("checkbox-status").checked = true;

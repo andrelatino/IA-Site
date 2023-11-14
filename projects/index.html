@@ -48,7 +48,7 @@
 					  <span class="tooltiptext">Delete Site</span>
 					</button>
 	
-					<button class="export-section flip-button" data-side="back3">
+					<button id="domain-btn" class="export-section flip-button" data-side="back3">
 					  <img src="../global/file/domain.svg">
 					  <span class="tooltiptext">Add Domain</span>
 					</button>
@@ -61,6 +61,7 @@
 				  </div>
 			
 			  </div>
+			  
 			  <div class="card-back card-back1">
 				<div id="toolbar-header"> 
 					<button id="toolbar-drag" class="back-to-front">
@@ -69,19 +70,13 @@
 					<div id="flip-title" class="flip-url toolbarTitles flip-title-ellipsis"></div>
 					<button class="closeButton toolbar-close">
 					  <img src="../global/file/close.svg">
-					</button>
-					
+					</button>	
 				</div>
 				<div class="flip-content"> 
-					
-					
-						<p>To clone this site please enter your new site name</p>
-						<input type="text" id="clone_input">
-						<p class="help">Choose a template</p>
-						<button id="clone_button" class="flipcard-button">CLONE SITE</button>
-						<span id="clone_message"></span>
-							
-					
+					<p>To clone this site please enter your new site name</p>
+					<input type="text" id="clone_input" class="flipcard-input">
+					<button id="clone_button" class="flipcard-button">CLONE SITE</button>
+					<span id="clone_message" class="flipcard-message"></span>
 				</div>
 			 </div> 
 
@@ -99,11 +94,11 @@
 				<div class="flip-content"> 
 					
 						<p>Type: <span class="flip-id"></span> to delete this site. This is irreversible</p>
-						<input id="fileInput" type="text" required>
+						<input id="fileInput" type="text" required class="flipcard-input">
 						<button class="flipcard-button" onclick="deleteCheck()">DELETE</button>
 						<p id="siteID"></p>
 						<p id="siteName"></p>
-						<p id="siteMessage"></p>
+						<p id="siteMessage" class="flipcard-message"></p>
 						
 						
 				</div>
@@ -119,6 +114,49 @@
 					  <img src="../global/file/close.svg">
 					</button>
 					
+				</div>
+				<div class="flip-content-domain"> 
+
+
+					<div class="stepper">
+						<button class="step step1" onclick="showContent(1)">
+						  <span class="step-number">Check</span>
+						  
+						</button>
+						<button class="step step2" onclick="showContent(2)">
+						  <span class="step-number">IPs</span>
+						  
+						</button>
+						<button class="step step3" onclick="showContent(3)">
+						  <span class="step-number">Add</span>
+						</button>
+						<button class="step step4" onclick="showContent(4)">
+							<span class="step-number">Remove</span>
+						  </button>
+					</div>
+					  
+					  <div id="content-1" class="content">
+						<p>Checking ....</p>
+					  </div>
+					  <div id="content-2" class="content" style="display:none;">
+						<p>No domain found on this project, point you domain to our servers first</p>
+						<input id="domain_input" class="flipcard-input" type="text" required>
+						<button id="domain_button" class="flipcard-button">Check IPs</button>
+						<p id="domain_message" class="flipcard-message"></p>
+					  </div>
+					  
+					  <div id="content-3" class="content" style="display:none;">
+						<p>Great, now confirm that you want to add this domain <span id="get-domain"></span> to this site</p>
+						<button onclick="add_domain()" class="flipcard-button">Add domain</button>
+						<p id="domain_message3" class="flipcard-message"></p>
+					  </div>
+
+					  <div id="content-4" class="content" style="display:none;">
+						<p>Domain <span id ='current-domain'></span> is attached to this site</p>
+						<button onclick="delete_domain()" class="flipcard-button">Delete domain</button>
+						<p id="domain_message4" class="flipcard-message"></p>
+					  </div>
+
 				</div>
 			  </div>
 			  
@@ -142,17 +180,16 @@
 						
 						<p id="templateIs"></p>
 						<button id="addTemplate" onclick="convertToTemplate()">SAVE</button>
-						<p id="templateMessage"></p>
+						<p id="templateMessage" class="flipcard-message"></p>
 						
 				</div>
 			  </div>
-
 			
 			</div>
+
 		</div>
 
 		<footer>
-			
 			
 			<script src="../global/js/sidebar.js"></script>
 			<script src="../global/js/apis.js"></script>
@@ -160,7 +197,6 @@
 			<script src="../projects/projects-modal-new.js"></script>
 			<script src="../projects/projects-new.js"></script>
 			<script src="../projects/projects-delete.js"></script>
-			<script src="../projects/projects-create-domain.js"></script>
 			<script src="../projects/projects-modal-domain.js"></script>
 			<script src="../projects/flipcard.js"></script>
 			<script src="../global/js/functions.js"></script>

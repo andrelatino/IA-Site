@@ -4,7 +4,7 @@
 document.getElementById('clone_button').addEventListener('click', function() {
     const message = document.getElementById('clone_message');
     const template_from = localStorage.getItem('githubRepoName');
-    alert(template_from);
+    // alert(template_from);
     const newRepoName = document.getElementById('clone_input').value;
 
     if (!newRepoName) {

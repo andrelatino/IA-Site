@@ -60,7 +60,7 @@ function deleteCheck() {
           message.textContent = 'Code is wrong';
       }
   }else{
-      message.textContent = 'Code is empty!';
+      message.textContent = 'Enter code!';
   }
 }
 
