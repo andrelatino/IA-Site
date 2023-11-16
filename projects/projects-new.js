@@ -1,49 +1,49 @@
-document.getElementById('cloneRepoBtn').addEventListener('click', function() {
-    const message = document.getElementById('message');
-    const templateRepo = document.getElementById('templateSelector').value;
-    const newRepoName = document.getElementById('newRepoNameInput').value;
+    document.getElementById('cloneRepoBtn').addEventListener('click', function() {
+      const message = document.getElementById('message');
+      const templateRepo = document.getElementById('templateSelector').value;
+      const newRepoName = document.getElementById('newRepoNameInput').value;
 
-    if (!newRepoName) {
-        message.textContent = "Por favor, ingresa el nombre del nuevo repositorio.";
-        return;
-    }
+      if (!newRepoName) {
+          message.textContent = "Name is empty!";
+          return;
+      }
 
-    message.textContent = "0/2 Cloning template...";
+      message.textContent = "0/3 Cloning site";
 
-    const token = githubApi;
-    const templateOwner = githubUser;  // Asegúrate de cambiar esto si es necesario
+      const token = githubApi;
+      const templateOwner = githubUser;  // Asegúrate de cambiar esto si es necesario
 
-    fetch(`https://api.github.com/repos/${templateOwner}/${templateRepo}/generate`, {
-        method: 'POST',
-        headers: {
-            'Authorization': `token ${token}`,
-            'Accept': 'application/vnd.github.baptiste-preview+json'
-        },
-        body: JSON.stringify({
-            name: newRepoName,
-            description:'Site',
-            private: false
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.full_name) {
-            message.textContent = '1/2 Template cloned!';
-            
-            setTimeout(() => {
-                message.textContent = '1/2 Creating URL...';
-                createPage(templateOwner, newRepoName, token);
-            }, 3000); 
+      fetch(`https://api.github.com/repos/${templateOwner}/${templateRepo}/generate`, {
+          method: 'POST',
+          headers: {
+              'Authorization': `token ${token}`,
+              'Accept': 'application/vnd.github.baptiste-preview+json'
+          },
+          body: JSON.stringify({
+              name: newRepoName,
+              description:'Site',
+              private: false
+          })
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.full_name) {
+              message.textContent = '1/3 Site cloned!';
               
-        } else {
-            message.textContent = `Template ${data.message}`;
-        }
-    })
-    .catch(error => {
-        console.error('Hubo un error:', error);
-        message.textContent = 'Error cloning template';
-    });
-});
+              setTimeout(() => {
+                  message.textContent = '1/3 Creating page';
+                  createPage(templateOwner, newRepoName, token);
+              }, 3000); 
+                
+          } else {
+              message.textContent = `Template ${data.message}`;
+          }
+      })
+      .catch(error => {
+          console.error('Hubo un error:', error);
+          message.textContent = 'Error cloning template';
+      });
+  });
 
 function createPage(owner, repo, token) {
     const requestOptions = {
@@ -71,14 +71,22 @@ function createPage(owner, repo, token) {
       if (response.status === 201) {
         const message = document.getElementById('message');
         setTimeout(() => {
-            message.textContent = '2/2 URL Created!';
+            message.textContent = '2/3 Page created!';
             return response.json();
-        }, 3000); 
+        }, 2000); 
 
         setTimeout(() => {
-            message.textContent = 'Site created successfully!';
+            message.textContent = '2/3 Page created!';
             return response.json();
-        }, 5000); 
+        }, 4000);
+
+        setTimeout(function() {
+          message.textContent = '3/3 Reloading...';
+        }, 6000);
+  
+        setTimeout(function() {
+          location.reload(true);
+        }, 8000);
         
       } else {
         const message = document.getElementById('message');

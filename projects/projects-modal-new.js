@@ -5,25 +5,14 @@
       <div id="modalNewOverlay">
         <div id="modalContent" class="modal-content">
           <div class="sites-modal-header"> 
-            <p class="new-title">New Site</p>
+            <button style='display:none;'><img src="../global/file/drag.svg"></button>
+            <p class="flipcard-title">New Site</p>
             <span id="modalNewClose" onclick="modalNewClose()"><img src="../global/file/close-white.svg"></span>
           </div>
           <div class="sites-modal-content">
-            
-            <select id="projectOptions">
-                <option value="Site">Site</option>
-            </select>
-            <p class="help">Enter your site name</p>
-            <input type="text" id="newRepoNameInput" placeholder="mywebsite.com">
-            <p class="help">Choose a template</p>
-            <select id="templateSelector">
-                <option disabled selected value> -- select an option -- </option>
-                <option value="energia.fr">energia.fr</option>
-                <option value="skeleton">skeleton</option>
-                <option value="starter">starter</option>
-            </select>
-
-            <button id="cloneRepoBtn">Create Site</button>
+            <input class='flipcard-input' type="text" id="newRepoNameInput" placeholder='Enter name'>
+            <select id="templateSelector" class="flipcard-select"></select>
+            <button id="cloneRepoBtn" class='flipcard-button'>Create Site</button>
             <span id="message"></span>
           </div>
         </div>

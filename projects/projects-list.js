@@ -49,7 +49,7 @@ function github_get_sites() {
              <div class="sites-content">
                 <div id="iframe-box">
                     <div class="thumbnail">
-                        <iframe src="${urlEncoded}" frameborder="0" loading="lazy" scrolling="no"></iframe>
+                        <iframe id="${api.id}" src="${urlEncoded}" frameborder="0" loading="lazy" scrolling="no"></iframe>
                     </div>
                 </div>
                 <div class="sites-cta">     
@@ -74,6 +74,7 @@ function github_get_sites() {
                    
             `;
         gridDiv.appendChild(itemsDiv);
+        
         const buttonEdit = document.getElementById(`buttonEdit${api.id}`);
         const buttonDelete = document.getElementById(`buttonDelete${api.id}`);
         const buttonSettings = document.getElementById(`buttonSettings${api.id}`);
@@ -159,6 +160,7 @@ function github_get_sites() {
                 getApiName.textContent = api.name;
               
             });
+            
         }
     })
     .catch(error => {
@@ -181,5 +183,6 @@ function alertCheckboxStatus() {
   
   // Add an event listener to the checkbox to call the function when it changes
   
-  
+
+
 
