@@ -16,9 +16,11 @@
 #video-container {
     position: absolute;
     width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
 }
 #video-github-buttons {
-    display: grid;
+    display: none;
     place-content: baseline;
     grid-template-columns: repeat(3,1fr);
     background: white;
@@ -35,7 +37,6 @@ div#video-github-buttons img {
 {
     display: grid;
     grid-template-columns:auto;
-    position: absolute;
     background:white;
     
 }
@@ -90,6 +91,7 @@ video#video-thumbnail {
     height: 280px;
     width: 280px;
     object-fit: cover;
+    background: black;
 }
 
 
@@ -191,8 +193,16 @@ video#video-thumbnail {
 }
 div#video-libraries {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3,1fr);
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
 } 
+button.video-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

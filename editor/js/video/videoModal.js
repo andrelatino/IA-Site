@@ -54,25 +54,38 @@ function videoModal() {
               
               <button id="video-btn-all" onclick="videoAllButton();">PC</button>
               
-              <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close"><img src="./assets/svg/icons/close.svg"></button>
+              <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
+                <img src="./assets/svg/icons/close.svg">
+              </button>
                        
             </div>
-            <div id = "video-libraries">
-              <button id="videoWebSidebar" onclick="openWebVideos()">
-                <span class="tooltiptext-right">Videos Web</span>	
-              </button>
-              
-              <button id="videoGithubSidebar" onclick="openMyVideos()">
-                <span class="tooltiptext-right">My Videos</span>	
-            </div>  
+            
             
             <div id="video-all">          
                 <video id="video-thumbnail" autoplay="" loop="" muted=""><source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4"></video>       
                 <input type="text" id="video-all-input"> 
                 <button id="video-all-save" onclick="updateAllVideo();">SAVE (ALL)</button>  
             </div>
+
+            <div id = "video-libraries">
+              <button id="videoWebSidebar" onclick="openWebVideos()">
+                <span class="tooltiptext-right">Web</span>	
+              </button>
+              
+              <button id="videoGithubSidebar" onclick="openMyVideos()">
+                <span class="tooltiptext-right">Media</span>
+              </button>	
+
+              <button id="videoGithubSidebar" onclick="openMyVideos()">
+                <span class="tooltiptext-right">Upload</span>
+              </button>	
+            </div>  
             
-        </div> 
+        </div>
+
+              <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
+                <img src="./assets/svg/icons/close.svg">
+              </button>
          
         
       </div>  
@@ -128,13 +141,13 @@ function videoModal() {
             sourceElement.src = newSrc;
             videoThumb.src = newSrc;
             // Load the updated video source
-            videoElement.load();
+            // videoElement.load();
             
             // Listen for the 'loadeddata' event
-            videoElement.addEventListener('loadeddata', function() {
-              console.log('Video is loaded and ready to play.');
-              // Perform actions when the video is loaded.
-            });
+            // videoElement.addEventListener('loadeddata', function() {
+            //   console.log('Video is loaded and ready to play.');
+            //   // Perform actions when the video is loaded.
+            // });
           } else {
             console.error('Could not find <source> element within the video element.');
           }

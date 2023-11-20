@@ -4,6 +4,7 @@ var videoCount= 1;
 var videoQuery = "";
 var nextButton = document.getElementById('video-sidebar-next-button');
 
+
 function loadDefaultVideo(){
 
   videoPage = 1;
@@ -48,8 +49,10 @@ function loadDefaultVideo(){
 
         // Add click event listener to the image
         img.addEventListener('click', () => {
+            const videoTextId = document.getElementById('video-id').textContent;
+            
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('EfIeJId', sdVideoLink);
+            updateVideoSrc(videoTextId, sdVideoLink);
             
                         
             console.log('SD Video Link:', sdVideoLink);
@@ -120,7 +123,7 @@ function loadSearchVideo() {
           // Add click event listener to the image
         img.addEventListener('click', () => {
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('EfIeJId', sdVideoLink);
+            updateVideoSrc(videoTextId, sdVideoLink);
             
         });
 
@@ -189,7 +192,7 @@ function loadNextVideos() {
           // Add click event listener to the image
         img.addEventListener('click', () => {
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('EfIeJId', sdVideoLink);
+            updateVideoSrc(videoTextId, sdVideoLink);
             
         });
         

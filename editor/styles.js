@@ -16,7 +16,7 @@ function loadCSS(href) {
   loadCSS("./css/file-github.css");
   loadCSS("./css/openai-text.css");
   loadCSS("./css/icon.css");
-  loadCSS("./css/video.css");
+  // loadCSS("./css/video.css");
   loadCSS("./css/toolbar-sidebar.css");
   loadCSS("./css/modals.css");
   loadCSS("./css/mobile.css");
