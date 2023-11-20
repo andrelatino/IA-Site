@@ -17,6 +17,12 @@
   visibility:hidden;
   perspective: 1000px;
 }
+.toolbar-open img {
+  filter:invert(1); 
+}
+button.toolbar-open {
+  padding: 5px;
+}
 .toolbar-open {
   position: absolute;
   left: 15px;
@@ -24,6 +30,8 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  background: black;
+  border: 3px solid white;
   
 }
 div#toolbar-header {
@@ -132,7 +140,7 @@ div#toolbar-buttons img {
   display: grid;
   grid-template-columns: repeat(3,1fr);
   width: 280px;
-  background: black;
+  background: #dddddd;
   gap: 1px;
 }
 .radio-group label {

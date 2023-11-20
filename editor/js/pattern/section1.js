@@ -55,8 +55,8 @@ function generateRandomID(length) {
   @media screen and (min-width:0px){#${h2Css}{font-size:clamp(4rem,8vw,8rem);line-height:90%;font-weight:900;color:white;}}
   @media screen and (min-width:0px){#${pCss}{font-size:clamp(1rem,2vw,2rem);color:white;}}
   @media screen and (min-width:0px){#${div2Css}{display:flex;gap:10px;}}
-  @media screen and (min-width:0px){#${btn1Css}{background:red;padding:20px;color:white;font-size:14px;text-decoration:underline;text-underline-position:under;}}
-  @media screen and (min-width:0px){#${btn2Css}{background:blue;padding:20px;color:white;font-size:14px;text-decoration:underline;text-underline-position:under;}}
+  @media screen and (min-width:0px){#${btn1Css}{background:black;padding:20px;color:white;font-size:14px;border-radius:10px;text-underline-position:under;}}
+  @media screen and (min-width:0px){#${btn2Css}{background:white;padding:20px;color:black;font-size:14px;border-radius:10px;text-underline-position:under;}}
   @media screen and (max-width:640px){#${div1Css}{gap:10px;}}
   `;
   const customHTML = `
@@ -95,7 +95,7 @@ function generateRandomID(length) {
           </div>
       </div>
       <button class="toolbar-open" onclick="toolsOpenModal(this);">
-        <img src="./assets/svg/icons/settings.svg">
+        <img src="../global/file/edit-section.svg">
       </button>
     </section>
   `;

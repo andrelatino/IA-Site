@@ -165,10 +165,10 @@ span.editor-items {
     text-align: center;
 }
 .close-editor-btn {  
-    background: red;
+    background: #ac0000;
     color: white;
     border: none;
-    border: none;
+    border: 3px solid white;
     display: none;
     font-size: 20px;
     font-weight:600;
