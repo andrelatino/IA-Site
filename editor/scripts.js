@@ -28,6 +28,7 @@ loadScript("./js/pattern/logo1.js ");
 loadScript("./js/pattern/menu1.js ");
 loadScript("./js/pattern/section1.js ");
 loadScript("./js/pattern/sidebar1.js ");
+loadScript("./js/pattern/video1.js ");
 
 loadScript("./js/dragElements.js");
 
@@ -40,6 +41,8 @@ loadScript("./js/image/imageUpdate.js");
 loadScript("./js/image/imageLoad.js");
 loadScript("./js/image/imageClick.js");
 
+loadScript("./js/video/videoModal.js");
+loadScript("./js/video/videoSidebar.js");
 
 loadScript("./js/github/page/githubSha.js");
 loadScript("./js/github/page/githubAdd.js");
@@ -110,6 +113,7 @@ loadScript("./js/video/videoSearch.js");
 
 
 loadScript("./js/section/sectionToolbar.js");
+
 // loadScript("./js/section/sectionAutoIds.js");
 
 loadScript("./js/tools/tools-drag.js");
@@ -121,5 +125,5 @@ loadScript("./js/chatgpt/chatgpt-modal.js");
 loadScript("./js/chatgpt/chatgpt-apicall.js");
 
 // CSS EDITOR
-loadScript("./js/editor-css/editor-css-select.js");
+// loadScript("./js/editor-css/editor-css-select.js");
 

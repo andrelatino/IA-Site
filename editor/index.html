@@ -5,10 +5,15 @@
 		<meta name="google" content="notranslate">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="./styles.js"></script>
+		
 		<script src="./js/header/headerResetCss.js"></script>
+		
+		
 	</head>
 	<body>
+		<script src="./video.js"></script>
 		<div id="image-modal" style="display:none;"></div>
+		<div id="video-modal" style="display:none;"></div>
 		<div id="image-github-modal" style="visibility:hidden;">
 			<div id="image-github-buttons">
 			  <button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button>
@@ -63,7 +68,9 @@
 					<div id="holder">
 						<div id="empty-section"></div>
 						<div id="grid-wrapper">
-							<div id="grid"></div>	
+							
+							<div id="grid"></div>
+							
 						</div>
 					</div>
 				</div>
@@ -90,17 +97,20 @@
 			<div id="image-sidebar-grid"></div>
 			
 		</div>	
-		<div id="video-sidebar" style="right:-300px">
+
+		<div id="video-sidebar">
 			<div id="video-sidebar-header">
 				<input type="text" id="video-sidebar-input" placeholder="Search..." required>
-				<button id="video-sidebar-search" onclick="closeVideoSidebar();"><img src="./assets/svg/icons/close.svg"></button>	
+				<button type="submit" id="video-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button>
+				<button type="submit" id="video-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button>
+				<button type="submit" id="video-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button>
+				<button id="video-sidebar-next-button" onclick="loadNextVideos();">next</button>	
 			</div>
 			<p id="video-sidebar-total"></p>
 			<div id="video-sidebar-grid"></div>
-			<div id="video-sidebar-next-div">
-				<button id="video-sidebar-next-button" onclick="loadNextVideos();"> + </button>
-			</div>
+			
 		</div>
+
 		<div id="color-sidebar" style="right:-300px">
 			<div id="color-sidebar-header">
 				<input type="text" id="color-sidebar-input" placeholder="Search..." required>
@@ -220,6 +230,8 @@
 		</div>
 		<footer>
 			<script src="./scripts.js"></script>
+			
+			
 		</footer>
 	</body>
 </html>

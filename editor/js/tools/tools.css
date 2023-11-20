@@ -1,3 +1,10 @@
+.bg-hidden{
+  display:none;
+}
+.bg-selected{
+  display:grid;
+}
+
 #toolbarModal {
   z-index: 1;
   position: fixed;
@@ -29,7 +36,7 @@ div#toolbar-header {
   place-content: center;
   width: 100%;
   background: white;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid #dddddd;
 }
 button.toolbar-close {
 background: red;
@@ -47,9 +54,9 @@ div#toolbar-buttons {
 }
 div#toolbar-buttons button {
   width: 100%;
-  /* color: #838383; */
   display: grid;
   gap: 5px;
+  background:#f2f2f2;
 }
 div#toolbar-header img {
   width: 25px;
@@ -121,19 +128,44 @@ div#toolbar-buttons img {
 /* .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 } */
-
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  width: 280px;
+  background: black;
+  gap: 1px;
+}
+.radio-group label {
+  display: grid;
+  place-content: center;
+  padding: 15px;
+  background: #f2f2f2;
+  color:black;
+  gap:5px;
+}
 .flip-card-back-buttons {
   display: grid;
   background: #eeeeee;
   gap: 1px;
+  grid-template-columns: repeat(3,1fr);
 }
+button#edit-bg {
+  display: grid;
+  grid-column: 1 / -1;
+}
+
 .flip-card-back-buttons button {
     display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    place-items: center;
+    /* grid-template-columns: 50px 1fr 50px;
+    place-items: center; */
     /* place-content: center; */
     background: white;
     gap: 1px;
+}
+p#color-id,
+p#video-id,
+p#image-id{
+  font-size: 10px;
 }
 
 .flip-card-front, 

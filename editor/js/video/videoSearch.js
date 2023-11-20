@@ -49,7 +49,9 @@ function loadDefaultVideo(){
         // Add click event listener to the image
         img.addEventListener('click', () => {
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('iFTHHlw', sdVideoLink);            
+            updateVideoSrc('EfIeJId', sdVideoLink);
+            
+                        
             console.log('SD Video Link:', sdVideoLink);
         });
 
@@ -118,8 +120,8 @@ function loadSearchVideo() {
           // Add click event listener to the image
         img.addEventListener('click', () => {
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('iFTHHlw', sdVideoLink);            
-            console.log('SD Video Link:', sdVideoLink);
+            updateVideoSrc('EfIeJId', sdVideoLink);
+            
         });
 
           // Add click event listener to the image
@@ -187,8 +189,8 @@ function loadNextVideos() {
           // Add click event listener to the image
         img.addEventListener('click', () => {
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc('iFTHHlw', sdVideoLink);            
-            console.log('SD Video Link:', sdVideoLink);
+            updateVideoSrc('EfIeJId', sdVideoLink);
+            
         });
         
           gridItem.appendChild(img);
@@ -236,28 +238,5 @@ function closeVideoSidebar() {
   video.style.right = "-300px";
 }
 
-function updateVideoSrc(videoId, newSrc) {
-    const videoElement = document.getElementById(videoId);
-    
-    if (videoElement) {
-      const sourceElement = videoElement.querySelector('source');
-      
-      if (sourceElement) {
-        sourceElement.src = newSrc;
-        
-        // Load the updated video source
-        videoElement.load();
-        
-        // Listen for the 'loadeddata' event
-        videoElement.addEventListener('loadeddata', function() {
-          console.log('Video is loaded and ready to play.');
-          // Perform actions when the video is loaded.
-        });
-      } else {
-        console.error('Could not find <source> element within the video element.');
-      }
-    } else {
-      console.error('Could not find video element with the specified ID.');
-    }
-  }
+
   

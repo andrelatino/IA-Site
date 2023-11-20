@@ -1,6 +1,8 @@
  
 function sectionImage() {
-    
+  
+  
+
   showImageModal();
   loadUnsplashImages();
   loadGithubImages()
@@ -8,6 +10,8 @@ function sectionImage() {
   const textID = document.getElementById('toolbarSectionID');
   const sectionID = textID.textContent.trim();
   const sectionElement = document.getElementById(sectionID);
+
+
   if (sectionElement) {
     const pictureElement = sectionElement.querySelector('picture');
     if (pictureElement) {

@@ -66,27 +66,35 @@ function toolsHtml(){
                 <button id="toolbar-drag" onclick="flipCardOnClick()">
                   <img src="./assets/svg/icons/rotate.svg">
                 </button>
-                <div class='toolbarTitles'>Select Background</div>
-                <button onClick="toolsCloseModal();" class="toolbar-close">
+                <div class='toolbarTitles'>Background</div>
+                <button onClick="toolsCloseModal(); flipCardOnClick()" class="toolbar-close">
                   <img src="./assets/svg/icons/close.svg">
                 </button>
           </div>
           <div class="flip-card-back-buttons"> 
 
-                <button class="delete-section">
+              <div class="radio-group">
+              <label>
                   <img src="./assets/svg/icons/bg-color.svg">
-                  <span class="tooltiptext">Background Color</span>
-                </button> 
-
-                <button class="export-section" onclick = "sectionImage(); imageAllButton()">
+                  <span class="tooltiptext">Color</span>
+                  <input type="radio" id="colorRadio" name="media" value="Color" onclick="radioClicked('Color')">
+                  <p id="color-id">ID</p>
+              </label>
+              <label>
                   <img src="./assets/svg/icons/bg-image.svg">
-                  <span class="tooltiptext">Background Image</span>
-                </button>
-
-                <button class="duplicate-section">
+                  <span class="tooltiptext">Image</span>
+                  <input type="radio" id="imageRadio" name="media" value="Image" onclick="radioClicked('Image')">
+                  <p id="image-id">ID</p>
+              </label>
+              <label>
                   <img src="./assets/svg/icons/bg-video.svg">
-                  <span class="tooltiptext">Background Video</span>
-                </button>
+                  <span class="tooltiptext">Video</span>
+                  <input type="radio" id="videoRadio" name="media" value="Video" onclick="radioClicked('Video')">
+                  <p id="video-id">ID</p>
+              </label>
+              <button id='edit-bg'> Edit Background </button>
+          </div>
+          
 
         </div>
         </div>
@@ -101,6 +109,11 @@ toolsHtml();
 
 // Define a function to toggle the class on click
 function flipCardOnClick() {
+
+  colorID();
+  videoID();
+  imageID();
+   
   const flipCardInner = document.querySelector('.flip-card-inner');
     // Toggle the class to rotate or reset
     if (flipCardInner.style.transform === 'rotateY(180deg)') {
@@ -110,5 +123,137 @@ function flipCardOnClick() {
     }
   }
 
-// Call the function to enable the flip effect on click
-// flipCardOnClick();
+var selectedMedia;
+const customTextButton = document.getElementById('edit-bg');
+customTextButton.textContent = 'Select Background';
+
+function radioClicked(value) {
+    selectedMedia = value;
+    if (selectedMedia === 'Color'){
+      selectBgColor();
+      const customTextButton = document.getElementById('edit-bg');
+      customTextButton.textContent = 'Edit Background Color';
+    } else if (selectedMedia === 'Image'){
+      selectBgImage();
+      const customTextButton = document.getElementById('edit-bg');
+      customTextButton.textContent = 'Edit Background Image';
+    } else if (selectedMedia === 'Video'){
+      selectBgVideo();
+      const customTextButton = document.getElementById('edit-bg');
+      customTextButton.textContent = 'Edit Background Video';
+    } else {
+      const customTextButton = document.getElementById('edit-bg');
+      customTextButton.textContent = 'Select Background';
+    }
+    console.log("Selected Option: " + value);
+}
+
+function editBackground() {
+    switch (selectedMedia) {
+        case 'Color':
+            editBgColor();
+            break;
+        case 'Image':
+            editBgImage();
+            break;
+        case 'Video':
+            editBgVideo();
+            break;
+        default:
+            console.log("No media selected");
+    }
+}
+
+function selectBgColor() {
+  //COLOR 
+  const colorID = document.getElementById('color-id').textContent;
+  const colorSelected = document.getElementById(colorID);
+  colorSelected.style.display = 'grid';
+  colorSelected.className = 'bg-selected';
+  //IMAGE
+  const imageID = document.getElementById('image-id').textContent;
+  const imageSelected = document.getElementById(imageID);
+  imageSelected.style.display = 'none';
+  imageSelected.className = 'bg-hidden';
+  //VIDEO
+  const videoID = document.getElementById('video-id').textContent;
+  const videoSelected = document.getElementById(videoID);
+  videoSelected.style.display = 'none';
+  videoSelected.className = 'bg-hidden';
+}
+function editBgColor() {
+    //COLOR  
+    
+}
+function selectBgImage() {
+  //COLOR  
+  const colorID = document.getElementById('color-id').textContent;
+  const colorSelected = document.getElementById(colorID);
+  colorSelected.style.display = 'none';
+  colorSelected.className = 'bg-hidden';
+  //IMAGE
+  const imageID = document.getElementById('image-id').textContent;
+  const imageSelected = document.getElementById(imageID);
+  imageSelected.style.display = 'grid';
+  imageSelected.className = 'bg-selected';
+  //VIDEO
+  const videoID = document.getElementById('video-id').textContent;
+  const videoSelected = document.getElementById(videoID);
+  videoSelected.style.display = 'none';
+  videoSelected.className = 'bg-hidden';
+}
+function editBgImage() {
+  sectionImage();
+  imageAllButton();
+    //IMAGE
+}
+function selectBgVideo() {
+  //COLOR  
+  const colorID = document.getElementById('color-id').textContent;
+  const colorSelected = document.getElementById(colorID);
+  colorSelected.style.display = 'none';
+  colorSelected.className = 'bg-hidden';
+  //IMAGE
+  const imageID = document.getElementById('image-id').textContent;
+  const imageSelected = document.getElementById(imageID);
+  imageSelected.style.display = 'none';
+  colorSelected.className = 'bg-hidden';
+  //VIDEO
+  const videoID = document.getElementById('video-id').textContent;
+  const videoSelected = document.getElementById(videoID);
+  videoSelected.style.display = 'grid';
+  colorSelected.className = 'bg-selected';
+}
+
+function editBgVideo() {
+    //VIDEO
+    videoModal();
+    getVideoUrl();
+    loadDefaultVideo();
+}
+
+function colorID() {
+  const sectionId = document.getElementById('toolbarSectionID')?.textContent;
+  const colorID = document.querySelector(`#${sectionId} div[data-type="bg-color"]`)?.id || 'No ID found';
+  const colorMessage = document.getElementById('color-id');
+  colorMessage.textContent = colorID;
+}
+
+function imageID() {
+  const sectionId = document.getElementById('toolbarSectionID')?.textContent;
+  const imageID = document.querySelector(`#${sectionId} div[data-type="bg-image"]`)?.id || 'No ID found';
+  const imageMessage = document.getElementById('image-id');
+  imageMessage.textContent = imageID;
+}
+
+function videoID() {
+  const sectionId = document.getElementById('toolbarSectionID')?.textContent;
+  const videoID = document.querySelector(`#${sectionId} div[data-type="bg-video"]`)?.id || 'No ID found';
+  const videoMessage = document.getElementById('video-id');
+  videoMessage.textContent = videoID;
+}
+
+
+// Attach the editBackground function to the button's click event
+document.getElementById('edit-bg').addEventListener('click', editBackground);
+

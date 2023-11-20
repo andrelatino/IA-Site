@@ -20,6 +20,9 @@ function generateRandomID(length) {
   
   const imageID = generateRandomID(7);
   const imageCss = imageID;
+
+  const videoID = generateRandomID(7);
+  const videoCss = videoID;
   
   const contentID = generateRandomID(7);
   const contentCss = contentID;
@@ -45,6 +48,8 @@ function generateRandomID(length) {
   const customCSS = `
   @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
   @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
+  @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:red;}}
+  @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
   @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 1100px;gap:35px;}}
   @media screen and (min-width:0px){#${h2Css}{font-size:clamp(4rem,8vw,8rem);line-height:90%;font-weight:900;color:white;}}
@@ -58,12 +63,24 @@ function generateRandomID(length) {
     <section id="${sectionID}" data-type="section">
       <style id="${generateRandomID(7)}" type="text/css">${customCSS}</style>
       <div id="${containerID}" data-type="container">
-      <div id="${generateRandomID(7)}" data-type="background">
-        <picture id="${generateRandomID(7)}">
-          <source srcset media="(max-width:640px)">
-          <source srcset media="(min-width:641px) and (max-width:1024px)">     
-          <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
-        </picture>
+      <div id="${generateRandomID(7)}" data-type="backgrounds">
+        
+        <div id="${colorID}" data-type="bg-color"></div>
+      
+        <div id="${generateRandomID(7)}" data-type="bg-image">
+          <picture id="${generateRandomID(7)}">
+            <source srcset media="(max-width:640px)">
+            <source srcset media="(min-width:641px) and (max-width:1024px)">     
+            <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
+          </picture>
+        </div>
+
+        <div id="${generateRandomID(7)}" data-type="bg-video">
+          <video id="${videoID}" autoplay loop muted>
+            <source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+          </video>
+        </div>
+
       </div>
          
           <div id="${contentID}" data-type="content">

@@ -1,5 +1,5 @@
 /*MODAL*/
-#image-modal{
+#video-modal{
     z-index: 9999;
     position: fixed;
     display: grid;
@@ -13,20 +13,25 @@
     border-radius: 15px;
     overflow: hidden;
 }
-#image-container {
+#video-container {
     position: absolute;
     width: 100%;
 }
-#image-github-buttons {
-    display: flex;
+#video-github-buttons {
+    display: grid;
     place-content: baseline;
+    grid-template-columns: repeat(3,1fr);
+    background: white;
 }
-#image-all,
-#image-xs,
-#image-s,
-#image-m,
-#image-l,
-#image-xl
+div#video-github-buttons img {
+    width: 25px;
+}
+#video-all,
+#video-xs,
+#video-s,
+#video-m,
+#video-l,
+#video-xl
 {
     display: grid;
     grid-template-columns:auto;
@@ -35,12 +40,12 @@
     
 }
 
-#image-all-thumbnail,
-#image-xs-thumbnail,
-#image-s-thumbnail,
-#image-m-thumbnail,
-#image-l-thumbnail ,
-#image-xl-thumbnail
+#video-all-thumbnail,
+#video-xs-thumbnail,
+#video-s-thumbnail,
+#video-m-thumbnail,
+#video-l-thumbnail ,
+#video-xl-thumbnail
 {
     height: 280px;
     width: 280px;
@@ -49,12 +54,12 @@
     
 }
 
-#image-all-input,
-#image-xs-input,
-#image-s-input,
-#image-m-input,
-#image-l-input,
-#image-xl-input
+#video-all-input,
+#video-xs-input,
+#video-s-input,
+#video-m-input,
+#video-l-input,
+#video-xl-input
 {
     height: 35px;
     border: none;
@@ -62,29 +67,33 @@
     padding: 15px;
     display: none;
 }
-#image-all-save,
-#image-xs-save,
-#image-s-save,
-#image-m-save,
-#image-l-save,
-#image-xl-save{
+#video-all-save,
+#video-xs-save,
+#video-s-save,
+#video-m-save,
+#video-l-save,
+#video-xl-save{
     background: #2196f3;
     color: white;
     display: none;
 }
 
-
-#image-drag,
-#image-modal-search {
-    width: 35px;
-    padding: 6px;
+button.video-close img {
+    filter: invert(1);
+}
+div#video-libraries {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background: white;
+}
+video#video-thumbnail {
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
 }
 
 
-
-/*SIDEBAR*/
-
-#image-sidebar {
+#video-sidebar {
     width: auto;
     height: 135px;
     position: fixed;
@@ -92,9 +101,17 @@
     left: 0px;
     background-color: #f4f4f4;
     z-index: 9999;
-
 }
-#image-sidebar-grid {
+#video-sidebar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+    height: 35px;
+    overflow: hidden;
+}
+#video-sidebar-grid {
     padding: 25px;
     display: grid;
     height: 90px;
@@ -106,8 +123,7 @@
     place-content: space-between;
     
 }
-
-#image-sidebar-search {
+#video-sidebar-search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,54 +132,51 @@
     height: 35px;
     overflow: hidden;
 }
-#image-sidebar-search-input {
+#video-sidebar-input {
     padding: 10px;
     border: none;
     text-align: center;
     border-radius: 7px;
 }
-
-#image-sidebar-search-button {
+#video-sidebar-search-button {
     width: 40px;
 }
-#image-sidebar-total,
-#image-sidebar-subtotal {
+#video-sidebar-total,
+#video-sidebar-subtotal {
     font-size: 12px;
     display: none;
 }
-
-  
-.image-sidebar-items{ 
+.video-sidebar-items{ 
     position:relative;
     overflow: hidden;
     background:white;
     border-radius: 10px;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
 }
-.image-sidebar-alt {
+.video-sidebar-alt {
     display: none;
     margin: 10px;
     font-size: small;
     color: grey;
 }
-#image-sidebar-next-div {
+#video-sidebar-next-div {
     display: grid;
     place-content: center;
 }
-#image-sidebar-next-button {
+#video-sidebar-next-button {
     height: 50px;
     width: 50px;
     font-size: 1rem;
 
 }
 
-#image-sidebar-settings {
+#video-sidebar-settings {
     display: grid;
     grid-template-columns: 75px 75px auto;
     display:none;
 }
-#image-sidebar-settings select,
-#image-sidebar-settings input {
+#video-sidebar-settings select,
+#video-sidebar-settings input {
     border: none;
     padding: 5%;
     text-align: center;
@@ -176,12 +189,10 @@
     display: grid;
     place-content: center;
 }
-
-
-div#image-libraries {
+div#video-libraries {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
-}
+} 

@@ -20,9 +20,9 @@ function editorMenu() {
   popup.innerHTML = `
     <div id="popup" class="mobile-box">
 
-      <button class="navigation" onclick="patternSection1()">
+      <button class="navigation" onclick="patternVideo1()">
           <img class="editor-icons" src="./assets/svg/icons/pages.svg">
-          <span class="editor-items">Add Page</span>
+          <span class="editor-items">Add Video</span>
       </button>
 
       <button class="navigation" onclick="patternSection1()">
