@@ -49,13 +49,14 @@ function loadDefaultVideo(){
 
         // Add click event listener to the image
         img.addEventListener('click', () => {
-            const videoTextId = document.getElementById('video-id').textContent;
-            
+
+            const bgSrc = document.getElementById('video-src').textContent;
+            const thumbSrc = document.getElementById('video-thumbnail').id;
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc(videoTextId, sdVideoLink);
-            
-                        
-            console.log('SD Video Link:', sdVideoLink);
+
+            updateVideoSrc(bgSrc, sdVideoLink);
+            updateVideoSrc(thumbSrc, sdVideoLink);
+
         });
 
 
@@ -122,15 +123,12 @@ function loadSearchVideo() {
 
           // Add click event listener to the image
         img.addEventListener('click', () => {
-            const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc(videoTextId, sdVideoLink);
-            
-        });
+          const bgSrc = document.getElementById('video-src').textContent;
+          const thumbSrc = document.getElementById('video-thumbnail').id;
+          const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
 
-          // Add click event listener to the image
-        img.addEventListener('click', () => {
-            const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            console.log('SD Video Link:', sdVideoLink);
+          updateVideoSrc(bgSrc, sdVideoLink);
+          updateVideoSrc(thumbSrc, sdVideoLink);
         });
  
           gridItem.appendChild(img);
@@ -191,8 +189,12 @@ function loadNextVideos() {
 
           // Add click event listener to the image
         img.addEventListener('click', () => {
+            const bgSrc = document.getElementById('video-src').textContent;
+            const thumbSrc = document.getElementById('video-thumbnail').id;
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc(videoTextId, sdVideoLink);
+
+            updateVideoSrc(bgSrc, sdVideoLink);
+            updateVideoSrc(thumbSrc, sdVideoLink);
             
         });
         

@@ -91,6 +91,7 @@ function toolsHtml(){
                   <span class="tooltiptext">Video</span>
                   <input type="radio" id="videoRadio" name="media" value="Video" onclick="radioClicked('Video')">
                   <p id="video-id">ID</p>
+                  <p id="video-src">SRC</p>
               </label>
               <button id='edit-bg'> Edit Background </button>
           </div>
@@ -247,10 +248,15 @@ function imageID() {
 }
 
 function videoID() {
+
   const sectionId = document.getElementById('toolbarSectionID')?.textContent;
   const videoID = document.querySelector(`#${sectionId} div[data-type="bg-video"]`)?.id || 'No ID found';
   const videoMessage = document.getElementById('video-id');
   videoMessage.textContent = videoID;
+
+  const videoSrc = document.getElementById(sectionId).getElementsByTagName('video')[0]?.id;
+  const videoSrcText =  document.getElementById('video-src');
+  videoSrcText.textContent = videoSrc;
 }
 
 

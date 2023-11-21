@@ -83,7 +83,7 @@ function videoModal() {
             
         </div>
 
-              <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
+            <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
               </button>
          
@@ -130,31 +130,27 @@ function videoModal() {
         }
     }
 
-    function updateVideoSrc(videoId, newSrc) {
-        const videoElement = document.getElementById(videoId);
-        
+    function updateVideoSrc(videoID, videoURL) {
+        const videoElement = document.getElementById(videoID);
+    
         if (videoElement) {
-          const sourceElement = videoElement.querySelector('source');
-          const videoThumb = document.getElementById('video-thumbnail')
-          
-          if (sourceElement) {
-            sourceElement.src = newSrc;
-            videoThumb.src = newSrc;
-            // Load the updated video source
-            // videoElement.load();
-            
-            // Listen for the 'loadeddata' event
-            // videoElement.addEventListener('loadeddata', function() {
-            //   console.log('Video is loaded and ready to play.');
-            //   // Perform actions when the video is loaded.
-            // });
-          } else {
-            console.error('Could not find <source> element within the video element.');
-          }
+            videoElement.src = videoURL;
+    
+            // Check if 'load' is a function before calling it
+            if (typeof videoElement.load === 'function') {
+                videoElement.load();
+    
+                videoElement.addEventListener('loadeddata', function() {
+                    console.log('Video is loaded and ready to play.');
+                });
+            } else {
+                console.error('load is not a function for the given video element.');
+            }
         } else {
-          console.error('Could not find video element with the specified ID.');
+            console.error('Could not find video element with the specified ID.');
         }
-      }
+    }
+    
     
     
     
