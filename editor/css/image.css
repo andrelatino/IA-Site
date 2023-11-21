@@ -1,4 +1,13 @@
 /*MODAL*/
+.image-selected{
+    background:blue!important;
+}
+.image-selected img{
+    filter: invert(1)!important;
+}
+.image-unselected{
+    background:white!important;
+}
 #image-modal{
     z-index: 9999;
     position: fixed;
@@ -34,6 +43,7 @@
     width: 280px;
     object-fit: cover;
     background: black;
+    position:absolute;
     
 }
 
@@ -89,6 +99,14 @@ div#image-responsive {
     background: black;
 }
 
+button#image-clean {
+    position: absolute;
+    left: 10px;
+    bottom: 50px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
 /*SIDEBAR*/
 
 #image-sidebar {
@@ -187,8 +205,32 @@ div#image-responsive {
 
 div#image-libraries {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
+}
+button#image-btn-all {
+    position: absolute;
+    right: 10px;
+    bottom: 150px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+button#image-btn-m {
+    position: absolute;
+    right: 10px;
+    bottom: 100px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+button#image-btn-xs {
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }

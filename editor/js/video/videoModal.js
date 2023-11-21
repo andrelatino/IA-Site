@@ -85,7 +85,7 @@ function videoModal() {
 
             <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
-              </button>
+            </button>
          
         
       </div>  

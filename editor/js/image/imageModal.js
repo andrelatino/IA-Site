@@ -51,12 +51,6 @@ function sectionImage() {
           
             <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
             
-            <button id="image-btn-all" onclick="imageAllButton();">PC</button>
-            <button id="image-btn-m" onclick="imageMButton();">Tablet</button>
-            <button id="image-btn-xs" onclick=" imageXsButton();">Mobile</button>
-            
-            <button onclick="hideImageModal(); closeImageSidebar()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
-                     
           </div>
           
           
@@ -89,12 +83,26 @@ function sectionImage() {
             </button>
             <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
               <span class="tooltiptext-right">Upload</span>
-            </button>   
+            </button>
+            <button disable>
+              <span class="tooltiptext-right">Clean</span>
+            </button>     
           </div>
           
           <button onclick="hideImageModal(); closeImageSidebar()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
           </button>
+
+          <button id="image-btn-all" onclick="imageAllButton();">
+            <img src="../global/file/pc.svg">
+          </button>
+          <button id="image-btn-m" onclick="imageMButton();">
+            <img src="../global/file/tablet.svg">
+          </button>
+          <button id="image-btn-xs" onclick=" imageXsButton();">
+            <img src="../global/file/mobile.svg">
+          </button>
+          
       </div> 
  
     `;
