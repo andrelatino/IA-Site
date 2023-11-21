@@ -19,7 +19,7 @@ position: absolute;
 width: 300px;
 }
 #image-github-buttons {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(5, 1fr);
     background: white;
 }

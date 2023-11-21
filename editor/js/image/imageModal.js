@@ -58,37 +58,45 @@ function sectionImage() {
             <button onclick="hideImageModal(); closeImageSidebar()" class="image-close"><img src="./assets/svg/icons/close.svg"></button>
                      
           </div>
-          <div id = "image-libraries">
-            <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
-              <span class="tooltiptext-right">Images Web</span>	
-            </button>
+          
+          
+          <div id="image-responsive">
+            <div id="image-all">          
+                <img id="image-all-thumbnail" src="">           
+                <input type="text" id="image-all-input"> 
+                <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
+            </div>
             
-            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
-              <span class="tooltiptext-right">My Images</span>	
-          </div>  
-          
-          <div id="image-all">          
-              <img id="image-all-thumbnail" src="">           
-              <input type="text" id="image-all-input"> 
-              <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
-          </div>
-          
-          <div id="image-m">
-              <img id="image-m-thumbnail" src=""> 
-              <input type="text" id="image-m-input">
-              <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
-          </div>
-          
-          <div id="image-xs">
-              <img id="image-xs-thumbnail" src=""> 
-              <input type="text" id="image-xs-input">
-              <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
+            <div id="image-m">
+                <img id="image-m-thumbnail" src=""> 
+                <input type="text" id="image-m-input">
+                <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
+            </div>
+            
+            <div id="image-xs">
+                <img id="image-xs-thumbnail" src=""> 
+                <input type="text" id="image-xs-input">
+                <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
+            </div>
           </div>
 
+          <div id = "image-libraries">
+            <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
+              <span class="tooltiptext-right">Web</span>	
+            </button>
+            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
+              <span class="tooltiptext-right">Media</span>
+            </button>
+            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
+              <span class="tooltiptext-right">Upload</span>
+            </button>   
+          </div>
+          
+          <button onclick="hideImageModal(); closeImageSidebar()" class="video-close">
+                <img src="./assets/svg/icons/close.svg">
+          </button>
       </div> 
-       
-      
-    </div>  
+ 
     `;
     
     editorDiv.innerHTML = content;

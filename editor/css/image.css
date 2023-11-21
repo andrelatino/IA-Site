@@ -16,6 +16,8 @@
 #image-container {
     position: absolute;
     width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
 }
 #image-github-buttons {
     display: flex;
@@ -28,10 +30,10 @@
 #image-l,
 #image-xl
 {
-    display: grid;
-    grid-template-columns:auto;
-    position: absolute;
-    background:white;
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
+    background: black;
     
 }
 
@@ -45,7 +47,7 @@
     height: 280px;
     width: 280px;
     object-fit: cover;
-    background: #dadada;
+    background: black;
     
 }
 
@@ -80,7 +82,12 @@
     padding: 6px;
 }
 
-
+div#image-responsive {
+    display: grid;
+    height: 280px;
+    width: 280px;
+    background: black;
+}
 
 /*SIDEBAR*/
 
@@ -180,7 +187,7 @@
 
 div#image-libraries {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3,1fr);
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
