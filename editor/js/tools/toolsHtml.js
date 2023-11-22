@@ -133,15 +133,15 @@ function radioClicked(value) {
     if (selectedMedia === 'Color'){
       selectBgColor();
       const customTextButton = document.getElementById('edit-bg');
-      customTextButton.textContent = 'Edit Background Color';
+      customTextButton.textContent = 'Edit Color';
     } else if (selectedMedia === 'Image'){
       selectBgImage();
       const customTextButton = document.getElementById('edit-bg');
-      customTextButton.textContent = 'Edit Background Image';
+      customTextButton.textContent = 'Edit Image';
     } else if (selectedMedia === 'Video'){
       selectBgVideo();
       const customTextButton = document.getElementById('edit-bg');
-      customTextButton.textContent = 'Edit Background Video';
+      customTextButton.textContent = 'Edit Video';
     } else {
       const customTextButton = document.getElementById('edit-bg');
       customTextButton.textContent = 'Select Background';
