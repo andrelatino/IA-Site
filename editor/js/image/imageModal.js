@@ -62,13 +62,13 @@ function sectionImage() {
             </div>
             
             <div id="image-m">
-                <img id="image-m-thumbnail" src=""> 
+                <img id="image-m-thumbnail" src="./assets/svg/icons/upload-empty.svg" srcset="./assets/svg/icons/upload-empty.svg">
                 <input type="text" id="image-m-input">
                 <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
             </div>
             
             <div id="image-xs">
-                <img id="image-xs-thumbnail" src=""> 
+                <img id="image-xs-thumbnail" src="./assets/svg/icons/upload-empty.svg" srcset="./assets/svg/icons/upload-empty.svg"> 
                 <input type="text" id="image-xs-input">
                 <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
             </div>
@@ -84,23 +84,27 @@ function sectionImage() {
             <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
               <span class="tooltiptext-right">Upload</span>
             </button>
-            <button disable>
-              <span class="tooltiptext-right">Clean</span>
-            </button>     
+            
           </div>
           
           <button onclick="hideImageModal(); closeImageSidebar()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
           </button>
-
-          <button id="image-btn-all" onclick="imageAllButton();">
+          <button id="image-btn-all" onclick="imageAllButton(); checkClearButton();">
             <img src="../global/file/pc.svg">
           </button>
-          <button id="image-btn-m" onclick="imageMButton();">
+          <button id="image-btn-m" onclick="imageMButton(); checkClearButton();">
             <img src="../global/file/tablet.svg">
           </button>
-          <button id="image-btn-xs" onclick=" imageXsButton();">
+          <button id="image-btn-xs" onclick=" imageXsButton(); checkClearButton();">
             <img src="../global/file/mobile.svg">
+          </button>
+
+          <button id="image-btn-m-clear" onclick=" imageClearM(); checkClearButton();">
+            <img src="../global/file/delete.svg">
+          </button>         
+          <button id="image-btn-xs-clear" onclick=" imageClearXs();">
+            <img src="../global/file/delete.svg">
           </button>
           
       </div> 

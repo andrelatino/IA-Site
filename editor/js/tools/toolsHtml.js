@@ -206,6 +206,7 @@ function selectBgImage() {
 function editBgImage() {
   sectionImage();
   imageAllButton();
+  checkClearButton();
     //IMAGE
 }
 function selectBgVideo() {

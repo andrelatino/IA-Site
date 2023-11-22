@@ -40,6 +40,7 @@ loadScript("./js/image/imageButtons.js");
 loadScript("./js/image/imageUpdate.js");
 loadScript("./js/image/imageLoad.js");
 loadScript("./js/image/imageClick.js");
+loadScript("./js/image/imageClear.js");
 
 loadScript("./js/video/videoModal.js");
 loadScript("./js/video/videoSidebar.js");

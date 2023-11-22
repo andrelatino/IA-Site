@@ -6,7 +6,7 @@
 // var imageLQuery =  '(min-width:1025px) and (max-width:1280px)';
 // var imageXlQuery =  '(min-width:1025px)';
 
-var imageEmpty = './assets/svg/icons/upload-empty.svg';
+var imageEmpty = '';
 var imagePlaceholder = 'Image URL (optional)';
 
 function extractImgSrc(pictureID) {
@@ -111,7 +111,7 @@ function extractImgSrc(pictureID) {
         
 
       } else {
-        thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
+        thumbBG.srcset = imageEmpty;
         inputID.setAttribute('placeholder', imagePlaceholder);
       }
     console.log('Image M:', srcsetForMedia);
@@ -137,24 +137,24 @@ function extractImgSrc(pictureID) {
   //   console.log('Image L:', srcsetForMedia);
   // }
 
-  function loadXlImage() {
-    const pictureID = localStorage.getItem('pictureID');
-    // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-    const mediaQuery = '(min-width:1025px)';
-    const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-    const inputID = document.getElementById('image-xl-input');
-    const thumbBG = document.getElementById('image-xl-thumbnail');
-    if (srcsetForMedia) {
-        // The variable is not empty (has a value)
-        inputID.value = srcsetForMedia;
-        thumbBG.srcset = srcsetForMedia;
+  // function loadXlImage() {
+  //   const pictureID = localStorage.getItem('pictureID');
+  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
+  //   const mediaQuery = '(min-width:1025px)';
+  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
+  //   const inputID = document.getElementById('image-xl-input');
+  //   const thumbBG = document.getElementById('image-xl-thumbnail');
+  //   if (srcsetForMedia) {
+  //       // The variable is not empty (has a value)
+  //       inputID.value = srcsetForMedia;
+  //       thumbBG.srcset = srcsetForMedia;
         
 
-      } else {
-        thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-        inputID.setAttribute('placeholder', imagePlaceholder);
-      }
-    console.log('Image XL:', srcsetForMedia);
-  }
+  //     } else {
+  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
+  //       inputID.setAttribute('placeholder', imagePlaceholder);
+  //     }
+  //   console.log('Image XL:', srcsetForMedia);
+  // }
 
  

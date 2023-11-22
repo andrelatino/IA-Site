@@ -1,6 +1,6 @@
   
 function imageAllButton(){
-
+    
     localStorage.setItem('imageSize','All');
     loadAllImage();
     

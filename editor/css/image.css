@@ -205,7 +205,7 @@ button#image-clean {
 
 div#image-libraries {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
@@ -230,6 +230,23 @@ button#image-btn-xs {
     position: absolute;
     right: 10px;
     bottom: 50px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+button#image-btn-xs-clear {
+    position: absolute;
+    right: 60px;
+    bottom: 50px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    /* display: none; */
+}
+button#image-btn-m-clear {
+    position: absolute;
+    right: 60px;
+    bottom: 100px;
     border-radius: 50%;
     width: 40px;
     height: 40px;
