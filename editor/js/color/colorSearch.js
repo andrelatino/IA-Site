@@ -43,79 +43,79 @@ function getColors(url) {
 // Add event listeners to the buttons
 
 
-  getColors("http://localhost/dev/gridzy/json/colors/red.json");
+  getColors("../global/json/colors/red.json");
 
 
 
 document.getElementById('color-orange').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/orange.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/orange.json");
+  
 });
 
 document.getElementById('color-yellow').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/yellow.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/yellow.json");
+  
 });
 
 document.getElementById('color-green').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/green.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/green.json");
+  
 });
 
 document.getElementById('color-red').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/red.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/red.json");
+  
 });
 
 document.getElementById('color-blue').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/blue.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/blue.json");
+  
 });
 
 document.getElementById('color-turquoise').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/turquoise.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/turquoise.json");
+  
 });
 
 document.getElementById('color-pink').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/pink.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/pink.json");
+  
 });
 
 
 document.getElementById('color-purple').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/purple.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/purple.json");
+  
 });
 
 document.getElementById('color-white').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/white.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/white.json");
+  
 });
 
 document.getElementById('color-gray').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/gray.json");
+  getColors("../global/json/colors/gray.json");
 });
 
 document.getElementById('color-brown').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/brown.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/brown.json");
+  
 });
 
 document.getElementById('color-black').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/black.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/black.json");
+  
 });
 
 document.getElementById('color-turquoise').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/turquoise.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/turquoise.json");
+  
 });
 
 
 document.getElementById('color-pink').addEventListener('click', function() {
-  getColors("http://localhost/dev/gridzy/json/colors/pink.json");
-  colorScrollToTop();
+  getColors("../global/json/colors/pink.json");
+  
 });
 
 
