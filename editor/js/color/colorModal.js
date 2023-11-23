@@ -42,6 +42,8 @@ function colorModal() {
             <button onclick="hideColorModal(); closeColorSidebar()" class="color-close">
                 <img src="./assets/svg/icons/close.svg">
             </button>
+
+            <input type="color" id="color" name="color" value="#f1f1f1">
          
         
       </div>  
