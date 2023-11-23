@@ -146,9 +146,9 @@ div#toolbar-buttons img {
   background: #dddddd;
   gap: 1px;
 }
-.radio-group p {
+/* .radio-group p {
   display: none;
-}
+} */
 .radio-group label {
   display: grid;
   place-content: center;

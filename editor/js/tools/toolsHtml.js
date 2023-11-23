@@ -184,6 +184,8 @@ function selectBgColor() {
 }
 function editBgColor() {
     //COLOR  
+    showColorModal();
+    getBackgroundColor();
     
 }
 function selectBgImage() {

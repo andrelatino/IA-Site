@@ -48,7 +48,7 @@ function generateRandomID(length) {
   const customCSS = `
   @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
   @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
-  @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:red;}}
+  @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
   @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
   @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 1100px;gap:35px;}}
@@ -65,7 +65,7 @@ function generateRandomID(length) {
       <div id="${containerID}" data-type="container">
       <div id="${generateRandomID(7)}" data-type="backgrounds">
         
-        <div id="${colorID}" data-type="bg-color"></div>
+        <div id="${colorID}" data-type="bg-color" style="background:blue;"></div>
       
         <div id="${generateRandomID(7)}" data-type="bg-image">
           <picture id="${generateRandomID(7)}">

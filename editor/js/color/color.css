@@ -1,0 +1,219 @@
+/*MODAL*/
+div#color-all {
+    height: 280px;
+    width: 280px;
+    background: black;
+}
+#color-modal{
+    z-index: 9999;
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 1px;
+    padding: 10px;
+    height: 370px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#color-container {
+    position: absolute;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#color-github-buttons {
+    display: none;
+    place-content: baseline;
+    grid-template-columns: repeat(3,1fr);
+    background: white;
+}
+div#color-github-buttons img {
+    width: 25px;
+}
+#color-all,
+#color-xs,
+#color-s,
+#color-m,
+#color-l,
+#color-xl
+{
+    display: grid;
+    grid-template-columns:auto;
+    background:white;
+    
+}
+
+#color-all-thumbnail,
+#color-xs-thumbnail,
+#color-s-thumbnail,
+#color-m-thumbnail,
+#color-l-thumbnail ,
+#color-xl-thumbnail
+{
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
+    background: #dadada;
+    
+}
+
+#color-all-input,
+#color-xs-input,
+#color-s-input,
+#color-m-input,
+#color-l-input,
+#color-xl-input
+{
+    height: 35px;
+    border: none;
+    background: #ffffff;
+    padding: 15px;
+    display: none;
+}
+#color-all-save,
+#color-xs-save,
+#color-s-save,
+#color-m-save,
+#color-l-save,
+#color-xl-save{
+    background: #2196f3;
+    color: white;
+    display: none;
+}
+
+button.color-close img {
+    filter: invert(1);
+}
+div#color-libraries {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background: white;
+}
+color#color-thumbnail {
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
+    background: black;
+}
+
+
+#color-sidebar {
+    /* display:none; */
+    width: auto;
+    height: 135px;
+    position: fixed;
+    bottom: -135px;
+    left: 0px;
+    background-color: #f4f4f4;
+    z-index: 9999;
+}
+#color-sidebar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+    height: 35px;
+    overflow: hidden;
+}
+#color-sidebar-grid {
+    padding: 10px;
+    display: grid;
+    height: 90px;
+    grid-gap: 0 20px;
+    grid-auto-flow: column;
+    grid-auto-columns: 60px;
+    overflow-x: auto;
+    width: 100vw;
+    place-content: space-between;
+    
+}
+.color-sidebar-items img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+#color-sidebar-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+    height: 35px;
+    overflow: hidden;
+}
+#color-sidebar-input {
+    padding: 10px;
+    border: none;
+    text-align: center;
+    border-radius: 7px;
+}
+#color-sidebar-search-button {
+    width: 40px;
+}
+#color-sidebar-total,
+#color-sidebar-subtotal {
+    font-size: 12px;
+    display: none;
+}
+.color-sidebar-items{ 
+    position:relative;
+    overflow: hidden;
+    background:white;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+.color-sidebar-alt {
+    display: none;
+    margin: 10px;
+    font-size: small;
+    color: grey;
+}
+#color-sidebar-next-div {
+    display: grid;
+    place-content: center;
+}
+#color-sidebar-next-button {
+    height: 50px;
+    width: 50px;
+    font-size: 1rem;
+
+}
+
+#color-sidebar-settings {
+    display: grid;
+    grid-template-columns: 75px 75px auto;
+    display:none;
+}
+#color-sidebar-settings select,
+#color-sidebar-settings input {
+    border: none;
+    padding: 5%;
+    text-align: center;
+    color: #cbcbcb;
+    font-family: system-ui;
+}
+#p-width,
+#p-height
+{
+    display: grid;
+    place-content: center;
+}
+div#color-libraries {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background: #f0f0f0;
+    gap: 1px;
+    border-top: 1px solid #f0f0f0;
+} 
+button.color-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

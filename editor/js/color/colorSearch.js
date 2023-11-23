@@ -24,6 +24,8 @@ function getColors(url) {
 
           // Add event listener to each color item
           colorItems.addEventListener('click', () => {
+            // alert(api.hex);
+            addBackgroundColor(api.hex);
             const hexValue = api.hex;
             document.getElementById('uVoJtob').style.background = hexValue;
           });
@@ -35,6 +37,7 @@ function getColors(url) {
       console.error('Error loading JSON:', error);
     });
 }
+
 
 // Usage example:
 // Add event listeners to the buttons
@@ -141,23 +144,7 @@ document.addEventListener("keyup", function(event) {
 
 function openColorSidebar() {
   color = document.getElementById("color-sidebar");
-  color.style.right = "-300px";
-  color.style.transition = "right 0.5s";
-  color.offsetHeight;
-  color.style.right = "75px";
-}
-
-function closeColorSidebar() {
-  color = document.getElementById("color-sidebar");
-  color.style.right = "300px";
-  color.style.transition = "right 0.5s";
-  color.offsetHeight;
-  color.style.right = "-300px";
-}
-
-function colorScrollToTop(){
-  const element = document.getElementById("color-sidebar-total");
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
+  color.style.transition = "bottom 0.5s";
+  color.style.bottom = "0";
+  color.style.display = "grid";
 }

@@ -24,3 +24,4 @@ function loadCSS(href) {
   loadCSS("./js/chatgpt/chatgpt.css");
   loadCSS("./js/menu/menu.css");
   loadCSS("./js/video/video.css");
+  loadCSS("./js/color/color.css");

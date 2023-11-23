@@ -120,7 +120,7 @@ font-size: 12px;
 display: none;
 }
 #image-github-sidebar-grid {
-    padding: 25px;
+    padding: 10px;
     display: grid;
     height: 90px;
     grid-gap: 0 20px;

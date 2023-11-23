@@ -62,7 +62,8 @@ loadScript("./js/github/template/githubAddTemplates.js");
 // loadScript("./js/github/video/githubSearchVideos.js");
 // loadScript("./js/github/video/githubUploadVideos.js");
 
-// loadScript("./js/color/colorSearch.js");
+loadScript("./js/color/colorModal.js");
+loadScript("./js/color/colorSearch.js");
 
 // loadScript("./js/github/file/githubLoadFiles.js");
 // loadScript("./js/github/file/githubUploadFiles.js");

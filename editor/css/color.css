@@ -1,4 +1,4 @@
-
+/* 
 #color-sidebar{
     width: 300px;
     height: 100%;
@@ -8,7 +8,7 @@
     right: -300px;
     background-color: rgb(241, 241, 241);
     z-index: 9999;
-}
+} */
 
 #color-sidebar-header {
     display: grid;
@@ -36,13 +36,13 @@
     font-size: 12px;
 }
 
-#color-sidebar-grid {
+/* #color-sidebar-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(auto,170px));
     place-content: space-evenly;
     grid-gap: 40px;
     padding:40px;  
-  }
+  } */
 
 .color-html{
     height:75px;
