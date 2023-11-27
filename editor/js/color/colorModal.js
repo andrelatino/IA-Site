@@ -178,7 +178,7 @@ function colorModal() {
 
         // Add a click event listener to change the color
         colorPreview.addEventListener("click", function() {
-            alert('hiii');
             const clrColorValue = document.getElementById('clr-color-value');
             clrColorValue.readOnly = false; 
+            alert('clrColorValue');
         });
