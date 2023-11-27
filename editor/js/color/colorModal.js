@@ -132,7 +132,7 @@ function colorModal() {
                     const addColor =  document.getElementById('color-all');
                     const getColor = event.detail.color;
                     addColor.style.background = getColor;
-                    readOnlyFalse();
+                    readOnlyTrue();
                     addBackgroundColor(getColor);
                     console.log('New color', event.detail.color);
 
@@ -141,44 +141,47 @@ function colorModal() {
         });
     });
     
+
+    
     function readOnlyTrue() {
-        var input = document.getElementById('clr-color-value');
-        var coloris = document.getElementById('coloris');
-        input.readOnly = true; 
+        const clrColorValue = document.getElementById('clr-color-value');
+        const coloris = document.getElementById('coloris');
+        clrColorValue.readOnly = true; 
         coloris.readOnly = true;
     }
-
-    // function readOnlyFalse() {
-    //     var input = document.getElementById('clr-color-value');
-    //     var coloris = document.getElementById('coloris');
-    //     input.readOnly = false;
-    //     coloris.readOnly = false;
-    // }
     
-        var input = document.getElementById('clr-color-value');
-        var coloris = document.getElementById('coloris');
-        input.readOnly = true;
+    function readOnlyFalse() {
+        const clrColorValue = document.getElementById('clr-color-value');
+        const coloris = document.getElementById('coloris');
+        clrColorValue.readOnly = false; 
+        coloris.readOnly = false;
+    }
+        var clrClose = document.getElementById("clr-close");
+        clrClose.onclick = function() {
+            readOnlyTrue(); 
+        };
+        clrClose.addEventListener("click", handleButtonClick);
+
+
+        var botoncitoOnclick = document.getElementById("coloris");
+        botoncitoOnclick.onclick = function() {
+            readOnlyTrue(); 
+        };
+    
+        const clrColorValue = document.getElementById('clr-color-value');
+        const coloris = document.getElementById('coloris');
+        clrColorValue.readOnly = true; 
         coloris.readOnly = true;
 
-    // Función para remover el atributo de solo lectura al hacer clic en el input
-    input.addEventListener('click', function(event) {
-        this.readOnly = false;
-        // Detener la propagación para este evento específico
-        event.stopPropagation();
-    });
-
-    
-        var boton = document.getElementById("clr-close");
-        function handleButtonClick(event) {
-            // alert('clicked');
-            readOnlyTrue();
-            event.preventDefault();
-            
-        }
-        boton.addEventListener("click", handleButtonClick);
-    
-
-
+        // let clickCount = 0;
+        // const inputElementXX = document.getElementById("clr-color-value");
+        
+        // inputElementXX.addEventListener("click", () => {
+        //   clickCount++;
+        //   if (clickCount === 2) {
+        //     inputElementXX.removeAttribute("readonly");
+        //   }
+        // });
     
 
 
