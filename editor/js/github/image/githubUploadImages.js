@@ -116,9 +116,9 @@ function githubUploadImage() {
 
 
 
-  var  imageModal2 = document.querySelector("#image-github-modal");
-  var imageDrag2 = document.querySelector("#image-github-drag");
-  makeElementDraggable(imageModal2, imageDrag2);
+  // var  imageModal2 = document.querySelector("#image-github-modal");
+  // var imageDrag2 = document.querySelector("#image-github-drag");
+  // makeElementDraggable(imageModal2, imageDrag2);
 
   document.addEventListener("DOMContentLoaded", function() {
     // Your code here

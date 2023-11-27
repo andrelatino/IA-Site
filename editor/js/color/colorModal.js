@@ -114,24 +114,7 @@ function colorModal() {
 
     }
 
-   
-
-   
-    // document.querySelectorAll('.clr-field').forEach(input => {
-    //     input.addEventListener('click', e => {
-    //     Coloris({
-    //         parent: '.mobile-box',
-    //         theme: 'default',
-    //         themeMode: 'dark',
-    //         alpha: true,
-    //         format: 'hex',
-    //         wrap: true,
-    //         closeButton: true,
-    //         el: '.botoncito'
-    //     });
-    //     });
-    // });
-
+ 
     document.querySelectorAll('.clr-field').forEach(input => {
         input.addEventListener('click', e => {
             Coloris({
@@ -158,20 +141,24 @@ function colorModal() {
         });
     });
     
-
-   
+    window.addEventListener('load', function() {
+        // Establecer el input como solo lectura por defecto
+        var input = document.getElementById('clr-color-value');
+        input.readOnly = true;
+    
+        // Función para remover el atributo de solo lectura al hacer clic en el input
+        input.addEventListener('click', function(event) {
+            this.readOnly = false;
+            // Detener la propagación para este evento específico
+            event.stopPropagation();
+        });
+    
+        // Función para establecer el input como solo lectura cuando se hace clic fuera
+        document.addEventListener('click', function() {
+            input.readOnly = true;
+        });
+    });
     
 
-  
-//   // But the special color fields use the polaroid dark theme
-//   document.querySelectorAll('.special-color-fields').forEach(input => {
-//     input.addEventListener('click', e => {
-//       Coloris({
-//         theme: 'polaroid',
-//         themeMode: 'dark',
-//       });
-//     });
-//   });
-    
 
     
