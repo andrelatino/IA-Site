@@ -157,8 +157,8 @@ function colorModal() {
     
         var input = document.getElementById('clr-color-value');
         var coloris = document.getElementById('coloris');
-        input.readOnly = false;
-        coloris.readOnly = false;
+        input.readOnly = true;
+        coloris.readOnly = true;
 
     // Función para remover el atributo de solo lectura al hacer clic en el input
     input.addEventListener('click', function(event) {
