@@ -162,6 +162,18 @@ function colorModal() {
     });
 
     
+        var boton = document.getElementById("clr-close");
+        function handleButtonClick(event) {
+            alert('clicked');
+            readOnlyTrue();
+            event.preventDefault();
+            
+        }
+        boton.addEventListener("click", handleButtonClick);
+    
+
+
+    
 
 
     
