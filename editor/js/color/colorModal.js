@@ -143,16 +143,22 @@ function colorModal() {
     
     function readOnlyTrue() {
         var input = document.getElementById('clr-color-value');
-        input.readOnly = true;  
+        var coloris = document.getElementById('coloris');
+        input.readOnly = true; 
+        coloris.readOnly = true;
     }
 
-    function readOnlyFalse() {
-        var input = document.getElementById('clr-color-value');
-        input.readOnly = true;  
-    }
+    // function readOnlyFalse() {
+    //     var input = document.getElementById('clr-color-value');
+    //     var coloris = document.getElementById('coloris');
+    //     input.readOnly = false;
+    //     coloris.readOnly = false;
+    // }
     
-    var input = document.getElementById('clr-color-value');
-    input.readOnly = true;
+        var input = document.getElementById('clr-color-value');
+        var coloris = document.getElementById('coloris');
+        input.readOnly = false;
+        coloris.readOnly = false;
 
     // Función para remover el atributo de solo lectura al hacer clic en el input
     input.addEventListener('click', function(event) {
@@ -164,7 +170,7 @@ function colorModal() {
     
         var boton = document.getElementById("clr-close");
         function handleButtonClick(event) {
-            alert('clicked');
+            // alert('clicked');
             readOnlyTrue();
             event.preventDefault();
             
