@@ -132,7 +132,7 @@ function colorModal() {
                     const addColor =  document.getElementById('color-all');
                     const getColor = event.detail.color;
                     addColor.style.background = getColor;
-
+                    readOnlyFalse();
                     addBackgroundColor(getColor);
                     console.log('New color', event.detail.color);
 
@@ -141,23 +141,26 @@ function colorModal() {
         });
     });
     
-    window.addEventListener('load', function() {
-        // Establecer el input como solo lectura por defecto
+    function readOnlyTrue() {
         var input = document.getElementById('clr-color-value');
-        input.readOnly = true;
+        input.readOnly = true;  
+    }
+
+    function readOnlyFalse() {
+        var input = document.getElementById('clr-color-value');
+        input.readOnly = true;  
+    }
     
-        // Función para remover el atributo de solo lectura al hacer clic en el input
-        input.addEventListener('click', function(event) {
-            this.readOnly = false;
-            // Detener la propagación para este evento específico
-            event.stopPropagation();
-        });
-    
-        // Función para establecer el input como solo lectura cuando se hace clic fuera
-        document.addEventListener('click', function() {
-            input.readOnly = true;
-        });
+    var input = document.getElementById('clr-color-value');
+    input.readOnly = true;
+
+    // Función para remover el atributo de solo lectura al hacer clic en el input
+    input.addEventListener('click', function(event) {
+        this.readOnly = false;
+        // Detener la propagación para este evento específico
+        event.stopPropagation();
     });
+
     
 
 
