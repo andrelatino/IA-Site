@@ -103,7 +103,7 @@ color#color-thumbnail {
 
 #color-sidebar {
     /* display:none; */
-    width: auto;
+    width: 100%;
     height: 135px;
     position: fixed;
     bottom: -135px;
@@ -112,11 +112,6 @@ color#color-thumbnail {
     z-index: 9999;
 }
 #color-sidebar-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background: white;
     height: 35px;
     overflow: hidden;
 }
@@ -145,12 +140,14 @@ color#color-thumbnail {
     background: white;
     height: 35px;
     overflow: hidden;
+    display: none;
 }
 #color-sidebar-input {
     padding: 10px;
     border: none;
     text-align: center;
     border-radius: 7px;
+    display:none;
 }
 #color-sidebar-search-button {
     width: 40px;

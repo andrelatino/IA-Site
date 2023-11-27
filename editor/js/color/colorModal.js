@@ -180,5 +180,5 @@ function colorModal() {
         colorPreview.addEventListener("click", function() {
             const clrColorValue = document.getElementById('clr-color-value');
             clrColorValue.readOnly = false; 
-            alert('clrColorValue');
+            // alert('clrColorValue');
         });
