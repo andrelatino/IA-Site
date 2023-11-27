@@ -156,11 +156,11 @@ function colorModal() {
         clrColorValue.readOnly = false; 
         coloris.readOnly = false;
     }
-        var clrClose = document.getElementById("clr-close");
-        clrClose.onclick = function() {
-            readOnlyTrue(); 
-        };
-        clrClose.addEventListener("click", handleButtonClick);
+        // var clrClose = document.getElementById("clr-close");
+        // clrClose.onclick = function() {
+        //     readOnlyTrue(); 
+        // };
+        // clrClose.addEventListener("click", handleButtonClick);
 
 
         var botoncitoOnclick = document.getElementById("coloris");
@@ -173,16 +173,12 @@ function colorModal() {
         clrColorValue.readOnly = true; 
         coloris.readOnly = true;
 
-        // let clickCount = 0;
-        // const inputElementXX = document.getElementById("clr-color-value");
-        
-        // inputElementXX.addEventListener("click", () => {
-        //   clickCount++;
-        //   if (clickCount === 2) {
-        //     inputElementXX.removeAttribute("readonly");
-        //   }
-        // });
-    
+        // Get the element by its ID
+        var colorPreview = document.getElementById("clr-color-preview");
 
-
-    
+        // Add a click event listener to change the color
+        colorPreview.addEventListener("click", function() {
+            alert('hiii');
+            const clrColorValue = document.getElementById('clr-color-value');
+            clrColorValue.readOnly = false; 
+        });
