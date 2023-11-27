@@ -43,10 +43,9 @@ function colorModal() {
                 <img src="./assets/svg/icons/close.svg">
             </button>
             <div id = "coloris-div">
-
                 <div class="clr-field" style="color: rgb(255, 0, 0);">
                     <button id="botoncito" type="button" aria-labelledby="clr-open-label"></button>
-                    <input id="coloris" type="text" class="coloris botoncito" value="rgb(255, 0, 0)">
+                    <input type="text" class="coloris botoncito" value="rgb(255, 0, 0)">
                 </div>
                 
             </div>
@@ -77,31 +76,15 @@ function colorModal() {
 
       
     function getBackgroundColor() {
-        const getColorId = document.getElementById("color-id").textContent;  // Assuming 'color-id' is correct
-        const getColorFromBG = document.getElementById(getColorId);
+        const getCorloId = document.getElementById("color-id").textContent;
+        const getColorFromBG = document.getElementById(getCorloId);
         const addColorToThumb = document.getElementById("color-all");
 
-        var divElement = document.querySelector('.clr-field');
-        divElement.style.color = 'rgb(255, 0, 0)'; // Change to the desired color
-        
-    
         if (getColorFromBG) {
             var currentColor = getColorFromBG.style.backgroundColor;
-            addColorToThumb.style.backgroundColor = currentColor;
-            var divElement = document.querySelector('.clr-field');
-            divElement.style.color = currentColor; // Change to the desired color
-
-            var inputElement = document.getElementById('coloris');
-            inputElement.value = currentColor; // Change to the desired RGB color value
-
-            console.log(currentColor);
-            
-        } else {
-            // Handle the case where one or more elements are not found
-            console.error("One or more elements are not found.");
+            addColorToThumb.style.background = currentColor;
         }
     }
-    
     
        
     function addBackgroundColor(color) {
@@ -117,51 +100,19 @@ function colorModal() {
    
 
    
-    // document.querySelectorAll('.clr-field').forEach(input => {
-    //     input.addEventListener('click', e => {
-    //     Coloris({
-    //         parent: '.mobile-box',
-    //         theme: 'default',
-    //         themeMode: 'dark',
-    //         alpha: true,
-    //         format: 'hex',
-    //         wrap: true,
-    //         closeButton: true,
-    //         el: '.botoncito'
-    //     });
-    //     });
-    // });
-
     document.querySelectorAll('.clr-field').forEach(input => {
         input.addEventListener('click', e => {
-            Coloris({
-                parent: '.mobile-box',
-                theme: 'default',
-                themeMode: 'dark',
-                alpha: true,
-                format: 'rgb',
-                wrap: true,
-                closeButton: true,
-                el: '.botoncito'
-            });
-    
-                document.addEventListener('coloris:pick', event => {
-                    const addColor =  document.getElementById('color-all');
-                    const getColor = event.detail.color;
-                    addColor.style.background = getColor;
-
-                    addBackgroundColor(getColor);
-                    console.log('New color', event.detail.color);
-
-                });
-
+        Coloris({
+            theme: 'default',
+            themeMode: 'dark',
+            alpha: true,
+            format: 'hex',
+            wrap: true,
+            closeButton: true,
+            el: '.botoncito'
+        });
         });
     });
-    
-
-   
-    
-
   
 //   // But the special color fields use the polaroid dark theme
 //   document.querySelectorAll('.special-color-fields').forEach(input => {

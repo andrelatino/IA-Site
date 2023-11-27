@@ -26,8 +26,8 @@ function getColors(url) {
           colorItems.addEventListener('click', () => {
             // alert(api.hex);
             addBackgroundColor(api.hex);
-            const hexValue = api.hex;
-            document.getElementById('uVoJtob').style.background = hexValue;
+            // const hexValue = api.hex;
+            // document.getElementById('uVoJtob').style.background = hexValue;
           });
 
         colorGrid.appendChild(colorItems);

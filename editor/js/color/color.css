@@ -23,6 +23,7 @@ div#color-all {
     width: 100%;
     border-radius: 15px;
     overflow: hidden;
+    background: white;
 }
 #color-github-buttons {
     display: none;
@@ -218,42 +219,65 @@ button.color-close {
     height: 40px;
 }
 
-input[type="color"] {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: none;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 40px;
-    padding: 0;
-    width: 40px;
-    overflow: hidden;
-    border: 5px solid black;
+div#parent {
     position: absolute;
-    right: 10px;
-    bottom: 100PX;
+    bottom: 100px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
 }
-  
-  *:focus{
+div#parent2 {
+    position: absolute;
+    bottom: 100px;
+    left: 70px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+.clr-picker {
+    z-index: 99999!important;
+}
+div#coloris-div {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    bottom: 100px;
+    right: 10px;
+}
+div#clr-picker {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid white;
+    width: 280px;
+    top: 195px!important;
+    height: 316px;
+    top: 0!important;
+    left : 0!important;
+    position: absolute!important;
+}
+div#clr-color-area {
+    height: 150px;
+}
+button#clr-close {
+    width: 100%;
+    margin: 0;
     border-radius: 0;
-    outline: none;
-  }
-  
-  ::-webkit-color-swatch-wrapper {
-    padding: 0;
-  }
-  
-  ::-webkit-color-swatch{
-    border: 0;
-    border-radius: 0;
-  }
-  
-  ::-moz-color-swatch,
-  ::-moz-focus-inner{
-    border: 0;
-  }
-  
-  ::-moz-focus-inner{
-    padding: 0;
-  }
+    height: 35px;
+}
+button#botoncito {
+    width: 100%;
+}
+
+.clr-field input {
+    margin: 0;
+    direction: ltr;
+    width: 35px;
+    height: 35px;
+}
+.radio-group p {
+    display: none;
+}

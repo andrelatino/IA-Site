@@ -319,7 +319,7 @@
     const sectionElement = document.getElementById(sectionId);
   
     if (!sectionElement) {
-      alert('Section not found');
+      // alert('Section not found');
       return;
     }
   

@@ -6,6 +6,8 @@ function loadScript(src) {
 
 // APIS
 loadScript("../global/js/apis.js");
+
+
 //PAGE
 loadScript("./js/page/pageJsonLoad.js");
 loadScript("./js/page/pageJsonSave.js");
