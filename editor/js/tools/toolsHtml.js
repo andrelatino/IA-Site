@@ -11,7 +11,7 @@ function toolsHtml(){
                 <div class='toolbarTitles'>
                   <span>Section ID : </span><span id="toolbarSectionID"></span>
                 </div>
-                <button onClick="toolsCloseModal();" class="toolbar-close">
+                <button onClick="toolsCloseModal()" class="toolbar-close">
                   <img src="./assets/svg/icons/close.svg">
                 </button>
               </div>
@@ -78,7 +78,10 @@ function toolsHtml(){
                   <img src="./assets/svg/icons/bg-color.svg">
                   <span class="tooltiptext">Color</span>
                   <input type="radio" id="colorRadio" name="media" value="Color" onclick="radioClicked('Color')">
-                  <p id="color-id">ID</p>
+                  <p id="color-id"></p>
+                  <p id="color-selected-id"></p>
+                  <p id="color-selected-data"></p>
+                  <p id="color-current-bg"></p>
               </label>
               <label>
                   <img src="./assets/svg/icons/bg-image.svg">
@@ -169,42 +172,64 @@ function selectBgColor() {
   //COLOR 
   const colorID = document.getElementById('color-id').textContent;
   const colorSelected = document.getElementById(colorID);
-  colorSelected.style.display = 'grid';
-  colorSelected.className = 'bg-selected';
+  // colorSelected.style.display = 'grid';
+  colorSelected.className = 'div-visible';
   //IMAGE
   const imageID = document.getElementById('image-id').textContent;
   const imageSelected = document.getElementById(imageID);
-  imageSelected.style.display = 'none';
-  imageSelected.className = 'bg-hidden';
+  // imageSelected.style.display = 'none';
+  imageSelected.className = 'div-hidden';
   //VIDEO
   const videoID = document.getElementById('video-id').textContent;
   const videoSelected = document.getElementById(videoID);
-  videoSelected.style.display = 'none';
-  videoSelected.className = 'bg-hidden';
+  // videoSelected.style.display = 'none';
+  videoSelected.className = 'div-hidden';
 }
 function editBgColor() {
-    //COLOR  
-    showColorModal();
-    getBackgroundColor();
-    readOnlyTrue();
+
+        showColorModal();
+        colorGetBgIds();
+
+    const getColorType =   document.getElementById("color-selected-data").textContent;
+
+    if (getColorType === 'solid-color'){
+        solidDefaultColor();
+        solidColorBgIsSelected();
+        solidColorThumbIsSelected();
+    } else if (getColorType === 'radial-color'){
+        radialDefaultColor();
+        radialColorBgIsSelected();
+        radialColorThumbIsSelected();
+    } else if (getColorType === 'linear-color'){
+        linearDefaultColor();
+        linearColorBgIsSelected();
+        linearColorThumbIsSelected();
+    } else {
+      console.log('No color found');
+    }
+
+    // showColorModal();
+    // getBackgroundColor();
+    // solidReadOnlyTrue();
     
 }
+
 function selectBgImage() {
   //COLOR  
   const colorID = document.getElementById('color-id').textContent;
   const colorSelected = document.getElementById(colorID);
-  colorSelected.style.display = 'none';
-  colorSelected.className = 'bg-hidden';
+  // colorSelected.style.display = 'none';
+  colorSelected.className = 'div-hidden';
   //IMAGE
   const imageID = document.getElementById('image-id').textContent;
   const imageSelected = document.getElementById(imageID);
-  imageSelected.style.display = 'grid';
-  imageSelected.className = 'bg-selected';
+  // imageSelected.style.display = 'grid';
+  imageSelected.className = 'div-visible';
   //VIDEO
   const videoID = document.getElementById('video-id').textContent;
   const videoSelected = document.getElementById(videoID);
-  videoSelected.style.display = 'none';
-  videoSelected.className = 'bg-hidden';
+  // videoSelected.style.display = 'none';
+  videoSelected.className = 'div-hidden';
 }
 function editBgImage() {
   sectionImage();
@@ -216,18 +241,18 @@ function selectBgVideo() {
   //COLOR  
   const colorID = document.getElementById('color-id').textContent;
   const colorSelected = document.getElementById(colorID);
-  colorSelected.style.display = 'none';
-  colorSelected.className = 'bg-hidden';
+  // colorSelected.style.display = 'none';
+  colorSelected.className = 'div-hidden';
   //IMAGE
   const imageID = document.getElementById('image-id').textContent;
   const imageSelected = document.getElementById(imageID);
-  imageSelected.style.display = 'none';
-  colorSelected.className = 'bg-hidden';
+  // imageSelected.style.display = 'none';
+  imageSelected.className = 'div-hidden';
   //VIDEO
   const videoID = document.getElementById('video-id').textContent;
   const videoSelected = document.getElementById(videoID);
-  videoSelected.style.display = 'grid';
-  colorSelected.className = 'bg-selected';
+  // videoSelected.style.display = 'grid';
+  videoSelected.className = 'div-visible';
 }
 
 function editBgVideo() {
@@ -242,6 +267,22 @@ function colorID() {
   const colorID = document.querySelector(`#${sectionId} div[data-type="bg-color"]`)?.id || 'No ID found';
   const colorMessage = document.getElementById('color-id');
   colorMessage.textContent = colorID;
+
+  const colorSelectedDiv = document.getElementById(colorID);
+  const colorSelectedID = colorSelectedDiv.querySelector(".div-visible");
+  const colorSelectedTxt = document.getElementById('color-selected-id');
+  colorSelectedTxt.textContent = colorSelectedID.id;
+
+  
+  const colorDataTypeID = document.getElementById(colorSelectedID.id);
+  const colorDataType = colorDataTypeID.getAttribute("data-type");
+  const colorDataTypeTxt = document.getElementById('color-selected-data');
+  colorDataTypeTxt.textContent = colorDataType;
+
+  const colorBgID = document.getElementById(colorSelectedID.id);
+  const colorCurrentRgb = window.getComputedStyle(colorBgID).getPropertyValue("background-color");
+  const colorCurrentTxt = document.getElementById('color-current-bg');
+  colorCurrentTxt.textContent = colorCurrentRgb;
 }
 
 function imageID() {

@@ -25,7 +25,7 @@ function getColors(url) {
           // Add event listener to each color item
           colorItems.addEventListener('click', () => {
             // alert(api.hex);
-            addBackgroundColor(api.hex);
+            solidUpdateBg(api.hex);
             // const hexValue = api.hex;
             // document.getElementById('uVoJtob').style.background = hexValue;
           });
@@ -142,9 +142,4 @@ document.addEventListener("keyup", function(event) {
 
 
 
-function openColorSidebar() {
-  color = document.getElementById("color-sidebar");
-  color.style.transition = "bottom 0.5s";
-  color.style.bottom = "0";
-  color.style.display = "grid";
-}
+

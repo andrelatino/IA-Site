@@ -17,6 +17,15 @@ function generateRandomID(length) {
   
   const colorID = generateRandomID(7);
   const colorCss = colorID;
+
+  const solidcolorID = generateRandomID(7);
+  const solidcolorCss = solidcolorID;
+
+  const radialcolorID = generateRandomID(7);
+  const radialcolorCss = radialcolorID;
+
+  const linearcolorID = generateRandomID(7);
+  const linearcolorCss = linearcolorID;
   
   const imageID = generateRandomID(7);
   const imageCss = imageID;
@@ -49,6 +58,9 @@ function generateRandomID(length) {
   @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
   @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
+  @media screen and (min-width:0px){#${solidcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
+  @media screen and (min-width:0px){#${radialcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
+  @media screen and (min-width:0px){#${linearcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
   @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
   @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 1100px;gap:35px;}}
@@ -60,44 +72,53 @@ function generateRandomID(length) {
   @media screen and (max-width:640px){#${div1Css}{gap:10px;}}
   `;
   const customHTML = `
-    <section id="${sectionID}" data-type="section">
-      <style id="${generateRandomID(7)}" type="text/css">${customCSS}</style>
-      <div id="${containerID}" data-type="container">
-      <div id="${generateRandomID(7)}" data-type="backgrounds">
-        
-        <div id="${colorID}" data-type="bg-color" style="background:blue;"></div>
+  
+  <section id="${sectionID}" data-type="section">
+  <style id="${generateRandomID(7)}" type="text/css">
+    ${customCSS}
+  </style>
+  
+  <div id="${containerID}" data-type="container">
+    <div id="${generateRandomID(7)}" data-type="backgrounds">
       
-        <div id="${generateRandomID(7)}" data-type="bg-image">
-          <picture id="${generateRandomID(7)}">
-            <source srcset media="(max-width:640px)">
-            <source srcset media="(min-width:641px) and (max-width:1024px)">     
-            <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
-          </picture>
-        </div>
+      <div id="${colorID}" data-type="bg-color">
+        <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background:blue;"></div>
+        <div id="${radialcolorID}" data-type="radial-color" class="div-hidden"></div>
+        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden"></div>
+      </div> <!-- bg-color -->
 
-        <div id="${generateRandomID(7)}" data-type="bg-video">
-          <video id="${videoID}" autoplay loop muted>
-            <source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div id="${generateRandomID(7)}" data-type="bg-image">
+        <picture id="${generateRandomID(7)}">
+          <source srcset media="(max-width:640px)">
+          <source srcset media="(min-width:641px) and (max-width:1024px)">
+          <img id="${imageID}" src="./assets/image/tapas-hero1.png" data-type="img-bg" loading="lazy">
+        </picture>
+      </div> <!-- bg-image -->
 
-      </div>
-         
-          <div id="${contentID}" data-type="content">
-            <div id="${div1ID}">
-              <h2 id="${h2ID}" contenteditable="true">Lorem ipsum dolor sit amet</h2>
-              <p id="${pID}" contenteditable="true">Lorem ipsum dolor sit amet consectur et sermont...</p>
-              <div id="${div2ID}">            
-                  <a id="${btn1ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>          
-                  <a id="${btn2ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <button class="toolbar-open" onclick="toolsOpenModal(this);">
-        <img src="../global/file/edit-section.svg">
-      </button>
-    </section>
+      <div id="${generateRandomID(7)}" data-type="bg-video">
+        <video id="${videoID}" autoplay loop muted>
+          <source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+        </video>
+      </div> <!-- bg-video -->
+
+    </div> <!-- backgrounds -->
+
+    <div id="${contentID}" data-type="content">
+      <div id="${div1ID}">
+        <h2 id="${h2ID}" contenteditable="true">Lorem ipsum dolor sit amet</h2>
+        <p id="${pID}" contenteditable="true">Lorem ipsum dolor sit amet consectur et sermont...</p>
+        <div id="${div2ID}">
+          <a id="${btn1ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>
+          <a id="${btn2ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>
+        </div> <!-- div2ID -->
+      </div> <!-- div1ID -->
+    </div> <!-- content -->
+  </div> <!-- container -->
+  <button class="toolbar-open" onclick="toolsOpenModal(this);">
+    <img src="../global/file/edit-section.svg">
+  </button>
+</section>
+
   `;
   addSectionToGrid.insertAdjacentHTML("beforeend", customHTML);
   const sections = document.querySelectorAll("section");

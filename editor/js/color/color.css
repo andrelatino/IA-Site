@@ -1,9 +1,23 @@
 /*MODAL*/
-div#color-all {
+
+.div-visible{
+    display:grid;
+}
+.div-hidden{
+    display:none;
+}
+
+#solid-color-thumbnail,
+#radial-color-thumbnail,
+#linear-color-thumbnail{
     height: 280px;
     width: 280px;
     background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 #color-modal{
     z-index: 9999;
     position: fixed;
@@ -14,81 +28,44 @@ div#color-all {
     transform: translate(-50%, -50%);
     gap: 1px;
     padding: 10px;
-    height: 370px;
+    height: 315px;
     border-radius: 15px;
     overflow: hidden;
 }
-#color-container {
+#solid-color-box {
     position: absolute;
     width: 100%;
     border-radius: 15px;
     overflow: hidden;
     background: white;
 }
-#color-github-buttons {
-    display: none;
+.solid-picker-box {
+    width: 40px;
+    height: 40px;
+}
+#solid-coloris-btn,
+#radial-coloris-btn,
+#linear-coloris-btn {
+    width: 100%;
+}
+#color-modal-buttons {
     place-content: baseline;
     grid-template-columns: repeat(3,1fr);
     background: white;
-}
-div#color-github-buttons img {
-    width: 25px;
-}
-#color-all,
-#color-xs,
-#color-s,
-#color-m,
-#color-l,
-#color-xl
-{
     display: grid;
-    grid-template-columns:auto;
-    background:white;
-    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
-
-#color-all-thumbnail,
-#color-xs-thumbnail,
-#color-s-thumbnail,
-#color-m-thumbnail,
-#color-l-thumbnail ,
-#color-xl-thumbnail
-{
-    height: 280px;
-    width: 280px;
-    object-fit: cover;
-    background: #dadada;
-    
-}
-
-#color-all-input,
-#color-xs-input,
-#color-s-input,
-#color-m-input,
-#color-l-input,
-#color-xl-input
-{
-    height: 35px;
-    border: none;
-    background: #ffffff;
-    padding: 15px;
-    display: none;
-}
-#color-all-save,
-#color-xs-save,
-#color-s-save,
-#color-m-save,
-#color-l-save,
-#color-xl-save{
-    background: #2196f3;
-    color: white;
-    display: none;
+div#solid-color-buttons img {
+    width: 25px;
 }
 
 button.color-close img {
     filter: invert(1);
 }
-div#color-libraries {
+div#solid-color-buttons {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     background: white;
@@ -200,7 +177,7 @@ color#color-thumbnail {
     display: grid;
     place-content: center;
 }
-div#color-libraries {
+div#solid-color-buttons {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     background: #f0f0f0;
@@ -237,7 +214,9 @@ div#parent2 {
 .clr-picker {
     z-index: 99999!important;
 }
-div#coloris-div {
+#solid-color-picker,
+#radial-color-picker,
+#linear-color-picker {
     position: absolute;
     border-radius: 50%;
     overflow: hidden;
@@ -265,8 +244,11 @@ button#clr-close {
     border-radius: 0;
     height: 35px;
 }
-button#botoncito {
+#solid-color-picker-btn {
     width: 100%;
+}
+.coloris{
+    width:100%;
 }
 
 .clr-field input {
@@ -277,4 +259,9 @@ button#botoncito {
 }
 .radio-group p {
     display: none;
+}
+div#color-modal-buttons p {
+    font-size: 12px;
+    text-align: center;
+    display:none;
 }

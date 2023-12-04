@@ -81,13 +81,11 @@ function sectionImage() {
             <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
               <span class="tooltiptext-right">Media</span>
             </button>
-            <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
-              <span class="tooltiptext-right">Upload</span>
-            </button>
+            
             
           </div>
           
-          <button onclick="hideImageModal(); closeImageSidebar()" class="video-close">
+          <button onclick="hideImageModal(); closeImageSidebar(); closeAllImageSidebars()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
           </button>
           <button id="image-btn-all" onclick="imageAllButton(); checkClearButton();">

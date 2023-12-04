@@ -12,10 +12,13 @@ a:hover{
     text-decoration:underline;
     text-underline-position: under;
 }
-/* a {
-pointer-events: none;
-cursor: pointer;
-} */
+
+.div-visible{
+    visibility:visible;
+}
+.div-hidden{
+    visibility:hidden;
+}
 
 .mobile-box{
     width:280px;

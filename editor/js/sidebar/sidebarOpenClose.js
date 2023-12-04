@@ -15,3 +15,34 @@ function sidebarOpenClose(button) {
         break;
     }
   }
+
+  function openImageSidebar() {
+    sidebar = document.getElementById("image-sidebar");
+    sidebar.style.bottom = "0px";
+    sidebar.style.transition = "bottom 0.5s";
+  }
+
+  function closeImageSidebar() {
+    sidebar = document.getElementById("image-sidebar");
+    sidebar.style.transition = "bottom 0.5s";
+    sidebar.style.bottom = "-135px";
+  }
+
+  
+
+  function openGithubImageSidebar() {
+    sidebar = document.getElementById("image-github-sidebar");
+    sidebar.style.transition = "bottom 0.5s";
+    sidebar.style.bottom = "0px";
+  }
+
+  function closeGithubImageSidebar() {
+    sidebar = document.getElementById("image-github-sidebar");
+    sidebar.style.transition = "bottom 0.5s";
+    sidebar.style.bottom = "-135px";
+  }
+
+  function closeAllImageSidebars(){
+    closeImageSidebar();
+    closeGithubImageSidebar();
+ }

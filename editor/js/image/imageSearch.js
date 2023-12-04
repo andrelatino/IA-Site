@@ -249,21 +249,7 @@ function loadNextPage() {
 
     
     
-    function openImageSidebar() {
-        sidebar = document.getElementById("image-sidebar");
-        sidebar.style.bottom = "-135px";
-        sidebar.style.transition = "bottom 0.5s";
-        sidebar.offsetHeight;
-        sidebar.style.bottom = "0";
-      }
-
-      function closeImageSidebar() {
-        sidebar = document.getElementById("image-sidebar");
-        sidebar.style.bottom = "0px";
-        sidebar.style.transition = "bottom 0.5s";
-        sidebar.offsetHeight;
-        sidebar.style.bottom = "-135px";
-      }
+    
 
       function cleanView(){
         const imageModal = document.getElementById('image-modal');
@@ -290,3 +276,5 @@ function loadNextPage() {
         toolbarOpen.style.visibility='visible';
 
       }
+
+      
