@@ -224,15 +224,23 @@ div#parent2 {
     bottom: 100px;
     right: 10px;
 }
-
+#radial-color-picker1 {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    bottom: 60px;
+    right: 10px;
+}
 #radial-color-picker2 {
     position: absolute;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid white;
-    bottom: 50px;
+    bottom: 10px;
     right: 10px;
 }
+#radial-coloris-btn1,
 #radial-coloris-btn2 {
     width: 100%;
 }

@@ -33,6 +33,8 @@ function solidColorButton(){
 
 function radialColorButton(){
 
+    alert('radialColorButton');
+
     const radialGetBgId = document.getElementById('radial-bg-id');
     const radialBgId = radialGetBgId.textContent;
 
@@ -46,7 +48,7 @@ function radialColorButton(){
         radialColorThumb.style.background = radialBgColorIs;
 
         // Use regular expressions to extract the colors
-        const regex = /#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})/g; // Matches hex color codes
+        const regex = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/g; // Matches hex color codes
 
         const colors = radialBgColorIs.match(regex);
 
@@ -54,10 +56,16 @@ function radialColorButton(){
         const radialFirstColorIs = colors[0]; // The first color
         const radialSecondColorIs = colors[1]; // The second color
 
-        const radialColorPicker = document.getElementById("radial-coloris");
-        radialColorPicker.style.color = radialFirstColorIs;
+        const radialColorPicker1 = document.getElementById("radial-coloris1");
+        radialColorPicker1.style.color = radialFirstColorIs;
         const radialColorPicker2 = document.getElementById("radial-coloris2");
         radialColorPicker2.style.color = radialSecondColorIs;
+
+        const radialColorInput1 = document.getElementById("radial-coloris-input1");
+        radialColorInput1.setAttribute("value", radialFirstColorIs);
+        const radialColorInput2 = document.getElementById("radial-coloris-input2");
+        radialColorInput2.setAttribute("value", radialSecondColorIs);
+
 
         console.log('First Color:', radialFirstColorIs);
         console.log('Second Color:', radialSecondColorIs);
@@ -72,15 +80,15 @@ function radialColorButton(){
 
     }
 
-    const solidColorButton = document.getElementById('solid-color-btn');
-    solidColorButton.style.textDecoration = 'none';
-    solidColorButton.style.textUnderlinePosition = 'none';
-    const radialColorButton = document.getElementById('radial-color-btn');
-    radialColorButton.style.textDecoration = 'underline';
-    radialColorButton.style.textUnderlinePosition = 'under';
-    const linearColorButton = document.getElementById('linear-color-btn');
-    linearColorButton.style.textDecoration = 'none';
-    linearColorButton.style.textUnderlinePosition = 'none';
+        const solidColorButton = document.getElementById('solid-color-btn');
+        solidColorButton.style.textDecoration = 'none';
+        solidColorButton.style.textUnderlinePosition = 'none';
+        const radialColorButton = document.getElementById('radial-color-btn');
+        radialColorButton.style.textDecoration = 'underline';
+        radialColorButton.style.textUnderlinePosition = 'under';
+        const linearColorButton = document.getElementById('linear-color-btn');
+        linearColorButton.style.textDecoration = 'none';
+        linearColorButton.style.textUnderlinePosition = 'none';
 
     
 }

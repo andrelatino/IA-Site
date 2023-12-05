@@ -66,14 +66,19 @@ loadScript("./js/github/template/githubAddTemplates.js");
 
 
 // loadScript("./js/color/radialModal.js");
-loadScript("./js/color/colorSearch.js");
 loadScript("./js/color/colorHtml.js");
-loadScript("./js/color/colorSolid.js");
-loadScript("./js/color/colorLinear.js");
-loadScript("./js/color/colorRadial.js");
+loadScript("./js/color/colorSearch.js");
+
+
+
+
 loadScript("./js/color/colorBgIds.js");
 loadScript("./js/color/colorDefault.js");
 loadScript("./js/color/colorButtons.js");
+
+loadScript("./js/color/colorSolid.js");
+loadScript("./js/color/colorRadial.js");
+loadScript("./js/color/colorLinear.js");
 
 
 
