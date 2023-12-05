@@ -83,8 +83,8 @@ function generateRandomID(length) {
       
       <div id="${colorID}" data-type="bg-color">
         <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background:blue;"></div>
-        <div id="${radialcolorID}" data-type="radial-color" class="div-hidden"></div>
-        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden"></div>
+        <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background:radial-gradient(circle, #ff5733, #33ff57);"></div>
+        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background:linear-gradient(to right, #ff5733, #33ff57);"></div>
       </div> <!-- bg-color -->
 
       <div id="${generateRandomID(7)}" data-type="bg-image">

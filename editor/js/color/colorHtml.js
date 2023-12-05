@@ -24,6 +24,13 @@ function colorHtml() {
                         <input id="radial-coloris-input" type="text" data-coloris class="coloris radial-coloris" value="rgb(255, 0, 0) ">
                     </div> 
                 </div>
+
+                <div id = "radial-color-picker2">
+                    <div id="radial-coloris2" class="clr-field" style="color: rgb(255, 0, 0);">
+                        <button id="radial-coloris-btn2"></button>
+                        <input id="radial-coloris-input2" type="text" data-coloris class="coloris radial-coloris" value="rgb(255, 0, 0) ">
+                    </div> 
+                </div>
             </div>
 
             <div id="linear-color-thumbnail" data-type="linear-color">

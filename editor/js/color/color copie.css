@@ -1,23 +1,16 @@
 /*MODAL*/
 
-.div-visible{
-    display:grid;
-}
-.div-hidden{
-    display:none;
-}
-
-#solid-color-thumbnail,
-#radial-color-thumbnail,
-#linear-color-thumbnail{
+#solid-color-thumbnail{
     height: 280px;
     width: 280px;
     background: black;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
+div#color-all {
+    height: 280px;
+    width: 280px;
+    background: black;
+}
 #color-modal{
     z-index: 9999;
     position: fixed;
@@ -28,7 +21,7 @@
     transform: translate(-50%, -50%);
     gap: 1px;
     padding: 10px;
-    height: 315px;
+    height: 370px;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -39,27 +32,64 @@
     overflow: hidden;
     background: white;
 }
-.solid-picker-box {
-    width: 40px;
-    height: 40px;
-}
-#solid-coloris-btn,
-#radial-coloris-btn,
-#linear-coloris-btn {
-    width: 100%;
-}
-#color-modal-buttons {
+#solid-color-buttons {
+    display: none;
     place-content: baseline;
     grid-template-columns: repeat(3,1fr);
     background: white;
-    display: grid;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
 }
 div#solid-color-buttons img {
     width: 25px;
+}
+#color-all,
+#color-xs,
+#color-s,
+#color-m,
+#color-l,
+#color-xl
+{
+    display: grid;
+    grid-template-columns:auto;
+    background:white;
+    
+}
+
+#color-all-thumbnail,
+#color-xs-thumbnail,
+#color-s-thumbnail,
+#color-m-thumbnail,
+#color-l-thumbnail ,
+#color-xl-thumbnail
+{
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
+    background: #dadada;
+    
+}
+
+#color-all-input,
+#color-xs-input,
+#color-s-input,
+#color-m-input,
+#color-l-input,
+#color-xl-input
+{
+    height: 35px;
+    border: none;
+    background: #ffffff;
+    padding: 15px;
+    display: none;
+}
+#color-all-save,
+#color-xs-save,
+#color-s-save,
+#color-m-save,
+#color-l-save,
+#color-xl-save{
+    background: #2196f3;
+    color: white;
+    display: none;
 }
 
 button.color-close img {
@@ -214,27 +244,13 @@ div#parent2 {
 .clr-picker {
     z-index: 99999!important;
 }
-#solid-color-picker,
-#radial-color-picker,
-#linear-color-picker {
+div#solid-color-picker {
     position: absolute;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid white;
     bottom: 100px;
     right: 10px;
-}
-
-#radial-color-picker2 {
-    position: absolute;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid white;
-    bottom: 50px;
-    right: 10px;
-}
-#radial-coloris-btn2 {
-    width: 100%;
 }
 div#clr-picker {
     border-radius: 10px;
@@ -271,9 +287,4 @@ button#clr-close {
 }
 .radio-group p {
     display: none;
-}
-div#color-modal-buttons p {
-    font-size: 12px;
-    text-align: center;
-    display:none;
 }
