@@ -5,15 +5,21 @@ function solidDefaultColor(){
     const solidColorThumb = document.getElementById('solid-color-thumbnail');
     solidColorThumb.style.background = getDefaultColor;
     //Button
-    const solidColorButton = document.getElementById('solid-color-btn');
-    solidColorButton.style.textDecoration = 'underline';
-    solidColorButton.style.textUnderlinePosition = 'under';
-    //PICKER 
     const solidColorPickerDiv = document.getElementById("solid-coloris");
     solidColorPickerDiv.style.color = getDefaultColor; 
 
     const solidColorInput = document.getElementById("solid-coloris-input");
     solidColorInput.value = getDefaultColor;
+
+    const solidColorButton = document.getElementById('solid-color-btn');
+    solidColorButton.style.textDecoration = 'underline';
+    solidColorButton.style.textUnderlinePosition = 'under';
+    const radialColorButton = document.getElementById('radial-color-btn');
+    radialColorButton.style.textDecoration = 'none';
+    radialColorButton.style.textUnderlinePosition = 'none';
+    const linearColorButton = document.getElementById('linear-color-btn');
+    linearColorButton.style.textDecoration = 'none';
+    linearColorButton.style.textUnderlinePosition = 'none';
 
 }
 
@@ -97,7 +103,7 @@ function linearDefaultColor(){
         linearColorThumb.style.background = linearBgColorIs;
 
         // Use regular expressions to extract the colors
-        const regex = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/g;
+        const regex = /rgba?\([^)]+\)/g;
         const colors = linearBgColorIs.match(regex);
 
         if (colors && colors.length >= 2) {
@@ -130,9 +136,9 @@ function linearDefaultColor(){
     solidColorButton.style.textDecoration = 'none';
     solidColorButton.style.textUnderlinePosition = 'none';
     const radialColorButton = document.getElementById('radial-color-btn');
-    radialColorButton.style.textDecoration = 'underline';
-    radialColorButton.style.textUnderlinePosition = 'under';
+    radialColorButton.style.textDecoration = 'none';
+    radialColorButton.style.textUnderlinePosition = 'none';
     const linearColorButton = document.getElementById('linear-color-btn');
-    linearColorButton.style.textDecoration = 'none';
-    linearColorButton.style.textUnderlinePosition = 'none';
+    linearColorButton.style.textDecoration = 'underline';
+    linearColorButton.style.textUnderlinePosition = 'under';
 }
