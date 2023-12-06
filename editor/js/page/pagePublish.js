@@ -120,38 +120,83 @@ function pagePublish() {
 }
 
 function htmlContent() {
-    console.log(newSrcCss + newSrcJS);
-    const clonedGrid = grid.cloneNode(true);
-    const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
-    for (let i = 0; i < deleteButtons.length; i++) {
+  console.log(newSrcCss + newSrcJS);
+  const clonedGrid = grid.cloneNode(true);
+  const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
+  for (let i = 0; i < deleteButtons.length; i++) {
       deleteButtons[i].remove();
-    }
-    const contentItems = clonedGrid.querySelectorAll('[contenteditable="true"]');
-    for (let i = 0; i < contentItems.length; i++) {
+  }
+  const contentItems = clonedGrid.querySelectorAll('[contenteditable="true"]');
+  for (let i = 0; i < contentItems.length; i++) {
       contentItems[i].removeAttribute('contenteditable');
-    }
-    const html = `
-      <!DOCTYPE html>
-      <html lang="fr">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google" content="notranslate">
-        <title></title>
-        ${customCss}
-        <link rel="stylesheet" href="${newSrcCss}">
-      </head>
-      <body class="notranslate">
-        <div class="${pageClass}">      
-          ${clonedGrid.innerHTML}
-        </div>
-        <footer>
-          ${customJs}
-          <script src="${newSrcJS}" async></script>
-        </footer>
-      </body>
-      </html>
-    `;
-    console.log(html);
-    return html;
+  }
+
+  // Add code to remove div elements with class 'div-hidden'
+  const hiddenDivs = clonedGrid.querySelectorAll('.div-hidden');
+  for (let i = 0; i < hiddenDivs.length; i++) {
+      hiddenDivs[i].remove();
+  }
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="google" content="notranslate">
+      <title></title>
+      ${customCss}
+      <link rel="stylesheet" href="${newSrcCss}">
+    </head>
+    <body class="notranslate">
+      <div class="${pageClass}">      
+        ${clonedGrid.innerHTML}
+      </div>
+      <footer>
+        ${customJs}
+        <script src="${newSrcJS}" async></script>
+      </footer>
+    </body>
+    </html>
+  `;
+  console.log(html);
+  return html;
 }
+
+
+// function htmlContent() {
+//     console.log(newSrcCss + newSrcJS);
+//     const clonedGrid = grid.cloneNode(true);
+//     const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
+//     for (let i = 0; i < deleteButtons.length; i++) {
+//       deleteButtons[i].remove();
+//     }
+//     const contentItems = clonedGrid.querySelectorAll('[contenteditable="true"]');
+//     for (let i = 0; i < contentItems.length; i++) {
+//       contentItems[i].removeAttribute('contenteditable');
+//     }
+//     const html = `
+//       <!DOCTYPE html>
+//       <html lang="fr">
+//       <head>
+//         <meta charset="UTF-8">
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <meta name="google" content="notranslate">
+//         <title></title>
+//         ${customCss}
+//         <link rel="stylesheet" href="${newSrcCss}">
+//       </head>
+//       <body class="notranslate">
+//         <div class="${pageClass}">      
+//           ${clonedGrid.innerHTML}
+//         </div>
+//         <footer>
+//           ${customJs}
+//           <script src="${newSrcJS}" async></script>
+//         </footer>
+//       </body>
+//       </html>
+//     `;
+//     console.log(html);
+//     return html;
+// }
