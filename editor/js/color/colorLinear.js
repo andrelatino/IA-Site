@@ -35,8 +35,7 @@ function linearColorThumbIsSelected() {
   }
 }
 
-//LINEAR
-document.querySelectorAll('#linear-coloris').forEach(input => {
+document.querySelectorAll('#linear-coloris1').forEach(input => {
   input.addEventListener('click', e => {
       Coloris({
       parent: '.mobile-box',
@@ -46,42 +45,76 @@ document.querySelectorAll('#linear-coloris').forEach(input => {
       format: 'rgb',
       wrap: false,
       closeButton: true,
-      el: '#linear-coloris-input',
+      el: '#linear-coloris-input1'
       });
       document.addEventListener('coloris:pick', event => {
-        linearPickerColor();
+          linearPickerColors(); 
+      });
+  });
+});
+
+document.querySelectorAll('#linear-coloris2').forEach(input => {
+  input.addEventListener('click', e => {
+      Coloris({
+      parent: '.mobile-box',
+      theme: 'default',
+      themeMode: 'dark',
+      alpha: true,
+      format: 'rgb',
+      wrap: false,
+      closeButton: true,
+      el: '#linear-coloris-input2'
+      });
+      document.addEventListener('coloris:pick', event => {
+        linearPickerColors(); 
       });
   });
 });
 
 function linearThumbShow() {
-  //THUMB
   document.getElementById('solid-color-thumbnail').style.display = 'none';
   document.getElementById('radial-color-thumbnail').style.display = 'none';
   document.getElementById('linear-color-thumbnail').style.display = 'block';
 }
 
-function linearPickerColor() {
+var linearGradientCSS;
+
+function linearPickerColors() {
   //SET COLOR
-  const divElement = document.getElementById("linear-coloris");
-  const colorValue = window.getComputedStyle(divElement).getPropertyValue("color");
+  const linearColorDiv1 = document.getElementById("linear-coloris1");
+  const linearColorDiv2 = document.getElementById("linear-coloris2");
+
+  const linearColor1 = window.getComputedStyle(linearColorDiv1).getPropertyValue("color");
+  const linearColor2 = window.getComputedStyle(linearColorDiv2).getPropertyValue("color");
   //THUMB
+  const linearGradientCSS = createRadialGradient(linearColor1, linearColor2);
+
   const linearColorThumbnail = document.getElementById('linear-color-thumbnail');
-  linearColorThumbnail.style.background = colorValue;
-  //BG
-  const linearGetBgID = document.getElementById('linear-bg-id').textContent;
-  const linearColorBG = document.getElementById(linearGetBgID);
-  linearColorBG.style.background = colorValue;
+  linearColorThumbnail.style.background = linearGradientCSS;
+
+  const linearGetBgId = document.getElementById('linear-bg-id');
+  const linearBgId = linearGetBgId.textContent;
+  const linearColorBg = document.getElementById(linearBgId);
+  linearColorBg.style.background = linearGradientCSS;
+
+  console.log('linearGradientCSS: ' + linearGradientCSS);
+
 }
-function linearReadOnlyTrue() {
-  const clrColorValue = document.getElementById('clr-color-value');
-  const coloris = document.getElementById('linear-coloris-input');
-  clrColorValue.readOnly = true; 
-  coloris.readOnly = true;
+
+
+function createRadialGradient(color1, color2) {
+  return `linear-gradient(to left,${color1},${color2})`; 
 }
-function linearReadOnlyFalse() {
-  const clrColorValue = document.getElementById('clr-color-value');
-  const coloris = document.getElementById('linear-coloris-input');
-  clrColorValue.readOnly = false; 
-  coloris.readOnly = false;
-}
+
+// function linearReadOnlyTrue() {
+//   const clrColorValue = document.getElementById('clr-color-value');
+//   const coloris = document.getElementById('linear-coloris-input');
+//   clrColorValue.readOnly = true; 
+//   coloris.readOnly = true;
+// }
+// function linearReadOnlyFalse() {
+//   const clrColorValue = document.getElementById('clr-color-value');
+//   const coloris = document.getElementById('linear-coloris-input');
+//   clrColorValue.readOnly = false; 
+//   coloris.readOnly = false;
+// }

@@ -34,10 +34,17 @@ function colorHtml() {
             </div>
 
             <div id="linear-color-thumbnail" data-type="linear-color">
-                <div id = "linear-color-picker">
-                    <div id="linear-coloris" class="clr-field" style="color: rgb(255, 0, 0);">
-                        <button id="linear-coloris-btn"></button>
-                        <input id="linear-coloris-input" type="text" data-coloris class="coloris linear-coloris">
+                <div id = "linear-color-picker1">
+                    <div id="linear-coloris1" class="clr-field" style="color: rgb(255, 0, 0);">
+                        <button id="linear-coloris-btn1"></button>
+                        <input id="linear-coloris-input1" type="text" data-coloris class="coloris linear-coloris1">
+                    </div> 
+                </div>
+
+                <div id = "linear-color-picker2">
+                    <div id="linear-coloris2" class="clr-field" style="color: rgb(255, 0, 0);">
+                        <button id="linear-coloris-btn2"></button>
+                        <input id="linear-coloris-input2" type="text" data-coloris class="coloris linear-coloris2">
                     </div> 
                 </div>
             </div>

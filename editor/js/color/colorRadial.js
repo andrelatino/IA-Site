@@ -1,4 +1,4 @@
-var radialGradientCSS;
+
 
 function radialColorBgIsSelected() {
     const getColorID = document.getElementById('color-id').textContent;
@@ -80,6 +80,8 @@ function radialThumbShow() {
   document.getElementById('radial-color-thumbnail').style.display = 'block';
   document.getElementById('linear-color-thumbnail').style.display = 'none';
 }
+
+var radialGradientCSS;
 
 function radialPickerColors() {
   //SET COLOR

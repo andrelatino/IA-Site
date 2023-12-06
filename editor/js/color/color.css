@@ -31,6 +31,7 @@
     height: 315px;
     border-radius: 15px;
     overflow: hidden;
+    background: white;
 }
 #solid-color-box {
     position: absolute;
@@ -60,6 +61,22 @@
 }
 div#solid-color-buttons img {
     width: 25px;
+}
+#linear-color-picker1 {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    bottom: 60px;
+    right: 10px;
+}
+#linear-color-picker2 {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    bottom: 10px;
+    right: 10px;
 }
 
 button.color-close img {
@@ -214,14 +231,12 @@ div#parent2 {
 .clr-picker {
     z-index: 99999!important;
 }
-#solid-color-picker,
-#radial-color-picker,
-#linear-color-picker {
+#solid-color-picker {
     position: absolute;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid white;
-    bottom: 100px;
+    bottom: 10px;
     right: 10px;
 }
 #radial-color-picker1 {
@@ -242,6 +257,11 @@ div#parent2 {
 }
 #radial-coloris-btn1,
 #radial-coloris-btn2 {
+    width: 100%;
+}
+
+#linear-coloris-btn1,
+#linear-coloris-btn2 {
     width: 100%;
 }
 div#clr-picker {
