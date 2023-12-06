@@ -1,5 +1,7 @@
 function solidColorButton(){
 
+    colorReadOnlyTrue();
+
     const solidGetBgId = document.getElementById('solid-bg-id');
     const solidBgId = solidGetBgId.textContent;
 
@@ -26,12 +28,16 @@ function solidColorButton(){
     linearColorButton.style.textDecoration = 'none';
     linearColorButton.style.textUnderlinePosition = 'none';
 
+    
+
     console.log('solidBgId: '+solidBgId);
     console.log('solidBgColorIs: '+solidBgColorIs);
  
 }
 
 function radialColorButton(){
+
+    colorReadOnlyTrue();
 
     const radialGetBgId = document.getElementById('radial-bg-id');
     const radialBgId = radialGetBgId.textContent;
@@ -95,6 +101,8 @@ function radialColorButton(){
 }
 
 function linearColorButton(){
+
+    colorReadOnlyTrue();
     
     const linearGetBgId = document.getElementById('linear-bg-id');
     const linearBgId = linearGetBgId.textContent;
@@ -155,3 +163,23 @@ function linearColorButton(){
         linearColorButton.style.textUnderlinePosition = 'under';
     
 }
+
+function colorReadOnlyTrue(){
+    const clrColorValue = document.getElementById("clr-color-value");
+    clrColorValue.readOnly = true;
+}
+
+function colorReadOnlyFalse(){
+    const clrColorValue = document.getElementById("clr-color-value");
+    clrColorValue.readOnly = false;
+}
+
+const clrColorPreview = document.getElementById("clr-color-preview");
+clrColorPreview.addEventListener("click", function() {
+    colorReadOnlyFalse();
+});
+
+const clrColorClose = document.getElementById("clr-close");
+clrColorClose.addEventListener("click", function() {
+    colorReadOnlyTrue();
+});

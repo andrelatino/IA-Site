@@ -1,4 +1,6 @@
 function solidDefaultColor(){
+    
+    colorReadOnlyTrue();
     //GET COLOR
     const getDefaultColor = document.getElementById('color-current-bg').textContent;
     //THUMB
@@ -24,10 +26,11 @@ function solidDefaultColor(){
 }
 
 function radialDefaultColor(){
+    
+    colorReadOnlyTrue();
+
     const radialGetBgId = document.getElementById('radial-bg-id');
     const radialBgId = radialGetBgId.textContent;
-
-    
 
     const divElement = document.getElementById(radialBgId);
     const styleAttribute = divElement.getAttribute('style'); // Get the style attribute
@@ -84,10 +87,11 @@ function radialDefaultColor(){
 }
 
 function linearDefaultColor(){
+
+    colorReadOnlyTrue();
+    
     const linearGetBgId = document.getElementById('linear-bg-id');
     const linearBgId = linearGetBgId.textContent;
-
-    
 
     const divElement = document.getElementById(linearBgId);
     const styleAttribute = divElement.getAttribute('style'); // Get the style attribute
