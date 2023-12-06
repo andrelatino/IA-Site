@@ -25,7 +25,26 @@ function getColors(url) {
           // Add event listener to each color item
           colorItems.addEventListener('click', () => {
             // alert(api.hex);
-            solidUpdateBg(api.hex);
+            
+            const rgb = hexToRgb(api.hex);
+            console.log(rgb);
+            //GET COLOR
+            const getDefaultColor = rgb;
+
+            const solidBgId = document.getElementById('solid-bg-id').textContent;
+            const solidAddBgColor = document.getElementById(solidBgId);
+            solidAddBgColor.style.background = getDefaultColor;
+            // solidBackground.style.background = getDefaultColor;
+            //THUMB
+            const solidColorThumb = document.getElementById('solid-color-thumbnail');
+            solidColorThumb.style.background = getDefaultColor;
+            //Button
+            const solidColorPickerDiv = document.getElementById("solid-coloris");
+            solidColorPickerDiv.style.color = getDefaultColor; 
+
+            const solidColorInput = document.getElementById("solid-coloris-input");
+            solidColorInput.value = getDefaultColor;
+            // solidUpdateBg(api.hex);
             // const hexValue = api.hex;
             // document.getElementById('uVoJtob').style.background = hexValue;
           });
@@ -134,12 +153,39 @@ function searchColor() {
 }
 
 
-document.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13 && event.target.id === "color-sidebar-input") {
-    searchColor();
-  }
-});
+// document.addEventListener("keyup", function(event) {
+//   if (event.keyCode === 13 && event.target.id === "color-sidebar-input") {
+//     searchColor();
+//   }
+// });
 
 
 
+function openSolidSidebar() {
+  // alert('openSolidSidebar');
+  color = document.getElementById("color-solid-sidebar");
+  color.style.bottom = "0px";
+  color.style.transition = "bottom 0.5s";
+}
+
+function closeSolidSidebar() {
+  color = document.getElementById("color-solid-sidebar");
+  color.style.bottom = "-135px";
+  color.style.transition = "bottom 0.5s";
+}
+
+function hexToRgb(hex) {
+  hex = hex.replace(/^#/, '');
+  var r = parseInt(hex.slice(0, 2), 16);
+  var g = parseInt(hex.slice(2, 4), 16);
+  var b = parseInt(hex.slice(4, 6), 16);
+
+  // Return the RGB format as a string
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Example usage:
+// var hexColor = "#0051FF"; // Replace this with your hex color
+// var rgbColor = hexToRgb(hexColor);
+// console.log(rgbColor); // Outputs "rgb(0, 81, 255)"
 

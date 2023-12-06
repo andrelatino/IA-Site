@@ -95,9 +95,9 @@ color#color-thumbnail {
 }
 
 
-#color-sidebar {
+#color-solid-sidebar {
     /* display:none; */
-    width: 100%;
+    width: auto;
     height: 135px;
     position: fixed;
     bottom: -135px;
@@ -105,6 +105,7 @@ color#color-thumbnail {
     background-color: #f4f4f4;
     z-index: 9999;
 }
+
 #color-sidebar-header{
     height: 35px;
     overflow: hidden;

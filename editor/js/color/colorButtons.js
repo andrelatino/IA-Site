@@ -1,5 +1,6 @@
 function solidColorButton(){
 
+    openSolidSidebar();
     colorReadOnlyTrue();
 
     const solidGetBgId = document.getElementById('solid-bg-id');
@@ -38,6 +39,7 @@ function solidColorButton(){
 function radialColorButton(){
 
     colorReadOnlyTrue();
+    closeSolidSidebar();
 
     const radialGetBgId = document.getElementById('radial-bg-id');
     const radialBgId = radialGetBgId.textContent;
@@ -103,6 +105,7 @@ function radialColorButton(){
 function linearColorButton(){
 
     colorReadOnlyTrue();
+    closeSolidSidebar();
     
     const linearGetBgId = document.getElementById('linear-bg-id');
     const linearBgId = linearGetBgId.textContent;

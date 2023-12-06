@@ -2,7 +2,7 @@
   
    function toolsOpenModal(button) {
     
-    disableContentEditable();
+    // disableContentEditable();
     
     const section = button.closest('section');
     const addSectionID = section.id;

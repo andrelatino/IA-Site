@@ -57,7 +57,7 @@ function colorHtml() {
               <p id="radial-bg-id"></p>
               <p id="linear-bg-id"></p>        	    	     	
             </div>
-            <button onclick="hideColorModal(); closeColorSidebar()" class="color-close"><img src="./assets/svg/icons/close.svg"></button>          
+            <button onclick="hideColorModal(); closeSolidSidebar()" class="color-close"><img src="./assets/svg/icons/close.svg"></button>          
       </div>
       
       
