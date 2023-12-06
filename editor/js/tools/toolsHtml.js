@@ -308,3 +308,11 @@ function videoID() {
 // Attach the editBackground function to the button's click event
 document.getElementById('edit-bg').addEventListener('click', editBackground);
 
+function disableContentEditable() {
+  const grid = document.getElementById("grid");
+  const editableElements = grid.querySelectorAll('[contenteditable="true"]');
+
+  editableElements.forEach((element) => {
+    element.setAttribute("contenteditable", "false");
+  });
+}

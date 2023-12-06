@@ -179,21 +179,8 @@ clrColorPreview.addEventListener("click", function() {
     colorReadOnlyFalse();
 });
 
-// const clrColorClose = document.getElementById("clr-close");
-// clrColorClose.addEventListener("click", function() {
-//     colorReadOnlyTrue();
-// });
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const closeButton = document.getElementById('clr-close');
-    if (closeButton) {
-        colorReadOnlyTrue();
-        closeButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            // Add any additional logic you want to perform on button click
-            console.log('Button clicked, but default action prevented.');
-            
-        });
-    }
+const clrColorClose = document.getElementById("clr-close");
+clrColorClose.addEventListener("click", function() {
+    colorReadOnlyTrue();
 });
 

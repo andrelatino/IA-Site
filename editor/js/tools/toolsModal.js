@@ -2,6 +2,8 @@
   
    function toolsOpenModal(button) {
     
+    disableContentEditable();
+    
     const section = button.closest('section');
     const addSectionID = section.id;
     const textID = document.getElementById('toolbarSectionID');
