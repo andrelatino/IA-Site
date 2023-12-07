@@ -75,7 +75,7 @@ function loadDefaultVideo(){
 
 
 function loadSearchVideo() { 
-
+  removeExistingVideo();
   videoSidebarInput = document.getElementById("video-sidebar-input");
   videoQuery = videoSidebarInput.value;
 
@@ -214,14 +214,13 @@ function removeExistingVideo() {
   for (var i = 0; i < videoItems.length; i++) {videoItems[i].remove();}
 }
  
-function searchVideo() {
-  removeExistingVideo();
+function searchVideos() {
   loadSearchVideo(); 
 }
 
 document.addEventListener("keyup", function(event) {
   if (event.keyCode === 13 && event.target.id === "video-sidebar-input") {
-    searchVideo();
+    searchVideos();
   }
 });
 
