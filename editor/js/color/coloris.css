@@ -249,11 +249,18 @@ input.clr-color:focus {
   outline: none;
   border: 1px solid #1e90ff;
 }
-
+button#clr-close:after {
+  content: 'CLOSE-A';
+}
+.clr-close {
+  display: block;
+  margin: 0 20px 20px auto;
+  width: auto;
+}
 .clr-close,
 .clr-clear {
   display: none;
-  /* order: 2;
+  order: 2;
   height: 24px;
   margin: 0 20px 20px;
   padding: 0 20px;
@@ -264,7 +271,7 @@ input.clr-color:focus {
   font-family: inherit;
   font-size: 12px;
   font-weight: 400;
-  cursor: pointer; */
+  cursor: pointer;
 }
 
 .clr-close {

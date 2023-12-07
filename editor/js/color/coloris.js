@@ -952,7 +952,7 @@
     '</div>' +
     '<div id="clr-swatches" class="clr-swatches"></div>' + ("<button type=\"button\" id=\"clr-clear\" class=\"clr-clear\" aria-label=\"" +
     settings.a11y.clear + "\">" + settings.clearLabel + "</button>") +
-    '<div id="clr-color-preview" class="clr-preview">' + ("<button type=\"button\" id=\"clr-close\" class=\"clr-close\">CLOSE</button>") +
+    '<div id="clr-color-preview" class="clr-preview">' + ("<button type=\"button\" id=\"clr-close\" class=\"clr-close\"></button>") +
     '</div>' + ("<span id=\"clr-open-label\" hidden>" +
     settings.a11y.open + "</span>") + ("<span id=\"clr-swatch-label\" hidden>" +
     settings.a11y.swatch + "</span>");
