@@ -94,7 +94,13 @@ color#color-thumbnail {
     background: black;
 }
 
-
+button#clr-close {
+    background: white;
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+    height: 30px;
+}
 #color-solid-sidebar {
     /* display:none; */
     width: auto;

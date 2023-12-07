@@ -64,8 +64,8 @@ loadScript("./js/github/template/githubAddTemplates.js");
 // loadScript("./js/github/video/githubSearchVideos.js");
 // loadScript("./js/github/video/githubUploadVideos.js");
 
-loadScript("./js/color/coloris.js");
-// loadScript("./js/color/coloris.min.js");
+// loadScript("./js/color/coloris.js");
+loadScript("./js/color/coloris.min.js");
 loadScript("./js/color/colorHtml.js");
 loadScript("./js/color/colorSearch.js");
 loadScript("./js/color/colorBgIds.js");

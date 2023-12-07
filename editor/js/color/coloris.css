@@ -249,9 +249,9 @@ input.clr-color:focus {
   outline: none;
   border: 1px solid #1e90ff;
 }
-button#clr-close:after {
-  content: 'Readonly';
-}
+/* button#clr-close:after {
+  content: 'Close';
+} */
 .clr-close {
   display: block;
   margin: 0 20px 20px auto;
