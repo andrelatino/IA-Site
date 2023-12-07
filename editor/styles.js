@@ -25,3 +25,4 @@ function loadCSS(href) {
   loadCSS("./js/menu/menu.css");
   loadCSS("./js/video/video.css");
   loadCSS("./js/color/color.css");
+  loadCSS("./js/color/coloris.min.css");

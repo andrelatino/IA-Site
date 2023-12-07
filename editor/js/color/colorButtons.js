@@ -187,3 +187,5 @@ clrColorClose.addEventListener("click", function() {
     colorReadOnlyTrue();
 });
 
+
+
