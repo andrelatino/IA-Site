@@ -250,7 +250,7 @@ input.clr-color:focus {
   border: 1px solid #1e90ff;
 }
 button#clr-close:after {
-  content: 'CLOSE-A';
+  content: 'Readonly';
 }
 .clr-close {
   display: block;

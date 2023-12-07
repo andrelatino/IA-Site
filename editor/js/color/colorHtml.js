@@ -12,7 +12,7 @@ function colorHtml() {
                 <div id = "solid-color-picker">
                     <div id="solid-coloris" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="solid-coloris-btn"></button>
-                        <input id="solid-coloris-input" type="text" data-coloris class="coloris solid-coloris">
+                        <input id="solid-coloris-input" type="text" data-coloris class="coloris solid-coloris" readonly>
                     </div> 
                 </div>
             </div>
@@ -21,14 +21,14 @@ function colorHtml() {
                 <div id = "radial-color-picker1">
                     <div id="radial-coloris1" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="radial-coloris-btn1"></button>
-                        <input id="radial-coloris-input1" type="text" data-coloris class="coloris radial-coloris1">
+                        <input id="radial-coloris-input1" type="text" data-coloris class="coloris radial-coloris1" readonly>
                     </div> 
                 </div>
 
                 <div id = "radial-color-picker2">
                     <div id="radial-coloris2" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="radial-coloris-btn2"></button>
-                        <input id="radial-coloris-input2" type="text" data-coloris class="coloris radial-coloris2">
+                        <input id="radial-coloris-input2" type="text" data-coloris class="coloris radial-coloris2" readonly>
                     </div> 
                 </div>
             </div>
@@ -37,14 +37,14 @@ function colorHtml() {
                 <div id = "linear-color-picker1">
                     <div id="linear-coloris1" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="linear-coloris-btn1"></button>
-                        <input id="linear-coloris-input1" type="text" data-coloris class="coloris linear-coloris1">
+                        <input id="linear-coloris-input1" type="text" data-coloris class="coloris linear-coloris1" readonly>
                     </div> 
                 </div>
 
                 <div id = "linear-color-picker2">
                     <div id="linear-coloris2" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="linear-coloris-btn2"></button>
-                        <input id="linear-coloris-input2" type="text" data-coloris class="coloris linear-coloris2">
+                        <input id="linear-coloris-input2" type="text" data-coloris class="coloris linear-coloris2" readonly>
                     </div> 
                 </div>
             </div>
