@@ -95,7 +95,7 @@ video#video-thumbnail {
 }
 
 
-#video-sidebar {
+#video-web-sidebar {
     width: auto;
     height: 135px;
     position: fixed;
@@ -105,13 +105,20 @@ video#video-thumbnail {
     z-index: 9999;
 }
 #video-sidebar-header{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     position: relative;
     background: white;
     height: 35px;
     overflow: hidden;
+    place-content: center;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+}
+button#video-sidebar-show-button,
+button#video-sidebar-clean-button {
+    display: none;
 }
 #video-sidebar-grid {
     padding: 10px;
@@ -198,10 +205,11 @@ video#video-thumbnail {
 }
 div#video-libraries {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     background: #f0f0f0;
     gap: 1px;
     border-top: 1px solid #f0f0f0;
+    width:100%;
 } 
 button.video-close {
     position: absolute;

@@ -54,9 +54,6 @@ function videoModal() {
               
               <button id="video-btn-all" onclick="videoAllButton();">PC</button>
               
-              <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
-                <img src="./assets/svg/icons/close.svg">
-              </button>
                        
             </div>
             
@@ -72,18 +69,15 @@ function videoModal() {
                 <span class="tooltiptext-right">Web</span>	
               </button>
               
-              <button id="videoGithubSidebar" onclick="openMyVideos()">
+              <button id="videoGithubSidebar" onclick="openMediaVideos()">
                 <span class="tooltiptext-right">Media</span>
               </button>	
 
-              <button id="videoGithubSidebar" onclick="openMyVideos()">
-                <span class="tooltiptext-right">Upload</span>
-              </button>	
             </div>  
             
         </div>
 
-            <button onclick="hideVideoModal(); closeVideoSidebar()" class="video-close">
+            <button onclick="hideVideoModal(); closeVideoSidebars()" class="video-close">
                 <img src="./assets/svg/icons/close.svg">
             </button>
          

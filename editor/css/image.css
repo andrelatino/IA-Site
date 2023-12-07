@@ -1,4 +1,10 @@
 /*MODAL*/
+button#image-sidebar-show-button,
+button#image-sidebar-clean-button 
+{
+    display: none;
+}
+
 .image-selected{
     background:blue!important;
 }
@@ -138,13 +144,16 @@ button#image-clean {
 }
 
 #image-sidebar-search {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     position: relative;
     background: white;
     height: 35px;
     overflow: hidden;
+    place-content: center;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
 }
 #image-sidebar-search-input {
     padding: 10px;

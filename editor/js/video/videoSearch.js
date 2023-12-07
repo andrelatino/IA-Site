@@ -144,7 +144,7 @@ function loadSearchVideo() {
 }
 
 function loadNextVideos() {
-  
+  removeExistingVideo();
   videoCount += 1;
   videoPage = videoCount;
   videoPerPage = 20;
