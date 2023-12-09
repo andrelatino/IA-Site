@@ -43,7 +43,7 @@ var dragchatgptButton = document.querySelector("#chatgpt-drag");
 makeElementDraggable(dragchatgptModal, dragchatgptButton);
 
 const API_URL = "https://api.openai.com/v1/chat/completions";
-const API_KEY = "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";
+const API_KEY = "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";
 
 const promptInput = document.getElementById("chatgptPrompt");
 const generateBtn = document.getElementById("chatgptSend");

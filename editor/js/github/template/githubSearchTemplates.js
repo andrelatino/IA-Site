@@ -16,7 +16,7 @@ function githubImageSearchEnter(event) {
     const repoName = "enanitos";
     const folderName = "media/images/";
     const url = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-    // const accessToken = "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";
+    // const accessToken = "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";
     // const url = 'https://api.github.com/repositories/631291170/contents/media/images';
     fetch(url)
       .then(response => response.json())

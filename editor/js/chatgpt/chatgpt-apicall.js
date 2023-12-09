@@ -1,6 +1,6 @@
 // function callOpenAIChatAPI() {
 //     // Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
-//     const apiKey = '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';
+//     const apiKey = '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';
   
 //     // Define the API endpoint
 //     const apiUrl = 'https://api.openai.com/v1/chat/completions';

@@ -23,7 +23,7 @@ const createFile = async () => {
   const method = 'PUT';
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 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',
+    'Authorization': 'Bearer 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',
     'X-GitHub-Api-Version': '2022-11-28'
   };
 

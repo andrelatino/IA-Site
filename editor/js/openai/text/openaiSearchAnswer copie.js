@@ -2,7 +2,7 @@ function OpenaiFetchAPI() {
   console.log("Calling GPT3");
   var promptText = document.getElementById("promptInput").value;
   var url = "https://api.openai.com/v1/completions";
-  var bearer = 'Bearer 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';
+  var bearer = 'Bearer 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';
   fetch(url, {
       method: 'POST',
       headers: {

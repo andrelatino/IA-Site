@@ -15,11 +15,11 @@ function githubUploadVideo() {
 
   reader.onloadend = function() {
     const videoContent = reader.result.split(",")[1];
-    const username = "andrelatino";
-    const repoName = "site-export";
+    const username = githubUser;
+    const repoName = githubRepoName;
     const folderName = "media/videos/";
     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}${file.name}`;
-    const accessToken = "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";
+    const accessToken = githubApi;
     const headers = {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",

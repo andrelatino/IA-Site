@@ -10,7 +10,7 @@ function deleteItem(sha,path,repo) {
   const owner = 'icheff'; 
   const baseURL = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const headers = new Headers({
-      'Authorization': 'Bearer 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',
+      'Authorization': 'Bearer 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',
       'Accept': 'application/vnd.github.v3+json',
       'X-GitHub-Api-Version': '2022-11-28',
   });

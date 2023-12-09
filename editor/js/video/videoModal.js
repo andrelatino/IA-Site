@@ -69,7 +69,7 @@ function videoModal() {
                 <span class="tooltiptext-right">Web</span>	
               </button>
               
-              <button id="videoGithubSidebar" onclick="openMediaVideos()">
+              <button id="videoMediaSidebar" onclick="openMediaVideos()">
                 <span class="tooltiptext-right">Media</span>
               </button>	
 

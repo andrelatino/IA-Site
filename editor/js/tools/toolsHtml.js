@@ -260,6 +260,7 @@ function editBgVideo() {
     videoModal();
     getVideoUrl();
     loadDefaultVideo();
+    loadGithubVideos();
 }
 
 function colorID() {

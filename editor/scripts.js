@@ -60,9 +60,9 @@ loadScript("./js/github/image/githubUploadImages.js");
 loadScript("./js/github/template/githubLoadTemplates.js");
 loadScript("./js/github/template/githubAddTemplates.js");
 
-// loadScript("./js/github/video/githubLoadVideos.js");
-// loadScript("./js/github/video/githubSearchVideos.js");
-// loadScript("./js/github/video/githubUploadVideos.js");
+loadScript("./js/github/video/githubLoadVideos.js");
+loadScript("./js/github/video/githubSearchVideos.js");
+loadScript("./js/github/video/githubUploadVideos.js");
 
 // loadScript("./js/color/coloris.js");
 loadScript("./js/color/coloris.min.js");

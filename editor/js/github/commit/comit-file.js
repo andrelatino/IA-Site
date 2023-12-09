@@ -1,7 +1,7 @@
 // const owner = 'icheff'; // Replace with the repository owner
 // const repo = 'trencito.com'; // Replace with the repository name
 // const directoryPath = 'index.html'; // Replace with the directory path
-// const authToken = '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'; // Replace with your GitHub token
+// const authToken = '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'; // Replace with your GitHub token
 
 // const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
 

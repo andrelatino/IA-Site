@@ -10,7 +10,7 @@
   const method = 'PUT';
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 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',
+    'Authorization': 'Bearer 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',
     'X-GitHub-Api-Version': '2022-11-28',
     'If-None-Match': '' // Include this line to bypass caching
   };
@@ -32,7 +32,7 @@ const createFileOnGithub = async (pageName) => {
     });
 
     try {
-      const response = await fetch(url, { method: 'PUT', headers: { 'Authorization': `Bearer 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` }, body });
+      const response = await fetch(url, { method: 'PUT', headers: { 'Authorization': `Bearer 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` }, body });
       const data = await response.json();
 
       if (response.ok) {

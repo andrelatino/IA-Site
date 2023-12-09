@@ -1,30 +1,14 @@
 
 
-function openGithubVideoSidebar() {
-    video = document.getElementById("video-github-sidebar");
-    video.style.right = "-300px";
-    video.style.transition = "right 0.5s";
-    video.offsetHeight;
-    video.style.right = "75px";
-  }
-  
-  function closeGithubVideoSidebar() {
-    video = document.getElementById("video-github-sidebar");
-    video.style.right = "300px";
-    video.style.transition = "right 0.5s";
-    video.offsetHeight;
-    video.style.right = "-300px";
-  }
-
   function loadGithubVideos() {
 
     removeAllVideoItems();
 
-    const username = "andrelatino";
-    const repoName = "site-export";
+    const username = githubUser;
+    const repoName = githubRepoName;
     const folderName = "media/videos/";
     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-    const accessToken = "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";
+    const accessToken = githubApi;
 
     fetch(apiUrl, {
       headers: {
@@ -48,15 +32,15 @@ function openGithubVideoSidebar() {
       totalVideos = data.length;
 
       if (apiResponse === 'Not Found'){
-        document.getElementById('video-github-sidebar-total').textContent = "0 video(s) found";
+        document.getElementById('video-media-sidebar-total').textContent = "0 video(s) found";
       }else{
-        document.getElementById('video-github-sidebar-total').textContent = totalVideos + " video(s) found";
+        document.getElementById('video-media-sidebar-total').textContent = totalVideos + " video(s) found";
       }
 
 
       
-      document.getElementById("video-github-sidebar-next-button").style.opacity = 1;
-      const videoGridList = document.getElementById('video-github-sidebar-grid');
+      document.getElementById("video-media-sidebar-next-button").style.opacity = 1;
+      const videoGridList = document.getElementById('video-media-sidebar-grid');
       
       for (const api of data) {
 
@@ -65,7 +49,7 @@ function openGithubVideoSidebar() {
         // Handle the intrinsic size as text
         const videoSize = intrinsicSize.width + 'x' + intrinsicSize.height;
 
-        var videoPath = api.url;
+        // var videoPath = api.url;
         var videoSha = api.sha;
         const DivItems = document.createElement('div');
         const videoThumbnail = api.download_url;
@@ -73,7 +57,7 @@ function openGithubVideoSidebar() {
         const videoSizeInKB = Math.ceil(videoSizeInBytes / 1024);
         
         DivItems.id = api.sha;
-        DivItems.className = 'video-github-sidebar-items';
+        DivItems.className = 'video-media-sidebar-items';
         DivItems.innerHTML = `
 
           
@@ -82,12 +66,22 @@ function openGithubVideoSidebar() {
           </video>   
           
           <div class="video-github-item">  
-            <p class="video-github-sidebar-url">${api.name}</p>
-            <p class="video-github-sidebar-dimension">${videoSize}</p>
-            <p class="video-github-sidebar-size">${videoSizeInKB} kB</p>
-            <button id = "video-github-sidebar-delete" onclick="deleteFile('${videoSha}', '${videoPath}');"><img src="./assets/svg/icons/delete-white.svg"></button>
+            <p class="video-media-sidebar-url">${api.name}</p>
+            <p class="video-media-sidebar-dimension">${videoSize}</p>
+            <p class="video-media-sidebar-size">${videoSizeInKB} kB</p>
           </div>
         `;
+
+        // Add a click event listener to the DivItems
+        DivItems.addEventListener('click', function() {
+            console.log(api.sha)
+            const bgSrc = document.getElementById('video-src').textContent;
+            const thumbSrc = document.getElementById('video-thumbnail').id;
+            const sdVideoLink = api.download_url;
+
+            updateVideoSrc(bgSrc, sdVideoLink);
+            updateVideoSrc(thumbSrc, sdVideoLink);
+      });
         videoGridList.appendChild(DivItems);
 
       });//END VIDEO SIZE
@@ -98,42 +92,42 @@ function openGithubVideoSidebar() {
 }
 
 
-async function deleteFile(videoSha , videoPath) {
-  const url = videoPath;
-  const token = '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';
+// async function deleteFile(videoSha , videoPath) {
+//   const url = videoPath;
+//   const token = githubApi;
 
-  const options = {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/vnd.github.v3+json',
-    },
-    body: JSON.stringify({
-      message: 'Delete file',
-      committer: {
-        name: 'andrelatino',
-        email: 'andre.roussille@gmail.com'
-      },
-      sha:videoSha,
-    })
-  };
+//   const options = {
+//     method: 'DELETE',
+//     headers: {
+//       'Authorization': `Bearer ${token}`,
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/vnd.github.v3+json',
+//     },
+//     body: JSON.stringify({
+//       message: 'Delete file',
+//       committer: {
+//         name: githubUser
+//         // email: 'andre.roussille@gmail.com'
+//       },
+//       sha:videoSha,
+//     })
+//   };
 
-  try {
-    const response = await fetch(url, options);
+//   try {
+//     const response = await fetch(url, options);
     
-    if (response.ok) {
-      console.log('File deleted successfully');
-      console.log(videoSha);
-      removeVideofromDom(videoSha);
-    } else {
-      const error = await response.json();
-      console.error('Error deleting file:', error.message);
-    }
-  } catch (error) {
-    console.error('Error deleting file:', error.message);
-  }
-}
+//     if (response.ok) {
+//       console.log('File deleted successfully');
+//       console.log(videoSha);
+//       removeVideofromDom(videoSha);
+//     } else {
+//       const error = await response.json();
+//       console.error('Error deleting file:', error.message);
+//     }
+//   } catch (error) {
+//     console.error('Error deleting file:', error.message);
+//   }
+// }
 
 
 function removeVideofromDom(id) {
@@ -156,7 +150,7 @@ function removeVideofromDom(id) {
 
 
 function removeAllVideoItems() {
-  const videoGridList = document.getElementById('video-github-sidebar-grid');
+  const videoGridList = document.getElementById('video-media-sidebar-grid');
   videoGridList.innerHTML = '';
 }
 

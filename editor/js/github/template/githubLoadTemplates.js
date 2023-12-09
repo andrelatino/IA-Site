@@ -24,7 +24,7 @@ function openGithubTemplateSidebar() {
 //     const repoName = "enanitos";
 //     const folderName = "media/images/";
 //     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
-//     const accessToken = "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";
+//     const accessToken = "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";
 
 //     fetch(apiUrl, {
 //       headers: {
