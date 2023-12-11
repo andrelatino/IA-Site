@@ -6,7 +6,7 @@
 //   const message = document.getElementById('message');
 //   message.textContent = 'Creating project...';
 
-//   var token = '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';
+//   var token = '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';
 //   var user = 'icheff';
 //   const apiUrl = 'https://api.github.com';
 //   const inputName = document.getElementById('inputNameValue');

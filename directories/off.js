@@ -27,7 +27,7 @@ function github_get_site() {
     const repo = repoFromUrl;
     const url = `${baseURL}/${owner}/${repo}/contents`;
     const headers = new Headers({
-    'Authorization': 'Bearer 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',
+    'Authorization': 'Bearer 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',
     'Accept': 'application/vnd.github.v3+json',
     'X-GitHub-Api-Version': '2022-11-28',
     'If-None-Match': '' // Include this line to bypass caching   

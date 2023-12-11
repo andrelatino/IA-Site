@@ -176,16 +176,3 @@ function colorReadOnlyFalse(){
     const clrColorValue = document.getElementById("clr-color-value");
     clrColorValue.readOnly = false;
 }
-
-const clrColorPreview = document.getElementById("clr-color-preview");
-clrColorPreview.addEventListener("click", function() {
-    colorReadOnlyFalse();
-});
-
-const clrColorClose = document.getElementById("clr-close");
-clrColorClose.addEventListener("click", function() {
-    colorReadOnlyTrue();
-});
-
-
-

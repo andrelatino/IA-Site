@@ -50,7 +50,7 @@
         const videoSize = intrinsicSize.width + 'x' + intrinsicSize.height;
 
         // var videoPath = api.url;
-        var videoSha = api.sha;
+        // var videoSha = api.sha;
         const DivItems = document.createElement('div');
         const videoThumbnail = api.download_url;
         const videoSizeInBytes = api.size;
@@ -130,20 +130,20 @@
 // }
 
 
-function removeVideofromDom(id) {
-  const divElement = document.getElementById(id);
+// function removeVideofromDom(id) {
+//   const divElement = document.getElementById(id);
 
-  if (divElement) {
-    // Remove the div element from its parent node
-    divElement.parentNode.removeChild(divElement);
+//   if (divElement) {
+//     // Remove the div element from its parent node
+//     divElement.parentNode.removeChild(divElement);
 
-    // Perform some action with the id value
-    console.log('Remove div ID:', id);
-    // You can add your own logic or function calls here
-  } else {
-    console.log('Div element not found');
-  }
-}
+//     // Perform some action with the id value
+//     console.log('Remove div ID:', id);
+//     // You can add your own logic or function calls here
+//   } else {
+//     console.log('Div element not found');
+//   }
+// }
 
 // Example usage
 // removeVideofromDom('867de5f6f3d256f7891c7be5cdf782ab92ac60c2');

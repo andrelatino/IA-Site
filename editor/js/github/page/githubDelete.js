@@ -4,7 +4,7 @@
 //     // Get the sha of the file to be deleted
 //     fetch(url, {
 //       headers: {
-//         'Authorization': 'Bearer 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'
+//         'Authorization': 'Bearer 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'
 //       }
 //     })
 //     .then(response => response.json())

@@ -78,8 +78,9 @@ function linearThumbShow() {
 }
 
 var linearGradientCSS;
+var fullDegrees = '0deg';
 
-function linearPickerColors() {
+function linearPickerColors(degree) {
   //SET COLOR
   const linearColorDiv1 = document.getElementById("linear-coloris1");
   const linearColorDiv2 = document.getElementById("linear-coloris2");
@@ -87,7 +88,7 @@ function linearPickerColors() {
   const linearColor1 = window.getComputedStyle(linearColorDiv1).getPropertyValue("color");
   const linearColor2 = window.getComputedStyle(linearColorDiv2).getPropertyValue("color");
   //THUMB
-  const linearGradientCSS = createRadialGradient(linearColor1, linearColor2);
+  const linearGradientCSS = createLinearGradient(linearColor1, linearColor2);
 
   const linearColorThumbnail = document.getElementById('linear-color-thumbnail');
   linearColorThumbnail.style.background = linearGradientCSS;
@@ -102,19 +103,37 @@ function linearPickerColors() {
 }
 
 
-function createRadialGradient(color1, color2) {
-  return `linear-gradient(to left,${color1},${color2})`; 
+function createLinearGradient(color1, color2) {
+  return `linear-gradient(0deg,${color1},${color2})`; 
 }
 
-// function linearReadOnlyTrue() {
-//   const clrColorValue = document.getElementById('clr-color-value');
-//   const coloris = document.getElementById('linear-coloris-input');
-//   clrColorValue.readOnly = true; 
-//   coloris.readOnly = true;
-// }
-// function linearReadOnlyFalse() {
-//   const clrColorValue = document.getElementById('clr-color-value');
-//   const coloris = document.getElementById('linear-coloris-input');
-//   clrColorValue.readOnly = false; 
-//   coloris.readOnly = false;
-// }
+
+
+const rangeInput = document.getElementById("linear-range");
+const marker = document.getElementById("marker");
+const linearColorThumbnail = document.getElementById('linear-color-thumbnail');
+const linearColorBg = document.getElementById('JBDjqqQ');
+
+
+let timeoutId;
+
+rangeInput.addEventListener("input", function() {
+  const degrees = this.value;
+  marker.textContent = degrees;
+  var fullDegrees = degrees+'deg';
+  console.log('fullDegrees: '+fullDegrees);
+
+  clearTimeout(timeoutId);
+
+  // Espera un breve retraso antes de actualizar el fondo
+  timeoutId = setTimeout(() => {
+
+    const currentBackground = linearColorThumbnail.style.background;
+    const updatedBackground = currentBackground.replace(/linear-gradient\(\d+deg/, `linear-gradient(${fullDegrees}`);
+    linearColorThumbnail.style.background = updatedBackground;
+    
+    
+  }, 300); // 300 milisegundos (ajusta este valor según sea necesario)
+});
+
+

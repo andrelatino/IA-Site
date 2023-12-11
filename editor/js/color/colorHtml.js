@@ -47,7 +47,12 @@ function colorHtml() {
                         <input id="linear-coloris-input2" type="text" data-coloris class="coloris linear-coloris2" readonly>
                     </div> 
                 </div>
+
+                <input id="linear-range" type="range" min="0" max="360" value="0">
+                <div id="marker">0</div>
             </div>
+
+            
 
             <div id = "color-modal-buttons">
               <button id="solid-color-btn" onclick="solidColorBgIsSelected(); solidColorThumbIsSelected(); solidColorButton()">Solid</button>
@@ -66,6 +71,21 @@ function colorHtml() {
       editorDiv.innerHTML = content;
       var imageModal = document.querySelector("#color-modal");
       imageModal.className = "mobile-box";
+
+        const clrColorPreview = document.getElementById("clr-color-preview");
+        clrColorPreview.addEventListener("click", function() {
+            colorReadOnlyFalse();
+        });
+
+        const clrColorClose = document.getElementById("clr-close");
+        clrColorClose.addEventListener("click", function() {
+            colorReadOnlyTrue();
+        });
+
+        
+
+
+
 
     } else {
       console.error("Editor element not found.");
