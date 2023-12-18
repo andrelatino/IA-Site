@@ -27,16 +27,16 @@ function unsplash_check_api() {
       });
   }
   
-  document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(() => {
-      const savedInputValue = localStorage.getItem('unsplashApi');
-      if (savedInputValue) {
-        const unsplash_input = document.getElementById("unsplash_input");
-        const unsplash_button = document.getElementById("unsplash_btn");
-        unsplash_input.value = savedInputValue;
-        unsplash_button.style.background = "green";
-        unsplash_button.style.color = "white";
-        unsplash_button.textContent = "Unsplash activated!";
-      }
-    }, 100); // Adjust the delay as needed (in milliseconds)
-  });
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   setTimeout(() => {
+  //     const savedInputValue = localStorage.getItem('unsplashApi');
+  //     if (savedInputValue) {
+  //       const unsplash_input = document.getElementById("unsplash_input");
+  //       const unsplash_button = document.getElementById("unsplash_btn");
+  //       unsplash_input.value = savedInputValue;
+  //       unsplash_button.style.background = "green";
+  //       unsplash_button.style.color = "white";
+  //       unsplash_button.textContent = "Unsplash activated!";
+  //     }
+  //   }, 100); // Adjust the delay as needed (in milliseconds)
+  // });

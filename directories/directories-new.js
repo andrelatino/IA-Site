@@ -1,22 +1,35 @@
+  
+  // var githubBaseUrl = localStorage.getItem('githubBaseUrl');
+  // var githubRepoUrl = localStorage.getItem('githubRepoUrl');
+  // var githubRepoName = localStorage.getItem('githubRepoName');
+  // var githubUser = localStorage.getItem('githubUser');
+  // var githubApi = localStorage.getItem('githubApi');
+  // var githubEmail = localStorage.getItem('githubEmail');
+
+  
+  
+  
+ 
   const createPage = async () => {
   const currentTimestampMillis = Date.now();
   console.log(currentTimestampMillis);
 
-  const githubUser = 'icheff';
-  const githubRepo = localStorage.getItem('repoName');
+  // const githubUser = githubUser;
+  const githubRepo = githubRepoName;
+  const token = githubApi;
   const inputElement = document.getElementById('pageName');
   const dir = inputElement.value;
 
   const method = 'PUT';
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer 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',
+    'Authorization': `token ${token}`,
     'X-GitHub-Api-Version': '2022-11-28',
     'If-None-Match': '' // Include this line to bypass caching
   };
   
   let successCount = 0;
-let failCount = 0;
+  let failCount = 0;
 
 const createFileOnGithub = async (pageName) => {
     const url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dir}/${pageName}`;
@@ -25,14 +38,14 @@ const createFileOnGithub = async (pageName) => {
     const body = JSON.stringify({
       message: `Add new file ${pageName}`,
       committer: {
-        name: 'Icheff',
-        email: 'icheff.com@gmail.com'
+        name: githubUser,
+        email: githubEmail
       },
       content: content
     });
 
     try {
-      const response = await fetch(url, { method: 'PUT', headers: { 'Authorization': `Bearer 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` }, body });
+      const response = await fetch(url, { method: 'PUT', headers: {'Authorization': `token ${token}`}, body });
       const data = await response.json();
 
       if (response.ok) {

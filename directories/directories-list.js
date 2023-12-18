@@ -14,6 +14,14 @@ for (const item of decodedValues) {
     console.log('user:', user);
     var repoName = item.repo;
     localStorage.setItem('repo', item.repo);  
+    
+    const pageTitle = document.getElementById('admin-title-text');
+    pageTitle.textContent = item.repo;
+
+    const pageBreadCrumb = document.getElementById('admin-bread-crumb');
+    pageBreadCrumb.textContent = 'sites / '+item.repo;
+
+
 }
 function loadDirectories() {
     const baseURL = 'https://api.github.com/repos';

@@ -29,8 +29,10 @@ function github_check_api() {
         console.log(data);
         localStorage.setItem('githubApi',inputValue);
         localStorage.setItem('githubUser', data.login);
+        localStorage.setItem('githubEmail','email@yoursite.com' );
         localStorage.setItem('githubBaseUrl', data.html_url);
         localStorage.setItem('githubRepoUrl', data.repos_url);
+        
         // Process the data as needed
     })
     .catch(error => {

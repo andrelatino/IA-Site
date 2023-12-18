@@ -21,6 +21,12 @@
         console.log('user:', user);
         console.log('dir:', dirName);
 
+        const pageTitle = document.getElementById('admin-title-text');
+        pageTitle.textContent = item.repo;
+
+        const pageBreadCrumb = document.getElementById('admin-bread-crumb');
+        pageBreadCrumb.textContent = 'sites / '+item.repo+' / '+item.dir;
+
  
     }
 

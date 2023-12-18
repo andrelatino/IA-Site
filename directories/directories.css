@@ -1,3 +1,9 @@
+p#admin-bread-crumb {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #b0b0b0;
+}
+
 .sites-directoriesModal-content {
     display: grid;
     max-width: 250px;

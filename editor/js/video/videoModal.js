@@ -1,45 +1,41 @@
  
 function videoModal() {
 
-    // alert('videoModal');
     showVideoModal();
+
+  
+    // const textID = document.getElementById('toolbarSectionID');
+    // const sectionID = textID.textContent.trim();
+    // const sectionElement = document.getElementById(sectionID);
+  
+  
+    // // if (sectionElement) {
+    // //   const pictureElement = sectionElement.querySelector('video');
+    // //   if (pictureElement) {
+    // //     const getPictureID = pictureElement.id;
+    // //     var pictureID = getPictureID;
+    // //   } else {
+    // //       console.log('Picture element not found within the section.');
+    // //   }
+    // // } else {
+    // //     console.log('Section element with ID', sectionID, 'not found.');
+    // // }
+  
+    // // var pictureElement2 = document.getElementById(pictureID);
+    // // var imgElement = pictureElement2.querySelector('img');
+    // // if (imgElement) {
+    // //   var getImageID = imgElement.getAttribute('id');
+    // //     console.log("Image ID:", getImageID);
+    // // } else {
+    // //     console.log("Image tag not found.");
+    // // }
+  
+    // // const imageID = getImageID;
     
-    // showImageModal();
-    // loadUnsplashImages();
-    // loadGithubImages()
-  
-    const textID = document.getElementById('toolbarSectionID');
-    const sectionID = textID.textContent.trim();
-    const sectionElement = document.getElementById(sectionID);
-  
-  
-    if (sectionElement) {
-      const pictureElement = sectionElement.querySelector('video');
-      if (pictureElement) {
-        const getPictureID = pictureElement.id;
-        var pictureID = getPictureID;
-      } else {
-          console.log('Picture element not found within the section.');
-      }
-    } else {
-        console.log('Section element with ID', sectionID, 'not found.');
-    }
-  
-    var pictureElement2 = document.getElementById(pictureID);
-    var imgElement = pictureElement2.querySelector('img');
-    if (imgElement) {
-      var getImageID = imgElement.getAttribute('id');
-        console.log("Image ID:", getImageID);
-    } else {
-        console.log("Image tag not found.");
-    }
-  
-    const imageID = getImageID;
-    
-    // alert(pictureID+' - '+imageID)
-    localStorage.setItem('pictureID', pictureID);
-    localStorage.setItem('imageID', imageID);
-    // alert(pictureID);
+    // // // alert(pictureID+' - '+imageID)
+    // // localStorage.setItem('pictureID', pictureID);
+    // // localStorage.setItem('imageID', imageID);
+    // // alert(pictureID);
     var editorDiv = document.getElementById("video-modal");
   
    
@@ -59,7 +55,9 @@ function videoModal() {
             
             
             <div id="video-all">          
-                <video id="video-thumbnail" autoplay="" loop="" muted=""><source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4"></video>       
+                <video id="video-thumbnail" autoplay="" loop="" muted="">
+                  <source src="" type="video/mp4">
+                </video>       
                 <input type="text" id="video-all-input"> 
                 <button id="video-all-save" onclick="updateAllVideo();">SAVE (ALL)</button>  
             </div>
@@ -107,43 +105,55 @@ function videoModal() {
     }
 
     function getVideoUrl() {
-        const videoThumb = document.getElementById('video-thumbnail')
-        const  videoID= document.getElementById('video-id').textContent;
-        
-        const videoElement = document.getElementById(videoID);
-        if (videoElement) {
-            const sourceElement = videoElement.querySelector('source');
-            if (sourceElement) {
-                videoThumb.src = sourceElement.src;
-                console.log('URL: ' + sourceElement.src);
-            } else {
-                console.log('No se encontró el elemento source.');
-            }
-        } else {
-            console.log('No se encontró el elemento video.');
-        }
-    }
+      
+      const videoID = document.getElementById('video-id').textContent;
+      console.log('videoID:', videoID);
+      
+      const videoElement = document.getElementById(videoID);
+      console.log('videoElement:', videoElement);
+      
+      // const videoThumb = document.getElementById('video-thumbnail');
+      // console.log('videoThumb:', videoThumb);
+
+  
+      if (videoElement) {
+          const sourceElement = videoElement.querySelector('source');
+          if (sourceElement) {
+            
+              updateVideoSrc('video-thumbnail', sourceElement.src);
+              console.log('URL: ' + sourceElement.src);
+
+          } else {
+              console.log('No se encontró el elemento source.');
+          }
+      } else {
+          console.log('No se encontró el elemento video o video-thumbnail.');
+      }
+  }
+  
 
     function updateVideoSrc(videoID, videoURL) {
-        const videoElement = document.getElementById(videoID);
-    
-        if (videoElement) {
-            videoElement.src = videoURL;
-    
-            // Check if 'load' is a function before calling it
-            if (typeof videoElement.load === 'function') {
-                videoElement.load();
-    
-                videoElement.addEventListener('loadeddata', function() {
-                    console.log('Video is loaded and ready to play.');
-                });
-            } else {
-                console.error('load is not a function for the given video element.');
-            }
-        } else {
-            console.error('Could not find video element with the specified ID.');
-        }
-    }
+      const videoElement = document.getElementById(videoID);
+  
+      if (videoElement) {
+          const sourceElement = videoElement.querySelector('source');
+          
+          if (sourceElement) {
+              sourceElement.src = videoURL;
+              videoElement.load();
+              
+              videoElement.addEventListener('loadeddata', function() {
+                  console.log('Video is loaded and ready to play.');
+                  videoElement.play();
+              });
+          } else {
+              console.error('No se encontró el elemento source.');
+          }
+      } else {
+          console.error('No se encontró el elemento de video con el ID especificado.');
+      }
+  }
+  
     
     
     
