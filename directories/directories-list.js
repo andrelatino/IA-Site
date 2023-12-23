@@ -88,8 +88,11 @@ function loadDirectories() {
                     const values = 
                     [
                         {
-                            "fileName":repoName,
+                            
                             "fileUrl":api.download_url,
+                            "fileName":repoName,
+                            
+                            
                         }
                     ];
                     console.log(values);

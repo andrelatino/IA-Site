@@ -1,6 +1,7 @@
+
 const createFile = async () => {
-    const dirMessage = document.getElementById('file-message');
-    dirMessage.textContent = "Adding file..."
+    const fileMessage = document.getElementById('file-message');
+    fileMessage.textContent = "Adding file..."
   
     const selectElement = document.getElementById('selectDirOrFile');
     const selectedOption = selectElement.value;
@@ -21,19 +22,20 @@ const createFile = async () => {
     let successCount = 0;
     let failCount = 0;
   
-    const createFileOnGithub = async (pageName) => {
+    const createFileOnGithub = async (addFiles) => {
       let url;
   
       if (selectedOption === 'Page') {
-        // url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dir}/${pageName}`;
+        // url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dir}/${addFiles}`;
       } else if (selectedOption === 'File') {
-        url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${githubRepoName}/${pageName}`;
+        url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dirName}/${addFiles}`;
+        console.log('Url: '+url)
       }
   
       const content = btoa('');
   
       const body = JSON.stringify({
-        message: `Add new file ${pageName}`,
+        message: `Add new file ${addFiles}`,
         committer: {
           name: githubUser,
           email: githubEmail
@@ -46,24 +48,23 @@ const createFile = async () => {
         const data = await response.json();
   
         if (response.ok) {
-          const dirMessage = document.getElementById('file-message');
-          dirMessage.textContent = "File Added!"
-          console.log(`File ${pageName} updated successfully:`, data);
+          const fileMessage = document.getElementById('file-message');
+          fileMessage.textContent = "File Added!"
+          console.log(`File ${addFiles} updated successfully:`, data);
           successCount++;
         } else {
-          console.error(`Error updating file ${pageName}:`, data);
+          console.error(`Error updating file ${addFiles}:`, data);
           failCount++;
         }
       } catch (error) {
-        console.error(`An error occurred while creating ${pageName}:`, error);
+        console.error(`An error occurred while creating ${addFiles}:`, error);
         failCount++;
       }
     };
   
     if (selectedOption === 'File') {
-      
-      // Create a single file
       await createFileOnGithub(fileName);
+   
     } else if (selectedOption === 'Page') {
   
       // Create a page with the current four files

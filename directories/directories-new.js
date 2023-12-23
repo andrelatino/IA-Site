@@ -1,4 +1,7 @@
 const createPage = async () => {
+  const dirMessage = document.getElementById('dir-message');
+  dirMessage.textContent = "Adding page...!"
+
   const selectElement = document.getElementById('selectDirOrFile');
   const selectedOption = selectElement.value;
   const inputElement = document.getElementById('pageName');
@@ -46,7 +49,7 @@ const createPage = async () => {
 
       if (response.ok) {
         const dirMessage = document.getElementById('dir-message');
-        dirMessage.textContent = "Content Added!"
+        dirMessage.textContent = "Page Added!"
         console.log(`File ${pageName} updated successfully:`, data);
         successCount++;
       } else {

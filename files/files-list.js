@@ -112,11 +112,42 @@
 
                 console.log(pageIs);
 
+                if (api.name !== 'index.html' && api.type === 'file') {
+                    // Create and append the delete button
+                    const addButton = document.createElement('a');
+                    addButton.className = "directories-add";
+                    addButton.innerHTML = '<button class="files-edit">Edit File</button>';
+                    itemsDiv.appendChild(addButton);
+                    addButton.addEventListener('click', function() {
+                        // alert(api.name);
+                        const values = 
+                        [
+                            {
+                                
+                                "fileUrl":api.download_url,
+                                "fileName":repoName,
+                                
+                                
+                            }
+                        ];
+                        console.log(values);
+                        const encoded = btoa(JSON.stringify(values));
+                        const targetURL = '../code?id=' + encoded;
+                        window.location.href = targetURL;
+                    });
+    
+                    const deleteButton = createDeleteButton();
+                    deleteButton.addEventListener('click', function() {
+                        deleteItem(api.sha,api.path,repoName);    
+                    });
+                    itemsDiv.appendChild(deleteButton);
+                }
+
                 if (api.name === 'index.html' && api.type === 'file') {
 
                     const addButton = document.createElement('a');
                     addButton.className = "directories-add";
-                    addButton.innerHTML = '<button class="files-edit">Open file</button>';
+                    addButton.innerHTML = '<button class="files-edit">Edit file</button>';
                     addButton.addEventListener('click', function() {
                         // alert(api.name);
                         const values = 
