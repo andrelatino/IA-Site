@@ -3,7 +3,7 @@ var videoPerPage = 20;
 var videoCount= 1; 
 var videoQuery = "";
 var nextButton = document.getElementById('video-sidebar-next-button');
-
+var pexelsApi = localStorage.getItem('pexelsApi');
 
 function loadDefaultVideo(){
 
@@ -14,7 +14,7 @@ function loadDefaultVideo(){
   const container = document.getElementById('video-sidebar-grid');
   fetch(`https://api.pexels.com/videos/search?query=${videoQuery}&page=${videoPage}&per_page=${videoPerPage}`, {
     headers: {
-        Authorization: "uXRsuP917oFcgOKAMcRKQChayQ4yeEx53ZhU1wg3VlmPHXw23p2xOgoZ"
+        Authorization: pexelsApi
     }
   })
   .then(response => response.json())
@@ -88,7 +88,7 @@ function loadSearchVideo() {
   
   fetch(`https://api.pexels.com/videos/search?query=${videoQuery}&page=${videoPage}&per_page=${videoPerPage}`, {
     headers: {
-        Authorization: "uXRsuP917oFcgOKAMcRKQChayQ4yeEx53ZhU1wg3VlmPHXw23p2xOgoZ"
+        Authorization: pexelsApi
     }
   })
 
@@ -153,7 +153,7 @@ function loadNextVideos() {
   
   fetch(`https://api.pexels.com/videos/search?query=${videoQuery}&page=${videoPage}&per_page=${videoPerPage}`, {
     headers: {
-        Authorization: "uXRsuP917oFcgOKAMcRKQChayQ4yeEx53ZhU1wg3VlmPHXw23p2xOgoZ"
+        Authorization: pexelsApi
     }
   })
     .then(response => response.json())

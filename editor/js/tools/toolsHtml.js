@@ -117,6 +117,7 @@ function flipCardOnClick() {
   colorID();
   videoID();
   imageID();
+ 
    
   const flipCardInner = document.querySelector('.flip-card-inner');
     // Toggle the class to rotate or reset

@@ -2,7 +2,7 @@ const createPage = async () => {
   const selectElement = document.getElementById('selectDirOrFile');
   const selectedOption = selectElement.value;
   const inputElement = document.getElementById('pageName');
-  const pageName = inputElement.value;
+  const fileName = inputElement.value;
 
   const githubRepo = githubRepoName;
   const token = githubApi;
@@ -18,15 +18,13 @@ const createPage = async () => {
   let successCount = 0;
   let failCount = 0;
 
-  const createFileOnGithub = async (addFiles) => {
+  const createFileOnGithub = async (pageName) => {
     let url;
 
     if (selectedOption === 'Page') {
-      url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${pageName}/${addFiles}`;
-      console.log('Page:'+url);
+      url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dir}/${pageName}`;
     } else if (selectedOption === 'File') {
-      url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${addFiles}`;
-      console.log('File:'+url);
+      url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${pageName}`;
     }
 
     const content = btoa('');
@@ -62,7 +60,7 @@ const createPage = async () => {
   if (selectedOption === 'File') {
     
     // Create a single file
-    await createFileOnGithub(pageName);
+    await createFileOnGithub(fileName);
   } else if (selectedOption === 'Page') {
 
     // Create a page with the current four files

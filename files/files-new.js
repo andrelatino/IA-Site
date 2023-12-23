@@ -1,53 +1,100 @@
 const createFile = async () => {
-
-  const encodedValue = getUrlParameter('id');
-    const decodedValues = JSON.parse(atob(encodedValue));
-
-    for (const item of decodedValues) {
-        var repoName = item.repo;
-        var repoDir = item.dir;
-        console.log('repo:', repoName);
-        console.log('dir:', repoDir);
- 
-    }
-
-  const githubUser = 'icheff';
-  const githubRepo = repoName;
-  const githubDir = repoDir;
-  const fileNameLowerCase = document.getElementById('fileName');
-  const fileSelectValue = document.getElementById('files-select').value;  // Get the value from the select element
-  const fileName = fileSelectValue;
-
-
-  const url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${githubDir}/${fileName}`;
-  const method = 'PUT';
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer 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',
-    'X-GitHub-Api-Version': '2022-11-28'
-  };
-
-  const content = btoa('');
-
-  const body = JSON.stringify({
-    message: 'Add new file',
-    committer: {
-      name: 'Icheff',
-      email: 'icheff.com@gmail.com'
-    },
-    content: content
-  });
-
-  const response = await fetch(url, { method, headers, body });
-  const data = await response.json();
-
-  if (response.ok) {
-    console.log('File updated successfully:', data);
-  } else {
-    console.error('Error updating file:', data);
-  }
-};
-
+    const dirMessage = document.getElementById('file-message');
+    dirMessage.textContent = "Adding file..."
   
-//   createFile();
+    const selectElement = document.getElementById('selectDirOrFile');
+    const selectedOption = selectElement.value;
+    const inputElement = document.getElementById('pageName');
+    const fileName = inputElement.value;
+  
+    const githubRepo = githubRepoName;
+    const token = githubApi;
+  
+    const method = 'PUT';
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `token ${token}`,
+      'X-GitHub-Api-Version': '2022-11-28',
+      'If-None-Match': '' // Include this line to bypass caching
+    };
+  
+    let successCount = 0;
+    let failCount = 0;
+  
+    const createFileOnGithub = async (pageName) => {
+      let url;
+  
+      if (selectedOption === 'Page') {
+        // url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${dir}/${pageName}`;
+      } else if (selectedOption === 'File') {
+        url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${githubRepoName}/${pageName}`;
+      }
+  
+      const content = btoa('');
+  
+      const body = JSON.stringify({
+        message: `Add new file ${pageName}`,
+        committer: {
+          name: githubUser,
+          email: githubEmail
+        },
+        content: content
+      });
+  
+      try {
+        const response = await fetch(url, { method: 'PUT', headers: {'Authorization': `token ${token}`}, body });
+        const data = await response.json();
+  
+        if (response.ok) {
+          const dirMessage = document.getElementById('file-message');
+          dirMessage.textContent = "File Added!"
+          console.log(`File ${pageName} updated successfully:`, data);
+          successCount++;
+        } else {
+          console.error(`Error updating file ${pageName}:`, data);
+          failCount++;
+        }
+      } catch (error) {
+        console.error(`An error occurred while creating ${pageName}:`, error);
+        failCount++;
+      }
+    };
+  
+    if (selectedOption === 'File') {
+      
+      // Create a single file
+      await createFileOnGithub(fileName);
+    } else if (selectedOption === 'Page') {
+  
+      // Create a page with the current four files
+      await createFileOnGithub('index-0.json');
+      await createFileOnGithub('style.css');
+      await createFileOnGithub('script.js');
+      await createFileOnGithub('index.html');
+    }
+    
+    console.log(`Total files successfully uploaded: ${successCount}`);
+    console.log(`Total files failed to upload: ${failCount}`);
+  };
+  
+  
+//   // Function to handle the change event of the select element
+//   const handleSelectChange = () => {
+//     const selectElement = document.getElementById('selectDirOrFile');
+//     const selectedOption = selectElement.value;
+  
+//     if (selectedOption === 'File') {
+//       const buttonTextIs = document.getElementById('createNewButton');
+//       buttonTextIs.textContent = 'Add New File';
+//       console.log('Selected option: File');
+//     } else if (selectedOption === 'Page') {
+//       const buttonTextIs = document.getElementById('createNewButton');
+//       buttonTextIs.textContent = 'Add New Page';
+//       console.log('Selected option: Page');
+//     }
+//   };
+  
+//   // Add an event listener to the select element
+//   const selectElement = document.getElementById('selectDirOrFile');
+//   selectElement.addEventListener('change', handleSelectChange);
   

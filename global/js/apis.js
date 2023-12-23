@@ -19,3 +19,8 @@ console.log ('-----------------------Unsplash')
 var unsplashApi = localStorage.getItem('unsplashApi');
 console.log("unsplashApi:", unsplashApi);
 console.log ('-----------------------------')
+
+console.log ('-----------------------Pexels')
+var pexelsApi = localStorage.getItem('pexelsApi');
+console.log("pexelsApi:", pexelsApi);
+console.log ('-----------------------------')

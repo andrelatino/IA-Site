@@ -15,12 +15,8 @@ for (const item of decodedValues) {
     var repoName = item.repo;
     localStorage.setItem('repo', item.repo);  
     
-    const pageTitle = document.getElementById('admin-title-text');
-    pageTitle.textContent = item.repo;
-
-    const pageBreadCrumb = document.getElementById('admin-bread-crumb');
-    pageBreadCrumb.textContent = 'sites / '+item.repo;
-
+    var pageTitle = document.getElementById('admin-title-text');
+    var pageBreadCrumb = document.getElementById('admin-bread-crumb');
 
 }
 function loadDirectories() {
@@ -37,6 +33,11 @@ function loadDirectories() {
     fetch(url, { headers })
     .then(response => response.json())
     .then(data => {
+
+        pageTitle.textContent = repoName;
+        pageBreadCrumb.textContent = 'sites / '+repoName;
+
+
         console.log(data);
         getTotal = data.length;
 
@@ -76,8 +77,27 @@ function loadDirectories() {
                 var devJsonSha = api.sha;
             }
 
-            if (api.type === 'file') {
+            if (api.name !== 'index.html' && api.type === 'file') {
                 // Create and append the delete button
+                const addButton = document.createElement('a');
+                addButton.className = "directories-add";
+                addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
+                itemsDiv.appendChild(addButton);
+                addButton.addEventListener('click', function() {
+                    // alert(api.name);
+                    const values = 
+                    [
+                        {
+                            "fileName":repoName,
+                            "fileUrl":api.download_url,
+                        }
+                    ];
+                    console.log(values);
+                    const encoded = btoa(JSON.stringify(values));
+                    const targetURL = '../code?id=' + encoded;
+                    window.location.href = targetURL;
+                });
+
                 const deleteButton = createDeleteButton();
                 deleteButton.addEventListener('click', function() {
                     deleteItem(api.sha,api.path,repoName);    
@@ -91,7 +111,7 @@ function loadDirectories() {
                 
                 const addButton = document.createElement('a');
                 addButton.className = "directories-add";
-                addButton.innerHTML = '<button class="directories-edit">Open file</button>';
+                addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
                 addButton.addEventListener('click', function() {
                     // alert(api.name);
                     const values = 
@@ -120,7 +140,7 @@ function loadDirectories() {
             if (api.type === 'dir') {
                 const dirButton = document.createElement('a');
                 dirButton.className = "dir-button";
-                dirButton.innerHTML = '<button class="dir-button">Open directory</button>';
+                dirButton.innerHTML = '<button class="dir-button">Edit Page</button>';
                 dirButton.addEventListener('click', function(){
                     // alert(api.name);
                     const values = 

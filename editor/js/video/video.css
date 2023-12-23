@@ -143,7 +143,7 @@ button#video-sidebar-clean-button {
     grid-auto-columns: 60px;
     overflow-x: auto;
     width: 100vw;
-    place-content:start;
+    place-content:space-between;
     
 }
 .video-sidebar-items img {

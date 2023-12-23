@@ -21,12 +21,8 @@
         console.log('user:', user);
         console.log('dir:', dirName);
 
-        const pageTitle = document.getElementById('admin-title-text');
-        pageTitle.textContent = item.repo;
-
-        const pageBreadCrumb = document.getElementById('admin-bread-crumb');
-        pageBreadCrumb.textContent = 'sites / '+item.repo+' / '+item.dir;
-
+        var pageTitle = document.getElementById('admin-title-text');
+        var pageBreadCrumb = document.getElementById('admin-bread-crumb');
  
     }
 
@@ -46,6 +42,10 @@
         fetch(url, { headers })
         .then(response => response.json())
         .then(data => {
+
+            pageTitle.textContent = repoName;
+            pageBreadCrumb.textContent = 'sites / '+repoName+' / '+dirName;
+
             console.log(data);
             let getTotal = data.length;
             let showTotal = getTotal === undefined ? 0 : getTotal;

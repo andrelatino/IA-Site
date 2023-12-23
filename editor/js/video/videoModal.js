@@ -3,39 +3,6 @@ function videoModal() {
 
     showVideoModal();
 
-  
-    // const textID = document.getElementById('toolbarSectionID');
-    // const sectionID = textID.textContent.trim();
-    // const sectionElement = document.getElementById(sectionID);
-  
-  
-    // // if (sectionElement) {
-    // //   const pictureElement = sectionElement.querySelector('video');
-    // //   if (pictureElement) {
-    // //     const getPictureID = pictureElement.id;
-    // //     var pictureID = getPictureID;
-    // //   } else {
-    // //       console.log('Picture element not found within the section.');
-    // //   }
-    // // } else {
-    // //     console.log('Section element with ID', sectionID, 'not found.');
-    // // }
-  
-    // // var pictureElement2 = document.getElementById(pictureID);
-    // // var imgElement = pictureElement2.querySelector('img');
-    // // if (imgElement) {
-    // //   var getImageID = imgElement.getAttribute('id');
-    // //     console.log("Image ID:", getImageID);
-    // // } else {
-    // //     console.log("Image tag not found.");
-    // // }
-  
-    // // const imageID = getImageID;
-    
-    // // // alert(pictureID+' - '+imageID)
-    // // localStorage.setItem('pictureID', pictureID);
-    // // localStorage.setItem('imageID', imageID);
-    // // alert(pictureID);
     var editorDiv = document.getElementById("video-modal");
   
    

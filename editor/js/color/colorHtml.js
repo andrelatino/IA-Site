@@ -72,15 +72,15 @@ function colorHtml() {
       var imageModal = document.querySelector("#color-modal");
       imageModal.className = "mobile-box";
 
-        const clrColorPreview = document.getElementById("clr-color-preview");
-        clrColorPreview.addEventListener("click", function() {
-            colorReadOnlyFalse();
-        });
+        // const clrColorPreview = document.getElementById("clr-color-preview");
+        // clrColorPreview.addEventListener("click", function() {
+        //     colorReadOnlyFalse();
+        // });
 
-        const clrColorClose = document.getElementById("clr-close");
-        clrColorClose.addEventListener("click", function() {
-            colorReadOnlyTrue();
-        });
+        // const clrColorClose = document.getElementById("clr-close");
+        // clrColorClose.addEventListener("click", function() {
+        //     colorReadOnlyTrue();
+        // });
 
         
 
