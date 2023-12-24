@@ -119,3 +119,15 @@ button#createRepoButton {
     border: none;
     border-radius: 5px;
 }
+
+div#grid {
+    width: 100%;
+    display: grid;
+    height: 100%;
+}
+.CodeMirror {
+    font-family: arial!important;
+    height: 75vh!important;
+    width:100%;
+    
+}
