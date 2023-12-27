@@ -12,9 +12,11 @@ const decodedValues = JSON.parse(atob(encodedValue));
 for (const item of decodedValues) {
     var fileName = item.fileName;
     var fileUrl = item.fileUrl;
+    var fileType = item.fileType;
    
     console.log('fileName:', fileName);
     console.log('fileUrl:', fileUrl);
+    console.log('fileType:', fileType);
 
 }
 
@@ -29,7 +31,7 @@ function githubRawFile() {
         .then(data => {
 
             var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-                mode: "javascript",
+                mode: "",
                 lineWrapping: true,
                 lineNumbers: true,
                 theme: "material",
