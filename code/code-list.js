@@ -27,29 +27,12 @@ function githubRawFile() {
     fetch(fileUrl)
         .then(response => response.text())
         .then(data => {
-            // // Get the div with id 'grid' to display raw file content
-            // let gridDiv = document.getElementById('grid');
 
-            // // Clean up any existing content in the div
-            // gridDiv.innerHTML = "";
-
-            // let rawFileTextarea = document.createElement('textarea');
-            // rawFileTextarea.className="file-textarea"
-            // rawFileTextarea.id="css-editor"
-            // rawFileTextarea.style.width = '100%'; // You can adjust width and height as needed
-            // rawFileTextarea.style.height = '400px'; // This will provide a decent-sized editable area
-            // rawFileTextarea.placeholder= 'Add your code here...';
-            // rawFileTextarea.value = data;
-
-            // // Append the textarea to the 'grid' div
-            // gridDiv.appendChild(rawFileTextarea);
-
-           
-            var editor = CodeMirror.fromTextArea(document.getElementById("css-editor"), {
-                mode: "css",
+            var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+                mode: "javascript",
                 lineWrapping: true,
                 lineNumbers: true,
-                theme: "default", // Replace "your-theme-name" with the actual theme name
+                theme: "material",
             });
             
             

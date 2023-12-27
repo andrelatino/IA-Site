@@ -79,6 +79,7 @@
                 gridDiv.appendChild(itemsDiv);
 
                 if (api.type === 'file') {
+
                     // Create and append the delete button
                     const deleteButton = createDeleteButton();
                     deleteButton.addEventListener('click', function() {
@@ -126,8 +127,8 @@
                                 
                                 "fileUrl":api.download_url,
                                 "fileName":repoName,
-                                
-                                
+                                "fileType":fileType,
+
                             }
                         ];
                         console.log(values);
