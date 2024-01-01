@@ -23,6 +23,8 @@ loadScript("./js/page/pagePublishModal.js");
 loadScript("./js/page/pageBuilderSave.js");
 //MENU
 loadScript("./js/menu/menu.js");
+//SETTINGS
+loadScript("./js/settings/settings-sidebar.js");
 //PATTERNS
 loadScript("./js/pattern/footer1.js ");
 loadScript("./js/pattern/header1.js ");

@@ -1,33 +1,3 @@
-// function setupGridHeight() {
-//   // const gridWrapper = document.querySelector('#grid-wrapper');
-//   const grid = document.querySelector('#grid');
-//   const observer = new MutationObserver((mutationsList) => {
-//     for (const mutation of mutationsList) {
-//       if (mutation.type === 'childList') {
-//         const sections = grid.querySelectorAll('section');
-//         let newHeight = `${0 / 0.7 * sections.length}px`; // Adjust for scaling
-//         const minHeight = 0; // Minimum 100 pixels from the bottom
-
-//         // Ensure there is at least 100px from the bottom
-//         if (parseInt(newHeight) < minHeight) {
-//           newHeight = `${minHeight}px`;
-//         }
-
-//         grid.style.height = newHeight;
-//         localStorage.setItem('gridHeight', newHeight);
-//       }
-//     }
-//   });
-
-//   // Retrieve height from local storage on page load
-//   const savedHeight = localStorage.getItem('gridHeight');
-//   if (savedHeight) {
-//     grid.style.height = savedHeight;
-//   }
-
-//   observer.observe(grid, { childList: true });
-// }
-// document.addEventListener('DOMContentLoaded', setupGridHeight);
 
 if (pageIs === 'home' || pageIs === 'page') {
     var pageClass = 'page';
@@ -61,6 +31,7 @@ function encodeUTF8ToBase64(str) {
 }
 
 function pagePublish() {
+  
   const accessToken = githubApi;
   var apiUrl = indexHtmlApi;
 
@@ -119,49 +90,49 @@ function pagePublish() {
   });
 }
 
-function htmlContent() {
-  console.log(newSrcCss + newSrcJS);
-  const clonedGrid = grid.cloneNode(true);
-  const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
-  for (let i = 0; i < deleteButtons.length; i++) {
-      deleteButtons[i].remove();
-  }
-  const contentItems = clonedGrid.querySelectorAll('[contenteditable="true"]');
-  for (let i = 0; i < contentItems.length; i++) {
-      contentItems[i].removeAttribute('contenteditable');
-  }
+// function htmlContent() {
+//   console.log(newSrcCss + newSrcJS);
+//   const clonedGrid = grid.cloneNode(true);
+//   const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
+//   for (let i = 0; i < deleteButtons.length; i++) {
+//       deleteButtons[i].remove();
+//   }
+//   const contentItems = clonedGrid.querySelectorAll('[contenteditable="true"]');
+//   for (let i = 0; i < contentItems.length; i++) {
+//       contentItems[i].removeAttribute('contenteditable');
+//   }
 
-  // Add code to remove div elements with class 'div-hidden'
-  const hiddenDivs = clonedGrid.querySelectorAll('.div-hidden');
-  for (let i = 0; i < hiddenDivs.length; i++) {
-      hiddenDivs[i].remove();
-  }
+//   // Add code to remove div elements with class 'div-hidden'
+//   const hiddenDivs = clonedGrid.querySelectorAll('.div-hidden');
+//   for (let i = 0; i < hiddenDivs.length; i++) {
+//       hiddenDivs[i].remove();
+//   }
 
-  const html = `
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="google" content="notranslate">
-      <title></title>
-      ${customCss}
-      <link rel="stylesheet" href="${newSrcCss}">
-    </head>
-    <body class="notranslate">
-      <div class="${pageClass}">      
-        ${clonedGrid.innerHTML}
-      </div>
-      <footer>
-        ${customJs}
-        <script src="${newSrcJS}" async></script>
-      </footer>
-    </body>
-    </html>
-  `;
-  console.log(html);
-  return html;
-}
+//   const html = `
+//     <!DOCTYPE html>
+//     <html lang="fr">
+//     <head>
+//       <meta charset="UTF-8">
+//       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//       <meta name="google" content="notranslate">
+//       <title></title>
+//       ${customCss}
+//       <link rel="stylesheet" href="${newSrcCss}">
+//     </head>
+//     <body class="notranslate">
+//       <div class="${pageClass}">      
+//         ${clonedGrid.innerHTML}
+//       </div>
+//       <footer>
+//         ${customJs}
+//         <script src="${newSrcJS}" async></script>
+//       </footer>
+//     </body>
+//     </html>
+//   `;
+//   console.log(html);
+//   return html;
+// }
 
 
 // function htmlContent() {

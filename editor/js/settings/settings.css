@@ -1,0 +1,27 @@
+/*SIDEBAR*/
+#settings-sidebar{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    right: -100%;
+    background-color: rgb(241, 241, 241);
+    z-index: 9999;
+}
+div#settings-sidebar-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    height: 50px;
+    place-items: center;
+    background: white;
+}
+img.settings-close {
+    filter: invert(1);
+}
+div#settings-sidebar-grid {
+    padding: 35px;
+}
+p.settings-subtitles {
+    margin-bottom: 10px;
+}

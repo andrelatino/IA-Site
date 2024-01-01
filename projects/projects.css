@@ -1,4 +1,6 @@
-
+select#templateSelector {
+    display: none;
+}
 
 .sites-grid {
     display: grid;

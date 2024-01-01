@@ -91,7 +91,9 @@ function loadDirectories() {
                             
                             "fileUrl":api.download_url,
                             "fileName":repoName,
-                            "fileType":api.name,                            
+                            "fileType":api.name,
+                            "fileSha":api.sha,
+                            "fileToUpdate":api.url,                            
                             
                         }
                     ];

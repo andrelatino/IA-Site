@@ -10,6 +10,11 @@
 		
 	</head>
 	<body>
+		<!--- choices.js -->
+		<script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" rel="stylesheet">
+		<!----------------->
+
 		<script src="./video.js"></script>
 		<div id="image-modal" style="display:none;"></div>
 		<div id="video-modal" style="display:none;"></div>
@@ -111,19 +116,6 @@
 			
 		</div>
 
-		<!-- <div id="video-media-sidebar" style="bottom:-135px">
-			<div id="video-github-sidebar-search">
-				<input type="text" id="video-github-sidebar-search-input" placeholder="Search..." required>
-				<button type="submit" id="video-github-sidebar-add-new" onclick="githubUploadVideo();"><img src="./assets/svg/icons/add-white.svg"></button>
-				<button type="submit" id="video-github-sidebar-search-button" onclick="closeGithubVideoSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-			</div>			
-			<p id="video-github-sidebar-total"></p>
-			<div id="video-github-sidebar-grid"></div>
-			<div id="video-github-sidebar-next-div">
-				<button id="video-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
-			</div>
-		</div>	 -->
-
 		<div id="video-media-sidebar">
 			<div id="video-media-sidebar-header">
 				<input type="text" id="video-media-sidebar-input" placeholder="Search..." required>
@@ -171,6 +163,23 @@
 			<div id="image-github-sidebar-grid"></div>
 			<div id="image-github-sidebar-next-div">
 				<button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
+			</div>
+		</div>
+
+		<div id="settings-sidebar" style="visibility:hidden;">
+			<div id="settings-sidebar-header">
+				<div></div>
+				<p class="sidebar-title">Page Settings</p>
+				<button type="submit" id="settings-sidebar-files" onclick="settingsCloseSidebar()">
+					<img class="settings-close" src="./assets/svg/icons/close.svg">
+				</button>
+			</div>			
+			<div id="settings-sidebar-grid">
+				<div class="settings-fields">
+					<p class="settings-subtitles">Header Scripts (JS,CSS)</p>
+					<select id="selectOption" class="js-choice" multiple>	
+					</select>
+				</div>
 			</div>
 		</div>
 		

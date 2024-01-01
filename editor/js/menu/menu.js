@@ -20,14 +20,19 @@ function editorMenu() {
   popup.innerHTML = `
     <div id="popup" class="mobile-box">
 
-      <button class="navigation" onclick="patternVideo1()">
-          <img class="editor-icons" src="./assets/svg/icons/pages.svg">
-          <span class="editor-items">Add Video</span>
+      <button id ="backToSites" class="navigation" onclick="backToSites()">
+          <img class="editor-icons" src="./assets/svg/icons/back.svg">
+          <span class="editor-items">Back to Sites</span>
       </button>
 
       <button class="navigation" onclick="patternSection1()">
           <img class="editor-icons" src="./assets/svg/icons/sections.svg">
           <span class="editor-items">Add Section</span>
+      </button>
+
+      <button class="navigation" onclick="patternPage1()">
+          <img class="editor-icons" src="./assets/svg/icons/pages.svg">
+          <span class="editor-items">Add Page</span>
       </button>
       
       <button class="navigation" onclick="pageJsonSave()">
@@ -37,7 +42,12 @@ function editorMenu() {
 
       <button class="navigation" onclick="pagePublish()">
           <img class="editor-icons" src="./assets/svg/icons/publish2.svg">
-          <span class="editor-items">Publish Online</span>
+          <span class="editor-items">Publish Page</span>
+      </button>
+
+      <button class="navigation" onclick="settingsOpenSidebar()">
+          <img class="editor-icons" src="./assets/svg/icons/page-settings.svg">
+          <span class="editor-items">Page Settings</span>
       </button>
 
     </div>
@@ -62,4 +72,7 @@ function editorMenu() {
 
 // Call the editorMenu function to generate the sidebar menu
 editorMenu();
-// Rest of your existing code...
+
+function backToSites(){
+  window.location.href = "../projects/";
+}

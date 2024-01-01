@@ -11,8 +11,16 @@
           </div>
           <div class="sites-modal-content">
             <input class='flipcard-input' type="text" id="newRepoNameInput" placeholder='Enter name'>
+            
+            <select id="selectChoice" class="flipcard-select">
+              <option value="" disabled selected>Create from : </option>
+              <option value="scratch">Scratch Site</option>
+              <option value="starter">Starter Site</option>
+              <option value="premium">Premium Sites</option>
+            </select>
+
             <select id="templateSelector" class="flipcard-select"></select>
-            <button id="cloneRepoBtn" class='flipcard-button'>Create Site</button>
+            <button id="createSiteBtn" class='flipcard-button'>Create Site</button>
             <span id="message"></span>
           </div>
         </div>
@@ -40,3 +48,52 @@
     modalNewOverlay.style.visibility = "hidden";
     modalContent.style.visibility = "hidden";
   }
+  
+  function handleChoiceSelection() {
+    var select = document.getElementById("selectChoice");
+    var createSiteBtn = document.getElementById('createSiteBtn');
+
+    select.addEventListener("change", function () {
+          var selectedValue = select.value;
+
+          if (selectedValue === "scratch") {
+            const createSiteBtn = document.getElementById('createSiteBtn');
+            createSiteBtn.textContent = 'Create Scratch Site';
+
+            const templateSelector = document.getElementById('templateSelector');
+            templateSelector.style.display = 'none';
+            // alert("You selected Scratch Site");
+          } else if (selectedValue === "starter") {
+            const createSiteBtn = document.getElementById('createSiteBtn');
+            createSiteBtn.textContent = 'Create Starter Site';
+
+            const templateSelector = document.getElementById('templateSelector');
+            templateSelector.style.display = 'none';
+            // alert("You selected Starter Site");
+          } else if (selectedValue === "premium") {
+            const createSiteBtn = document.getElementById('createSiteBtn');
+            createSiteBtn.textContent = 'Create Premium Site';
+
+            const templateSelector = document.getElementById('templateSelector');
+            templateSelector.style.display = 'initial';
+          }
+        });
+  
+    createSiteBtn.addEventListener("click", function () {
+      var selectedValue = select.value;
+  
+      if (selectedValue === "scratch") {
+        createScratchSite();
+        // Call your custom function for Scratch Site here
+      } else if (selectedValue === "starter") {
+        // Call your custom function for Starter Site here
+      } else if (selectedValue === "premium") {
+        // Call your custom function for Premium Site here
+        createPremiumSite();
+      }
+    });
+  }
+
+  handleChoiceSelection();
+  
+  

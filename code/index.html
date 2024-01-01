@@ -13,9 +13,9 @@
 		<link rel="stylesheet" href="https://codemirror.net/5/theme/material.css">
 		<link rel="stylesheet" href="https://codemirror.net/5/theme/material-darker.css">
 
-		<script src="https://codemirror.net/5/mode/javascript/javascript.js"></script>
-		<script src="https://codemirror.net/5/mode/css/css.js"></script>
-		<script src="https://codemirror.net/5/mode/json/json.js"></script>
+		<!-- <script src="https://codemirror.net/5/mode/javascript/javascript.js"></script>
+		<script src="https://codemirror.net/5/mode/css/css.js"></script> -->
+		
 		
 
 
@@ -26,15 +26,18 @@
             <div class="admin-content">				
 				<div class="admin-content-title">
 					<h1 id="admin-title-text" class="admin-title-text">code</h1>
+					<button id="editor-save">SAVE</button>	
 				</div>
 				<div id="grid">
 					<textarea id="editor" style="display:none;"></textarea>
-				</div>		
+				</div>
+				
 			</div>
 		</div>
 
 		<footer>
 			<script src="../global/js/sidebar.js"></script>
+			<script src="../global/js/apis.js"></script>
 			<script src="./code-list.js"></script>
 		</footer>
 	</body>
