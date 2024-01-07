@@ -1,4 +1,16 @@
 /*SIDEBAR*/
+/* Hide all items by default */
+.disabled-button {
+    background-color: #ccc; /* Gray background */
+    color: #666; /* Dark gray text color */
+    cursor: not-allowed; /* Display a "not-allowed" cursor */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: 1px solid #999; /* Gray border */
+    border-radius: 5px; /* Rounded corners */
+    user-select: none; /* Disable text selection */
+}
+
+  
 #settings-sidebar{
     width: 100%;
     height: 100%;

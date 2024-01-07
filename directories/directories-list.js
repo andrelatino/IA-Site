@@ -84,6 +84,10 @@ function loadDirectories() {
                 addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
                 itemsDiv.appendChild(addButton);
                 addButton.addEventListener('click', function() {
+                    //SET DEFAULT LOCALSTORAGE VALUES
+                    localStorage.setItem('codeSha',api.sha);
+                    localStorage.setItem('codePath',api.path);
+                    localStorage.setItem('codeUrl',api.url);
                     // alert(api.name);
                     const values = 
                     [
@@ -93,7 +97,8 @@ function loadDirectories() {
                             "fileName":repoName,
                             "fileType":api.name,
                             "fileSha":api.sha,
-                            "fileToUpdate":api.url,                            
+                            "fileToUpdate":api.url,
+                            "filePath":api.path,                              
                             
                         }
                     ];

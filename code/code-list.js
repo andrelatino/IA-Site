@@ -1,6 +1,6 @@
-
-// var fileUrl;
+// var fileUrl; // Asegúrate de que estas variables estén definidas correctamente en tu contexto
 // var editor; // Declarar la variable editor en un ámbito global
+// var githubApi; // Declarar la variable para el token de la API de GitHub
 
 function getUrlParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -25,30 +25,35 @@ for (const item of decodedValues) {
 }
 
 function githubRawFile() {
-    if (!fileUrl) {
-        console.error('Repo raw URL is not available in local storage.');
-        return;
-    }
+    let localData = localStorage.getItem('codeData');
 
-    fetch(fileUrl)
-        .then(response => response.text())
-        .then(data => {
-            editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-                mode: '', // Use the fileType for the CodeMirror mode
-                lineWrapping: true,
-                lineNumbers: true,
-                theme: "material",
+    if (localData) {
+        initializeEditor(localData);
+    } else if (fileUrl) {
+        fetch(fileUrl)
+            .then(response => response.text())
+            .then(data => {
+                localStorage.setItem('codeData', data);
+                initializeEditor(data);
+            })
+            .catch(error => {
+                console.error('Error fetching raw file content:', error);
             });
-
-            // Set initial CSS content
-            editor.setValue(data);
-        })
-        .catch(error => {
-            console.error('Error fetching raw file content:', error);
-        });
+    } else {
+        console.error('Repo raw URL is not available in local storage.');
+    }
 }
 
-githubRawFile();
+function initializeEditor(data) {
+    editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+        mode: fileType, // Utilizar fileType para el modo de CodeMirror
+        lineWrapping: true,
+        lineNumbers: true,
+        theme: "material",
+    });
+
+    editor.setValue(data);
+}
 
 function handleSaveClick() {
     if (!editor) {
@@ -56,7 +61,6 @@ function handleSaveClick() {
         return;
     }
 
-    // Obtener el valor del editor de CodeMirror
     const editorValue = editor.getValue();
     const url = fileToUpdate;
     const token = githubApi;
@@ -66,20 +70,16 @@ function handleSaveClick() {
     updateGitHubFile(url, token, data, sha)
       .then(message => {
         console.log(message);
+        localStorage.setItem('codeData', editorValue); // Actualizar localStorage después de guardar
       })
       .catch(error => {
         console.error(error);
       });
 
-
-
-    // Colocar aquí tu lógica para utilizar el valor (por ejemplo, actualizar el archivo en GitHub)
     console.log('Contenido del editor de CodeMirror:', editorValue);
 }
 
-// Agregar un controlador de eventos al botón "SAVE"
 document.getElementById('editor-save').addEventListener('click', handleSaveClick);
-
 
 function updateGitHubFile(url, token, data, sha) {
     const apiUrl = `${url}`;
@@ -109,3 +109,5 @@ function updateGitHubFile(url, token, data, sha) {
       throw new Error(`Error al actualizar el archivo: ${error.message}`);
     });
 }
+
+githubRawFile();
