@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-reset.css">
 		<link rel="stylesheet" type="text/css" href="./code.css">
+		<link rel="stylesheet" type="text/css" href="./preloader.css">
+		
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
@@ -33,11 +35,28 @@
 				
 			</div>
 		</div>
+		<!-- Modal container for the preloader and animations -->
+		<div id="preloaderModal" class="modal">
+			<div id="apiPreloader" class="preloader"></div>
+			<!-- Success Checkmark Animation -->
+			<svg class="checkmark success-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+				<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+				<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+			</svg>
+			<!-- Failure Cross Animation -->
+			<svg class="crossmark failure-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+				<circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
+				<line class="crossmark__line1" x1="15" y1="15" x2="37" y2="37" stroke-linecap="round"/>
+				<line class="crossmark__line2" x1="37" y1="15" x2="15" y2="37" stroke-linecap="round"/>
+			</svg>
+		</div>
+
 
 		<footer>
 			<script src="../global/js/sidebar.js"></script>
 			<script src="../global/js/apis.js"></script>
 			<script src="./code-data.js"></script>
+			<script src="./code-preloader.js"></script>
 			<!-- <script src="./code-list.js"></script> -->
 			<!-- <script src="./code-update.js"></script> -->
 		</footer>

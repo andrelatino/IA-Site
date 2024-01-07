@@ -51,6 +51,7 @@ async function codeLoadData() {
 
 // Update data from the editor
 function codeUpdateData(editorData) {
+    showPreloader();
     const url = localStorage.getItem('codeUrl');
     const sha = localStorage.getItem('codeSha');
     const token = githubApi;
@@ -72,12 +73,15 @@ function codeUpdateData(editorData) {
     })
         .then(response => {
             if (response.ok) {
+                showSuccess();
                 console.log(response);
             } else {
+                showFailure();
                 throw new Error(`Error al actualizar el archivo: ${response.statusText}`);
             }
         })
         .catch(error => {
+            showFailure();
             throw new Error(`Error al actualizar el archivo: ${error.message}`);
         });
 }
