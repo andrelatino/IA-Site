@@ -31,7 +31,7 @@ function encodeUTF8ToBase64(str) {
 }
 
 function pagePublish() {
-  
+  showPreloader();
   const accessToken = githubApi;
   var apiUrl = indexHtmlApi;
 
@@ -63,6 +63,7 @@ function pagePublish() {
       })
       .then(updateResponse => {
           if (updateResponse.status === 200) {
+            
               // const title = document.getElementById('title');
               // title.style.display = 'none';
               // const publish = document.getElementById('publish');

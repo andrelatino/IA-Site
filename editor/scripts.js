@@ -24,10 +24,10 @@ loadScript("./js/page/pageBuilderSave.js");
 //MENU
 loadScript("./js/menu/menu.js");
 //SETTINGS
-loadScript("./js/settings/settings-modal.js");
-loadScript("./js/settings/settings-page-scripts.js");
-loadScript("./js/settings/settings-page-update.js");
-loadScript("./js/settings/settings-page-save.js");
+// loadScript("./js/settings/settings-modal.js");
+// loadScript("./js/settings/settings-page-scripts.js");
+// loadScript("./js/settings/settings-page-update.js");
+// loadScript("./js/settings/settings-page-save.js");
 // loadScript("./js/settings/settings-sidebar.js");
 
 //PATTERNS

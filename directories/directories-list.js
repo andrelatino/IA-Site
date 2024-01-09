@@ -69,6 +69,15 @@ function loadDirectories() {
             </div>
             `;
 
+            if (api.name === "index.json") {
+                console.log('index.json existe');
+                console.log('api.url: '+api.url);  
+                var pageUrl = api.url;
+                var pageSha = api.sha;
+                
+            }
+            
+
             if (api.name.includes("index-")) {
 
                 // var devJsonName = api.name;
@@ -86,7 +95,6 @@ function loadDirectories() {
                 addButton.addEventListener('click', function() {
                     //SET DEFAULT LOCALSTORAGE VALUES
                     localStorage.setItem('codeSha',api.sha);
-                    localStorage.setItem('codePath',api.path);
                     localStorage.setItem('codeUrl',api.url);
                     // alert(api.name);
                     const values = 
@@ -97,8 +105,7 @@ function loadDirectories() {
                             "fileName":repoName,
                             "fileType":api.name,
                             "fileSha":api.sha,
-                            "fileToUpdate":api.url,
-                            "filePath":api.path,                              
+                            "fileToUpdate":api.url,                       
                             
                         }
                     ];
@@ -117,12 +124,18 @@ function loadDirectories() {
     
             if (api.name === 'index.html' && api.type === 'file') {
 
+                
+
                 var pageIs = 'home';
                 
                 const addButton = document.createElement('a');
                 addButton.className = "directories-add";
                 addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
                 addButton.addEventListener('click', function() {
+
+                    //SET DEFAULT LOCALSTORAGE VALUES
+                    localStorage.setItem('pageSha',pageSha);
+                    localStorage.setItem('pageUrl',pageUrl);
                     // alert(api.name);
                     const values = 
                     [{                        

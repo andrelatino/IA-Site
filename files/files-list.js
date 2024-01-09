@@ -120,17 +120,24 @@
                     addButton.innerHTML = '<button class="files-edit">Edit File</button>';
                     itemsDiv.appendChild(addButton);
                     addButton.addEventListener('click', function() {
-                        // alert(api.name);
-                        const values = 
-                        [
-                            {
-                                
-                                "fileUrl":api.download_url,
-                                "fileName":repoName,
-                                "fileType":fileType,
-
-                            }
-                        ];
+                        //SET DEFAULT LOCALSTORAGE VALUES
+                    localStorage.setItem('codeSha',api.sha);
+                    localStorage.setItem('codePath',api.path);
+                    localStorage.setItem('codeUrl',api.url);
+                    // alert(api.name);
+                    const values = 
+                    [
+                        {
+                            
+                            "fileUrl":api.download_url,
+                            "fileName":repoName,
+                            "fileType":api.name,
+                            "fileSha":api.sha,
+                            "fileToUpdate":api.url,
+                            "filePath":api.path,                              
+                            
+                        }
+                    ];
                         console.log(values);
                         const encoded = btoa(JSON.stringify(values));
                         const targetURL = '../code?id=' + encoded;

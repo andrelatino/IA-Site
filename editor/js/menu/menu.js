@@ -35,7 +35,7 @@ function editorMenu() {
           <span class="editor-items">Add Page</span>
       </button>
       
-      <button class="navigation" onclick="pageJsonSave()">
+      <button id="menu-page-save" class="navigation" onclick="pageSaveData()">
           <img class="editor-icons" src="./assets/svg/icons/save.svg">
           <span class="editor-items">Save Page</span>
       </button>

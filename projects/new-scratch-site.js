@@ -6,7 +6,7 @@ function createScratchSite() {
     const token = githubApi; // Reemplaza con tu token
     const owner = githubUser
     // const name = 'newRepo'; // Elige un nombre para tu repositorio
-    const desc = 'IA Site - IA Academy'; // Descripción del repositorio
+    const desc = 'IA Site - IA Academy - www.IA.Academy'; // Descripción del repositorio
     const url = `https://api.github.com/user/repos`;
     // const message = document.getElementById('message');
     // const templateRepo = document.getElementById('templateSelector').value;
