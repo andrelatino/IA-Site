@@ -35,15 +35,16 @@ function loadDirectories() {
     .then(data => {
 
         pageTitle.textContent = repoName;
-        pageBreadCrumb.textContent = 'sites / '+repoName;
-
+        pageBreadCrumb.textContent = 'sites / ' + repoName;
 
         console.log(data);
-        getTotal = data.length;
+        const filteredData = data.filter(api => api.name !== "README.md"); // Filter out README.md
+
+        getTotal = filteredData.length;
 
         if (getTotal === undefined) {
             var showTotal = 0;  
-        }else{
+        } else {
             var showTotal = getTotal;
         }
         addSubtitle = document.getElementById('grid');
@@ -54,7 +55,7 @@ function loadDirectories() {
             <a class="directories-add" onclick="directoriesModalOpen();"><img class="addIcon" src="../global/file/add.svg"></a>
         </div>`;
         const gridDiv = document.getElementById('grid');
-        for (const api of data) {
+        for (const api of filteredData) {
             
 
             const itemsDiv = document.createElement('div');
