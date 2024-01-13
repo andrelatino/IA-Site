@@ -13,12 +13,14 @@
           <div class="sites-directoriesModal-content">
          
             <select id="selectDirOrFile">
-              <option value="Page">Page</option>
+              
               <option value="File">File</option>
+              <option value="Page">Page</option>
+              
             </select>
 
             <input id="pageName" type="text" class="sites-inputs" placeholder="Nom">
-            <button id="createNewButton" onclick="createPage()">Add New Page</button>
+            <button id="createNewButton" onclick="createContent()">Add New Page</button>
             <span id="dir-message"></span>
           </div>
         </div>

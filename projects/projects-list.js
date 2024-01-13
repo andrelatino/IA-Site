@@ -1,6 +1,7 @@
   
 function github_get_sites() {
-    fetch(`${githubRepoUrl}?sort=committer-date`, {
+    // ?sort=committer-date&per_page=30&page=1
+    fetch(`${githubRepoUrl}?sort=committer-date&per_page=20&page=1`, {
         headers: {
             'Authorization': `Bearer ${githubApi}`,
             'Accept': 'application/vnd.github.v3+json',
@@ -41,6 +42,8 @@ function github_get_sites() {
             }
 
 
+           
+
             const itemsDiv = document.createElement('div');
             itemsDiv.className = 'sites-items';
             itemsDiv.innerHTML = `
@@ -74,6 +77,7 @@ function github_get_sites() {
                    
             `;
         gridDiv.appendChild(itemsDiv);
+        
         
         const buttonEdit = document.getElementById(`buttonEdit${api.id}`);
         const buttonDelete = document.getElementById(`buttonDelete${api.id}`);
@@ -130,11 +134,13 @@ function github_get_sites() {
                 localStorage.setItem('githubRepoName', api.name);
                 localStorage.setItem ('Type', api.description);
                 
+                
                 const values = 
                 [
                     {
                         "user":api.owner.login,
                         "repo":api.name,
+                        "id": api.id,
                         "base": `https://${githubUser}.github.io/`
 
                     }
@@ -143,11 +149,9 @@ function github_get_sites() {
                 console.log(values);
                 const encoded = btoa(JSON.stringify(values));      
                 const targetURL = '../directories?id=' + encoded;
-              
                 window.location.href = targetURL;
 
-                localStorage.setItem("repoName", api.name);
-                localStorage.setItem('repo', api.name);
+                
                 
             });
             buttonDelete.addEventListener('click', () => {
@@ -162,6 +166,7 @@ function github_get_sites() {
             });
             
         }
+        
     })
     .catch(error => {
         console.error('Error:', error);
@@ -183,6 +188,29 @@ function alertCheckboxStatus() {
   
   // Add an event listener to the checkbox to call the function when it changes
   
+
+// Crear una función para agregar elementos de paginación al contenedor
+function addPaginationLinks(gridDiv, nextPageUrl, lastPageUrl) {
+    // Crea elementos HTML para los enlaces de paginación
+    const paginationDiv = document.createElement('div');
+    paginationDiv.className = 'pagination';
+
+    const nextLink = document.createElement('a');
+    nextLink.href = nextPageUrl;  // Enlace a la siguiente página
+    nextLink.textContent = 'Next';
+
+    const lastLink = document.createElement('a');
+    lastLink.href = lastPageUrl;  // Enlace a la última página
+    lastLink.textContent = 'Last';
+
+    // Agrega los enlaces al contenedor de paginación
+    paginationDiv.appendChild(nextLink);
+    paginationDiv.appendChild(lastLink);
+
+    // Agrega el contenedor de paginación al contenedor principal
+    gridDiv.appendChild(paginationDiv);
+}
+
 
 
 

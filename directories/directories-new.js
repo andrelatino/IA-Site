@@ -1,4 +1,5 @@
-const createPage = async () => {
+const createContent = async () => {
+  showPreloader();
   const dirMessage = document.getElementById('dir-message');
   dirMessage.textContent = "Adding page...!"
 
@@ -22,6 +23,7 @@ const createPage = async () => {
   let failCount = 0;
 
   const createFileOnGithub = async (addFiles) => {
+    
     let url;
 
     if (selectedOption === 'Page') {
@@ -48,6 +50,7 @@ const createPage = async () => {
       const data = await response.json();
 
       if (response.ok) {
+        
         const dirMessage = document.getElementById('dir-message');
         dirMessage.textContent = "Page Added!"
         console.log(`File ${pageName} updated successfully:`, data);
@@ -62,19 +65,15 @@ const createPage = async () => {
     }
   };
 
-  if (selectedOption === 'File') {
-    
-    // Create a single file
+  if (selectedOption === 'File') { 
     await createFileOnGithub(pageName);
-  } else if (selectedOption === 'Page') {
-
-    // Create a page with the current four files
-    await createFileOnGithub('index-0.json');
-    await createFileOnGithub('style.css');
-    await createFileOnGithub('script.js');
+  } 
+  else if (selectedOption === 'Page') {
     await createFileOnGithub('index.html');
   }
   
+  
+  showSuccess();
   console.log(`Total files successfully uploaded: ${successCount}`);
   console.log(`Total files failed to upload: ${failCount}`);
 };

@@ -7,6 +7,7 @@
         <meta name="google" content="notranslate">
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-sidebar.css">
 		<link rel="stylesheet" type="text/css" href="../global/css/admin-reset.css">
+		<link rel="stylesheet" type="text/css" href="../global/css/preloader.css">
 		<link rel="stylesheet" type="text/css" href="./projects.css">
 		<link rel="stylesheet" type="text/css" href="./iframe.css">
 		<link rel="stylesheet" type="text/css" href="./flipcard.css">
@@ -189,10 +190,27 @@
 
 		</div>
 
+		<div id="preloaderModal" class="modal">
+			<div id="apiPreloader" class="preloader"></div>
+			<!-- Success Checkmark Animation -->
+			<svg class="checkmark success-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+				<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+				<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+			</svg>
+			<!-- Failure Cross Animation -->
+			<svg class="crossmark failure-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+				<circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
+				<line class="crossmark__line1" x1="15" y1="15" x2="37" y2="37" stroke-linecap="round"/>
+				<line class="crossmark__line2" x1="37" y1="15" x2="15" y2="37" stroke-linecap="round"/>
+			</svg>
+		</div>
+
 		<footer>
 			
 			<script src="../global/js/sidebar.js"></script>
+			<script src="../global/js/createfiles.js"></script>
 			<script src="../global/js/apis.js"></script>
+			<script src="../global/js/preloader.js"></script>
 			<script src="../projects/projects-list.js"></script>
 			<script src="../projects/projects-modal-new.js"></script>
 			<script src="../projects/projects-new-premium.js"></script>

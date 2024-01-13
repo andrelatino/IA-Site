@@ -13,7 +13,8 @@ for (const item of decodedValues) {
     console.log('base:', base);
     console.log('user:', user);
     var repoName = item.repo;
-    localStorage.setItem('repo', item.repo);  
+    localStorage.setItem('githubRepoName', item.repo); 
+    localStorage.setItem('githubRepoId', item.id); 
     
     var pageTitle = document.getElementById('admin-title-text');
     var pageBreadCrumb = document.getElementById('admin-bread-crumb');
@@ -34,11 +35,22 @@ function loadDirectories() {
     .then(response => response.json())
     .then(data => {
 
+        //GET SHA AND URL  FROM INDEX.JSON
+        const indexFile = data.find(api => api.name === "index.json");
+        const indexFileSha = indexFile ? indexFile.sha : null;
+        const indexFileUrl = indexFile ? indexFile.url : null;
+        console.log("SHA de index.json:", indexFileSha);
+        //------------------------------------------------
+
+        localStorage.setItem('pageSha',indexFileSha);
+        localStorage.setItem('pageUrl',indexFileUrl);
+
         pageTitle.textContent = repoName;
         pageBreadCrumb.textContent = 'sites / ' + repoName;
 
         console.log(data);
-        const filteredData = data.filter(api => api.name !== "README.md"); // Filter out README.md
+        const filesToExclude = ["README.md", "settings.json", "index.json"];
+        const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
         getTotal = filteredData.length;
 
@@ -135,8 +147,8 @@ function loadDirectories() {
                 addButton.addEventListener('click', function() {
 
                     //SET DEFAULT LOCALSTORAGE VALUES
-                    localStorage.setItem('pageSha',pageSha);
-                    localStorage.setItem('pageUrl',pageUrl);
+                    // localStorage.setItem('pageSha',pageSha);
+                    // localStorage.setItem('pageUrl',pageUrl);
                     // alert(api.name);
                     const values = 
                     [{                        

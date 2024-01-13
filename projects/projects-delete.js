@@ -1,4 +1,5 @@
 async function deleteFile(repo) {
+  showPreloader();
   var apiUrl = 'https://api.github.com';
   var repoName = repo;
   var userName = githubUser;
@@ -23,6 +24,7 @@ async function deleteFile(repo) {
       message.textContent = 'Deleted succesfully!';
       
       setTimeout(function() {
+        showSuccess();
         message.textContent = 'Reloading page...';
       }, 2000);
 
