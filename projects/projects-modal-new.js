@@ -15,7 +15,6 @@
             <select id="selectChoice" class="flipcard-select">
               <option value="" disabled selected>Create from : </option>
               <option value="scratch">Scratch Site</option>
-              <option value="free">Free Sites</option>
               <option value="premium">Premium Sites</option>
             </select>
 
@@ -63,13 +62,6 @@
             const templateSelector = document.getElementById('templateSelector');
             templateSelector.style.display = 'none';
             // alert("You selected Scratch Site");
-          } else if (selectedValue === "free") {
-            const createSiteBtn = document.getElementById('createSiteBtn');
-            createSiteBtn.textContent = 'Create Free Sites';
-
-            const templateSelector = document.getElementById('templateSelector');
-            templateSelector.style.display = 'none';
-            // alert("You selected Free Sites");
           } else if (selectedValue === "premium") {
             const createSiteBtn = document.getElementById('createSiteBtn');
             createSiteBtn.textContent = 'Create Premium Site';
@@ -85,8 +77,6 @@
       if (selectedValue === "scratch") {
         createScratchSite();
         // Call your custom function for Scratch Site here
-      } else if (selectedValue === "free") {
-        // Call your custom function for Free Sites here
       } else if (selectedValue === "premium") {
         // Call your custom function for Premium Site here
         createPremiumSite();

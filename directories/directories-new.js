@@ -69,13 +69,34 @@ const createContent = async () => {
     await createFileOnGithub(pageName);
   } 
   else if (selectedOption === 'Page') {
+    
     await createFileOnGithub('index.html');
+    await createFileOnGithub('index.json');
+    await createFileOnGithub('settings.json');
+
+    
+    console.log(`Total files successfully uploaded: ${successCount}`);
+    console.log(`Total files failed to upload: ${failCount}`);
+
+    showSuccess();
+    const values = 
+    [
+        {
+            "repo":githubRepo,
+            "user":githubUser,
+            "dir":pageName,
+            "base": `https://${githubUser}.github.io/`
+        }
+    ];
+    console.log(values);
+    const encoded = btoa(JSON.stringify(values));
+    const targetURL = '../files?id=' + encoded;
+    // Esperar 2 segundos antes de redirigir
+    setTimeout(() => {
+      window.location.href = targetURL;
+    }, 1000);
   }
-  
-  
-  showSuccess();
-  console.log(`Total files successfully uploaded: ${successCount}`);
-  console.log(`Total files failed to upload: ${failCount}`);
+
 };
 
 

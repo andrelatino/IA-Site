@@ -40,15 +40,24 @@ function loadDirectories() {
         const indexFileSha = indexFile ? indexFile.sha : null;
         const indexFileUrl = indexFile ? indexFile.url : null;
         console.log("SHA de index.json:", indexFileSha);
+
+        const settingsFile = data.find(api => api.name === "settings.json");
+        const settingsFileSha = settingsFile ? settingsFile.sha : null;
+        const settingsFileUrl = settingsFile ? settingsFile.url : null;
+        console.log("SHA de settings.json:", settingsFileSha);
         //------------------------------------------------
 
         localStorage.setItem('pageSha',indexFileSha);
         localStorage.setItem('pageUrl',indexFileUrl);
+        localStorage.setItem('settingsSha',settingsFileSha);
+        localStorage.setItem('settingsUrl',settingsFileUrl);
+
 
         pageTitle.textContent = repoName;
         pageBreadCrumb.textContent = 'sites / ' + repoName;
 
         console.log(data);
+        
         const filesToExclude = ["README.md", "settings.json", "index.json"];
         const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
@@ -139,7 +148,7 @@ function loadDirectories() {
 
                 
 
-                var pageIs = 'home';
+                
                 
                 const addButton = document.createElement('a');
                 addButton.className = "directories-add";
@@ -147,7 +156,8 @@ function loadDirectories() {
                 addButton.addEventListener('click', function() {
 
                     //SET DEFAULT LOCALSTORAGE VALUES
-                    // localStorage.setItem('pageSha',pageSha);
+                    let pageIs = 'home';
+                    localStorage.setItem('pageIs',pageIs);
                     // localStorage.setItem('pageUrl',pageUrl);
                     // alert(api.name);
                     const values = 

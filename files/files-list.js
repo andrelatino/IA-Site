@@ -43,23 +43,48 @@
         .then(response => response.json())
         .then(data => {
 
+            //GET SHA AND URL  FROM INDEX.JSON
+            const indexFile = data.find(api => api.name === "index.json");
+            const indexFileSha = indexFile ? indexFile.sha : null;
+            const indexFileUrl = indexFile ? indexFile.url : null;
+            console.log("SHA de index.json:", indexFileSha);
+
+            const settingsFile = data.find(api => api.name === "settings.json");
+            const settingsFileSha = settingsFile ? settingsFile.sha : null;
+            const settingsFileUrl = settingsFile ? settingsFile.url : null;
+            console.log("SHA de settings.json:", settingsFileSha);
+            //------------------------------------------------
+
+            localStorage.setItem('pageSha',indexFileSha);
+            localStorage.setItem('pageUrl',indexFileUrl);
+            localStorage.setItem('settingsSha',settingsFileSha);
+            localStorage.setItem('settingsUrl',settingsFileUrl);
+
             pageTitle.textContent = repoName;
             pageBreadCrumb.textContent = 'sites / '+repoName+' / '+dirName;
 
             console.log(data);
-            let getTotal = data.length;
-            let showTotal = getTotal === undefined ? 0 : getTotal;
-    
-            const addSubtitle = document.getElementById('grid');
+
+            const filesToExclude = ["README.md", "settings.json", "index.json"];
+            const filteredData = data.filter(api => !filesToExclude.includes(api.name));
+
+            getTotal = filteredData.length;
+
+            if (getTotal === undefined) {
+                var showTotal = 0;  
+            } else {
+                var showTotal = getTotal;
+            }
+            addSubtitle = document.getElementById('grid');
             addSubtitle.className = 'files-grid';
             addSubtitle.innerHTML= `
             <div class='files-subtitle'>
                 <p> Total : ${showTotal}</p>
                 <a class="files-add" onclick="filesModalOpen();"><img class="addIcon" src="../global/file/add.svg"></a>
             </div>`;
-    
             const gridDiv = document.getElementById('grid');
-            for (const api of data) { 
+            for (const api of filteredData) {
+
                 const itemsDiv = document.createElement('div');
                 itemsDiv.className = 'files-items';
                 itemsDiv.innerHTML = `
@@ -98,25 +123,11 @@
                     var devJsonSha = api.sha;
                     
                 }
-                
-                var pageIs;
-
-                if (dirName === "header") {
-                   pageIs = "header";
-                } else if (dirName === "footer") {
-                   pageIs = "footer";
-                } else if (dirName === "sidebar") {
-                   pageIs = "sidebar";
-                } else {
-                   pageIs = "page";
-                }
-
-                console.log(pageIs);
 
                 if (api.name !== 'index.html' && api.type === 'file') {
                     // Create and append the delete button
                     const addButton = document.createElement('a');
-                    addButton.className = "directories-add";
+                    addButton.className = "files-add";
                     addButton.innerHTML = '<button class="files-edit">Edit File</button>';
                     itemsDiv.appendChild(addButton);
                     addButton.addEventListener('click', function() {
@@ -154,9 +165,13 @@
                 if (api.name === 'index.html' && api.type === 'file') {
 
                     const addButton = document.createElement('a');
-                    addButton.className = "directories-add";
+                    addButton.className = "files-add";
                     addButton.innerHTML = '<button class="files-edit">Edit file</button>';
                     addButton.addEventListener('click', function() {
+
+                        let pageIs = 'page';
+                        localStorage.setItem('pageIs',pageIs);
+                        
                         // alert(api.name);
                         const values = 
                     [{

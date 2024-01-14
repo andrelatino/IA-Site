@@ -44,4 +44,4 @@ async function pageSettingsLoad(owner, repo, path, token) {
     }
 }
 
-pageSettingsLoad(githubUser, githubRepoName, 'settings-0.json', githubApi)
+pageSettingsLoad(githubUser, githubRepoName, 'settings.json', githubApi)
