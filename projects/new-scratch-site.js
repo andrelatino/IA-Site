@@ -14,16 +14,16 @@ function createScratchSite() {
     const token = githubApi; // Reemplaza con tu token
     const owner = githubUser
     // const name = 'newRepo'; // Elige un nombre para tu repositorio
-    const desc = 'IA Site - IA Academy - www.IA.Academy'; // Descripción del repositorio
+    const desc = 'IA Site - IA.Academy'; // Descripción del repositorio
     const url = `https://api.github.com/user/repos`;
     // const message = document.getElementById('message');
     // const templateRepo = document.getElementById('templateSelector').value;
     var repo = document.getElementById('newRepoNameInput').value;
     // Datos para la creación del repositorio
     const data = {
-        name: repo,
-        description: desc,
-        auto_init: true // Crea un archivo README.md inicial
+      name: repo,
+      description: desc,
+      auto_init: true
     };
 
     fetch(url, {
@@ -44,6 +44,7 @@ function createScratchSite() {
       githubRepoName = data.name;
       githubRepoId = data.id;
 
+      addTopicsToRepository();
       createFilesInRepo(data.name);
 
     })
@@ -177,3 +178,33 @@ function createScratchPage(owner, repo, token) {
 //----------------------------------------------
 // END : 3 CREATE PAGE 
 //----------------------------------------------
+
+//----------------------------------------------
+// START : 4 CREATE TOPICS
+//----------------------------------------------
+
+async function addTopicsToRepository() {
+
+  const topics = ['ia-site'];
+
+  const apiUrl = `https://api.github.com/repos/${githubUser}/${githubRepoName}/topics`;
+
+  const headers = {
+    Authorization: `token ${githubApi}`,
+    Accept: 'application/vnd.github.mercy-preview+json',
+  };
+
+  const data = JSON.stringify({ names: topics });
+
+  try {
+    const response = await fetch(apiUrl, { method: 'PUT', headers, body: data });
+    if (response.ok) console.log('Topics added successfully.');
+    else console.error('Error adding topics to the repository.');
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
+//----------------------------------------------
+// END : 4 CREATE TOPICS
+//----------------------------------------------
+

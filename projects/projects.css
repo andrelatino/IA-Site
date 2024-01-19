@@ -265,7 +265,9 @@ select#templateSelector{
 p.sites-type,
 p.sites-user,
 p.sites-updated,
-p.sites-created {
+p.sites-created,
+p.sites-template
+{
     display: none;
 }
 h2.sites-title {

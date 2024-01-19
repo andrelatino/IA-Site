@@ -16,7 +16,7 @@ async function pageScriptsLoad(owner, repo, path, token) {
             var getSettings = getSettingsStr ? JSON.parse(getSettingsStr) : null;
         
             // Fallback to default if localStorage is empty or invalid
-            var settings = getSettings || [{"header":[],"body":[],"footer":[]}];
+            var settings = getSettings || [{"header":[],"footer":[]}];
         
             // HEADER
             const headerItems = data.map(item => ({ "value": item.name, "selected": false }));
@@ -32,19 +32,19 @@ async function pageScriptsLoad(owner, repo, path, token) {
             });
             headerChoices.setChoices(headerItems);
         
-            // BODY
-            const bodyItems = data.map(item => ({ "value": item.name, "selected": false }));
-            for (const bodyFile of settings[0].body) {
-                const item = bodyItems.find(item => item.value === bodyFile);
-                if (item) {
-                    item.selected = true;
-                }
-            }
-            var bodyChoices = new Choices('#selectBody', {
-                allowHTML: true,
-                removeItemButton: true,
-            });
-            bodyChoices.setChoices(bodyItems);
+            // // BODY
+            // const bodyItems = data.map(item => ({ "value": item.name, "selected": false }));
+            // for (const bodyFile of settings[0].body) {
+            //     const item = bodyItems.find(item => item.value === bodyFile);
+            //     if (item) {
+            //         item.selected = true;
+            //     }
+            // }
+            // var bodyChoices = new Choices('#selectBody', {
+            //     allowHTML: true,
+            //     removeItemButton: true,
+            // });
+            // bodyChoices.setChoices(bodyItems);
         
             // FOOTER
             const footerItems = data.map(item => ({ "value": item.name, "selected": false }));
@@ -61,7 +61,7 @@ async function pageScriptsLoad(owner, repo, path, token) {
             footerChoices.setChoices(footerItems);
         
             // Save Data
-            let selectedValues = { header: '', body: '', footer: '' };
+            let selectedValues = { header: '', footer: '' };
         
             headerChoices.passedElement.element.addEventListener('change', function (event) {
                 selectedValues.header = headerChoices.getValue(true);
@@ -69,11 +69,11 @@ async function pageScriptsLoad(owner, repo, path, token) {
                 settingsReadyForSave(selectedValues);
             });
         
-            bodyChoices.passedElement.element.addEventListener('change', function (event) {
-                selectedValues.body = bodyChoices.getValue(true);
-                console.log('Body selected items:', selectedValues.body);
-                settingsReadyForSave(selectedValues);
-            });
+            // bodyChoices.passedElement.element.addEventListener('change', function (event) {
+            //     selectedValues.body = bodyChoices.getValue(true);
+            //     console.log('Body selected items:', selectedValues.body);
+            //     settingsReadyForSave(selectedValues);
+            // });
         
             footerChoices.passedElement.element.addEventListener('change', function (event) {
                 selectedValues.footer = footerChoices.getValue(true);
@@ -106,12 +106,12 @@ async function pageScriptsLoad(owner, repo, path, token) {
 // var selectedValues = { header: '', body: '', footer: '' };
 
 
-function settingsReadyForSave(header, body, footer) {
+function settingsReadyForSave(header, footer) {
    
     var saveSettingsButton = document.getElementById("save-settings");
     saveSettingsButton.classList.remove("disabled-button");
 
-    var settings = [{ "header": header, "body": body, "footer": footer }];
+    var settings = [{ "header": header,"footer": footer }];
     console.log('settingsReadyForSave: ' + JSON.stringify(settings, null, 2));
     var typeOfMyVar = typeof settings;
     console.log('Settings Change: ' + typeOfMyVar);

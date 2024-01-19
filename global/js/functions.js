@@ -15,5 +15,3 @@ function openDiv(selector) {
     }
 }
 
-// Ejemplo de uso:
-// closeAllDivs('.card');

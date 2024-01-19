@@ -54,23 +54,6 @@ function processGitHubResponse(data) {
     console.log('Contenido del fichero:', decodedContent);
 }
 
-// Unifica las funciones de codificación
-function encodeToUnicodeEscape(str) {
-    return str.replace(/[\u007F-\uFFFF]/g, char => "\\u" + ("0000" + char.charCodeAt(0).toString(16)).slice(-4));
-}
-
-function encodeTextNodes(content) {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = content;
-
-    const walk = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
-    let node;
-    while (node = walk.nextNode()) {
-        node.nodeValue = encodeToUnicodeEscape(node.nodeValue);
-    }
-    return tempDiv.innerHTML;
-}
-
 //UPDATE DATA
 async function pageUpdateData(content) {
     showPreloader();
@@ -119,13 +102,42 @@ function pageSaveData() {
     pageUpdateData(newJsonContent);
 }
 
-function decodeTextNodes(element) {
-    if (!element) return; // Asegúrate de que el elemento exista
+//------------------------------------------------
+// START: ENCODING
+//------------------------------------------------
 
-    const walk = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+// Unifica las funciones de codificación
+function encodeToUnicodeEscape(str) {
+    if (str.trim() === '') {
+        return ''; // Return an empty string if input is empty or whitespace
+    }
+    
+    return str.replace(/[\u007F-\uFFFF]/g, char => "\\u" + ("0000" + char.charCodeAt(0).toString(16)).slice(-4));
+}
+
+
+function encodeTextNodes(content) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = content;
+
+    const walk = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
     let node;
     while (node = walk.nextNode()) {
-        node.nodeValue = decodeDoubleEscapedUnicode(node.nodeValue);
+        node.nodeValue = encodeToUnicodeEscape(node.nodeValue);
+    }
+    return tempDiv.innerHTML;
+}
+
+function decodeTextNodes(element) {
+    const walk = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while(node = walk.nextNode()) {
+        const rawText = node.nodeValue;
+        const decodedText = decodeDoubleEscapedUnicode(rawText);
+        if (rawText !== decodedText) {  // Only update if there was a change
+            node.nodeValue = decodedText;
+            console.log(decodedText);
+        }
     }
 }
 
@@ -149,3 +161,6 @@ function decodeDoubleEscapedUnicode(str) {
     const singleEscaped = str.replace(/\\\\u([a-fA-F0-9]{4})/g, "\\u$1");
     return singleEscaped.replace(/\\u([a-fA-F0-9]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
+//------------------------------------------------
+// END: ENCODING
+//------------------------------------------------

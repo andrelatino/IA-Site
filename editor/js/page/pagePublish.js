@@ -1,28 +1,28 @@
 
-if (pageIs === 'home' || pageIs === 'page') {
-    var pageClass = 'page';
-}else if (pageIs === 'sidebar'){
-    var pageClass = 'sidebar';
-}else if (pageIs === 'header'){
-  var pageClass = 'header';
-}else if (pageIs === 'footer'){
-  var pageClass = 'footer';
-} else {
-  console.log('pageIs is undefined');  
-}
+// if (pageIs === 'home' || pageIs === 'page') {
+//     var pageClass = 'page';
+// }else if (pageIs === 'sidebar'){
+//     var pageClass = 'sidebar';
+// }else if (pageIs === 'header'){
+//   var pageClass = 'header';
+// }else if (pageIs === 'footer'){
+//   var pageClass = 'footer';
+// } else {
+//   console.log('pageIs is undefined');  
+// }
 
-if (pageIs === 'home') {
-  var newSrcCss = './style.css';
-  var newSrcJS = './script.js';
-  var customCss = '';
-  var customJs = '';
-}else{
-  var newSrcCss = '../style.css';
-  var newSrcJS = '../script.js';
-  var customCss = '<link rel="stylesheet" href="./style.css">';
-  var customJs = '<script src="./script.js" async></script>';
-}
-console.log(newSrcCss + newSrcJS);
+// if (pageIs === 'home') {
+//   var newSrcCss = './style.css';
+//   var newSrcJS = './script.js';
+//   var customCss = '';
+//   var customJs = '';
+// }else{
+//   var newSrcCss = '../style.css';
+//   var newSrcJS = '../script.js';
+//   var customCss = '<link rel="stylesheet" href="./style.css">';
+//   var customJs = '<script src="./script.js" async></script>';
+// }
+// console.log(newSrcCss + newSrcJS);
 
 function encodeUTF8ToBase64(str) {
   return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
@@ -63,6 +63,7 @@ function pagePublish() {
       })
       .then(updateResponse => {
           if (updateResponse.status === 200) {
+            showSuccess();
             
               // const title = document.getElementById('title');
               // title.style.display = 'none';
@@ -79,12 +80,14 @@ function pagePublish() {
           }
       })
       .catch(error => {
+          showFailure();
           // const message = document.getElementById('message');
           // message.textContent = 'Error, try again!';
           console.error("An error occurred while updating the file:", error);
       });
   })
   .catch(error => {
+    showFailure();
       // const message = document.getElementById('message');
       // message.textContent = 'Error, try again!';
       console.error("An error occurred while getting file data:", error);

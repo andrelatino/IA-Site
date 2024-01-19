@@ -11,16 +11,14 @@ function generateScriptTags(filenames) {
   }).join('\n'); // Remove the filter condition
 }
 
-
-
 function checkDefaultValues() {
   setTimeout(function() {
       var headerSelect = document.getElementById("selectHeader");
-      var bodySelect = document.getElementById("selectBody");
+      // var bodySelect = document.getElementById("selectBody");
       var footerSelect = document.getElementById("selectFooter");
 
       console.log("Valores predeterminados del Header:", getSelectedValues(headerSelect));
-      console.log("Valores predeterminados del Body:", getSelectedValues(bodySelect));
+      // console.log("Valores predeterminados del Body:", getSelectedValues(bodySelect));
       console.log("Valores predeterminados del Footer:", getSelectedValues(footerSelect));
   }, 1000); // Ajusta el tiempo según sea necesario
 }
@@ -70,11 +68,11 @@ async function loadFilesFromRepository(owner, repo, path, token) {
               
 
               const selectHeader = document.getElementById('selectHeader');
-              const selectBody = document.getElementById('selectBody');
+              // const selectBody = document.getElementById('selectBody');
               const selectFooter = document.getElementById('selectFooter');
 
               selectHeader.innerHTML = '';
-              selectBody.innerHTML = '';
+              // selectBody.innerHTML = '';
               selectFooter.innerHTML = '';
 
               const fileNames = new Set();
@@ -89,7 +87,7 @@ async function loadFilesFromRepository(owner, repo, path, token) {
 
 
                       
-                      ['selectHeader', 'selectBody', 'selectFooter'].forEach(selectId => {
+                      ['selectHeader', 'selectFooter'].forEach(selectId => {
                           const select = document.getElementById(selectId);
                           const option = document.createElement('option');
                           option.value = file.name;
@@ -100,7 +98,7 @@ async function loadFilesFromRepository(owner, repo, path, token) {
               });
 
               initializeChoices('#selectHeader', defaultHeaderOptions, headerValues);
-              initializeChoices('#selectBody', defaultBodyOptions, bodyValues);
+              // initializeChoices('#selectBody', defaultBodyOptions, bodyValues);
               initializeChoices('#selectFooter', defaultFooterOptions, footerValues);
 
 
@@ -137,11 +135,11 @@ function initializeChoices(selectId, defaultOptions, selectedValuesArray) {
 
 function htmlContent() {
   const headerScripts = generateScriptTags(headerValues);
-  const bodyScripts = generateScriptTags(bodyValues);
+  // const bodyScripts = generateScriptTags(bodyValues);
   const footerScripts = generateScriptTags(footerValues);
 
   console.log('headerScripts: '+headerScripts)
-  console.log('bodyScripts: '+bodyScripts)
+  // console.log('bodyScripts: '+bodyScripts)
   console.log('footerScripts: '+footerScripts)
 
   // Rest of your code for bodyContent generation
@@ -166,17 +164,32 @@ for (let i = 0; i < hiddenDivs.length; i++) {
 const html = `
 <!DOCTYPE html>
 <html lang="fr">
-<head>
 <!-- Header -->
+<head>
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="header"></div>
+<link rel="stylesheet" type="text/css" href="./global/styles.css">
+<script async src="./header.js"></script>
+<script async src="./global/GTM.js"></script>
+<style> 
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0;-webkit-font-smoothing:antialiased;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}ul{list-style:none;}button,input,select{margin:0;}html{box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}img,video{height:auto;max-width:100%;}iframe{border:0;}table{border-collapse:collapse;border-spacing:0;}td,th{padding:0;}a{text-decoration:none;}a:hover{text-decoration:underline;}
+}
+</style>
 ${headerScripts}
 </head>
-<body>
 <!-- Body -->
+<body>
 ${bodyContent.innerHTML}
 ${bodyScripts}
 </body>
-<footer>
 <!-- Footer -->
+<footer>
+<div id="footer"></div>
+<script async src="./global/scripts.js"></script>
+<script async src="./sidebar.js"></script>
+<script async src="./footer.js"></script>
 ${footerScripts}
 </footer>
 </html>
@@ -194,3 +207,13 @@ const path = ''; // Optional, can be a directory or a file
 const token = githubApi;
 
 loadFilesFromRepository(owner, repo, path, token);
+
+function openTab(tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+  }
+  

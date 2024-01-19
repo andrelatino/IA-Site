@@ -11,7 +11,7 @@ loadScript("../global/js/apis.js");
 //PAGE
 loadScript("./js/page/pageJsonLoad.js");
 loadScript("./js/page/pageJsonSave.js");
-// loadScript("./js/page/pagePublish.js");
+loadScript("./js/page/pagePublish.js");
 loadScript("./js/page/pageEncodeFr.js");
 loadScript("./js/page/pageJsonImport.js");
 loadScript("./js/page/pageJsonExport.js");

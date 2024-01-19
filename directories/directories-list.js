@@ -58,7 +58,7 @@ function loadDirectories() {
 
         console.log(data);
         
-        const filesToExclude = ["README.md", "settings.json", "index.json"];
+        const filesToExclude = ["README.md","settings.json","index.json","header.js","footer.js","sidebar.js"];
         const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
         getTotal = filteredData.length;
