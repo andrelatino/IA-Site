@@ -111,10 +111,11 @@ function github_get_sites() {
             localStorage.setItem ('Type', api.description);
             const values = [
                 {
-                    "user": api.owner.login,
+                    
                     "repo": api.name,
                     "id": api.id,
-                    "base": `https://${githubUser}.github.io/`
+                    "is": "home",
+                    
                 }
             ];
             console.log(values);

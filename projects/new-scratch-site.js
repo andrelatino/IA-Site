@@ -61,7 +61,7 @@ function createScratchSite() {
 // START : 2 CREATE FILES
 //----------------------------------------------
 const createFilesInRepo = async (repo) => {
-  const files = ["index.html", "settings.json", "index.json"]; // Lista de archivos a crear
+  const files = ["index.html", "settings.json", "index.json", ".home"]; // Lista de archivos a crear
 
   for (const file of files) {
     await createFiles(repo, file);
@@ -144,10 +144,10 @@ function createScratchPage(owner, repo, token) {
         const values = 
         [
             {
-                "user": githubUser,
+
                 "repo": githubRepoName,
                 "id": githubRepoId,
-                "base": `https://${githubUser}.github.io/`
+                "is": "home",
             }
         ];
         console.log(values);

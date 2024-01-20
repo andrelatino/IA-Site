@@ -65,7 +65,8 @@
 
             console.log(data);
 
-            const filesToExclude = ["README.md", "settings.json", "index.json"];
+            // const filesToExclude = ["README.md", "settings.json", "index.json"];
+            const filesToExclude = [];
             const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
             getTotal = filteredData.length;
@@ -128,7 +129,7 @@
                     // Create and append the delete button
                     const addButton = document.createElement('a');
                     addButton.className = "files-add";
-                    addButton.innerHTML = '<button class="files-edit">Edit File</button>';
+                    addButton.innerHTML = '<button class="files-edit">EDIT</button>';
                     itemsDiv.appendChild(addButton);
                     addButton.addEventListener('click', function() {
                         //SET DEFAULT LOCALSTORAGE VALUES
@@ -166,7 +167,7 @@
 
                     const addButton = document.createElement('a');
                     addButton.className = "files-add";
-                    addButton.innerHTML = '<button class="files-edit">Edit file</button>';
+                    addButton.innerHTML = '<button class="files-edit">EDIT</button>';
                     addButton.addEventListener('click', function() {
 
                         let pageIs = 'page';

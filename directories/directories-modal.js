@@ -16,6 +16,7 @@
               
               <option value="File">File</option>
               <option value="Page">Page</option>
+              <option value="Widget">Widget</option>
               
             </select>
 

@@ -169,27 +169,26 @@ const html = `
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div id="header"></div>
-<link rel="stylesheet" type="text/css" href="./global/styles.css">
-<script async src="./header.js"></script>
-<script async src="./global/GTM.js"></script>
-<style> 
-html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0;-webkit-font-smoothing:antialiased;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}ul{list-style:none;}button,input,select{margin:0;}html{box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}img,video{height:auto;max-width:100%;}iframe{border:0;}table{border-collapse:collapse;border-spacing:0;}td,th{padding:0;}a{text-decoration:none;}a:hover{text-decoration:underline;}
-}
-</style>
-${headerScripts}
 </head>
 <!-- Body -->
 <body>
+<div id="header"></div>
+<!-- Reset CSS -->
+<style> 
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0;-webkit-font-smoothing:antialiased;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}ul{list-style:none;}button,input,select{margin:0;}html{box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}img,video{height:auto;max-width:100%;}iframe{border:0;}table{border-collapse:collapse;border-spacing:0;}td,th{padding:0;}a{text-decoration:none;}a:hover{text-decoration:underline;}
+</style>
+<link rel="stylesheet" type="text/css" href="./global/styles.css">
+<script async src="./global/header.js"></script>
+<script async src="./global/GTM.js"></script>
+${headerScripts}
 ${bodyContent.innerHTML}
-${bodyScripts}
 </body>
 <!-- Footer -->
 <footer>
 <div id="footer"></div>
 <script async src="./global/scripts.js"></script>
-<script async src="./sidebar.js"></script>
-<script async src="./footer.js"></script>
+<script async src="./global/sidebar.js"></script>
+<script async src="./global/footer.js"></script>
 ${footerScripts}
 </footer>
 </html>

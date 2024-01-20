@@ -32,6 +32,9 @@ const createContent = async () => {
     } else if (selectedOption === 'File') {
       url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${addFiles}`;
       console.log('File:'+url);
+    } else if (selectedOption === 'Widget') {
+      url = `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/${pageName}/${addFiles}`;
+      console.log('Widget:'+url);
     }
 
     const content = btoa('');
@@ -70,6 +73,36 @@ const createContent = async () => {
   } 
   else if (selectedOption === 'Page') {
     
+    await createFileOnGithub('.page');
+    await createFileOnGithub('index.html');
+    await createFileOnGithub('index.json');
+    await createFileOnGithub('settings.json');
+
+    
+    console.log(`Total files successfully uploaded: ${successCount}`);
+    console.log(`Total files failed to upload: ${failCount}`);
+
+    showSuccess();
+    const values = 
+    [
+        {
+            "repo":githubRepo,
+            "user":githubUser,
+            "dir":pageName,
+            "base": `https://${githubUser}.github.io/`
+        }
+    ];
+    console.log(values);
+    const encoded = btoa(JSON.stringify(values));
+    const targetURL = '../files?id=' + encoded;
+    // Esperar 2 segundos antes de redirigir
+    setTimeout(() => {
+      window.location.href = targetURL;
+    }, 1000);
+  }
+  else if (selectedOption === 'Widget') {
+    
+    await createFileOnGithub('.widget');
     await createFileOnGithub('index.html');
     await createFileOnGithub('index.json');
     await createFileOnGithub('settings.json');
@@ -113,6 +146,10 @@ const handleSelectChange = () => {
     const buttonTextIs = document.getElementById('createNewButton');
     buttonTextIs.textContent = 'Add New Page';
     console.log('Selected option: Page');
+  } else if (selectedOption === 'Widget') {
+    const buttonTextIs = document.getElementById('createNewButton');
+    buttonTextIs.textContent = 'Add New Widget';
+    console.log('Selected option: Widget');
   }
 };
 

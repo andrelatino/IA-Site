@@ -1,3 +1,4 @@
+
 function getUrlParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
@@ -7,11 +8,14 @@ const decodedValues = JSON.parse(atob(encodedValue));
 
 for (const item of decodedValues) {
     var repo = item.repo;
-    var base = item.base;
-    var user = item.user;
+    var id = item.id;
+    var is = item.is;
+    
+    console.log('BASE64 LOAD-------------------');
     console.log('repo:', repo);
-    console.log('base:', base);
-    console.log('user:', user);
+    console.log('id:', id);
+    console.log('is:', is);
+    console.log('BASE64 LOAD-------------------');
     var repoName = item.repo;
     localStorage.setItem('githubRepoName', item.repo); 
     localStorage.setItem('githubRepoId', item.id); 
@@ -58,7 +62,8 @@ function loadDirectories() {
 
         console.log(data);
         
-        const filesToExclude = ["README.md","settings.json","index.json","header.js","footer.js","sidebar.js"];
+        const filesToExclude = [];
+        // const filesToExclude = ["README.md","settings.json","index.json"];
         const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
         getTotal = filteredData.length;
@@ -112,7 +117,7 @@ function loadDirectories() {
                 // Create and append the delete button
                 const addButton = document.createElement('a');
                 addButton.className = "directories-add";
-                addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
+                addButton.innerHTML = '<button class="directories-edit">EDIT</button>';
                 itemsDiv.appendChild(addButton);
                 addButton.addEventListener('click', function() {
                     //SET DEFAULT LOCALSTORAGE VALUES
@@ -152,7 +157,7 @@ function loadDirectories() {
                 
                 const addButton = document.createElement('a');
                 addButton.className = "directories-add";
-                addButton.innerHTML = '<button class="directories-edit">Edit File</button>';
+                addButton.innerHTML = '<button class="directories-edit">EDIT</button>';
                 addButton.addEventListener('click', function() {
 
                     //SET DEFAULT LOCALSTORAGE VALUES
@@ -171,7 +176,7 @@ function loadDirectories() {
                         "devJsonRaw": devJsonRaw,                            
                         "devJsonApi": devJsonApi,
                         "devJsonSha": devJsonSha,                     
-                        "base": `https://${user}.github.io/${repoName}`
+                        "base": `https://${githubUser}.github.io/${repoName}`
                     }];
                     
                     const encoded = btoa(JSON.stringify(values));
@@ -186,16 +191,16 @@ function loadDirectories() {
             if (api.type === 'dir') {
                 const dirButton = document.createElement('a');
                 dirButton.className = "dir-button";
-                dirButton.innerHTML = '<button class="dir-button">Edit Page</button>';
+                dirButton.innerHTML = '<button class="dir-button">OPEN</button>';
                 dirButton.addEventListener('click', function(){
                     // alert(api.name);
                     const values = 
                     [
                         {
-                            "repo":repoName,
-                            "user":user,
+                            "repo":githubRepoName,
+                            "user":githubUser,
                             "dir":api.name,
-                            "base": `https://${user}.github.io/`
+                            "base": `https://${githubUser}.github.io/`
                         }
                     ];
                     console.log(values);

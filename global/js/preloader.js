@@ -1,3 +1,10 @@
+
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
 function showPreloader() {
     document.getElementById('preloaderModal').style.display = 'flex';
     document.getElementById('apiPreloader').style.display = 'block';
