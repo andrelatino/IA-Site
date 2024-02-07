@@ -7,20 +7,18 @@
         <div id="directoriesModalContent" class="directoriesModal-content">
           <div class="sites-directoriesModal-header">
             <button style="display:none;"><img src="../global/file/drag.svg"></button>
-            <p class="dir-title">New page/file</p>
+            <p class="dir-title">New page</p>
             <span class="close" onclick="directoriesModalClose()"><img src="../global/file/close-white.svg"></span>
           </div>
           <div class="sites-directoriesModal-content">
          
-            <select id="selectDirOrFile">
+            <select id="selectDirOrFile" style="display:none;>
               
-              <option value="File">File</option>
               <option value="Page">Page</option>
-              <option value="Widget">Widget</option>
               
             </select>
 
-            <input id="pageName" type="text" class="sites-inputs" placeholder="Nom">
+            <input id="pageName" type="text" class="sites-inputs" placeholder="Name">
             <button id="createNewButton" onclick="createContent()">Add New Page</button>
             <span id="dir-message"></span>
           </div>

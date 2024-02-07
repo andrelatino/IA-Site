@@ -27,3 +27,4 @@ function loadCSS(href) {
   loadCSS("./js/color/color.css");
   loadCSS("./js/settings/settings.css");
   loadCSS("./js/color/coloris.min.css");
+  loadCSS("./js/pattern/pattern.css");

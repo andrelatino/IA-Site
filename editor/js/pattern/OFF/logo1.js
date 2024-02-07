@@ -27,7 +27,7 @@ function patternLogo1() {
           <source srcset media="(min-width:1025px) and (max-width:1280px)">
           <source srcset media="(min-width:1281px)">        
           <img id="${imageID}" src="https://icheff.github.io/energia.fr/media/images/logo-white1.svg" data-type="img-bg" loading="lazy">
-        </picture>
+      </picture>
       <button class="toolbar-open" onclick="toolsOpenModal(this);">
         <img src="./assets/svg/icons/settings.svg">
       </button>

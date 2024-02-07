@@ -7,7 +7,6 @@ function loadScript(src) {
 // APIS
 loadScript("../global/js/apis.js");
 
-
 //PAGE
 loadScript("./js/page/pageJsonLoad.js");
 loadScript("./js/page/pageJsonSave.js");
@@ -31,13 +30,9 @@ loadScript("./js/settings/settings-sidebar.js");
 // loadScript("./js/settings/settings-page-save.js");
 
 //PATTERNS
-loadScript("./js/pattern/footer1.js ");
-loadScript("./js/pattern/header1.js ");
-loadScript("./js/pattern/logo1.js ");
-loadScript("./js/pattern/menu1.js ");
-loadScript("./js/pattern/section1.js ");
-loadScript("./js/pattern/sidebar1.js ");
-loadScript("./js/pattern/video1.js ");
+// loadScript("../global/patterns/patterns.json");
+loadScript("../global/patterns/patterns.js");
+
 
 loadScript("./js/dragElements.js");
 

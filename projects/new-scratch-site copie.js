@@ -53,74 +53,43 @@ function createScratchSite() {
         console.error('Error:', error);
     });
 }
+//----------------------------------------------
+// END : CREATE REPOSITORY 
+//----------------------------------------------
 
-
+//----------------------------------------------
+// START : 2 CREATE FILES
+//----------------------------------------------
 const createFilesInRepo = async (repo) => {
-  const files = [
-    //HOME
-    { path: ".home", content: '' },
-    { path: "index.html", content: '' },
-    { path: "index.json", content: '' },
-    //SCRIPTS
-    { path: "scripts/.scripts", content: '' },
-    { path: "scripts/analytics.js", content: '' },
-    { 
-      path: "scripts/styles.css",
-      content: `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');body { font-family: 'Poppins', sans-serif; }`
-    },
-    { path: "scripts/scripts.js", content: '' },
-    { path: "scripts/settings.json", content: '' },
-    { 
-      path: "scripts/header.js", 
-      content: `fetch('./header').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(headerData => document.getElementById('header').innerHTML = headerData).catch(error => console.error(error.message));`
-    },
-    { 
-      path: "scripts/sidebar.js", 
-      content: `fetch('./sidebar').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(sidebarData => document.getElementById('sidebar').innerHTML = sidebarData).catch(error => console.error(error.message));`
-    },
-    { 
-      path: "scripts/footer.js", 
-      content: `fetch('./footer').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(footerData => document.getElementById('footer').innerHTML = footerData).catch(error => console.error(error.message));`
-    },
-    //HEADER
-    { path: "header/.widget", content: '' },
-    { path: "header/index.html", content: '' },
-    { path: "header/index.json", content: '' },
-    //FOOTER
-    { path: "footer/.widget", content: '' },
-    { path: "footer/index.html", content: '' },
-    { path: "footer/index.json", content: '' },
-    //SIDEBAR
-    { path: "sidebar/.widget", content: '' },
-    { path: "sidebar/index.html", content: '' },
-    { path: "sidebar/index.json", content: '' },
-
-    // ... Agrega aquí otros archivos y contenidos según sea necesario
+  const files = 
+  [
+    ".home",
+    "index.html",
+    "settings.json",
+    "index.json",
   ];
 
   for (const file of files) {
-    await createFiles(repo, file.path, file.content);
+    await createFiles(repo, file);
   }
   
   console.log("Todos los archivos han sido creados.");
   createScratchPage(owner, repo, token);
 };
 
-const createFiles = async (repo, file, content) => {
+const createFiles = async (repo, file) => {
   let user = githubUser;
   let email = githubEmail;
   let token = githubApi;
   let url = `https://api.github.com/repos/${user}/${repo}/contents/${file}`;
-
-  const base64Content = btoa(content); // Codifica el contenido en Base64
-
+  const content = btoa(''); // Contenido del archivo en base64, aquí puedes agregar contenido específico
   const commitData = {
-    message: `Add new file ${file}`,
-    committer: {
-      name: user,
-      email: email,
-    },
-    content: base64Content,
+      message: `Add new file ${file}`,
+      committer: {
+        name: user,
+        email: email,
+      },
+      content: content,
   };
   try {
       const response = await uploadFile(url, token, commitData);

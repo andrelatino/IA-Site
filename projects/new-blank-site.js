@@ -6,8 +6,8 @@ let owner = githubUser;
 //----------------------------------------------
 // START : 1 CREATE REPOSITORY 
 //----------------------------------------------
-function createScratchSite() {
-    console.log('creando scratch site...');
+function createBlankSite() {
+    console.log('creando Blank site...');
     showPreloader();
 
         // Token de Acceso Personal de GitHub
@@ -103,7 +103,7 @@ const createFilesInRepo = async (repo) => {
   }
   
   console.log("Todos los archivos han sido creados.");
-  createScratchPage(owner, repo, token);
+  createBlankPage(owner, repo, token);
 };
 
 const createFiles = async (repo, file, content) => {
@@ -145,7 +145,7 @@ const uploadFile = async (url, token, commitData) => {
 //----------------------------------------------
 // START : 3 CREATE PAGE 
 //----------------------------------------------
-function createScratchPage(owner, repo, token) {
+function createBlankPage(owner, repo, token) {
   console.log('creando pagina...');
   const requestOptions = {
     method: 'POST',
@@ -172,7 +172,7 @@ function createScratchPage(owner, repo, token) {
     if (response.status === 201) {
       setTimeout(() => {
           showSuccess();
-          console.log('response new scratch: '+response);
+          console.log('response new Blank: '+response);
           return response.json();
       }, 2000); 
 

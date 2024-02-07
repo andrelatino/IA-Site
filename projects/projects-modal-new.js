@@ -12,10 +12,9 @@
           <div class="sites-modal-content">
             <input class='flipcard-input' type="text" id="newRepoNameInput" placeholder='Enter name'>
             
-            <select id="selectChoice" class="flipcard-select">
+            <select id="selectChoice" class="flipcard-select" style="display:none;">
               <option value="" disabled selected>Create from : </option>
-              <option value="scratch">Scratch Site</option>
-              <option value="premium">Premium Sites</option>
+              <option value="blank" selected>Blank Site</option>
             </select>
 
             <select id="templateSelector" class="flipcard-select"></select>
@@ -55,13 +54,12 @@
     select.addEventListener("change", function () {
           var selectedValue = select.value;
 
-          if (selectedValue === "scratch") {
+           if (selectedValue === "blank") {
             const createSiteBtn = document.getElementById('createSiteBtn');
-            createSiteBtn.textContent = 'Create Scratch Site';
+            createSiteBtn.textContent = 'Create Blank Site';
 
             const templateSelector = document.getElementById('templateSelector');
-            templateSelector.style.display = 'none';
-            // alert("You selected Scratch Site");
+            templateSelector.style.display = 'initial';
           } else if (selectedValue === "premium") {
             const createSiteBtn = document.getElementById('createSiteBtn');
             createSiteBtn.textContent = 'Create Premium Site';
@@ -74,8 +72,8 @@
     createSiteBtn.addEventListener("click", function () {
       var selectedValue = select.value;
   
-      if (selectedValue === "scratch") {
-        createScratchSite();
+      if (selectedValue === "blank") {
+        createBlankSite();
         // Call your custom function for Scratch Site here
       } else if (selectedValue === "premium") {
         // Call your custom function for Premium Site here

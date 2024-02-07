@@ -1,0 +1,42 @@
+
+#pattern-sidebar {
+    width: 100%;
+    height: 135px;
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    background-color: #f4f4f4;
+    z-index: 9999;
+}
+button#pattern-bg {
+    width: 100%;
+}
+button.pattern-sidebar-items {
+    width: 100%;
+}
+div#pattern-sidebar-grid {
+    padding: 10px;
+    display: grid;
+    height: 90px;
+    grid-gap: 0 10px;
+    grid-auto-flow: column;
+    grid-auto-columns: 100px;
+    overflow-x: auto;
+    width: 100vw;
+}
+div#pattern-sidebar-header {
+    display: flex;
+    gap: 1px;
+}
+img.thumbnails {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+button.pattern-sidebar-items {
+    width: 100%;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+}

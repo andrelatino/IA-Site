@@ -43,6 +43,9 @@
         .then(response => response.json())
         .then(data => {
 
+            const showData = pageIs(data);
+            console.log('pageIs: '+showData);
+            localStorage.setItem('pageIs',showData);
             //GET SHA AND URL  FROM INDEX.JSON
             const indexFile = data.find(api => api.name === "index.json");
             const indexFileSha = indexFile ? indexFile.sha : null;
@@ -60,13 +63,16 @@
             localStorage.setItem('settingsSha',settingsFileSha);
             localStorage.setItem('settingsUrl',settingsFileUrl);
 
-            pageTitle.textContent = repoName;
+            pageTitle.textContent = dirName;
             pageBreadCrumb.textContent = 'sites / '+repoName+' / '+dirName;
 
             console.log(data);
 
             // const filesToExclude = ["README.md", "settings.json", "index.json"];
-            const filesToExclude = [];
+            const filesToExclude = 
+            [
+                ".widget","index.json",".scripts","footer.js","header.js","sidebar.js","settings.json",
+            ];
             const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 
             getTotal = filteredData.length;
@@ -163,40 +169,99 @@
                     itemsDiv.appendChild(deleteButton);
                 }
 
-                if (api.name === 'index.html' && api.type === 'file') {
+                // if (api.name === 'index.html' && api.type === 'file') {
 
-                    const addButton = document.createElement('a');
-                    addButton.className = "files-add";
-                    addButton.innerHTML = '<button class="files-edit">EDIT</button>';
-                    addButton.addEventListener('click', function() {
+                //     const addButton = document.createElement('a');
+                //     addButton.className = "files-add";
+                //     addButton.innerHTML = '<button class="files-edit">EDIT</button>';
+                //     addButton.addEventListener('click', function() {
 
-                        let pageIs = 'page';
-                        localStorage.setItem('pageIs',pageIs);
+                //         let pageIs = 'page';
+                //         localStorage.setItem('pageIs',pageIs);
                         
-                        // alert(api.name);
-                        const values = 
-                    [{
-                        "pageIs": pageIs,      
-                        "indexHtmlRaw": api.download_url,                            
-                        "indexHtmlApi": api.url,
-                        "indexHtmlSha": api.sha,
-                        "indexHtmlPath": api.path,
-                        "repoName": repoName,  
-                        "devJsonRaw": devJsonRaw,                            
-                        "devJsonApi": devJsonApi,
-                        "devJsonSha": devJsonSha,
-                        "dir": dirName,
-                        "base": `https://${user}.github.io/${repoName}/${dirName}/`
+                //         // alert(api.name);
+                //         const values = 
+                //     [{
+                //         "pageIs": pageIs,      
+                //         "indexHtmlRaw": api.download_url,                            
+                //         "indexHtmlApi": api.url,
+                //         "indexHtmlSha": api.sha,
+                //         "indexHtmlPath": api.path,
+                //         "repoName": repoName,  
+                //         "devJsonRaw": devJsonRaw,                            
+                //         "devJsonApi": devJsonApi,
+                //         "devJsonSha": devJsonSha,
+                //         "dir": dirName,
+                //         "base": `https://${user}.github.io/${repoName}/${dirName}/`
 
-                    }];
+                //     }];
+                //         const encoded = btoa(JSON.stringify(values));
+                //         const targetURL = '../editor?id=' + encoded;
+                //         window.location.href = targetURL;
+                //         console.log(values);
+                //     });
+        
+                //     itemsDiv.appendChild(addButton);
+                // }
+
+                if (api.name === 'index.html' && api.type === 'file') {
+                    const buttonsCta = document.createElement('div');
+                    buttonsCta.className = 'buttons-cta';
+                
+                    const editButton = document.createElement('a');
+                    editButton.className = 'edit-a';
+                    editButton.innerHTML = '<button class="edit-button">EDIT</button>';
+                    editButton.addEventListener('click', function() {
+                        // Set default localStorage values and other code for the "EDIT" button here
+                        
+                        const values = [
+                            {
+                                "pageIs": showData,
+                                "indexHtmlRaw": api.download_url,
+                                "indexHtmlApi": api.url,
+                                "indexHtmlSha": api.sha,
+                                "indexHtmlPath": api.path,
+                                "repoName": repoName,
+                                "devJsonRaw": devJsonRaw,
+                                "devJsonApi": devJsonApi,
+                                "devJsonSha": devJsonSha,
+                                "base": `https://${githubUser}.github.io/${repoName}`
+                            }
+                        ];
                         const encoded = btoa(JSON.stringify(values));
+                        console.log(values);
                         const targetURL = '../editor?id=' + encoded;
                         window.location.href = targetURL;
-                        console.log(values);
                     });
-        
-                    itemsDiv.appendChild(addButton);
+                
+                    const codeButton = document.createElement('a');
+                    codeButton.className = 'code-a';
+                    codeButton.innerHTML = '<button class="code-button">CODE</button>';
+                    codeButton.addEventListener('click', function() {
+                        // Set default localStorage values and other code for the "CODE" button here
+                        localStorage.setItem('codeSha', api.sha);
+                        localStorage.setItem('codeUrl', api.url);
+                        const values = [
+                            {
+                                "fileUrl": api.download_url,
+                                "fileName": repoName,
+                                "fileType": api.name,
+                                "fileSha": api.sha,
+                                "fileToUpdate": api.url
+                            }
+                        ];
+                        console.log(values);
+                        const encoded = btoa(JSON.stringify(values));
+                        const targetURL = '../code?id=' + encoded;
+                        window.location.href = targetURL;
+                    });
+                
+                    buttonsCta.appendChild(editButton);
+                    buttonsCta.appendChild(codeButton);
+                
+                    itemsDiv.appendChild(buttonsCta);
                 }
+                
 
 
                 

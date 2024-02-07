@@ -6,7 +6,8 @@ function generateRandomID(length) {
     return result;
   }
   
-  function patternSection1() {
+  //Video background Data Center Left
+  function MQ67RC3() {
   const addSectionToGrid = document.getElementById("grid");
   
   const sectionID = generateRandomID(7);
@@ -55,6 +56,7 @@ function generateRandomID(length) {
   const btn2Css = btn2ID;
 
   const customCSS = `
+  @media screen and (min-width:0px){#${sectionCss}{width:100vw;height:100vh;position:relative}}
   @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
   @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
@@ -81,13 +83,13 @@ function generateRandomID(length) {
   <div id="${containerID}" data-type="container">
     <div id="${generateRandomID(7)}" data-type="backgrounds">
       
-      <div id="${colorID}" data-type="bg-color">
+      <div id="${colorID}" data-type="bg-color" class="div-visible">
         <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(0, 0, 255);"></div>
         <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background: radial-gradient(circle, rgb(0, 255, 128), rgb(200, 0, 255));"></div>
         <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background: linear-gradient(0deg, rgba(255,0,0,0), rgba(255,0,0,1));"></div>
       </div> <!-- bg-color -->
 
-      <div id="${generateRandomID(7)}" data-type="bg-image">
+      <div id="${generateRandomID(7)}" data-type="bg-image" class="div-hidden">
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
           <source srcset media="(min-width:641px) and (max-width:1024px)">
@@ -95,7 +97,7 @@ function generateRandomID(length) {
         </picture>
       </div> <!-- bg-image -->
 
-      <div id="${generateRandomID(7)}" data-type="bg-video">
+      <div id="${generateRandomID(7)}" data-type="bg-video" class="div-hidden">
         <video id="${videoID}" autoplay loop muted>
           <source src="https://previews.customer.envatousercontent.com/0e86408d-ad59-4c94-8e0d-8799ad96d063/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
         </video>

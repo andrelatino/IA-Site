@@ -114,7 +114,6 @@ function github_get_sites() {
                     
                     "repo": api.name,
                     "id": api.id,
-                    "is": "home",
                     
                 }
             ];
