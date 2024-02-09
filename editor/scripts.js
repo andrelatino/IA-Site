@@ -8,6 +8,7 @@ function loadScript(src) {
 loadScript("../global/js/apis.js");
 
 //PAGE
+loadScript("./js/page/pageLoadFonts.js");
 loadScript("./js/page/pageJsonLoad.js");
 loadScript("./js/page/pageJsonSave.js");
 loadScript("./js/page/pagePublish.js");
@@ -32,6 +33,8 @@ loadScript("./js/settings/settings-sidebar.js");
 //PATTERNS
 // loadScript("../global/patterns/patterns.json");
 loadScript("../global/patterns/patterns.js");
+loadScript("./js/pattern/pattern.css");
+loadScript("./js/pattern/patternOpenClose.js");
 
 
 loadScript("./js/dragElements.js");

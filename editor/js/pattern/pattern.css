@@ -1,11 +1,12 @@
 
 #pattern-sidebar {
-    width: 100%;
+    width: 100vw;
     height: 135px;
     position: fixed;
-    bottom: 0;
+    overflow: hidden;
     left: 0px;
-    background-color: #f4f4f4;
+    bottom: -135px;
+    background-color: rgb(241, 241, 241);
     z-index: 9999;
 }
 button#pattern-bg {
@@ -18,15 +19,17 @@ div#pattern-sidebar-grid {
     padding: 10px;
     display: grid;
     height: 90px;
-    grid-gap: 0 10px;
+    grid-gap: 10px;
     grid-auto-flow: column;
-    grid-auto-columns: 100px;
+    grid-auto-columns: 72px;
     overflow-x: auto;
     width: 100vw;
 }
 div#pattern-sidebar-header {
     display: flex;
     gap: 1px;
+    height: 35px;
+    background: white;
 }
 img.thumbnails {
     width: 100%;

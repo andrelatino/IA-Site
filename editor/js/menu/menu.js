@@ -25,7 +25,7 @@ function editorMenu() {
           <span class="editor-items">Back to Sites</span>
       </button>
 
-      <button class="navigation" onclick="patternSection1()">
+      <button class="navigation" onclick="patternSidebarOpen()">
           <img class="editor-icons" src="./assets/svg/icons/sections.svg">
           <span class="editor-items">Add Section</span>
       </button>
