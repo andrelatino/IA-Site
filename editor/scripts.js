@@ -33,8 +33,10 @@ loadScript("./js/settings/settings-sidebar.js");
 //PATTERNS
 // loadScript("../global/patterns/patterns.json");
 loadScript("../global/patterns/patterns.js");
-loadScript("./js/pattern/pattern.css");
+loadScript("../global/patterns/patterns.json");
+
 loadScript("./js/pattern/patternOpenClose.js");
+loadScript("./js/pattern/patternload.js");
 
 
 loadScript("./js/dragElements.js");

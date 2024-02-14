@@ -330,13 +330,13 @@ div#fixed-sidebar {
     background: white;
     z-index: 99999;
 }
-div#admin {
+/* div#admin {
 display: grid;
 grid-template-columns: 1fr;
 place-content: center;
 background: #ebebeb;
 min-height: 100vh;
-}
+} */
 
 section{
 position: relative;

@@ -170,27 +170,16 @@
 			
 		</div>
 
-		<div id="pattern-sidebar">
-			<div id="pattern-sidebar-header">
-				<button class="pattern-sidebar-btns" onclick="">All</button>
-				<button class="pattern-sidebar-btns" onclick="">Heros</button>
-				<button class="pattern-sidebar-btns" onclick="">Grids</button>
-				<button class="pattern-sidebar-btns" onclick="patternSidebarClose()">CLOSE</button>
+		<div id="pattern-sidebar" class="pattern-sidebar">
+			<div class="pattern-settings">
+				<input type="text" id="pattern-search-input" placeholder="Search..." required="">
+				<button id="pattern-search-button"><img src="./assets/svg/icons/search-right.svg"></button>
+				<button id="pattern-search-close"><img src="./assets/svg/icons/back.svg"></button>
 			</div>
-			<div id="pattern-sidebar-grid">
-				<button class="pattern-sidebar-items" onclick="hero_color_left_light()"><img class="thumbnails" src="../global/patterns/images/hero-color-left-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_image_left_light()"><img class="thumbnails" src="../global/patterns/images/hero-image-left-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_video_left_light()"><img class="thumbnails" src="../global/patterns/images/hero-video-left-light.svg"></button>
-
-				<button class="pattern-sidebar-items" onclick="hero_color_center_light()"><img class="thumbnails" src="../global/patterns/images/hero-color-center-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_image_center_light()"><img class="thumbnails" src="../global/patterns/images/hero-image-center-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_video_center_light()"><img class="thumbnails" src="../global/patterns/images/hero-video-center-light.svg"></button>
-
-				<button class="pattern-sidebar-items" onclick="hero_color_right_light()"><img class="thumbnails" src="../global/patterns/images/hero-color-right-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_image_right_light()"><img class="thumbnails" src="../global/patterns/images/hero-image-right-light.svg"></button>
-				<button class="pattern-sidebar-items" onclick="hero_video_right_light()"><img class="thumbnails" src="../global/patterns/images/hero-video-right-light.svg"></button>
-
-			</div>	
+			<div class="pattern-box"> 
+				<div id = "pattern-sidebar-grid" class=""></div>
+			</div>
+			
 		</div>
 
 		<div id="image-github-sidebar" style="bottom:-135px">
