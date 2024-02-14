@@ -34,7 +34,7 @@ function usePattern(itemId) {
 function patternSidebarOpen() {
 
   const adminScale = document.getElementById("admin");
-  adminScale.style.transform = "scale(0.5)";
+  adminScale.style.transform = "scale(0.8)";
   adminScale.style.transformOrigin = "top";
   adminScale.style.height = "100vh";
   adminScale.style.overflowX = "scroll";
@@ -53,6 +53,13 @@ function patternSidebarOpen() {
 }
 
 function patternSidebarClose() {
+
+  const adminScale = document.getElementById("admin");
+  adminScale.style.transform = "scale(1)";
+  adminScale.style.transformOrigin = "top";
+  adminScale.style.height = "100vh";
+  adminScale.style.overflowX = "scroll";
+
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.transition = "bottom 0.5s";
   sidebar.style.bottom = "-135px";
