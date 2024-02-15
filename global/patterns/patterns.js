@@ -33,42 +33,19 @@ function usePattern(itemId) {
 
 function patternSidebarOpen() {
 
-  const adminScale = document.getElementById("admin");
-  adminScale.style.transform = "scale(0.8)";
-  adminScale.style.transformOrigin = "top";
-  adminScale.style.height = "100vh";
-  adminScale.style.overflowX = "scroll";
-
-  
+  zoomContentStart();
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.bottom = "0px";
   sidebar.style.transition = "bottom 0.5s";
 
-  const popup = document.getElementById("popup");
-  popup.style.visibility = "hidden";
-
-  const overlay = document.getElementById("overlay");
-  overlay.style.visibility = "hidden";
-
 }
 
 function patternSidebarClose() {
-
-  const adminScale = document.getElementById("admin");
-  adminScale.style.transform = "scale(1)";
-  adminScale.style.transformOrigin = "top";
-  adminScale.style.height = "100vh";
-  adminScale.style.overflowX = "scroll";
-
+  zoomContentEnd();
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.transition = "bottom 0.5s";
-  sidebar.style.bottom = "-135px";
+  sidebar.style.bottom = "-20vh";
 
-  const popup = document.getElementById("popup");
-  popup.style.visibility = "visible";
-
-  const overlay = document.getElementById("overlay");
-  overlay.style.visibility = "visible";
 }
 
 function patternsLoad() {
@@ -186,4 +163,93 @@ document.getElementById('pattern-search-close').addEventListener('click', functi
   patternSidebarClose();
 });
 
+document.getElementById('color-solid-close').addEventListener('click', function() {
+  zoomContentEnd();
+});
+
 patternsLoad(); // Call patternsLoad to load initial patterns when the page loads
+
+
+function zoomContentStart(){
+
+  const adminScale = document.getElementById("admin");
+  adminScale.style.transform = "scale(0.8)";
+  adminScale.style.transformOrigin = "top";
+  adminScale.style.height = "100vh";
+  adminScale.style.overflowX = "scroll";
+
+  const popup = document.getElementById("popup");
+  popup.style.visibility = "hidden";
+
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
+  
+  const toolbars = document.getElementsByClassName("toolbar-open"); // Using getElementsByClassName to get a collection of elements
+  for (let i = 0; i < toolbars.length; i++) {
+    toolbars[i].style.visibility = "hidden";
+  }
+  const openEditorBtn = document.querySelector(".open-editor-btn");
+  openEditorBtn.style.visibility = "hidden";
+
+  const grid = document.getElementById("grid");
+  const elements = grid.querySelectorAll("[contenteditable=true]");
+  elements.forEach(element => {
+    element.contentEditable = "false";
+  }); 
+
+  const links = grid.querySelectorAll("a");
+  links.forEach(link => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default link behavior
+    });
+  });
+
+}
+
+function zoomContentEnd(){
+  const adminScale = document.getElementById("admin");
+  adminScale.style.transform = "scale(1)";
+  adminScale.style.transformOrigin = "top";
+  adminScale.style.height = "100vh";
+  adminScale.style.overflowX = "scroll";
+
+  const popup = document.getElementById("popup");
+  popup.style.visibility = "visible";
+
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "block";
+
+  // Revert visibility for elements with class "toolbar-open"
+  const toolbars = document.getElementsByClassName("toolbar-open");
+  for (let i = 0; i < toolbars.length; i++) {
+    toolbars[i].style.visibility = "visible";
+  }
+
+  // Revert visibility for the element with class "open-editor-btn"
+  const openEditorBtn = document.querySelector(".open-editor-btn");
+  openEditorBtn.style.visibility = "visible";
+
+  // Revert contenteditable attribute for elements inside the div with id "grid"
+  const grid = document.getElementById("grid");
+  const elements = grid.querySelectorAll("[contenteditable=true]");
+  elements.forEach(element => {
+    element.contentEditable = "true";
+  });
+
+  // Remove click event listeners from links inside the div with id "grid"
+  const links = grid.querySelectorAll("a");
+  links.forEach(link => {
+    link.removeEventListener("click", function(event) {
+      event.preventDefault(); // Remove the preventDefault handler
+    });
+  });
+
+
+}
+function colorContentHide(){
+  const colorModal = document.getElementById('color-modal');
+  colorModal.style.display = 'none';
+
+  const toolbarModal = document.getElementById('toolbarModal');
+  toolbarModal.style.display = 'none';
+}

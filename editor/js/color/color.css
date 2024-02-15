@@ -104,9 +104,9 @@ button#clr-close {
 #color-solid-sidebar {
     /* display:none; */
     width: auto;
-    height: 135px;
+    height: 20vh;
     position: fixed;
-    bottom: -135px;
+    bottom: -20vh;
     left: 0px;
     background-color: #f4f4f4;
     z-index: 9999;
@@ -141,15 +141,15 @@ input#linear-range {
     overflow: hidden;
 }
 #color-sidebar-grid {
-    padding: 10px;
+    padding: 0;
     display: grid;
-    height: 90px;
-    grid-gap: 0 20px;
+    height: calc(20vh - 35px);
+    grid-gap: 20px;
     grid-auto-flow: column;
     grid-auto-columns: 60px;
     overflow-x: auto;
     width: 100vw;
-    place-content: space-between;
+    place-content: center start;
     
 }
 .color-sidebar-items img {

@@ -4,11 +4,13 @@ function sidebarOpenClose(button) {
       case 'imageWebSidebarButton':
         openImageSidebar();
         closeGithubImageSidebar();
+        zoomContentStart();
       break;
 
       case 'imageGithubSidebarButton':
         openGithubImageSidebar();
         closeImageSidebar();
+        zoomContentStart();
         break;
 
       default:
@@ -25,7 +27,7 @@ function sidebarOpenClose(button) {
   function closeImageSidebar() {
     sidebar = document.getElementById("image-sidebar");
     sidebar.style.transition = "bottom 0.5s";
-    sidebar.style.bottom = "-135px";
+    sidebar.style.bottom = "-20vh";
   }
 
   
@@ -39,7 +41,7 @@ function sidebarOpenClose(button) {
   function closeGithubImageSidebar() {
     sidebar = document.getElementById("image-github-sidebar");
     sidebar.style.transition = "bottom 0.5s";
-    sidebar.style.bottom = "-135px";
+    sidebar.style.bottom = "-20vh";
   }
 
   function closeAllImageSidebars(){

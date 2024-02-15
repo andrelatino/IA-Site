@@ -140,6 +140,7 @@
 
 // Funciones para mostrar y ocultar elementos relacionados con el color lineal
 function linearColorBgIsSelected() {
+  
   const getColorID = document.getElementById('color-id').textContent;
   const parentDiv = document.getElementById(getColorID);
   toggleVisibility(parentDiv, '[data-type="linear-color"]');

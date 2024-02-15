@@ -1,11 +1,10 @@
  
 function sectionImage() {
-  
-  
 
   showImageModal();
   loadUnsplashImages();
-  loadGithubImages()
+  loadGithubImages();
+  
 
   const textID = document.getElementById('toolbarSectionID');
   const sectionID = textID.textContent.trim();

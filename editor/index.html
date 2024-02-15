@@ -146,8 +146,7 @@
 
 		<div id="color-solid-sidebar">
 			<div id="color-sidebar-header">
-				<input type="text" id="color-sidebar-input" placeholder="Search..." required>
-				<button id="color-sidebar-search" onclick="closeColorSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+				
 				<div id="color-buttons">
 					<button id="color-orange" style="background:orange;"></button>
 					<button id="color-yellow" style="background:yellow;"></button>
@@ -162,6 +161,7 @@
 					<button id="color-turquoise" style="background:turquoise;"></button>
 					<button id="color-pink" style="background:pink;"></button>
 				</div>
+				<button id="color-solid-close"><img src="./assets/svg/icons/close-black.svg"></button>
 			</div>
 			
 
@@ -174,7 +174,8 @@
 			<div class="pattern-settings">
 				<input type="text" id="pattern-search-input" placeholder="Search..." required="">
 				<button id="pattern-search-button"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button id="pattern-search-close"><img src="./assets/svg/icons/back.svg"></button>
+				<button id="pattern-search-next"><img src="./assets/svg/icons/next.svg"></button>
+				<button id="pattern-search-close" onclick="zoomContentEnd()"><img src="./assets/svg/icons/close-black.svg"></button>
 			</div>
 			<div class="pattern-box"> 
 				<div id = "pattern-sidebar-grid" class=""></div>
