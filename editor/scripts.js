@@ -4,11 +4,11 @@ function loadScript(src) {
   document.body.appendChild(script);
 }
 
-// APIS
+// LOAD
 loadScript("../global/js/apis.js");
+// loadScript("./js/page/pageLoadFonts.js");
 
-//PAGE
-loadScript("./js/page/pageLoadFonts.js");
+
 loadScript("./js/page/pageJsonLoad.js");
 loadScript("./js/page/pageJsonSave.js");
 loadScript("./js/page/pagePublish.js");
@@ -35,8 +35,8 @@ loadScript("./js/settings/settings-sidebar.js");
 loadScript("../global/patterns/patterns.js");
 loadScript("../global/patterns/patterns.json");
 
-loadScript("./js/pattern/patternOpenClose.js");
-loadScript("./js/pattern/patternload.js");
+// loadScript("./js/pattern/patternOpenClose.js");
+// loadScript("./js/pattern/patternload.js");
 
 
 loadScript("./js/dragElements.js");
@@ -54,10 +54,10 @@ loadScript("./js/image/imageClear.js");
 loadScript("./js/video/videoModal.js");
 loadScript("./js/video/videoSidebar.js");
 
-loadScript("./js/github/page/githubSha.js");
-loadScript("./js/github/page/githubAdd.js");
-loadScript("./js/github/page/githubUpdate.js");
-loadScript("./js/github/page/githubDelete.js");
+// loadScript("./js/github/page/githubSha.js");
+// loadScript("./js/github/page/githubAdd.js");
+// loadScript("./js/github/page/githubUpdate.js");
+// loadScript("./js/github/page/githubDelete.js");
 
 loadScript("./js/github/image/githubCheckSize.js");
 loadScript("./js/github/image/githubLoadImages.js");
@@ -141,8 +141,8 @@ loadScript("./js/tools/tools-drag.js");
 loadScript("./js/tools/toolsHtml.js");
 loadScript("./js/tools/toolsModal.js");
 
-loadScript("./js/chatgpt/chatgpt-modal.js");
-loadScript("./js/chatgpt/chatgpt-apicall.js");
+// loadScript("./js/chatgpt/chatgpt-modal.js");
+// loadScript("./js/chatgpt/chatgpt-apicall.js");
 
 // CSS EDITOR
 // loadScript("./js/editor-css/editor-css-select.js");

@@ -184,10 +184,10 @@ function zoomContentStart(){
   const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
   
-  const toolbars = document.getElementsByClassName("toolbar-open"); // Using getElementsByClassName to get a collection of elements
-  for (let i = 0; i < toolbars.length; i++) {
-    toolbars[i].style.visibility = "hidden";
-  }
+  // const toolbars = document.getElementsByClassName("toolbar-open"); // Using getElementsByClassName to get a collection of elements
+  // for (let i = 0; i < toolbars.length; i++) {
+  //   toolbars[i].style.visibility = "hidden";
+  // }
   const openEditorBtn = document.querySelector(".open-editor-btn");
   openEditorBtn.style.visibility = "hidden";
 
@@ -219,11 +219,11 @@ function zoomContentEnd(){
   const overlay = document.getElementById("overlay");
   overlay.style.display = "block";
 
-  // Revert visibility for elements with class "toolbar-open"
-  const toolbars = document.getElementsByClassName("toolbar-open");
-  for (let i = 0; i < toolbars.length; i++) {
-    toolbars[i].style.visibility = "visible";
-  }
+  // // Revert visibility for elements with class "toolbar-open"
+  // const toolbars = document.getElementsByClassName("toolbar-open");
+  // for (let i = 0; i < toolbars.length; i++) {
+  //   toolbars[i].style.visibility = "visible";
+  // }
 
   // Revert visibility for the element with class "open-editor-btn"
   const openEditorBtn = document.querySelector(".open-editor-btn");
@@ -247,9 +247,9 @@ function zoomContentEnd(){
 
 }
 function colorContentHide(){
-  const colorModal = document.getElementById('color-modal');
-  colorModal.style.display = 'none';
+  // const colorModal = document.getElementById('color-modal');
+  // colorModal.style.display = 'none';
 
-  const toolbarModal = document.getElementById('toolbarModal');
-  toolbarModal.style.display = 'none';
+  // const toolbarModal = document.getElementById('toolbarModal');
+  // toolbarModal.style.display = 'none';
 }
