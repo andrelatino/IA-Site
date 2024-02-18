@@ -110,7 +110,7 @@
       </div> <!-- div1ID -->
     </div> <!-- content -->
   </div> <!-- container -->
-  <button class="toolbar-open" onclick="toolsOpenModal(this);">
+  <button class="toolbar-open" onclick="toolsOpenModal(this)">
     <img src="../global/file/edit-section.svg">
   </button>
 </section>

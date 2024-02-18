@@ -33,7 +33,12 @@ function usePattern(itemId) {
 
 function patternSidebarOpen() {
 
+  // Obtener el botón por su clase
+  const button = document.querySelector('.close-editor-btn');
+  button.click();
+
   zoomContentStart();
+
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.bottom = "0px";
   sidebar.style.transition = "bottom 0.5s";
@@ -178,31 +183,32 @@ function zoomContentStart(){
   adminScale.style.height = "100vh";
   adminScale.style.overflowX = "scroll";
 
-  const popup = document.getElementById("popup");
-  popup.style.visibility = "hidden";
+  // const popup = document.getElementById("popup");
+  // popup.style.visibility = "hidden";
 
   const overlay = document.getElementById("overlay");
-  overlay.style.display = "none";
+  overlay.style.display = "block";
   
   // const toolbars = document.getElementsByClassName("toolbar-open"); // Using getElementsByClassName to get a collection of elements
   // for (let i = 0; i < toolbars.length; i++) {
   //   toolbars[i].style.visibility = "hidden";
   // }
-  const openEditorBtn = document.querySelector(".open-editor-btn");
-  openEditorBtn.style.visibility = "hidden";
 
-  const grid = document.getElementById("grid");
-  const elements = grid.querySelectorAll("[contenteditable=true]");
-  elements.forEach(element => {
-    element.contentEditable = "false";
-  }); 
+  // const openEditorBtn = document.querySelector(".open-editor-btn");
+  // openEditorBtn.style.visibility = "hidden";
 
-  const links = grid.querySelectorAll("a");
-  links.forEach(link => {
-    link.addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent the default link behavior
-    });
-  });
+  // const grid = document.getElementById("grid");
+  // const elements = grid.querySelectorAll("[contenteditable=true]");
+  // elements.forEach(element => {
+  //   element.contentEditable = "false";
+  // }); 
+
+  // const links = grid.querySelectorAll("a");
+  // links.forEach(link => {
+  //   link.addEventListener("click", function(event) {
+  //     event.preventDefault(); // Prevent the default link behavior
+  //   });
+  // });
 
 }
 
@@ -213,11 +219,11 @@ function zoomContentEnd(){
   adminScale.style.height = "100vh";
   adminScale.style.overflowX = "scroll";
 
-  const popup = document.getElementById("popup");
-  popup.style.visibility = "visible";
+  // const popup = document.getElementById("popup");
+  // popup.style.visibility = "visible";
 
   const overlay = document.getElementById("overlay");
-  overlay.style.display = "block";
+  overlay.style.display = "none";
 
   // // Revert visibility for elements with class "toolbar-open"
   // const toolbars = document.getElementsByClassName("toolbar-open");
@@ -225,24 +231,25 @@ function zoomContentEnd(){
   //   toolbars[i].style.visibility = "visible";
   // }
 
-  // Revert visibility for the element with class "open-editor-btn"
-  const openEditorBtn = document.querySelector(".open-editor-btn");
-  openEditorBtn.style.visibility = "visible";
+  // // Revert visibility for the element with class "open-editor-btn"
+  // const openEditorBtn = document.querySelector(".open-editor-btn");
+  // openEditorBtn.style.visibility = "visible";
 
-  // Revert contenteditable attribute for elements inside the div with id "grid"
-  const grid = document.getElementById("grid");
-  const elements = grid.querySelectorAll("[contenteditable=true]");
-  elements.forEach(element => {
-    element.contentEditable = "true";
-  });
+  // // Revert contenteditable attribute for elements inside the div with id "grid"
+  // const grid = document.getElementById("grid");
+  // const elements = grid.querySelectorAll("[contenteditable=true]");
+  // elements.forEach(element => {
+  //   element.contentEditable = "true";
+  // });
 
   // Remove click event listeners from links inside the div with id "grid"
-  const links = grid.querySelectorAll("a");
-  links.forEach(link => {
-    link.removeEventListener("click", function(event) {
-      event.preventDefault(); // Remove the preventDefault handler
-    });
-  });
+  // const links = grid.querySelectorAll("a");
+  // links.forEach(link => {
+  //   link.removeEventListener("click", function(event) {
+  //     event.preventDefault(); // Remove the preventDefault handler
+  //   });
+  // });
+  
 
 
 }
@@ -253,3 +260,4 @@ function colorContentHide(){
   // const toolbarModal = document.getElementById('toolbarModal');
   // toolbarModal.style.display = 'none';
 }
+    

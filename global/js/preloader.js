@@ -36,3 +36,4 @@ function showFailure() {
     crossmark.style.display = 'block'; // Show cross animation
     setTimeout(hidePreloader, 2500); // Hide after 2.5 seconds to allow for full animation
 }
+

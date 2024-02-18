@@ -29,6 +29,39 @@ function encodeUTF8ToBase64(str) {
       return String.fromCharCode('0x' + p1);
   }));
 }
+function detectDoubleKeyPress() {
+    let lastKeyPressTime = 0;
+    let oneKeyPressCount = 0;
+    const doubleKeyPressInterval = 300; // Adjust this value as needed (in milliseconds)
+
+    document.addEventListener('keydown', function(event) {
+        const currentTime = new Date().getTime();
+
+        if (event.key === "1" && event.code === "Numpad1") {
+            if (currentTime - lastKeyPressTime <= doubleKeyPressInterval) {
+                oneKeyPressCount++;
+
+                if (oneKeyPressCount === 2) {
+                    pagePublish();
+                    console.log("The number '1' was pressed twice.");
+                    oneKeyPressCount = 0;
+                    lastKeyPressTime = 0;
+                }
+            } else {
+                oneKeyPressCount = 1;
+            }
+
+            lastKeyPressTime = currentTime;
+        } else {
+            oneKeyPressCount = 0;
+            lastKeyPressTime = 0;
+        }
+    });
+}
+
+// Call the function to start detecting double key presses for the number 1
+detectDoubleKeyPress();
+
 
 function pagePublish() {
   showPreloader();

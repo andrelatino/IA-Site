@@ -7,20 +7,21 @@
     grid-auto-flow: column;
     grid-auto-columns: 120px;
     width: 100vw;
-    place-content: center start;;
+    place-content: center start;
+    min-height: 100px;
   }
   #pattern-sidebar-grid img{
     display: grid;
     object-fit: cover;
     height: 70px;
     object-position: left;
+    width: 120px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    border-radius:13px;
+    overflow-x: scroll;
   }
   .pattern-items {
-    height: auto;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    height: 100%;
   }
   
   .sites-items {
@@ -49,6 +50,7 @@
     left: 0px;
     background-color: #f4f4f4;
     z-index: 9999;
+    min-height:135px;
 }
   .pattern-settings {
     position: sticky;

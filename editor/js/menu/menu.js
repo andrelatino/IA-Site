@@ -1,10 +1,12 @@
 function editorMenu() {
   /** NAV BOTTOM */
-  var overlay = document.createElement('div'); // Create an overlay
-  overlay.className = 'overlay'; // Add a class for styling
-  overlay.id = 'overlay'; // Add a class for styling
-  overlay.style.display = 'none'; // Initially hide the overlay
-  document.body.appendChild(overlay); // Append the overlay to the body
+var overlay = document.createElement('div'); // Create an overlay
+overlay.className = 'overlay'; // Add a class for styling
+overlay.id = 'overlay'; // Add an id for styling
+overlay.style.display = 'none'; // Initially hide the overlay
+
+var gridWrapper = document.getElementById('grid-wrapper'); // Get the grid-wrapper element
+gridWrapper.appendChild(overlay); // Append the overlay to the grid-wrapper
 
   var openBtn = document.createElement('button');
   openBtn.innerHTML = '<img id="menu" src="../global/file/add-white.svg">';

@@ -291,9 +291,9 @@ textarea#jscode {
 min-height: calc(100vh - 50px);
 border: none;
 }
-#empty-section{
+/* #empty-section{
 display:none;
-}
+} */
 img{
 width: 100%;
 display:grid;
