@@ -20,7 +20,6 @@ function loadPattern(src) {
     document.body.appendChild(script);
   });
 }
-
 // Function to use the loaded pattern
 function usePattern(itemId) {
   const functionName = '_' + itemId;
@@ -30,12 +29,11 @@ function usePattern(itemId) {
     console.error('Function not found:', functionName);
   }
 }
-
 function patternSidebarOpen() {
 
   // Obtener el botón por su clase
-  const button = document.querySelector('.close-editor-btn');
-  button.click();
+  const closeEditorBtn = document.querySelector('.close-editor-btn');
+  closeEditorBtn.click();
 
   zoomContentStart();
 
@@ -44,7 +42,6 @@ function patternSidebarOpen() {
   sidebar.style.transition = "bottom 0.5s";
 
 }
-
 function patternSidebarClose() {
   zoomContentEnd();
   const sidebar = document.getElementById("pattern-sidebar");
@@ -52,7 +49,6 @@ function patternSidebarClose() {
   sidebar.style.bottom = "-20vh";
 
 }
-
 function patternsLoad() {
   // Fetch the JSON data
   fetch('../global/patterns/patterns.json')
@@ -97,7 +93,6 @@ function patternsLoad() {
     })
     .catch(error => console.error('Error loading section templates:', error));
 }
-
 function patternsSearch() {
   const searchTerms = document.getElementById('pattern-search-input').value.trim().toLowerCase().split(' ');
   const patternSidebarGrid = document.getElementById('pattern-sidebar-grid');
@@ -150,7 +145,6 @@ function patternsSearch() {
     })
     .catch(error => console.error('Error searching images:', error));
 }
-
 // Event listener for the search button
 document.getElementById('pattern-search-button').addEventListener('click', function() {
   patternsSearch();
@@ -176,40 +170,14 @@ patternsLoad(); // Call patternsLoad to load initial patterns when the page load
 
 
 function zoomContentStart(){
-
   const adminScale = document.getElementById("admin");
   adminScale.style.transform = "scale(0.8)";
   adminScale.style.transformOrigin = "top";
   adminScale.style.height = "100vh";
   adminScale.style.overflowX = "scroll";
-
-  // const popup = document.getElementById("popup");
-  // popup.style.visibility = "hidden";
-
   const overlay = document.getElementById("overlay");
   overlay.style.display = "block";
-  
-  // const toolbars = document.getElementsByClassName("toolbar-open"); // Using getElementsByClassName to get a collection of elements
-  // for (let i = 0; i < toolbars.length; i++) {
-  //   toolbars[i].style.visibility = "hidden";
-  // }
-
-  // const openEditorBtn = document.querySelector(".open-editor-btn");
-  // openEditorBtn.style.visibility = "hidden";
-
-  // const grid = document.getElementById("grid");
-  // const elements = grid.querySelectorAll("[contenteditable=true]");
-  // elements.forEach(element => {
-  //   element.contentEditable = "false";
-  // }); 
-
-  // const links = grid.querySelectorAll("a");
-  // links.forEach(link => {
-  //   link.addEventListener("click", function(event) {
-  //     event.preventDefault(); // Prevent the default link behavior
-  //   });
-  // });
-
+  overlay.setAttribute('data-overlay', 'on');
 }
 
 function zoomContentEnd(){
@@ -218,46 +186,28 @@ function zoomContentEnd(){
   adminScale.style.transformOrigin = "top";
   adminScale.style.height = "100vh";
   adminScale.style.overflowX = "scroll";
-
-  // const popup = document.getElementById("popup");
-  // popup.style.visibility = "visible";
-
   const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
-
-  // // Revert visibility for elements with class "toolbar-open"
-  // const toolbars = document.getElementsByClassName("toolbar-open");
-  // for (let i = 0; i < toolbars.length; i++) {
-  //   toolbars[i].style.visibility = "visible";
-  // }
-
-  // // Revert visibility for the element with class "open-editor-btn"
-  // const openEditorBtn = document.querySelector(".open-editor-btn");
-  // openEditorBtn.style.visibility = "visible";
-
-  // // Revert contenteditable attribute for elements inside the div with id "grid"
-  // const grid = document.getElementById("grid");
-  // const elements = grid.querySelectorAll("[contenteditable=true]");
-  // elements.forEach(element => {
-  //   element.contentEditable = "true";
-  // });
-
-  // Remove click event listeners from links inside the div with id "grid"
-  // const links = grid.querySelectorAll("a");
-  // links.forEach(link => {
-  //   link.removeEventListener("click", function(event) {
-  //     event.preventDefault(); // Remove the preventDefault handler
-  //   });
-  // });
-  
-
-
+  overlay.setAttribute('data-overlay', 'off');
 }
-function colorContentHide(){
-  // const colorModal = document.getElementById('color-modal');
-  // colorModal.style.display = 'none';
 
-  // const toolbarModal = document.getElementById('toolbarModal');
-  // toolbarModal.style.display = 'none';
+// Obtener el elemento overlay
+var overlay = document.getElementById('overlay');
+
+// Agregar un event listener para detectar clics en el overlay
+overlay.addEventListener('click', function() {
+    if (overlay.getAttribute('data-overlay') === 'on') {
+        save();
+    }
+});
+
+function save(){	 
+  if (confirm("Do you want to edit sections?") == true) {
+    zoomContentEnd();
+    const patternSearchClose = document.getElementById('pattern-search-close');
+    patternSearchClose.click();
+  } else {
+    //
+  }
+  // document.getElementById("msg").innerHTML = userPreference; 
 }
-    
