@@ -59,12 +59,12 @@
   @media screen and (min-width:0px){#${linearcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
   @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
-  @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 1100px;gap:35px;}}
-  @media screen and (min-width:0px){#${h2Css}{font-size:clamp(2.8rem,8vw,7rem);line-height:90%;font-weight:300;color:black;}}
+  @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 900px;gap:35px;}}
+  @media screen and (min-width:0px){#${h2Css}{font-size:clamp(2.5rem,8vw,6rem);line-height:90%;font-weight:300;color:black;}}
   @media screen and (min-width:0px){#${pCss}{font-size:clamp(1rem,2vw,2rem);color:black;}}
   @media screen and (min-width:0px){#${div2Css}{display:flex;gap:10px;}}
-  @media screen and (min-width:0px){#${btn1Css}{background:black;padding:20px;color:white;font-size:14px;border-radius:10px;text-underline-position:under;}}
-  @media screen and (min-width:0px){#${btn2Css}{background:white;padding:20px;color:black;font-size:14px;border-radius:10px;text-underline-position:under;}}
+  @media screen and (min-width:0px){#${btn1Css}{background:black;padding:15px;color:white;font-size:14px;border-radius:10px;text-underline-position:under;}}
+  @media screen and (min-width:0px){#${btn2Css}{background:white;padding:15px;color:black;font-size:14px;border-radius:10px;text-underline-position:under;}}
   @media screen and (max-width:640px){#${div1Css}{gap:10px;}}
   `;
   const customHTML = `
@@ -78,22 +78,22 @@
     <div id="${generateRandomID(7)}" data-type="backgrounds">
       
       <div id="${colorID}" data-type="bg-color" class="div-hidden">
-        <div id="${solidcolorID}" data-type="solid-color" class="div-hidden" style="background: rgb(0, 0, 255);"></div>
+        <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(227, 231, 232);"></div>
         <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background: radial-gradient(circle, rgb(0, 255, 128), rgb(200, 0, 255));"></div>
-        <div id="${linearcolorID}" data-type="linear-color" class="div-visible" style="background: linear-gradient(0deg, rgb(184 184 184), rgb(255, 255, 255));"></div>
+        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background: linear-gradient(0deg, rgb(184 184 184), rgb(255, 255, 255));"></div>
       </div> <!-- bg-color -->
 
-      <div id="${generateRandomID(7)}" data-type="bg-image" class="div-hidden">
+      <div id="${generateRandomID(7)}" data-type="bg-image" class="div-visible">
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
           <source srcset media="(min-width:641px) and (max-width:1024px)">
-          <img id="${imageID}" src="" data-type="img-bg" loading="lazy">
+          <img id="${imageID}" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwxfHxjYWN0dXN8ZW58MHwwfHx8MTcwODQzMjYyN3ww&ixlib=rb-4.0.3&w=1280&h=720&fit=crop" data-type="img-bg" loading="lazy">
         </picture>
       </div> <!-- bg-image -->
 
-      <div id="${generateRandomID(7)}" data-type="bg-video" class="div-visible">
+      <div id="${generateRandomID(7)}" data-type="bg-video" class="div-hidden">
         <video id="${videoID}" autoplay loop muted>
-          <source src="../global/patterns/videos/1707848593.mp4" type="video/mp4">
+          <source src="https://vod-progressive.akamaized.net/exp=1708461354~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1511%2F18%2F457558067%2F2020165682.mp4~hmac=fa6a5c0044648721c490e51cec080aa8d7437bd5e3d8886cf08dddbc434d6cbe/vimeo-prod-skyfire-std-us/01/1511/18/457558067/2020165682.mp4" type="video/mp4">
         </video>
       </div> <!-- bg-video -->
 

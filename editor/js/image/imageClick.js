@@ -5,6 +5,11 @@ var imagePlaceholder = 'Image URL (optional)';
 
 function clickAllImage() {
     
+    const singleImageLS = localStorage.getItem('singleImageID');
+    
+    const checkImageType = localStorage.getItem('checkImageType');
+    const checkImageID = document.getElementById(singleImageLS);
+
     const imageID = localStorage.getItem('imageID');
     const clickImage = document.getElementById(imageID);
     const inputElement = document.getElementById('image-all-input');
@@ -17,12 +22,18 @@ function clickAllImage() {
         thumbBG.srcset = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
         clickImage.setAttribute("src", );
-        
-        
+ 
     } else {
         // alert ('input is not empty');
         thumbBG.srcset = inputValue;
-        clickImage.setAttribute("src", inputValue);
+        if( checkImageType === "img-grid"){
+            // alert('is img-grid');
+            checkImageID.setAttribute("src", inputValue);
+        }else{
+            // alert('is not img-grid');
+            clickImage.setAttribute("src", inputValue);
+        }
+        
     }
 
     

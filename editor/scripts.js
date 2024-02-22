@@ -7,6 +7,7 @@ function loadScript(src) {
 // LOAD
 loadScript("../global/js/apis.js");
 // loadScript("./js/page/pageLoadFonts.js");
+loadScript("./js/global/singleImages.js");
 
 
 loadScript("./js/page/pageJsonLoad.js");

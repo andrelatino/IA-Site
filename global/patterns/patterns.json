@@ -1,67 +1,17 @@
 [
   {
-      "id": "1707848593",
-      "thumb": "1707848593.jpeg",
-      "tags": "hero,cover,video,light,white"
+    "id": "1707848593",
+    "thumb": "./thumbnails/1707848593.jpeg",
+    "tags": "hero,cover,image,light,black"
   },
   {
-      "id": "1707848601",
-      "thumb": "1707848601.jpeg",
-      "tags": ""
+    "id": "1708449979",
+    "thumb": "./thumbnails/1708449979.jpeg",
+    "tags": "hero,cover,video,light,black"
   },
   {
-      "id": "1707848608",
-      "thumb": "1707848608.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707848616",
-      "thumb": "1707848616.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707848623",
-      "thumb": "1707848623.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707848630",
-      "thumb": "1707848630.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707848638",
-      "thumb": "1707848638.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707848645",
-      "thumb": "1707848645.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707849229",
-      "thumb": "1707849229.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707849236",
-      "thumb": "1707849236.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707849243",
-      "thumb": "1707849243.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707849250",
-      "thumb": "1707849250.jpeg",
-      "tags": "hero,dark,cover"
-  },
-  {
-      "id": "1707849257",
-      "thumb": "1707849257.jpeg",
-      "tags": "hero,dark,cover"
+    "id": "123",
+    "thumb": "./thumbnails/1708449979.jpeg",
+    "tags": "hero,cover,video,light,black"
   }
 ]

@@ -106,6 +106,7 @@ function loadUnsplashImages(){
         document.getElementById("image-sidebar-next-button").style.opacity = 1; 
         const imageGridList = document.getElementById('image-sidebar-grid');
         for (const api of data.results) { 
+          
           const DivItems = document.createElement('div');
           const imageThumbnail = api.urls.raw + "&w=170&fit=crop";
           const imageBig = api.urls.raw + `&w=${imageWidthValue}&h=${imageHeightValue}&fit=crop`;
@@ -157,6 +158,7 @@ function loadUnsplashImages(){
   }
 
   function imageCheckSize(imageURL){
+    
     console.log("Clicked image URL:", imageURL);
 //     document.getElementById("image-all-input").value = imageThumbnail;
     const getImageSize = localStorage.getItem('imageSize');
@@ -275,5 +277,3 @@ function loadNextPage() {
         toolbarOpen.style.visibility='visible';
 
       }
-
-      

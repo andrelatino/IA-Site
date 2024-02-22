@@ -65,7 +65,7 @@ function patternsLoad() {
       data.forEach(section => {
         // Create a new div element for items
         const itemsDiv = document.createElement('div');
-        const urlImages = '../global/patterns/images/';
+        const urlImages = '../global/patterns/';
         itemsDiv.className = 'pattern-items';
         itemsDiv.id = section.id;
         itemsDiv.innerHTML = `
@@ -77,7 +77,7 @@ function patternsLoad() {
         itemsDiv.addEventListener('click', function() {
           const itemId = this.id;
           // Dynamically load the pattern based on itemId
-          const patternSrc = "../global/patterns/sections/" + itemId + ".js";
+          const patternSrc = "../global/patterns/sections/"+itemId+".js";
           loadPattern(patternSrc)
             .then(() => {
               usePattern(itemId);
@@ -117,7 +117,7 @@ function patternsSearch() {
 
       // Loop through each matching item and display it
       filteredData.forEach(section => {
-        const urlImages = '../global/patterns/images/';
+        const urlImages = '../global/patterns/';
         // Create a new div element for items
         const itemsDiv = document.createElement('div');
         itemsDiv.className = 'pattern-items';

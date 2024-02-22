@@ -48,15 +48,15 @@ function extractImgSrc(pictureID) {
         // The variable is not empty (has a value)
         inputID.value = srcsetForMedia;
         thumbBG.srcset = srcsetForMedia;
-        
 
       } else {
         thumbBG.srcset = imageEmpty;
         inputID.setAttribute('placeholder', 'Image URL (mandatory)');
       }
-    console.log('Image ALL:', srcsetForMedia);
+        console.log('Image ALL:', srcsetForMedia);
   }
  
+
   function loadXsImage() {
     const pictureID = localStorage.getItem('pictureID');
     // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
@@ -77,26 +77,6 @@ function extractImgSrc(pictureID) {
     console.log('Image XS:', srcsetForMedia);
   }
 
-  // function loadSImage() {
-  //   const pictureID = localStorage.getItem('pictureID');
-  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-  //   const mediaQuery = imageSQuery;
-  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-  //   const inputID = document.getElementById('image-s-input');
-  //   const thumbBG = document.getElementById('image-s-thumbnail');
-  //   if (srcsetForMedia) {
-  //       // The variable is not empty (has a value)
-  //       inputID.value = srcsetForMedia;
-  //       thumbBG.srcset = srcsetForMedia;
-        
-
-  //     } else {
-  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-  //       inputID.setAttribute('placeholder', imagePlaceholder);
-  //     }
-  //   console.log('Image S:', srcsetForMedia);
-  // }
-
   function loadMImage() {
     const pictureID = localStorage.getItem('pictureID');
     // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
@@ -116,45 +96,3 @@ function extractImgSrc(pictureID) {
       }
     console.log('Image M:', srcsetForMedia);
   }
-
-  // function loadLImage() {
-  //   const pictureID = localStorage.getItem('pictureID');
-  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-  //   const mediaQuery = imageLQuery;
-  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-  //   const inputID = document.getElementById('image-l-input');
-  //   const thumbBG = document.getElementById('image-l-thumbnail');
-  //   if (srcsetForMedia) {
-  //       // The variable is not empty (has a value)
-  //       inputID.value = srcsetForMedia;
-  //       thumbBG.srcset = srcsetForMedia;
-        
-
-  //     } else {
-  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-  //       inputID.setAttribute('placeholder', imagePlaceholder);
-  //     }
-  //   console.log('Image L:', srcsetForMedia);
-  // }
-
-  // function loadXlImage() {
-  //   const pictureID = localStorage.getItem('pictureID');
-  //   // const pictureID = 'KJvbTCG'; // Replace with the actual picture ID
-  //   const mediaQuery = '(min-width:1025px)';
-  //   const srcsetForMedia = extractImgSrcset(pictureID, mediaQuery);
-  //   const inputID = document.getElementById('image-xl-input');
-  //   const thumbBG = document.getElementById('image-xl-thumbnail');
-  //   if (srcsetForMedia) {
-  //       // The variable is not empty (has a value)
-  //       inputID.value = srcsetForMedia;
-  //       thumbBG.srcset = srcsetForMedia;
-        
-
-  //     } else {
-  //       thumbBG.srcset = './assets/svg/icons/upload-empty.svg';
-  //       inputID.setAttribute('placeholder', imagePlaceholder);
-  //     }
-  //   console.log('Image XL:', srcsetForMedia);
-  // }
-
- 
