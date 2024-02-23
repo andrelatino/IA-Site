@@ -35,7 +35,7 @@ function patternSidebarOpen() {
   const closeEditorBtn = document.querySelector('.close-editor-btn');
   closeEditorBtn.click();
 
-  zoomContentStart();
+  // zoomContentStart();
 
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.bottom = "0px";

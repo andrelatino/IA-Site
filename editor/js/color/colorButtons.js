@@ -1,6 +1,6 @@
 function solidColorButton(){
 
-    zoomContentStart();
+    // zoomContentStart();
     openSolidSidebar();
     colorReadOnlyTrue();
 

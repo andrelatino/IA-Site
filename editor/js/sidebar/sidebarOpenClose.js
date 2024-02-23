@@ -4,13 +4,13 @@ function sidebarOpenClose(button) {
       case 'imageWebSidebarButton':
         openImageSidebar();
         closeGithubImageSidebar();
-        zoomContentStart();
+        // zoomContentStart();
       break;
 
       case 'imageGithubSidebarButton':
         openGithubImageSidebar();
         closeImageSidebar();
-        zoomContentStart();
+        // zoomContentStart();
         break;
 
       default:

@@ -99,15 +99,15 @@
 			
 		</div>
 		<div id="image-sidebar">
-			<div id="image-sidebar-search">
-				<input type="text" id="image-sidebar-search-input" placeholder="Search..." required>
-				<button type="submit" id="image-sidebar-search-button" onclick="searchImages();"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button type="submit" id="image-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button>
-				<button type="submit" id="image-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button>
-				<button id="image-sidebar-next-button" onclick="loadNextPage();">next</button>
+			<div class="image-sidebar-search">
+				<input type="text" id="image-sidebar-search-input" placeholder="Search..." required="">
+				<button id="image-sidebar-search-button" onclick="searchImages();"><img src="./assets/svg/icons/search-right.svg"></button>
+				<button id="image-sidebar-next-button" onclick="loadNextPage();"><img src="./assets/svg/icons/next.svg"></button>
+				<button id="image-sidebar-close-button" onclick="closeAllImageSidebars()"><img src="./assets/svg/icons/close-black.svg"></button>
 				<p id="image-sidebar-subtotal"></p>
 				<p id="image-sidebar-total"></p>
 			</div>
+			
 			
 			<div id="image-sidebar-settings">
 				<input type="text" id="image-settings-width" placeholder="Width" value = "1280" required>
@@ -144,7 +144,7 @@
 			
 		</div>
 
-		<div id="color-solid-sidebar">
+		<div id="color-solid-sidebar" style="display:none;">
 			<div id="color-sidebar-header">
 				
 				<div id="color-buttons">
