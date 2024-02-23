@@ -4,6 +4,13 @@ function getImageIdOnClick() {
   grid.addEventListener('click', function(event) {
     if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'img-grid') {
       sectionSingleImage(event.target.id);
+      
+      const imgSingleID = document.getElementById('image-single-id');
+      imgSingleID.textContent = event.target.id;
+
+      const imgSingleType = document.getElementById('image-single-type');
+      imgSingleType.textContent = 'img-grid';
+
     }
   });
 }
@@ -12,11 +19,11 @@ function getImageIdOnClick() {
   getImageIdOnClick();
 
    
-function sectionSingleImage(imageID) {
+function sectionSingleImage(image_ID) {
     showSingleImageModal();
-    const singleImageID = imageID;
-    localStorage.setItem('checkImageID', singleImageID);
-    localStorage.setItem('checkImageType', 'img-grid');
+
+    localStorage.setItem('imageIdIs', image_ID);
+    localStorage.setItem('imageTypeIs', 'img-grid');
     // alert(pictureID);
     var editorDiv = document.getElementById("image-modal");
    
@@ -30,13 +37,11 @@ function sectionSingleImage(imageID) {
               <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
               
             </div>
-            
-            
             <div id="image-responsive">
               <div id="image-all">          
                   <img id="image-all-thumbnail" src="./assets/svg/icons/upload-empty.svg">           
                   <input type="text" id="image-all-input"> 
-                  <button id="image-all-save" onclick="loadAllSingleImage();">SAVE (ALL)</button>  
+                  <button id="image-all-save" onclick="loadAllSingleImage();">SAVE (ALL)</button>
               </div>
               
               <div id="image-m">
@@ -82,6 +87,9 @@ function sectionSingleImage(imageID) {
             <button id="image-btn-xs-clear" onclick=" imageClearXs();">
               <img src="../global/file/delete.svg">
             </button>
+
+            <p id="image-single-id">ID</p>
+            <p id="image-single-type">Type</p>
             
         </div> 
    
@@ -109,8 +117,8 @@ function hideSingleImageModal() {
 }
 
 function loadAllSingleImage() {
-  const checkImageID = localStorage.getItem('checkImageID');
-  const imageElement = document.getElementById(checkImageID);
+  const imageIdIs = localStorage.getItem('imageIdIs');
+  const imageElement = document.getElementById(imageIdIs);
   const singleImageSrc = imageElement.getAttribute('src');
   const showSingleImage = document.getElementById('image-all-thumbnail');
   showSingleImage.src = singleImageSrc;

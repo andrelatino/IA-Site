@@ -96,7 +96,7 @@ function loadUnsplashImages(){
     page = '1'
     perPage = '20';
     
-    const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;
+    const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageType}&page=${page}&client_id=${clientId}`;
     // alert (imageThumbnail);
     fetch(imageThumbnail)
     .then(response => response.json())
@@ -129,7 +129,7 @@ function loadUnsplashImages(){
 
     searchTerm = searchQuery;
     // clientId = "8ba7daec662eb3e3f18f31a571b61faece5beb250fe546925e79e21ca827672f";
-    const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageTypeValue}&page=${page}&client_id=${clientId}`;
+    const imageThumbnail = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=${perPage}&orientation=${imageType}&page=${page}&client_id=${clientId}`;
     
     fetch(imageThumbnail)
     .then(response => response.json())
@@ -157,6 +157,7 @@ function loadUnsplashImages(){
         
   }
 
+
   function imageCheckSize(imageURL){
     
     console.log("Clicked image URL:", imageURL);
@@ -168,7 +169,7 @@ function loadUnsplashImages(){
       // Check the value against different image size options
       if (imageSize === 'All') {
         document.getElementById("image-all-input").value = imageURL;
-        clickAllImage();
+        checkImageTypeAll()
       } else if (imageSize === 'Xl') {
         document.getElementById("image-xl-input").value = imageURL;
         clickXlImage();
@@ -188,6 +189,25 @@ function loadUnsplashImages(){
       // Handle the case where no data is found in local storage.
     }
   }
+
+  function checkImageTypeAll(){
+        const imageTypeIs = localStorage.getItem('imageTypeIs');
+        if (imageTypeIs === "img-grid"){
+          clickAllSingleImage();
+        } else {
+          clickAllImage();
+        }
+        clickAllImage();
+  }
+
+  function checkImageTypeXs(){
+    const imgSingleType = document.getElementById('image-single-type').textContent;
+    if (imgSingleType === "img-grid"){
+      clickXsSingleImage();
+    } else {
+      clickXsImage();
+    }
+}
 
     
 function loadNextPage() { 

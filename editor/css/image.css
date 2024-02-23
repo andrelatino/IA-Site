@@ -1,3 +1,35 @@
+
+p#image-single-id {
+    position: absolute;
+    top: 0;
+    margin: 15px;
+    background: yellow;
+    padding: 10px;
+}
+p#image-single-type {
+    position: absolute;
+    top: 50px;
+    margin: 15px;
+    background: white;
+    padding: 10px;
+}
+input#image-all-input {
+    position: absolute;
+    top: 100px;
+    display: block;
+    margin: 15px;
+}
+
+p#image-single-id,
+p#image-single-type,
+input#image-all-input,
+button#image-btn-all,
+button#image-btn-m,
+button#image-btn-xs{
+    display:none;
+}
+
+
 /*MODAL*/
 button#image-sidebar-show-button,
 button#image-sidebar-clean-button 

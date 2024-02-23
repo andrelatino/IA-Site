@@ -3,6 +3,8 @@
    function toolsOpenModal(button) {
     
     // disableContentEditable();
+
+    localStorage.setItem('imageTypeIs', 'img-bg');
     
     const section = button.closest('section');
     const addSectionID = section.id;

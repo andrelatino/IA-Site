@@ -25,15 +25,18 @@
     //GRID2
     const grid2_id = generateRandomID(7);
     const grid2_css = grid2_id;
-    const grid2_image_id = generateRandomID(7);
-    const grid2_image_css = grid2_image_id;
+    const grid2_image1_id = generateRandomID(7);
+    const grid2_image1_css = grid2_image1_id;
+    const grid2_image2_id = generateRandomID(7);
+    const grid2_image2_css = grid2_image2_id;
 
     const customCSS = `
     @media screen and (min-width:0px){#${section_css}{width:100vw;height:100vh;position:relative}}
     @media screen and (min-width:0px){#${container_css}{width:100vw;height:100vh;position:relative}}
     @media screen and (min-width:0px){#${content_css}{width:100%;height:100%;display:grid;place-content:center; grid-template-columns: 1fr 1fr;}}
     @media screen and (min-width:0px){#${grid2_css}{display:grid}}
-    @media screen and (min-width:0px){#${grid2_image_css}{display:grid;object-fit: cover;height:100vh;width: 100vw;}}
+    @media screen and (min-width:0px){#${grid2_image1_css}{display:grid;object-fit:cover;height:50vh;width:100%;}}
+    @media screen and (min-width:0px){#${grid2_image2_css}{display:grid;object-fit:cover;height:50vh;width:100%;}}
     @media screen and (min-width:0px){#${grid1_css}{display:grid;padding:5%;width:100%;height:100vh;gap:35px;background:rgb(224 227 228);place-content:center;}}
     @media screen and (min-width:0px){#${grid1_h2_css}{font-size:clamp(2.5rem,8vw,6rem);line-height:90%;font-weight:300;color:black;}}
     @media screen and (min-width:0px){#${grid1_p_css}{font-size:clamp(1rem,2vw,2rem);color:black;}}
@@ -63,7 +66,12 @@
         </div>
        
         <div id="${grid2_id}">
-          <img id="${grid2_image_id}" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwxfHxjYWN0dXN8ZW58MHwwfHx8MTcwODQzMjYyN3ww&amp;ixlib=rb-4.0.3&amp;w=1280&amp;h=720&amp;fit=crop" data-type="img-grid" loading="lazy">
+          <img id="${grid2_image1_id}" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwxfHxjYWN0dXN8ZW58MHwwfHx8MTcwODQzMjYyN3ww&amp;ixlib=rb-4.0.3&amp;w=1280&amp;h=720&amp;fit=crop" data-type="img-grid" loading="lazy">
+          <picture id="${generateRandomID(7)}">
+            <source srcset media="(max-width:640px)">
+            <source srcset media="(min-width:641px) and (max-width:1024px)">
+            <img id="${grid2_image2_id}" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwxfHxjYWN0dXN8ZW58MHwwfHx8MTcwODQzMjYyN3ww&ixlib=rb-4.0.3&w=1280&h=720&fit=crop" data-type="img-grid" loading="lazy">
+          </picture>
         </div>
 
       </div>

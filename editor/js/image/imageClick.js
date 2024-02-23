@@ -4,11 +4,6 @@ var imagePlaceholder = 'Image URL (optional)';
 
 
 function clickAllImage() {
-    
-    const singleImageLS = localStorage.getItem('singleImageID');
-    
-    const checkImageType = localStorage.getItem('checkImageType');
-    const checkImageID = document.getElementById(singleImageLS);
 
     const imageID = localStorage.getItem('imageID');
     const clickImage = document.getElementById(imageID);
@@ -22,18 +17,41 @@ function clickAllImage() {
         thumbBG.srcset = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
         clickImage.setAttribute("src", );
- 
+        
+        
     } else {
         // alert ('input is not empty');
         thumbBG.srcset = inputValue;
-        if( checkImageType === "img-grid"){
-            // alert('is img-grid');
-            checkImageID.setAttribute("src", inputValue);
-        }else{
-            // alert('is not img-grid');
-            clickImage.setAttribute("src", inputValue);
-        }
+        clickImage.setAttribute("src", inputValue);
+    }
+
+    
+}
+
+function clickAllSingleImage() {
+
+    const imageGetID = document.getElementById("image-single-id");
+    const imageID = imageGetID.textContent;
+    const clickImage = document.getElementById(imageID);
+    const inputElement = document.getElementById('image-all-input');
+    const inputValue = inputElement.value;
+    const inputPlaceHolder = document.getElementById('image-all-input');
+    const thumbBG = document.getElementById('image-all-thumbnail');
+
+    if (inputValue === '') {
+        // alert ('input is empty');
+        thumbBG.srcset = imageEmpty;
+        inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
+        clickImage.setAttribute("src", );
         
+        
+    } else {
+        // alert ('input is not empty');
+        thumbBG.srcset = inputValue;
+        var imgElement = document.getElementById(imageID);
+        var newSrc = inputValue;
+        // Replace the src attribute
+        imgElement.src = newSrc;
     }
 
     
@@ -43,6 +61,38 @@ function clickXsImage() {
 
     const mediaQuery = '(max-width:640px)';
     const pictureID = localStorage.getItem('pictureID');
+    
+    const pictureElement = document.getElementById(pictureID);
+    const inputValue = document.getElementById('image-xs-input').value;
+    const inputPlaceHolder = document.getElementById('image-xs-input');
+    const thumbBG = document.getElementById('image-xs-thumbnail');
+
+    if (inputValue.trim() === '') {
+        thumbBG.srcset = imageEmpty;
+        inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
+        
+    }else{
+        thumbBG.srcset = inputValue;
+    }
+    
+    if (pictureElement) {
+        const sourceElements = pictureElement.getElementsByTagName('source');
+
+        for (let i = 0; i < sourceElements.length; i++) {
+            if (sourceElements[i].getAttribute('media') === mediaQuery) {
+                sourceElements[i].setAttribute('srcset', inputValue);
+                break;
+            }
+        }
+    } else {
+        console.error(`No picture element found with the id ${pictureID}`);
+    }
+    
+}
+function clickXsSingleImage() {
+
+    const mediaQuery = '(max-width:640px)';
+    const pictureID = "yAlWSry";
     
     const pictureElement = document.getElementById(pictureID);
     const inputValue = document.getElementById('image-xs-input').value;

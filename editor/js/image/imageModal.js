@@ -57,7 +57,7 @@ function sectionImage() {
             <div id="image-all">          
                 <img id="image-all-thumbnail" src="">           
                 <input type="text" id="image-all-input"> 
-                <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>  
+                <button id="image-all-save" onclick="updateAllImage();">SAVE (ALL)</button>
             </div>
             
             <div id="image-m">
@@ -103,6 +103,7 @@ function sectionImage() {
           <button id="image-btn-xs-clear" onclick=" imageClearXs();">
             <img src="../global/file/delete.svg">
           </button>
+
           
       </div> 
  
