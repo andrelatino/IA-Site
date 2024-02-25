@@ -59,12 +59,12 @@
   @media screen and (min-width:0px){#${linearcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
   @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
   @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center start;}}
-  @media screen and (min-width:0px){#${div1Css}{display:grid;padding:5%;max-width: 900px;gap:35px;}}
-  @media screen and (min-width:0px){#${h2Css}{font-size:clamp(2.5rem,8vw,6rem);line-height:90%;font-weight:300;color:black;}}
-  @media screen and (min-width:0px){#${pCss}{font-size:clamp(1rem,2vw,2rem);color:black;}}
+  @media screen and (min-width:0px){#${div1Css}{display: grid; padding: 10%; max-width: 800px; gap: 20px; background: #ffffff85; -webkit-backdrop-filter blur(10px) brightness(1.1); backdrop-filter: blur(10px) brightness(1.1); margin: 5%; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);}}
+  @media screen and (min-width:0px){#${h2Css}{font-size: clamp(2rem, 4vw, 6rem); line-height: 1; font-weight: 300; color: black;}}
+  @media screen and (min-width:0px){#${pCss}{font-size:1rem;color:black;}}
   @media screen and (min-width:0px){#${div2Css}{display:flex;gap:10px;}}
-  @media screen and (min-width:0px){#${btn1Css}{background:black;padding:15px;color:white;font-size:14px;border-radius:10px;text-underline-position:under;}}
-  @media screen and (min-width:0px){#${btn2Css}{background:white;padding:15px;color:black;font-size:14px;border-radius:10px;text-underline-position:under;}}
+  @media screen and (min-width:0px){#${btn1Css}{background: black; padding: 0 15px; color: white; font-size: 14px; border-radius: 10px; text-underline-position: under; height: 50px; display: grid; place-content: center;}}
+  @media screen and (min-width:0px){#${btn2Css}{background: white; padding: 0 15px; color: black; font-size: 14px; border-radius: 10px; text-underline-position: under; height: 50px; display: grid; place-content: center;}}
   @media screen and (max-width:640px){#${div1Css}{gap:10px;}}
   `;
   const customHTML = `
@@ -87,7 +87,7 @@
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
           <source srcset media="(min-width:641px) and (max-width:1024px)">
-          <img id="${imageID}" src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwxfHxjYWN0dXN8ZW58MHwwfHx8MTcwODQzMjYyN3ww&ixlib=rb-4.0.3&w=1280&h=720&fit=crop" data-type="img-bg" loading="lazy">
+          <img id="${imageID}" src="../global/patterns/images/1707848593-1.webp" data-type="img-bg" loading="lazy">
         </picture>
       </div> <!-- bg-image -->
 
@@ -102,7 +102,7 @@
     <div id="${contentID}" data-type="content">
       <div id="${div1ID}">
         <h2 id="${h2ID}" contenteditable="true">Lorem ipsum dolor sit amet</h2>
-        <p id="${pID}" contenteditable="true">Lorem ipsum dolor sit amet consectur et sermont</p>
+        <p id="${pID}" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
         <div id="${div2ID}">
           <a id="${btn1ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>
           <a id="${btn2ID}" contenteditable="true" href="https://www">LOREM IPSUM</a>
