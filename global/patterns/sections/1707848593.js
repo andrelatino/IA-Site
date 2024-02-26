@@ -78,22 +78,22 @@
     <div id="${generateRandomID(7)}" data-type="backgrounds">
       
       <div id="${colorID}" data-type="bg-color" class="div-hidden">
-        <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(227, 231, 232);"></div>
-        <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background: radial-gradient(circle, rgb(0, 255, 128), rgb(200, 0, 255));"></div>
-        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background: linear-gradient(0deg, rgb(184 184 184), rgb(255, 255, 255));"></div>
+        <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(235, 235, 235);"></div>
+        <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background: radial-gradient(circle, rgb(235, 235, 235), rgb(235, 235, 235));"></div>
+        <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background: linear-gradient(0deg, rgb(235, 235, 235), rgb(235, 235, 235));"></div>
       </div> <!-- bg-color -->
 
       <div id="${generateRandomID(7)}" data-type="bg-image" class="div-visible">
         <picture id="${generateRandomID(7)}">
           <source srcset media="(max-width:640px)">
           <source srcset media="(min-width:641px) and (max-width:1024px)">
-          <img id="${imageID}" src="../global/patterns/images/1707848593-1.webp" data-type="img-bg" loading="lazy">
+          <img id="${imageID}" src="https://raw.githubusercontent.com/IAMEDIA360/images/main/1707848593-1.webp" data-type="img-bg" loading="lazy">
         </picture>
       </div> <!-- bg-image -->
 
       <div id="${generateRandomID(7)}" data-type="bg-video" class="div-hidden">
         <video id="${videoID}" autoplay loop muted>
-          <source src="https://vod-progressive.akamaized.net/exp=1708461354~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1511%2F18%2F457558067%2F2020165682.mp4~hmac=fa6a5c0044648721c490e51cec080aa8d7437bd5e3d8886cf08dddbc434d6cbe/vimeo-prod-skyfire-std-us/01/1511/18/457558067/2020165682.mp4" type="video/mp4">
+        <source src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4" type="video/mp4">
         </video>
       </div> <!-- bg-video -->
 

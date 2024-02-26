@@ -70,7 +70,7 @@ function patternsLoad() {
         itemsDiv.id = section.id;
         itemsDiv.innerHTML = `
           <img src="${urlImages}${section.thumb}" width="300" height="156" loading="lazy">
-          <p class="pattern-id"> ${section.tags} </p>
+          <p class="pattern-id"> ${section.id} </p>
         `;
 
         // Event listener for itemsDiv
