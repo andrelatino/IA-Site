@@ -128,7 +128,8 @@ function pagePublish() {
 }
 
 // function htmlContent() {
-//   console.log(newSrcCss + newSrcJS);
+  
+//   const grid = document.getElementById('grid');
 //   const clonedGrid = grid.cloneNode(true);
 //   const deleteButtons = clonedGrid.querySelectorAll('.toolbar-open');
 //   for (let i = 0; i < deleteButtons.length; i++) {
@@ -153,16 +154,15 @@ function pagePublish() {
 //       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 //       <meta name="google" content="notranslate">
 //       <title></title>
-//       ${customCss}
-//       <link rel="stylesheet" href="${newSrcCss}">
+      
 //     </head>
 //     <body class="notranslate">
-//       <div class="${pageClass}">      
+//       <div>      
 //         ${clonedGrid.innerHTML}
 //       </div>
 //       <footer>
-//         ${customJs}
-//         <script src="${newSrcJS}" async></script>
+        
+        
 //       </footer>
 //     </body>
 //     </html>

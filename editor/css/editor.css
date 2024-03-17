@@ -1,4 +1,4 @@
-div#editor-css {
+/* div#editor-css {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -16,7 +16,6 @@ div#editor-css-buttons {
     grid-template-columns: repeat(5, 1fr);
 }
 textarea#all-textarea {
-    /* height: 50px; */
     width: 300px;
 }
 div#editor-css-inputs textarea {
@@ -28,4 +27,4 @@ div#editor-css-inputs textarea {
 }
 select#editor-css-select {
     width: 100%;
-}
+} */

@@ -50,8 +50,8 @@
     const btn2Css = btn2ID;
   
     const customCSS = `
-    @media screen and (min-width:0px){#${sectionCss}{width:100vw;height:100vh;position:relative}}
-    @media screen and (min-width:0px){#${containerCss}{width:100vw;height:100vh;position:relative}}
+    @media screen and (min-width:0px){#${sectionCss}{width:100%;height:100vh;position:relative}}
+    @media screen and (min-width:0px){#${containerCss}{width:100%;height:100%;position:relative}}
     @media screen and (min-width:0px){#${imageCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
     @media screen and (min-width:0px){#${colorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
     @media screen and (min-width:0px){#${solidcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
@@ -59,7 +59,7 @@
     @media screen and (min-width:0px){#${linearcolorCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10; background:inherit;}}
     @media screen and (min-width:0px){#${videoCss}{width:100%;height:100%;object-fit:cover;position:absolute;top:0; z-index:-10;}}
     @media screen and (min-width:0px){#${contentCss}{width:100%;height:100%;display:grid;place-content: center; background: #00000052;}}
-    @media screen and (min-width:0px){#${div1Css}{display: grid; padding: 5%; max-width:1050px;gap:15px;place-items:center;text-align: center;margin-bottom:75px;}}
+    @media screen and (min-width:0px){#${div1Css}{display: grid; padding: 5%; max-width:1050px;gap:15px;place-items:center;text-align: center;}}
     @media screen and (min-width:0px){#${h2Css}{font-size: clamp(3rem, 12vw, 7rem);line-height:1;font-weight:200;color: white;}}
     @media screen and (min-width:0px){#${pCss}{font-size:1rem;color:white;}}
     @media screen and (min-width:0px){#${div2Css}{display:flex;gap:10px;}}
@@ -68,21 +68,20 @@
     `;
     const customHTML = `
     
-    <section id="${sectionID}" data-type="section">
-    <style id="${generateRandomID(7)}" type="text/css">
+    <section id="${sectionID}" data-type="section" class="grid-item">
+    <style id="${generateRandomID(7)}" type="text/css" data-type="css" data-type="css">
       ${customCSS}
     </style>
     
     <div id="${containerID}" data-type="container">
-      <div id="${generateRandomID(7)}" data-type="backgrounds">
-        
+      
         <div id="${colorID}" data-type="bg-color" class="div-hidden">
           <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(235, 235, 235);"></div>
           <div id="${radialcolorID}" data-type="radial-color" class="div-hidden" style="background: radial-gradient(circle, rgb(235, 235, 235), rgb(235, 235, 235));"></div>
           <div id="${linearcolorID}" data-type="linear-color" class="div-hidden" style="background: linear-gradient(0deg, rgb(235, 235, 235), rgb(235, 235, 235));"></div>
         </div> <!-- bg-color -->
   
-        <div id="${generateRandomID(7)}" data-type="bg-image" class="div-hidden">
+        <div id="${generateRandomID(7)}" data-type="bg-image" class="div-visible">
           <picture id="${generateRandomID(7)}">
             <source srcset media="(max-width:640px)">
             <source srcset media="(min-width:641px) and (max-width:1024px)">
@@ -90,13 +89,13 @@
           </picture>
         </div> <!-- bg-image -->
   
-        <div id="${generateRandomID(7)}" data-type="bg-video" class="div-visible">
-          <video id="${videoID}" autoplay loop muted>
-          <source src="https://github.com/IAMEDIA360/videos/raw/main/1795203691-1.mp4" type="video/mp4">
+        <div id="${generateRandomID(7)}" data-type="bg-video" class="div-hidden">
+          <video id="${videoID}" autoplay loop muted loading="lazy">
+          <source src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4" type="video/mp4">
           </video>
         </div> <!-- bg-video -->
   
-      </div> <!-- backgrounds -->
+      
   
       <div id="${contentID}" data-type="content">
         <div id="${div1ID}">

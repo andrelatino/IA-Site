@@ -6,8 +6,9 @@ function loadScript(src) {
 
 // LOAD
 loadScript("../global/js/apis.js");
-// loadScript("./js/page/pageLoadFonts.js");
+loadScript("./js/page/pageLoadFonts.js");
 loadScript("./js/global/singleImages.js");
+loadScript("./js/global/singleVideos.js");
 
 
 loadScript("./js/page/pageJsonLoad.js");
@@ -54,6 +55,7 @@ loadScript("./js/image/imageClear.js");
 
 loadScript("./js/video/videoModal.js");
 loadScript("./js/video/videoSidebar.js");
+loadScript("./js/video/videoClick.js");
 
 // loadScript("./js/github/page/githubSha.js");
 // loadScript("./js/github/page/githubAdd.js");
@@ -102,27 +104,46 @@ loadScript("./js/exportSection.js");
 
 // loadScript("./js/deletePage.js");
 
-// loadScript("./js/cssModal.js");
+/** EDITOR CSS START -------------------------------- */
+loadScript("./js/editor-css/editor-css-html.js");
+loadScript("./js/editor-css/editor-css-modal.js");
+loadScript("./js/editor-css/editor-css-buttons.js");
+loadScript("./js/editor-css/editor-css-load.js");
+loadScript("./js/editor-css/editor-css-select.js");
+loadScript("./js/editor-css/editor-css-update.js");
+
+// loadScript("./js/selectSection.js");
+
+
+/** EDITOR CSS END -------------------------------- */
+
 // loadScript("./js/addSections.js");
 // loadScript("./js/addMenu.js");
 // loadScript("./js/addSectionBlank.js");
+
+/** EDITOR START -------------------------------- */
+  // loadScript("./js/editor/editorLoadCss.js");
+  // loadScript("./js/editor/editorButtons.js");
+  // loadScript("./js/editor/editorGetIds.js");
+  // loadScript("./js/editor/editorHtml.js");
+  // loadScript("./js/editor/editorModal.js");
+  // loadScript("./js/editor/editorUpdateCss.js");
+  // loadScript("./editor-list.js");
+/** EDITOR END-------------------------------- */
+
 
 loadScript("./js/exportModal.js");
 loadScript("./js/openOverlay.js");
 loadScript("./js/importModal.js");
 
 loadScript("./js/exportHtml.js");
-// loadScript("./js/editor/editorHtml.js");
-// loadScript("./js/editor/editorLoadCss.js");
-// loadScript("./editor-list.js");
+
 
 loadScript("./js/section/sectionJsonImport.js");
 
 loadScript("./js/element/elementToolbar.js");
 
-// loadScript("./js/editor/editorUpdateCss.js");
-// loadScript("./js/editor/editorButtons.js");
-// loadScript("./js/editor/editorGetIds.js");
+
 
 // loadScript("./js/page/pageSaveProd.js");
 

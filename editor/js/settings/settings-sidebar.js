@@ -1,5 +1,15 @@
 
 //START CHOICE
+// document.addEventListener('DOMContentLoaded', function() {
+//   // Asegurándote de que el elemento 'grid' exista en tu HTML
+//   var gridExist = document.getElementById('grid'); // Asegúrate de reemplazar 'idDelElementoGrid' con el ID real del elemento.
+  
+//   if (gridExist) {
+//       alert('grid exist');
+//   } else {
+//       alert('grid does not exist');
+//   }
+// });
 
 function generateScriptTags(filenames) {
   return filenames.map(filename => {
@@ -131,9 +141,8 @@ function initializeChoices(selectId, defaultOptions, selectedValuesArray) {
   return choices;
 }
 
-
-
 function htmlContent() {
+  
   const headerScripts = generateScriptTags(headerValues);
   // const bodyScripts = generateScriptTags(bodyValues);
   const footerScripts = generateScriptTags(footerValues);
@@ -145,6 +154,7 @@ function htmlContent() {
   // Rest of your code for bodyContent generation
 
   // console.log(newSrcCss + newSrcJS);
+const grid = document.getElementById('grid');
 const bodyContent = grid.cloneNode(true);
 const deleteButtons = bodyContent.querySelectorAll('.toolbar-open');
 for (let i = 0; i < deleteButtons.length; i++) {
@@ -184,8 +194,10 @@ if (checkPageIs === '.widget') {
   </head>
   <!-- Body -->
   <body>
+  <div class="grid-page">
   ${headerScripts}
   ${bodyContent.innerHTML}
+  </div>
   </body>
   <!-- Footer -->
   <footer>

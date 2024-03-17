@@ -3,22 +3,21 @@
     padding: 2%;
     display: grid;
     height: calc(20vh - 35px);;
-    grid-gap: 0 20px;
+    grid-gap: 0 15px;
     grid-auto-flow: column;
-    grid-auto-columns: 120px;
-    width: 100vw;
+    grid-auto-columns: 150px;
     place-content: center start;
     min-height: 100px;
   }
   #pattern-sidebar-grid img{
     display: grid;
     object-fit: cover;
-    height: 70px;
+    height:auto;
     object-position: left;
-    width: 120px;
+    width: 100%;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
     border-radius:13px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
   }
   .pattern-items {
     height: 100%;
@@ -37,9 +36,9 @@
     color: #c9c9c9;
     font-size: 10px;
     background: white;
-    margin-top: -22px;
-    position: absolute;
-    margin-left: 20px;
+    margin-top: 0px;
+    position: relative;
+    margin-left: 0px;
     border-radius: 10px;
     padding: 3px 10px;
 }

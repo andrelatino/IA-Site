@@ -5,9 +5,11 @@ function loadCSS(href) {
     document.head.appendChild(link);
 }
   // Usage
+  
   loadCSS("../global/patterns/patterns.css");
   loadCSS("style.css");
   loadCSS("./css/editor.css");
+  loadCSS("./js/editor-css/editor-css-styles.css");
   loadCSS("./css/toogle.css");
   loadCSS("./css/image.css");
   loadCSS("./css/color.css");

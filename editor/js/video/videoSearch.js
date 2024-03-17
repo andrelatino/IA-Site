@@ -50,12 +50,25 @@ function loadDefaultVideo(){
         // Add click event listener to the image
         img.addEventListener('click', () => {
 
-            const bgSrc = document.getElementById('video-src').textContent;
-            const thumbSrc = document.getElementById('video-thumbnail').id;
-            const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
+            const checkContentType = localStorage.getItem('imageTypeIs');
+            const getVideoId = localStorage.getItem('imageIdIs');
+            if (checkContentType === 'vid-grid'){
+              
+              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
+              const videoThumb = document.getElementById('video-thumbnail');
+              const videoToUpdate = document.getElementById(getVideoId);
+              videoToUpdate.src = videoGrid;
+              videoThumb.src = videoGrid;
+              
+            } else{
 
-            updateVideoSrc(bgSrc, sdVideoLink);
-            updateVideoSrc(thumbSrc, sdVideoLink);
+              const bgSrc = document.getElementById('video-src').textContent;
+              const thumbSrc = document.getElementById('video-thumbnail').id;
+              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
+              updateVideoSrc(bgSrc, sdVideoLink);
+              updateVideoSrc(thumbSrc, sdVideoLink);
+            
+            }
 
         });
 
@@ -123,12 +136,25 @@ function loadSearchVideo() {
 
           // Add click event listener to the image
         img.addEventListener('click', () => {
-          const bgSrc = document.getElementById('video-src').textContent;
-          const thumbSrc = document.getElementById('video-thumbnail').id;
-          const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
+          const checkContentType = localStorage.getItem('imageTypeIs');
+            const getVideoId = localStorage.getItem('imageIdIs');
+            if (checkContentType === 'vid-grid'){
+              
+              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
+              const videoThumb = document.getElementById('video-thumbnail');
+              const videoToUpdate = document.getElementById(getVideoId);
+              videoToUpdate.src = videoGrid;
+              videoThumb.src = videoGrid;
+              
+            } else{
 
-          updateVideoSrc(bgSrc, sdVideoLink);
-          updateVideoSrc(thumbSrc, sdVideoLink);
+              const bgSrc = document.getElementById('video-src').textContent;
+              const thumbSrc = document.getElementById('video-thumbnail').id;
+              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
+              updateVideoSrc(bgSrc, sdVideoLink);
+              updateVideoSrc(thumbSrc, sdVideoLink);
+            
+            }
         });
  
           gridItem.appendChild(img);
@@ -189,12 +215,25 @@ function loadNextVideos() {
 
           // Add click event listener to the image
         img.addEventListener('click', () => {
+          const checkContentType = localStorage.getItem('imageTypeIs');
+          const getVideoId = localStorage.getItem('imageIdIs');
+          if (checkContentType === 'vid-grid'){
+            
+            const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
+            const videoThumb = document.getElementById('video-thumbnail');
+            const videoToUpdate = document.getElementById(getVideoId);
+            videoToUpdate.src = videoGrid;
+            videoThumb.src = videoGrid;
+            
+          } else{
+
             const bgSrc = document.getElementById('video-src').textContent;
             const thumbSrc = document.getElementById('video-thumbnail').id;
             const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-
             updateVideoSrc(bgSrc, sdVideoLink);
             updateVideoSrc(thumbSrc, sdVideoLink);
+          
+          }
             
         });
         

@@ -1,20 +1,14 @@
-function editorShow() {
-  const editor = document.getElementById('editor');
+function cssEditorShow() {
+  const editor = document.getElementById('editor-css');
   editor.style.visibility = 'visible';
   localStorage.setItem('editorStatus', 'on');
 }
-function editorClose(){
-  const editor = document.getElementById('editor');
+function cssEditorClose(){
+  const editor = document.getElementById('editor-css');
   editor.style.visibility = 'hidden';
   localStorage.setItem('editorStatus', 'off');
 }
 
-const editorState = localStorage.getItem('editor');
-if (editorState === 'on') {
-  editorShow();
-} else {
-  editorClose();
-}
 
 // function logMediaQueryForViewportWidth() {
 //   const viewportWidth = window.innerWidth;

@@ -48,7 +48,7 @@ function toolsHtml(){
                   <span class="tooltiptext">Up</span>
                 </button>
 
-                <button onclick="cssEditorShow();">
+                <button onclick="cssEditorShow(); loadALLCss();">
                   <img src="./assets/svg/icons/edit.svg">
                   <span class="tooltiptext">Css</span>
                 </button>

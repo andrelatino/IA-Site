@@ -11,6 +11,19 @@
     const textID = document.getElementById('toolbarSectionID');
     textID.textContent = addSectionID;
 
+    const addSectionIdToCss = document.getElementById('sectionID-text');
+    const inputCssRules = document.getElementById('inputCssRules');
+    addSectionIdToCss.textContent = addSectionID;
+    inputCssRules.textContent = 'section#'+addSectionID;
+
+    // Call the function with the section ID to retrieve its inline style and update the <span> content
+    getStyleIdInSection(addSectionID);
+    extractElementTags(addSectionID);
+
+    const elementIDtext = document.getElementById("elementID-text");
+    elementIDtext.textContent = addSectionID;
+    
+
     var dragToolbarModal = document.querySelector("#toolbarModal");
     var dragToolbarButton = document.querySelector("#toolbar-drag");
     makeElementDraggable(dragToolbarModal, dragToolbarButton);
@@ -30,6 +43,43 @@
     openModal.style.visibility='hidden';
     overlay.style.display = 'none'; 
   }
+
+  function getStyleIdInSection(sectionId) {
+    // Obtener la sección por su ID
+    const section = document.getElementById(sectionId);
+    if (!section) {
+        console.error('Sección no encontrada.');
+        return;
+    }
+
+    // Obtener la etiqueta <style> dentro de la sección
+    const styleTag = section.querySelector('style');
+    if (!styleTag) {
+        console.error('Etiqueta <style> no encontrada dentro de la sección.');
+        return;
+    }
+
+    // Obtener el ID de la etiqueta <style>
+    const styleId = styleTag.id;
+
+    // Actualizar el contenido del <span> con el ID "styleID-text"
+    const styleIdSpan = document.getElementById('styleID-text');
+    if (styleIdSpan) {
+        styleIdSpan.textContent = styleId ? styleId : 'No se encontró el ID del estilo';
+    } else {
+        console.error('Span con ID "styleID-text" no encontrado.');
+    }
+}
+
+// Llamar a la función con el ID de la sección para obtener su ID de estilo y actualizar el contenido del <span>
+
+
+
+
+
+
+
+
 
   function deleteSection() {
 

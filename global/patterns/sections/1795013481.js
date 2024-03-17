@@ -55,12 +55,12 @@
     const customHTML = `
     
     <section id="${sectionID}" data-type="section">
-    <style id="${generateRandomID(7)}" type="text/css">
+    <style id="${generateRandomID(7)}" type="text/css" data-type="css">
       ${customCSS}
     </style>
     
     <div id="${containerID}" data-type="container">
-      <div id="${generateRandomID(7)}" data-type="backgrounds">
+      
         
         <div id="${colorID}" data-type="bg-color" class="div-hidden">
           <div id="${solidcolorID}" data-type="solid-color" class="div-visible" style="background: rgb(235, 235, 235);"></div>
@@ -77,12 +77,12 @@
         </div> <!-- bg-image -->
   
         <div id="${generateRandomID(7)}" data-type="bg-video" class="div-visible">
-          <video id="${videoID}" autoplay loop muted>
+          <video id="${videoID}" autoplay loop muted loading="lazy">
             <source src="https://github.com/IAMEDIA360/videos/raw/main/1795013481-1.mp4" type="video/mp4">
           </video>
         </div> <!-- bg-video -->
   
-      </div> <!-- backgrounds -->
+      
   
       <div id="${contentID}" data-type="content">
         <div id="${div1ID}">

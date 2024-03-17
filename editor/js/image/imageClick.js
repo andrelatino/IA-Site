@@ -28,34 +28,56 @@ function clickAllImage() {
     
 }
 
-function clickAllSingleImage() {
+// function clickAllSingleImage() {
 
-    const imageGetID = document.getElementById("image-single-id");
-    const imageID = imageGetID.textContent;
-    const clickImage = document.getElementById(imageID);
-    const inputElement = document.getElementById('image-all-input');
-    const inputValue = inputElement.value;
-    const inputPlaceHolder = document.getElementById('image-all-input');
-    const thumbBG = document.getElementById('image-all-thumbnail');
+//     const imageGetID = document.getElementById("image-single-id");
+//     const imageID = imageGetID.textContent;
+//     const clickImage = document.getElementById(imageID);
+//     const inputElement = document.getElementById('image-all-input');
+//     const inputValue = inputElement.value;
+//     const inputPlaceHolder = document.getElementById('image-all-input');
+//     const thumbBG = document.getElementById('image-all-thumbnail');
 
-    if (inputValue === '') {
-        // alert ('input is empty');
-        thumbBG.srcset = imageEmpty;
-        inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
-        clickImage.setAttribute("src", );
+//     if (inputValue === '') {
+//         // alert ('input is empty');
+//         thumbBG.srcset = imageEmpty;
+//         inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
+//         clickImage.setAttribute("src", );
         
         
-    } else {
-        // alert ('input is not empty');
-        thumbBG.srcset = inputValue;
-        var imgElement = document.getElementById(imageID);
-        var newSrc = inputValue;
-        // Replace the src attribute
-        imgElement.src = newSrc;
-    }
+//     } else {
+//         // alert ('input is not empty');
+//         thumbBG.srcset = inputValue;
+//         var imgElement = document.getElementById(imageID);
+//         var newSrc = inputValue;
+//         // Replace the src attribute
+//         imgElement.src = newSrc;
+//     }
 
     
+// }
+
+function clickAllSingleImage() {
+    // Se simplifica la obtención del ID de la imagen y del elemento imagen directamente.
+    const imageID = document.getElementById("image-single-id").textContent;
+    const imgElement = document.getElementById(imageID);
+    const inputElement = document.getElementById('image-all-input');
+    const inputValue = inputElement.value;
+    const thumbBG = document.getElementById('image-all-thumbnail');
+
+    // Comprobamos si el valor de entrada está vacío o no.
+    if (inputValue === '') {
+        // Si está vacío, configura el thumbnail y el placeholder adecuadamente.
+        // Asumimos que 'imageEmpty' es una variable definida en otro lugar del código.
+        thumbBG.srcset = imageEmpty || 'path/to/default/image.png'; // Proporciona una ruta de imagen predeterminada.
+        inputElement.placeholder = 'Image URL (mandatory)'; // Actualiza directamente el placeholder del elemento de entrada.
+    } else {
+        // Si no está vacío, actualiza el thumbnail y el src de la imagen.
+        thumbBG.srcset = inputValue;
+        imgElement.src = inputValue; // Actualiza directamente el src de la imagen.
+    }
 }
+
 
 function clickXsImage() {
 

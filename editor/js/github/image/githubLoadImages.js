@@ -202,7 +202,7 @@ function githubImageCheckSize(imageURL){
     // Check the value against different image size options
     if (imageSize === 'All') {
       document.getElementById("image-all-input").value = imageURL;
-      clickAllImage()
+      clickAllSingleImage();
     } else if (imageSize === 'Xl') {
       document.getElementById("image-xl-input").value = imageURL;
       clickXlImage()
