@@ -14,13 +14,11 @@
     "thumb": "./thumbnails/1710256911.svg",
     "tags": "images, gallery"
   },
-
   {
     "id": "1710334698",
     "thumb": "./thumbnails/1710334698.svg",
     "tags": "videos, text"
   },
-  
   {
     "id": "1710257345",
     "thumb": "./thumbnails/1710257345.svg",
@@ -31,7 +29,6 @@
     "thumb": "./thumbnails/1710257461.svg",
     "tags": "videos, text"
   },
-  
   {
     "id": "1708725382",
     "thumb": "./thumbnails/1708725382.svg",
@@ -42,7 +39,7 @@
     "thumb": "./thumbnails/1710335046.svg",
     "tags": "images, gallery"
   },
-  
+  {
     "id": "1710334572",
     "thumb": "./thumbnails/1710334572.svg",
     "tags": "images, gallery"
