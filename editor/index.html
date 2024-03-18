@@ -1,310 +1,189 @@
-
-
 <!doctype html>
-<html id="builder">
-
-<script>
-	const getCssUser = localStorage.getItem('githubUser');
-	const getCssRepoName = localStorage.getItem('githubRepoName');
-	const urlCSS = `https://${getCssUser}.github.io/${getCssRepoName}/scripts/styles.css`;
-	const cssLink = document.createElement('link');
-	cssLink.rel = 'stylesheet';
-	cssLink.type = 'text/css';""
-	cssLink.href = urlCSS;
-	document.head.appendChild(cssLink);
-</script>
-
-	<head>
-
-		<meta charset="UTF-8">
-		<meta name="google" content="notranslate">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="../global/css/preloader.css">
-
-	</head>
-	<body>
-		<script src="./js/page/pageIndexJson.js"></script>
-		<script src="./styles.js"></script>
-		<!-- <script src="./js/header/headerResetCss.js"></script> -->
-
-		
-		<!--- choices.js -->
-		<script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
-		<link href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" rel="stylesheet">
-		<!----------------->
-
-		<script src="./video.js"></script>
-		<div id="image-modal" style="display:none;"></div>
-		<div id="video-modal" style="display:none;"></div>
-		<div id="color-modal" style="display:none;"></div>
-		<div id="image-github-modal" style="visibility:hidden;">
-			<div id="image-github-buttons">
-			  <button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button>
-			</div>
-			<div class="image-github-modal-content">
-			  <div class="image-github-input-container">
-				<input type="file" id="image-github-input" accept="image/*" onchange="document.getElementById('image-github-upload-preview').src = window.URL.createObjectURL(this.files[0])">
-			  </div>
-			  <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>
-			 <div class= "crop">
-				<!-- Estos son tus inputs actuales que actuarán como referencia -->
-				<input type="text" id="widthInput" value="000" readonly>
-				<input type="text" id="heightInput" value="000" readonly>
-
-				<!-- Estos son los nuevos inputs para el cambio de tamaño -->
-				<input type="text" id="sizeWidthInput" value="">
-				<input type="text" id="sizeHeightInput" value="">
-								
-				<p id="widthRatioDisplay">Width Ratio: 0</p>
-				<p id="heightRatioDisplay">Height Ratio: 0</p>
-
-			</div> 
-			  
-			  <button onclick="githubImageCloseModal();" class="githubImageClose"><img src="./assets/svg/icons/close.svg"></button>
-			  <button id="image-github-upload-button">Upload your image</button>
-			</div>
-		</div>
-		<div id="video-github-modal" style="visibility:hidden;">			
-			<div id="video-github-buttons"><button id="video-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
-			<div class="video-github-modal-content">		
-			  <div class="video-github-input-container"><input type="file" id="video-github-input" accept="video/*" onchange="document.getElementById('video-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
-			  <div id="video-github-preview"><img id="video-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
-			  <button onclick="githubImageCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
-			  <button id="video-github-upload-button">Upload your video</button>
-			</div>
-		</div>
-		<div id="file-github-modal" style="visibility:hidden;">			
-			<div id="file-github-buttons"><button id="file-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
-			<div class="file-github-modal-content">		
-			  <div class="file-github-input-container"><input type="file" id="file-github-input" accept=".docx, .pptx, .xlsx, .txt, .pdf, .zip, .gz, .tgz" onchange="document.getElementById('file-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>		
-			  <div id="file-github-preview"><img id="file-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"/></div>			  
-			  <button onclick="githubFileCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button>
-			  <button id="file-github-upload-button">Upload your file</button>
-			</div>
-		</div>
-		<div id="admin">
-			
-			<div id="page">
-				<p id="site-title" class= "site-title"></p>
-				<div id="content">
-					
-					<div id="holder">
-						<div id="empty-section"></div>
-						<div id="grid-wrapper">
-							
-							<div id="grid" class="grid-page"></div>
-							
-						</div>
-					</div>
+<html lang="en" id="builder">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="../global/css/preloader.css">
+  </head>
+  <body>
+    <script>
+      const getCssUser = localStorage.getItem('githubUser');
+      const getCssRepoName = localStorage.getItem('githubRepoName');
+      const urlCSS = `https://${getCssUser}.github.io/${getCssRepoName}/scripts/styles.css`;
+      const cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.type = 'text/css';
+      cssLink.href = urlCSS;
+      document.head.appendChild(cssLink);
+    </script>
+    <script src="./js/page/pageIndexJson.js"></script>
+    <script src="./styles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" rel="stylesheet">
+    <script src="./video.js"></script>
+	<div id="editor-css" style="visibility:hidden;">
+		<div id="editor-css-content">
+		  <div id="editor-css-buttons" style="display:none;"><button id="editor-drag"><img src="./assets/svg/icons/drag.svg"></button><button id="all-button" onclick="loadALLCss()">PC</button><button id="m-button" onclick="loadMCss()">Tablet</button><button id="xs-button" onclick="loadXSCss()">Mobile</button><button id="editor-css-close" onclick="cssEditorClose()"><img src="./assets/svg/icons/close.svg"></button></div>
+		  <div id="editor-css-inputs">
+			<p class="inputCssRules" id="inputCssRules"></p><textarea id="all-textarea" autocomplete="off"></textarea><textarea id="m-textarea" autocomplete="off"></textarea><textarea id="xs-textarea" autocomplete="off"></textarea>
+		  </div>
+		  <div class="editor-css-ids">
+			<p class="inputTitleColor" style="display:block;"><span>Section : </span><span id="sectionID-text"></span></p>
+			<p class="inputTitleColor" style="display:block;"><span>Style : </span><span id="styleID-text"></span></p>
+			<p class="inputTitleColor" id="elementsTagId"><span id="elementTag">Element : </span><span id="elementID-text"></span></p>
+			<p class="inputTitleColor" style="display:block;"><span>Size : </span><span id="buttonID-text"></span></p>
+		  </div>
+		  	<button onclick="cssEditorClose()" class="editor-close"><img class="editor-close-img" src="./assets/svg/icons/close.svg"></button>
+			<div id="editor-css-footer">	
+			  	<div id="editor-css-icons"> 
+					<button id="editor-btn-all" onclick="loadALLCss();"><img src="../global/file/pc.svg"></button>
+					<button id="editor-btn-m" onclick="loadMCss();"><img src="../global/file/tablet.svg"></button>
+					<button id="editor-btn-xs" onclick=" loadXSCss();"><img src="../global/file/mobile.svg"></button>
 				</div>
-			</div>
-			
-		</div>
-		<div id="image-sidebar">
-			<div class="image-sidebar-search">
-				<input type="text" id="image-sidebar-search-input" placeholder="Search..." required="">
-				<button id="image-sidebar-search-button" onclick="searchImages();"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button id="image-sidebar-next-button" onclick="loadNextPage();"><img src="./assets/svg/icons/next.svg"></button>
-				<button id="image-sidebar-close-button" onclick="closeAllImageSidebars()"><img src="./assets/svg/icons/close-black.svg"></button>
-				<p id="image-sidebar-subtotal"></p>
-				<p id="image-sidebar-total"></p>
-			</div>
-			
-			
-			<div id="image-sidebar-settings">
-				<input type="text" id="image-settings-width" placeholder="Width" value = "1280" required>
-				<input type="text" id="image-settings-height" placeholder="Height" value = "720" required>
-				<input type="text" id="image-settings-type" placeholder="Orientation" value = "landscape" required>			
-			</div>
-			
-			<div id="image-sidebar-grid"></div>
-			
-		</div>	
-
-		<div id="video-web-sidebar">
-			<div id="video-sidebar-header">
-				<input type="text" id="video-sidebar-input" placeholder="Search..." required>
-				<button type="submit" id="video-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button type="submit" id="video-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button>
-				<button type="submit" id="video-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button>
-				<button id="video-sidebar-next-button" onclick="loadNextVideos();">next</button>	
-			</div>
-			<p id="video-sidebar-total"></p>
-			<div id="video-sidebar-grid"></div>
-			
-		</div>
-
-		<div id="video-media-sidebar">
-			<div id="video-media-sidebar-header">
-				<input type="text" id="video-media-sidebar-input" placeholder="Search..." required>
-				<button type="submit" id="video-media-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button id="video-media-sidebar-next-button" onclick="loadNextVideos();">next</button>
-				<button id="video-media-sidebar-upload-button" onclick="githubUploadVideo()"><img src="./assets/svg/icons/upload=black.svg"></button>
-			</div>
-			<p id="video-media-sidebar-total"></p>
-			<div id="video-media-sidebar-grid"></div>
-			
-		</div>
-
-		<div id="color-solid-sidebar" style="display:none;">
-			<div id="color-sidebar-header">
-				
-				<div id="color-buttons">
-					<button id="color-orange" style="background:orange;"></button>
-					<button id="color-yellow" style="background:yellow;"></button>
-					<button id="color-green" style="background:green;"></button>
-					<button id="color-red" style="background:red;"></button>
-					<button id="color-purple" style="background:purple;"></button>
-					<button id="color-black" style="background:black;"></button>
-					<button id="color-brown" style="background:brown;"></button>
-					<button id="color-gray" style="background:gray;"></button>
-					<button id="color-white" style="background:white;"></button>
-					<button id="color-blue" style="background:blue;"></button>
-					<button id="color-turquoise" style="background:turquoise;"></button>
-					<button id="color-pink" style="background:pink;"></button>
-				</div>
-				<button id="color-solid-close"><img src="./assets/svg/icons/close-black.svg"></button>
-			</div>
-			
-
-			<p id="color-sidebar-total"></p>
-			<div id="color-sidebar-grid"></div>
-			
-		</div>
-
-		<div id="pattern-sidebar" class="pattern-sidebar">
-			<div class="pattern-settings">
-				<input type="text" id="pattern-search-input" placeholder="Search..." required="">
-				<button id="pattern-search-button"><img src="./assets/svg/icons/search-right.svg"></button>
-				<button id="pattern-search-next"><img src="./assets/svg/icons/next.svg"></button>
-				<button id="pattern-search-close" onclick="zoomContentEnd()"><img src="./assets/svg/icons/close-black.svg"></button>
-			</div>
-			<div class="pattern-box"> 
-				<div id = "pattern-sidebar-grid" class=""></div>
-			</div>
-			
-		</div>
-
-		<div id="image-github-sidebar" style="bottom:-135px">
-			<div id="image-github-sidebar-search">
-				<input type="text" id="image-github-sidebar-search-input" placeholder="Search..." required>
-				<button type="submit" id="image-github-sidebar-add-new" onclick="githubUploadImage();"><img src="./assets/svg/icons/add-white.svg"></button>
-				<button type="submit" id="image-github-sidebar-search-button" onclick="closeGithubImageSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-			</div>			
-			<p id="image-github-sidebar-total"></p>
-			<div id="image-github-sidebar-grid"></div>
-			<div id="image-github-sidebar-next-div">
-				<button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
+				<select id="editor-css-select"></select>
 			</div>
 		</div>
-
-		<div id="settings-sidebar" style="visibility:hidden;">
-			<div id="settings-sidebar-header">
-				
-				<button class="tab-button" onclick="openTab('tab1')">PAGE</button>
-				<button class="tab-button" onclick="openTab('tab2')">GLOBAL</button>
-			
-				<button type="submit" id="settings-sidebar-files" onclick="settingsCloseSidebar()">
-					<img class="settings-close" src="./assets/svg/icons/close.svg">
-				</button>
-			</div>			
-			
-			<div class="tab-container">
-				
-				
-			  
-				<div id="tab1" class="tab-content active">
-					<div id="settings-sidebar-grid">
-						<div class="settings-fields">
-							<h2 class="tabs-title">Seo</h2>
-							<p class="settings-subtitles">Title</p>
-							<input class = "settings-input"></input>
-							<p class="settings-subtitles">Description</p>
-							<textarea class = "settings-input"></textarea>
-						</div>
-
-						<div class="settings-fields">
-							<h2 class="tabs-title">Scripts</h2>
-							<p class="settings-subtitles">Header</p>
-							<select id="selectHeader" class="js-choice" multiple></select>
-							<p class="settings-subtitles">Footer</p>
-							<select id="selectFooter" class="js-choice" multiple></select>
-							
-						</div>
-
-						<button type="button" id="save-settings">SAVE PAGE SETTINGS</button>
-					</div>
-				</div>
-			  
-				<div id="tab2" class="tab-content">
-				  <!-- Content for Tab 2 goes here -->
-				</div>
-			  
-				
-			  </div>
-		</div>
-		
-		
-		<div id="file-github-sidebar" style="bottom:-135px">
-			<div id="file-github-sidebar-search">
-				<input type="text" id="file-github-sidebar-search-input" placeholder="Search..." required>
-				<button type="submit" id="file-github-sidebar-add-new" onclick="githubUploadFile();"><img src="./assets/svg/icons/add-white.svg"></button>
-				<button type="submit" id="file-github-sidebar-search-button" onclick="closeGithubFileSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-			</div>			
-			<p id="file-github-sidebar-total"></p>
-			<div id="file-github-sidebar-grid"></div>
-			<div id="file-github-sidebar-next-div">
-				<button id="file-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
-			</div>
-		</div>
-		<div id="template-github-sidebar" style="bottom:-135px">
-			<div id="template-github-sidebar-search">
-				<input type="text" id="template-github-sidebar-search-input" placeholder="Search..." required>
-				<button type="submit" id="template-github-sidebar-add-new" onclick="githubUploadTemplate();"><img src="./assets/svg/icons/add-white.svg"></button>
-				<button type="submit" id="template-github-sidebar-search-button" on="closeGithubTemplateSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-			</div>			
-			<p id="template-github-sidebar-total"></p>
-			<div id="template-github-sidebar-grid"></div>
-			<div id="template-github-sidebar-next-div">
-				<button id="template-github-sidebar-next-button" onclick="loadNextPage();"> + </button>
-			</div>
-		</div>
-		<div id="text-openai-sidebar" style="bottom:-135px">
-			<div id="text-openai-sidebar-search">
-				<p id="text-openai-sidebar-search-input">ChatGPT</p>
-				<button type="submit" id="text-openai-sidebar-search-button" onclick="closeOpenaiTextSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-			</div>			
-			<div id="text-openai-textarea-container"> 
-				<textarea id="promptInput" placeholder="How can i help you today?"></textarea>
-				<button id= "text-openai-search-button"onclick="OpenaiFetchAPI()">SEND</button>
-			</div>
-			<div id="text-openai-sidebar-grid">
-				
-				<div id="resultContainer"></div>
-			</div>
-			
-		</div>
-		<div id="mobileMenu"></div>
-		<div id="editor-css" style="visibility:hidden;"></div>
-		</div>
-		<div id="preloaderModal" class="modal">
-			<div id="apiPreloader" class="preloader"></div>
-			<!-- Success Checkmark Animation -->
-			<svg class="checkmark success-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
-				<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-				<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-			</svg>
-			<!-- Failure Cross Animation -->
-			<svg class="crossmark failure-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
-				<circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
-				<line class="crossmark__line1" x1="15" y1="15" x2="37" y2="37" stroke-linecap="round"/>
-				<line class="crossmark__line2" x1="37" y1="15" x2="15" y2="37" stroke-linecap="round"/>
-			</svg>
-		</div>
-
-		<footer>
-			<script src="./scripts.js"></script>
-			<script src="../global/js/preloader.js"></script>
-		</footer>
-	</body>
+	</div>
+    <div id="image-modal" style="display:none;"></div>
+    <div id="video-modal" style="display:none;"></div>
+    <div id="color-modal" style="display:none;"></div>
+    <div id="image-github-modal" style="visibility:hidden;">
+      <div id="image-github-buttons"><button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+      <div class="image-github-modal-content">
+        <div class="image-github-input-container"><input type="file" id="image-github-input" accept="image/*" onchange="document.getElementById('image-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>
+        <div id="image-github-preview"><img id="image-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"></div>
+        <div class="crop"><input type="text" id="widthInput" value="000" readonly><input type="text" id="heightInput" value="000" readonly><input type="text" id="sizeWidthInput" value=""><input type="text" id="sizeHeightInput" value="">
+          <p id="widthRatioDisplay">Width Ratio: 0</p>
+          <p id="heightRatioDisplay">Height Ratio: 0</p>
+        </div><button onclick="githubImageCloseModal();" class="githubImageClose"><img src="./assets/svg/icons/close.svg"></button><button id="image-github-upload-button">Upload your image</button>
+      </div>
+    </div>
+    <div id="video-github-modal" style="visibility:hidden;">
+      <div id="video-github-buttons"><button id="video-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+      <div class="video-github-modal-content">
+        <div class="video-github-input-container"><input type="file" id="video-github-input" accept="video/*" onchange="document.getElementById('video-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>
+        <div id="video-github-preview"><img id="video-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"></div><button onclick="githubImageCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button><button id="video-github-upload-button">Upload your video</button>
+      </div>
+    </div>
+    <div id="file-github-modal" style="visibility:hidden;">
+      <div id="file-github-buttons"><button id="file-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
+      <div class="file-github-modal-content">
+        <div class="file-github-input-container"><input type="file" id="file-github-input" accept=".docx, .pptx, .xlsx, .txt, .pdf, .zip, .gz, .tgz" onchange="document.getElementById('file-github-upload-preview').src = window.URL.createObjectURL(this.files[0])"></div>
+        <div id="file-github-preview"><img id="file-github-upload-preview" src="./assets/svg/icons/upload-empty.svg"></div><button onclick="githubFileCloseModal();" class="close-button"><img src="./assets/svg/icons/close.svg"></button><button id="file-github-upload-button">Upload your file</button>
+      </div>
+    </div>
+    <div id="admin">
+      <div id="page">
+        <p id="site-title" class="site-title"></p>
+        <div id="content">
+          <div id="holder">
+            <div id="empty-section"></div>
+            <div id="grid-wrapper">
+              <div id="grid" class="grid-page"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="image-sidebar">
+      <div class="image-sidebar-search"><input type="text" id="image-sidebar-search-input" placeholder="Search..." required=""><button id="image-sidebar-search-button" onclick="searchImages();"><img src="./assets/svg/icons/search-right.svg"></button><button id="image-sidebar-next-button" onclick="loadNextPage();"><img src="./assets/svg/icons/next.svg"></button><button id="image-sidebar-close-button" onclick="closeAllImageSidebars()"><img src="./assets/svg/icons/close-black.svg"></button>
+        <p id="image-sidebar-subtotal"></p>
+        <p id="image-sidebar-total"></p>
+      </div>
+      <div id="image-sidebar-settings"><input type="text" id="image-settings-width" placeholder="Width" value="1280" required><input type="text" id="image-settings-height" placeholder="Height" value="720" required><input type="text" id="image-settings-type" placeholder="Orientation" value="landscape" required></div>
+      <div id="image-sidebar-grid"></div>
+    </div>
+    <div id="video-web-sidebar">
+      <div id="video-sidebar-header"><input type="text" id="video-sidebar-input" placeholder="Search..." required><button type="submit" id="video-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button><button type="submit" id="video-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button><button type="submit" id="video-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button><button id="video-sidebar-next-button" onclick="loadNextVideos();">next</button></div>
+      <p id="video-sidebar-total"></p>
+      <div id="video-sidebar-grid"></div>
+    </div>
+    <div id="video-media-sidebar">
+      <div id="video-media-sidebar-header"><input type="text" id="video-media-sidebar-input" placeholder="Search..." required><button type="submit" id="video-media-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button><button id="video-media-sidebar-next-button" onclick="loadNextVideos();">next</button><button id="video-media-sidebar-upload-button" onclick="githubUploadVideo()"><img src="./assets/svg/icons/upload=black.svg"></button></div>
+      <p id="video-media-sidebar-total"></p>
+      <div id="video-media-sidebar-grid"></div>
+    </div>
+    <div id="color-solid-sidebar" style="display:none;">
+      <div id="color-sidebar-header">
+        <div id="color-buttons"><button id="color-orange" style="background:orange;"></button><button id="color-yellow" style="background:yellow;"></button><button id="color-green" style="background:green;"></button><button id="color-red" style="background:red;"></button><button id="color-purple" style="background:purple;"></button><button id="color-black" style="background:black;"></button><button id="color-brown" style="background:brown;"></button><button id="color-gray" style="background:gray;"></button><button id="color-white" style="background:white;"></button><button id="color-blue" style="background:blue;"></button><button id="color-turquoise" style="background:turquoise;"></button><button id="color-pink" style="background:pink;"></button></div><button id="color-solid-close"><img src="./assets/svg/icons/close-black.svg"></button>
+      </div>
+      <p id="color-sidebar-total"></p>
+      <div id="color-sidebar-grid"></div>
+    </div>
+    <div id="pattern-sidebar" class="pattern-sidebar">
+      <div class="pattern-settings"><input type="text" id="pattern-search-input" placeholder="Search..." required=""><button id="pattern-search-button"><img src="./assets/svg/icons/search-right.svg"></button><button id="pattern-search-next"><img src="./assets/svg/icons/next.svg"></button><button id="pattern-search-close" onclick="zoomContentEnd()"><img src="./assets/svg/icons/close-black.svg"></button></div>
+      <div class="pattern-box">
+        <div id="pattern-sidebar-grid" class=""></div>
+      </div>
+    </div>
+    <div id="image-github-sidebar" style="bottom:-135px">
+      <div id="image-github-sidebar-search"><input type="text" id="image-github-sidebar-search-input" placeholder="Search..." required><button type="submit" id="image-github-sidebar-add-new" onclick="githubUploadImage();"><img src="./assets/svg/icons/add-white.svg"></button><button type="submit" id="image-github-sidebar-search-button" onclick="closeGithubImageSidebar();"><img src="./assets/svg/icons/close.svg"></button></div>
+      <p id="image-github-sidebar-total"></p>
+      <div id="image-github-sidebar-grid"></div>
+      <div id="image-github-sidebar-next-div"><button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button></div>
+    </div>
+    <div id="settings-sidebar" style="visibility:hidden;">
+      <div id="settings-sidebar-header"><button class="tab-button" onclick="openTab('tab1')">PAGE</button><button class="tab-button" onclick="openTab('tab2')">GLOBAL</button><button type="submit" id="settings-sidebar-files" onclick="settingsCloseSidebar()"><img class="settings-close" src="./assets/svg/icons/close.svg"></button></div>
+      <div class="tab-container">
+        <div id="tab1" class="tab-content active">
+          <div id="settings-sidebar-grid">
+            <div class="settings-fields">
+              <h2 class="tabs-title">Seo</h2>
+              <p class="settings-subtitles">Title</p><input class="settings-input">
+              <p class="settings-subtitles">Description</p><textarea class="settings-input"></textarea>
+            </div>
+            <div class="settings-fields">
+              <h2 class="tabs-title">Scripts</h2>
+              <p class="settings-subtitles">Header</p><select id="selectHeader" class="js-choice" multiple></select>
+              <p class="settings-subtitles">Footer</p><select id="selectFooter" class="js-choice" multiple></select>
+            </div><button type="button" id="save-settings">SAVE PAGE SETTINGS</button>
+          </div>
+        </div>
+        <div id="tab2" class="tab-content"></div>
+      </div>
+    </div>
+    <div id="file-github-sidebar" style="bottom:-135px">
+      <div id="file-github-sidebar-search"><input type="text" id="file-github-sidebar-search-input" placeholder="Search..." required><button type="submit" id="file-github-sidebar-add-new" onclick="githubUploadFile();"><img src="./assets/svg/icons/add-white.svg"></button><button type="submit" id="file-github-sidebar-search-button" onclick="closeGithubFileSidebar();"><img src="./assets/svg/icons/close.svg"></button></div>
+      <p id="file-github-sidebar-total"></p>
+      <div id="file-github-sidebar-grid"></div>
+      <div id="file-github-sidebar-next-div"><button id="file-github-sidebar-next-button" onclick="loadNextPage();"> + </button></div>
+    </div>
+    <div id="template-github-sidebar" style="bottom:-135px">
+      <div id="template-github-sidebar-search"><input type="text" id="template-github-sidebar-search-input" placeholder="Search..." required><button type="submit" id="template-github-sidebar-add-new" onclick="githubUploadTemplate();"><img src="./assets/svg/icons/add-white.svg"></button><button type="submit" id="template-github-sidebar-search-button" onclick="closeGithubTemplateSidebar();"><img src="./assets/svg/icons/close.svg"></button></div>
+      <p id="template-github-sidebar-total"></p>
+      <div id="template-github-sidebar-grid"></div>
+      <div id="template-github-sidebar-next-div"><button id="template-github-sidebar-next-button" onclick="loadNextPage();"> + </button></div>
+    </div>
+    <div id="text-openai-sidebar" style="bottom:-135px">
+      <div id="text-openai-sidebar-search">
+        <p id="text-openai-sidebar-search-input">ChatGPT</p><button type="submit" id="text-openai-sidebar-search-button" onclick="closeOpenaiTextSidebar();"><img src="./assets/svg/icons/close.svg"></button>
+      </div>
+      <div id="text-openai-textarea-container"><textarea id="promptInput" placeholder="How can i help you today?"></textarea><button id="text-openai-search-button" onclick="OpenaiFetchAPI()">SEND</button></div>
+      <div id="text-openai-sidebar-grid">
+        <div id="resultContainer"></div>
+      </div>
+    </div>
+    <div id="mobileMenu"></div>
+    
+    <div id="preloaderModal" class="modal">
+      <div id="apiPreloader" class="preloader"></div>
+      <!-- Success Checkmark Animation -->
+      <svg class="checkmark success-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+      </svg>
+      <!-- Failure Cross Animation -->
+      <svg class="crossmark failure-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="display:none">
+        <circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none" />
+        <line class="crossmark__line1" x1="15" y1="15" x2="37" y2="37" stroke-linecap="round" />
+        <line class="crossmark__line2" x1="37" y1="15" x2="15" y2="37" stroke-linecap="round" />
+      </svg>
+    </div>
+	<footer>
+      <script src="./scripts.js"></script>
+      <script src="../global/js/preloader.js"></script>
+    </footer>
+  </body>
 </html>

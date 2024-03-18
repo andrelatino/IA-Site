@@ -169,45 +169,45 @@ document.getElementById('color-solid-close').addEventListener('click', function(
 patternsLoad(); // Call patternsLoad to load initial patterns when the page loads
 
 
-function zoomContentStart(){
-  const adminScale = document.getElementById("admin");
-  adminScale.style.transform = "scale(0.8)";
-  adminScale.style.transformOrigin = "top";
-  adminScale.style.height = "100vh";
-  adminScale.style.overflowX = "scroll";
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "block";
-  overlay.setAttribute('data-overlay', 'on');
-}
+// function zoomContentStart(){
+//   const adminScale = document.getElementById("admin");
+//   adminScale.style.transform = "scale(0.8)";
+//   adminScale.style.transformOrigin = "top";
+//   adminScale.style.height = "100vh";
+//   adminScale.style.overflowX = "scroll";
+//   const overlay = document.getElementById("overlay");
+//   overlay.style.display = "block";
+//   overlay.setAttribute('data-overlay', 'on');
+// }
 
-function zoomContentEnd(){
-  const adminScale = document.getElementById("admin");
-  adminScale.style.transform = "scale(1)";
-  adminScale.style.transformOrigin = "top";
-  adminScale.style.height = "100vh";
-  adminScale.style.overflowX = "scroll";
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "none";
-  overlay.setAttribute('data-overlay', 'off');
-}
+// function zoomContentEnd(){
+//   const adminScale = document.getElementById("admin");
+//   adminScale.style.transform = "scale(1)";
+//   adminScale.style.transformOrigin = "top";
+//   adminScale.style.height = "100vh";
+//   adminScale.style.overflowX = "scroll";
+//   const overlay = document.getElementById("overlay");
+//   overlay.style.display = "none";
+//   overlay.setAttribute('data-overlay', 'off');
+// }
 
-// Obtener el elemento overlay
-var overlay = document.getElementById('overlay');
+// // Obtener el elemento overlay
+// var overlay = document.getElementById('overlay');
 
-// Agregar un event listener para detectar clics en el overlay
-overlay.addEventListener('click', function() {
-    if (overlay.getAttribute('data-overlay') === 'on') {
-        save();
-    }
-});
+// // Agregar un event listener para detectar clics en el overlay
+// overlay.addEventListener('click', function() {
+//     if (overlay.getAttribute('data-overlay') === 'on') {
+//         save();
+//     }
+// });
 
-function save(){	 
-  if (confirm("Do you want to edit sections?") == true) {
-    zoomContentEnd();
-    const patternSearchClose = document.getElementById('pattern-search-close');
-    patternSearchClose.click();
-  } else {
-    //
-  }
-  // document.getElementById("msg").innerHTML = userPreference; 
-}
+// function save(){	 
+//   if (confirm("Do you want to edit sections?") == true) {
+//     zoomContentEnd();
+//     const patternSearchClose = document.getElementById('pattern-search-close');
+//     patternSearchClose.click();
+//   } else {
+//     //
+//   }
+//   // document.getElementById("msg").innerHTML = userPreference; 
+// }

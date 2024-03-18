@@ -16,7 +16,10 @@
     addSectionIdToCss.textContent = addSectionID;
     inputCssRules.textContent = 'section#'+addSectionID;
 
-    // Call the function with the section ID to retrieve its inline style and update the <span> content
+    const buttonIdTxt = document.getElementById('buttonID-text');
+    buttonIdTxt.textContent = 'ALL';
+    
+
     getStyleIdInSection(addSectionID);
     extractElementTags(addSectionID);
 
