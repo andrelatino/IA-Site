@@ -49,13 +49,18 @@ function toolsHtml(){
                 </button>
 
                 <button onclick="cssEditorShow(); loadALLCss();">
-                  <img src="./assets/svg/icons/edit.svg">
+                  <img src="./assets/svg/icons/css.svg">
                   <span class="tooltiptext">Css</span>
                 </button>
 
-                <button>
-                  <img src="./assets/svg/icons/tools.svg">
-                  <span class="tooltiptext">Tools</span>
+                <button onclick="htmlEditorOpen();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">Html</span>
+                </button>
+
+                <button onclick="js_open();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">JS</span>
                 </button>
 
               </div>

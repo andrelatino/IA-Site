@@ -3,10 +3,5 @@
         "id": "github",
         "icon": "../global/file/github.svg",
         "title": "Github"
-    },
-    {
-        "id": "s3",
-        "icon": "../global/file/amazons3.svg",
-        "title": "Amazon S3"
     }
 ]

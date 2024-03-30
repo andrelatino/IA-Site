@@ -1,4 +1,7 @@
   
+const showServerName = document.getElementById('server-name');
+showServerName.textContent = githubUser;
+
 function github_get_sites() {
     // ?sort=committer-date&per_page=30&page=1
     fetch(`${githubRepoUrl}?sort=committer-date&per_page=20&page=1`, {
@@ -31,7 +34,7 @@ function github_get_sites() {
         addSubtitle.innerHTML= `
         <div class='sites-subtitle'>
             <p> Total : ${showTotal}</p>
-            <button id="addNewSite" onclick="modalNewOpen();" class="sites-add" ><img class="addIcon" src="../global/file/add.svg"></button>
+            <button onclick="new_openmodal()" class="sites-add" ><img class="addIcon" src="../global/file/add.svg"></button>
         </div>`;
         const gridDiv = document.getElementById('grid');
         for (const api of iaSiteRepos) {
@@ -63,7 +66,7 @@ function github_get_sites() {
                     <p class="sites-ID">ID : ${api.id} </p>
                     <p class="sites-link">Link : ${hasPages} </p>
                     <p class="sites-template">Template : ${api.is_template} </p>
-                    <p class="sites-user">User : ${api.owner.login} </p>
+                    <p class="sites-user">Server : ${api.owner.login} </p>
                     <p class="sites-type">Type : ${api.description} </p>
                     <p class="sites-tags">Tags : ${api.topics} </p>
                     <div class = "sites-buttons">

@@ -43,7 +43,6 @@ function patternSidebarOpen() {
 
 }
 function patternSidebarClose() {
-  zoomContentEnd();
   const sidebar = document.getElementById("pattern-sidebar");
   sidebar.style.transition = "bottom 0.5s";
   sidebar.style.bottom = "-20vh";

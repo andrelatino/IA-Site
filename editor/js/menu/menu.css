@@ -1,4 +1,17 @@
 
+.navigation-links {
+    grid-column: 1 / -1;
+    padding: 15px;
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+span#nav_sitetitle {
+    font-size: 1.5rem;
+}
+span#nav_servername {
+    color: #818181;
+}
 button.admin-sidebar-branding{
     display: grid;
     gap: 5px;

@@ -76,12 +76,12 @@ function template_page(owner, repo, token) {
         const message = document.getElementById('clone_message');
         setTimeout(() => {
             message.textContent = '2/2 URL Created!';
-            return response.json();
+            
         }, 3000); 
 
         setTimeout(() => {
             message.textContent = 'Cloned successfully!';
-            return response.json();
+            
         }, 5000); 
         
       } else {

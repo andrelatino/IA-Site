@@ -22,6 +22,11 @@ gridWrapper.appendChild(overlay); // Append the overlay to the grid-wrapper
   popup.innerHTML = `
     <div id="popup" class="mobile-box">
 
+    <div class = "navigation-links">
+        <span id="nav_sitetitle"></span>
+        <span id="nav_servertitle"></span>
+    </div> 
+
       <button id ="backToSites" class="navigation" onclick="backToSites()">
           <img class="editor-icons" src="./assets/svg/icons/back.svg">
           <span class="editor-items">Back to Sites</span>
@@ -32,9 +37,9 @@ gridWrapper.appendChild(overlay); // Append the overlay to the grid-wrapper
           <span class="editor-items">Add Section</span>
       </button>
 
-      <button class="navigation" onclick="patternPage1()">
-          <img class="editor-icons" src="./assets/svg/icons/pages.svg">
-          <span class="editor-items">Add Page</span>
+      <button class="navigation" onclick="hideEditor()">
+          <img class="editor-icons" src="./assets/svg/icons/edit.svg">
+          <span id = "hide-show-editor" class="editor-items">Hide Editor</span>
       </button>
       
       <button id="menu-page-save" class="navigation" onclick="pageSaveData()">
@@ -70,6 +75,15 @@ gridWrapper.appendChild(overlay); // Append the overlay to the grid-wrapper
     openBtn.style.display = 'grid';
     closeBtn.style.display = 'none';
   });
+
+  const getSiteName = localStorage.getItem('githubRepoName');
+  const navSiteName = document.getElementById('nav_sitetitle');
+  navSiteName.textContent = getSiteName;
+
+  const getServerName = localStorage.getItem('githubUser');
+  const navServerName = document.getElementById('nav_servertitle');
+  navServerName.textContent = getServerName;
+
 }
 
 // Call the editorMenu function to generate the sidebar menu
@@ -77,4 +91,13 @@ editorMenu();
 
 function backToSites(){
   window.location.href = "../projects/";
+}
+
+function hideEditor() {
+  var buttons = document.querySelectorAll(".toolbar-open");
+  buttons.forEach(function(button) {
+      button.style.visibility = (button.style.visibility === "hidden") ? "visible" : "hidden";
+      var span = document.getElementById("hide-show-editor");
+      span.textContent = (span.textContent === "Hide Editor") ? "Show Editor" : "Hide Editor";
+  });
 }

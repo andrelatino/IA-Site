@@ -1,5 +1,24 @@
+img#server-svg {
+    height: 19px;
+    width: 19px;
+    object-fit: contain;
+}
 select#templateSelector {
     display: none;
+}
+#server-name {
+    text-align: center;
+    color: #999999;
+}
+.admin-content-title {
+    line-height: 1;
+    margin-bottom: 20px;
+}
+div#server-div {
+    display: flex;
+    height: 19px;
+    gap: 5px;
+    place-content: center;
 }
 
 .sites-grid {

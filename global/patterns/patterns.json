@@ -1,4 +1,10 @@
 [
+  
+  {
+    "id": "123",
+    "thumb": "./thumbnails/1795203691.svg",
+    "tags": "raw html"
+  },
   {
     "id": "1795203691",
     "thumb": "./thumbnails/1795203691.svg",
@@ -51,6 +57,11 @@
   },
   {
     "id": "menu",
+    "thumb": "./thumbnails/menu.svg",
+    "tags": "videos, gallery"
+  },
+  {
+    "id": "logos",
     "thumb": "./thumbnails/menu.svg",
     "tags": "videos, gallery"
   }

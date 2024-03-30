@@ -47,41 +47,41 @@
     modalContent.style.visibility = "hidden";
   }
   
-  function handleChoiceSelection() {
-    var select = document.getElementById("selectChoice");
-    var createSiteBtn = document.getElementById('createSiteBtn');
+  // function handleChoiceSelection() {
+  //   var select = document.getElementById("selectChoice");
+  //   var createSiteBtn = document.getElementById('createSiteBtn');
 
-    select.addEventListener("change", function () {
-          var selectedValue = select.value;
+  //   select.addEventListener("change", function () {
+  //         var selectedValue = select.value;
 
-           if (selectedValue === "blank") {
-            const createSiteBtn = document.getElementById('createSiteBtn');
-            createSiteBtn.textContent = 'Create Blank Site';
+  //          if (selectedValue === "blank") {
+  //           const createSiteBtn = document.getElementById('createSiteBtn');
+  //           createSiteBtn.textContent = 'Create Blank Site';
 
-            const templateSelector = document.getElementById('templateSelector');
-            templateSelector.style.display = 'initial';
-          } else if (selectedValue === "premium") {
-            const createSiteBtn = document.getElementById('createSiteBtn');
-            createSiteBtn.textContent = 'Create Premium Site';
+  //           const templateSelector = document.getElementById('templateSelector');
+  //           templateSelector.style.display = 'initial';
+  //         } else if (selectedValue === "premium") {
+  //           const createSiteBtn = document.getElementById('createSiteBtn');
+  //           createSiteBtn.textContent = 'Create Premium Site';
 
-            const templateSelector = document.getElementById('templateSelector');
-            templateSelector.style.display = 'initial';
-          }
-        });
+  //           const templateSelector = document.getElementById('templateSelector');
+  //           templateSelector.style.display = 'initial';
+  //         }
+  //       });
   
-    createSiteBtn.addEventListener("click", function () {
-      var selectedValue = select.value;
+  //   createSiteBtn.addEventListener("click", function () {
+  //     var selectedValue = select.value;
   
-      if (selectedValue === "blank") {
-        createBlankSite();
-        // Call your custom function for Scratch Site here
-      } else if (selectedValue === "premium") {
-        // Call your custom function for Premium Site here
-        createPremiumSite();
-      }
-    });
-  }
+  //     if (selectedValue === "blank") {
+  //       createBlankSite();
+  //       // Call your custom function for Scratch Site here
+  //     } else if (selectedValue === "premium") {
+  //       // Call your custom function for Premium Site here
+  //       createPremiumSite();
+  //     }
+  //   });
+  // }
 
-  handleChoiceSelection();
+  // handleChoiceSelection();
   
   

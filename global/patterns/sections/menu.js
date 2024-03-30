@@ -37,11 +37,10 @@
     @media screen and (min-width:0px){#${logo_css}{height:100px;width:auto;object-fit:contain}}
     @media screen and (min-width:0px){#${link_div_css}{display:flex;gap:20px; place-items:center;margin-right:20px; color:white; font-size:12px;}}
     @media screen and (min-width:0px){#${mobile_div_css}{background-color:white; border:none;border-radius:10px;height:auto;width:auto;padding:10px;}}
-    @media screen and (min-width:0px){#${menu_div_css}{height:auto}}
+    @media screen and (min-width:0px){#${menu_div_css}{height:auto;}}
     @media screen and (min-width:0px){#${menu_css}{height:auto;padding:10px;border:none;border-radius:10px;}}
-
     @media screen and (max-width:640px){#${link_div_css}{display:none;}}
-    @media screen and (max-width:640px){#${grid_css}{grid-template-columns:repeat(2, auto); place-content:space-around}}
+    @media screen and (max-width:640px){#${grid_css}{grid-template-columns:repeat(2, auto); place-content:space-around;}}
     
     
     `;
@@ -52,7 +51,7 @@
         ${customCSS}
       </style>
       
-        <div id="${grid_id}" data-type="grid">
+        <div id="${grid_id}" data-type="raw-html">
             <div id ="${logo_div_id}">
               <img id="${logo_id}" src="https://raw.githubusercontent.com/icheff/energia.fr/main/media/images/logo-white.svg" data-type="img-grid" loading="lazy">
             </div>
@@ -70,6 +69,7 @@
             </div>
         </div>
 
+        <script id="acdfr1457" data-type="raw-js">function sayHello(){alert('hello')}</script>
 
       <button class="toolbar-open" onclick="toolsOpenModal(this)">
         <img src="../global/file/edit-section.svg" data-type="img-edit">

@@ -72,6 +72,7 @@ loadScript("./js/video/videoSearch.js");
 loadScript("./js/section/sectionToolbar.js");
 loadScript("./js/tools/tools-drag.js");
 loadScript("./js/tools/toolsHtml.js");
+loadScript("./js/tools/tools_raw.js");
 loadScript("./js/tools/toolsModal.js");
 loadScript("./js/editor-css/editor-css-modal.js");
 loadScript("./js/editor-css/editor-css-buttons.js");
