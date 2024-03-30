@@ -18,6 +18,11 @@ h2.servers-name {
     border-radius: 10px;
     display: grid;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    height:250px;
+    width:300px;
+    place-content: center;
+    place-items: center;
+    gap:20px;
 }
 .servers-subtitle {
     grid-column: 1 / -1;
@@ -94,10 +99,11 @@ p.servers-name {
     text-align: center;
     font-size: 30px;
 }
-.servers-modal-content input {
+.servers-input {
     border: 1px solid #c6c6c6;
     height: 35px;
     padding:10px;
+    width:100%;
 }
 .servers-button {
     background: #f1f1f1;
@@ -107,4 +113,23 @@ p.servers-name {
     color: black;
     border-radius: 7px;
     width: 100%;
+}
+img#server-addItem {
+    width: 50px;
+    height: 50px;
+}
+.admin-content-title {
+    place-items: center;
+    display: flex;
+    place-content: center;
+}
+button#addButton {
+    display: grid;
+    place-content: center;
+    background: none;
+    border: none;
+    height: 250px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
 }
