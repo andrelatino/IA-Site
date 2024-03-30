@@ -101,14 +101,15 @@
   #editor-css
    {
     
-    height:95vh!important;
-    width:95vw!important;
+    height:100vh!important;
+    width:100vw!important;
+    border-radius:0px!important;
     
   }
 
   #editor-css-inputs {
     background: #e8e8e8;
-    height: calc(95vh - 40px);
+    height: calc(100vh - 40px);
   }
 }
 
