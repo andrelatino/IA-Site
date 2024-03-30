@@ -119,16 +119,13 @@ div#editor-css {
   #editorHtml,
   #editor-css
    {
-    
     height:90vh!important;
     width:90vw!important;
-    
-    
   }
 
   #editor-css-inputs {
-    background: #e8e8e8;
-    height: calc(100vh - 40px);
+    background: #263238;
+    height: calc(90vh - 40px);
     width:100%;
   }
   #overlay_overlay {
@@ -141,6 +138,50 @@ div#editor-css {
     display: none;
     z-index: 10;
   }
+  div#editor-css-inputs textarea {
+    width: 100%;
+    height: calc(100% - 60px);
+    background: #253137;
+  }
+  p.inputCssRules,
+  textarea#all-textarea {
+    color: white!important;
+  }
+  button.editor-close {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background: #263238;
+    border: 2px solid white;
+    color: white;
+    display: grid;
+    place-content: center;
+}
+div#editor-css-footer {
+  background-color: #253137;
+  gap: 25px;
+  padding: 0px 10px 0px 10px;
+}
+div#editor-css-icons button {
+  border-radius: 50%;
+  background: none!important;
+  border: 2px solid white;
+  gap:10px;
+}
+div#editor-css-icons{
+  background:none;
+  gap:10px;
+}
+select#editor-css-select {
+  background: none;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+}
+div#editor-css-icons img {
+  filter: invert(1);
+}
+  
   
 }
 

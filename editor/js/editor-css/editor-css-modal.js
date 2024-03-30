@@ -1,9 +1,11 @@
 function cssEditorShow() {
+  overlay_open();
   const editor = document.getElementById('editor-css');
   editor.style.visibility = 'visible';
   localStorage.setItem('editorStatus', 'on');
 }
 function cssEditorClose(){
+  overlay_close();
   const editor = document.getElementById('editor-css');
   editor.style.visibility = 'hidden';
   localStorage.setItem('editorStatus', 'off');
