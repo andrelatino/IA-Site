@@ -95,23 +95,56 @@
   place-content: center;
 }
 
+div#editor-css {
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border-radius: 10px;
+  height:50vh;
+  width:50vw;
+  background: #263238;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#editor-css-inputs {
+  background: #e8e8e8;
+  height: calc(50vh - 40px);
+  width:100%;
+}
 @media screen and (max-width: 640px){
   #js_editor,
   #editorHtml,
   #editor-css
    {
     
-    height:100vh!important;
-    width:100vw!important;
-    border-radius:0px!important;
+    height:90vh!important;
+    width:90vw!important;
+    
     
   }
 
   #editor-css-inputs {
     background: #e8e8e8;
     height: calc(100vh - 40px);
+    width:100%;
   }
+  #overlay_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #263238; /* Fondo oscuro con opacidad */
+    display: none;
+    z-index: 10;
+  }
+  
 }
+
+
 
 
 .toolbar-open img {

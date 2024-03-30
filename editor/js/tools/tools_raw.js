@@ -32,6 +32,7 @@ function updateSectionFromEditor() {
 
 
 function htmlEditorOpen(){
+  overlay_open();
   editorParameters('htmlmixed');
   document.getElementById("editorHtml").style.visibility = "visible";
   const getSectionID = document.getElementById("toolbarSectionID").textContent;
@@ -40,6 +41,7 @@ function htmlEditorOpen(){
 
 
 function htmlEditorClose(){
+  overlay_close();
   document.getElementById("editorHtml").style.visibility = "hidden";
 }
 
@@ -67,11 +69,13 @@ function js_params(mode){
 function js_open(){
   document.getElementById("js_editor").style.visibility = "visible";
   const getSectionID = document.getElementById("toolbarSectionID").textContent;
+  overlay_open();
   js_params('javascript');
   js_get(getSectionID);
 }
 
 function js_close(){
+  overlay_close();
   document.getElementById("js_editor").style.visibility = "hidden";
 }
 
@@ -125,3 +129,12 @@ function js_clean() {
 //   editorCSS.setValue(css_data);
 // }
 // css_params(datacss);
+
+
+function overlay_open() {
+  document.getElementById("overlay_overlay").style.display = "block";
+}
+
+function overlay_close() {
+  document.getElementById("overlay_overlay").style.display = "none";
+}

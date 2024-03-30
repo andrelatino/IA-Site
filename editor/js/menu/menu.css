@@ -5,6 +5,7 @@
     display: grid;
     place-content: center;
     place-items: center;
+    background: white;
 }
 span#nav_sitetitle {
     font-size: 1.5rem;
