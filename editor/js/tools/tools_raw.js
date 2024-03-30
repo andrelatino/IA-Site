@@ -1,11 +1,4 @@
 
-//HTML EDITOR
-// var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-//   mode: 'html',
-//   lineWrapping: true,
-//   lineNumbers: true,
-//   theme: "material",
-// });
 
 function editorParameters(mode){
     editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
@@ -15,17 +8,6 @@ function editorParameters(mode){
     theme: "material",
   });
 }
-
-// function addHtmlToSectionEditor(sectionId) {
-//   var htmlContent = document.getElementById(sectionId).innerHTML;
-//   editor.setValue(htmlContent);
-// }
-
-// function updateSectionFromEditor() {
-//   const sectionID = document.getElementById("toolbarSectionID").textContent; // Obtener el ID de la sección a actualizar
-//   const newHtmlContent = editor.getValue(); // Obtener el contenido actual del editor
-//   document.getElementById(sectionID).innerHTML = newHtmlContent; // Actualizar el HTML de la sección
-// }
 
 function addHtmlToSectionEditor(sectionId) {
   const section = document.getElementById(sectionId);
@@ -129,3 +111,17 @@ function js_clean() {
   editorJS.setValue(cleanJS);
 }
 
+// //CSS
+
+// const datacss = "display:none";
+
+// function css_params(css_data){
+//   editorCSS = CodeMirror.fromTextArea(document.getElementById("all-textarea"), {
+//       mode: "css",
+//       lineWrapping: true,
+//       lineNumbers: true,
+//       theme: "material",
+//   });
+//   editorCSS.setValue(css_data);
+// }
+// css_params(datacss);

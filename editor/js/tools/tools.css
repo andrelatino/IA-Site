@@ -95,6 +95,23 @@
   place-content: center;
 }
 
+@media screen and (max-width: 640px){
+  #js_editor,
+  #editorHtml,
+  #editor-css
+   {
+    
+    height:95vh!important;
+    width:95vw!important;
+    
+  }
+
+  #editor-css-inputs {
+    background: #e8e8e8;
+    height: calc(95vh - 40px);
+  }
+}
+
 
 .toolbar-open img {
   filter:invert(1); 
