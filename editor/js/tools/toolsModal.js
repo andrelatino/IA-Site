@@ -23,6 +23,8 @@
     getStyleIdInSection(addSectionID);
     extractElementTags(addSectionID);
 
+    
+
     const elementIDtext = document.getElementById("elementID-text");
     elementIDtext.textContent = addSectionID;
     

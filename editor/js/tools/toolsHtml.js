@@ -53,7 +53,7 @@ function toolsHtml(){
                   <span class="tooltiptext">Css</span>
                 </button>
 
-                <button onclick="htmlEditorOpen();">
+                <button onclick="html_open();">
                   <img src="./assets/svg/icons/html.svg">
                   <span class="tooltiptext">Html</span>
                 </button>

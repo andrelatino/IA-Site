@@ -18,6 +18,16 @@
   perspective: 1000px;
   height:316px;
 }
+div#html_editor {
+  height: inherit;
+  width: inherit;
+  background: #263238;
+  display:grid;
+}
+.ace-twilight .ace_gutter {
+  background: #263238!important;
+  color: #ffffff40!important;
+}
 
 #editorHtml {
   z-index: 999999;
@@ -27,12 +37,14 @@
   transform: translate(-50%, -50%);
   background: none;
   border-radius: 10px;
-  height:50vh;
-  width:50vw;
+  height: 70vh;
+  width: 70vw;
   background: #263238;
   box-sizing: border-box;
   overflow: hidden;
+  outline: 3px solid white;
 }
+
 .editor-raw-header {
   display: flex;
   background: #263238;
@@ -68,11 +80,18 @@
   transform: translate(-50%, -50%);
   background: none;
   border-radius: 10px;
-  height:50vh;
-  width:50vw;
+  height: 70vh;
+  width: 70vw;
   background: #263238;
   box-sizing: border-box;
   overflow: hidden;
+  outline: 3px solid white;
+}
+div#js_code {
+  height: inherit;
+  width: inherit;
+  background: #263238;
+  display:grid;
 }
 .js_header {
   display: flex;

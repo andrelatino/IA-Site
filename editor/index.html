@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
 		<link rel="stylesheet" href="https://codemirror.net/5/theme/material.css">
 		<link rel="stylesheet" href="https://codemirror.net/5/theme/material-darker.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
 
   </head>
   <body>
@@ -171,15 +174,15 @@
       </div>
     </div>
     <div id="mobileMenu"></div>
-    
+
     <div id="editorHtml" style="visibility:hidden;">
       <div class="editor-raw-header">
         <div class="raw-html-title">Html</div>
-        <button onclick="updateSectionFromEditor()">S</button>
-        <button onclick="beautifyHtmlInEditor()">B</button>
-        <button class="raw-html-close" onclick="htmlEditorClose()">X</buton>
+        <button onclick="html_update()">S</button>
+        <button onclick="html_clean()">B</button>
+        <button class="raw-html-close" onclick="html_close()">X</buton>
       </div>
-      <textarea id="editor" style="visibility:hidden"></textarea>
+      <div id="html_editor"></div>
     </div>
 
     <div id="js_editor" style="visibility:hidden;">
@@ -189,7 +192,7 @@
         <button onclick="js_clean()">B</button>
         <button class="js_close" onclick="js_close()">X</buton>
       </div>
-      <textarea id="js_textarea" style="visibility:hidden"></textarea>
+      <div id="js_code"></div>
     </div>
     
     <div id="preloaderModal" class="modal">
@@ -211,7 +214,6 @@
 	<footer>
       <script src="./scripts.js"></script>
       <script src="../global/js/preloader.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
       <!-- Para formatear HTML -->
       <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
       <!-- Para formatear JavaScript -->
