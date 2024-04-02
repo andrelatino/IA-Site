@@ -218,7 +218,7 @@ div#editor-css {
   width:50vw;
   background: #263238;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #editor-css-inputs {
   background: #e8e8e8;
@@ -228,10 +228,14 @@ div#editor-css {
 @media screen and (max-width: 640px){
   #js_editor,
   #editorHtml,
-  #editor-css
+  #css_editor,
+  #section_editor
    {
     height:90vh!important;
-    width:90vw!important;
+    width:100vw!important;
+    border:none;
+    outline:none;
+    /* overflow: scroll; */
   }
 
   #editor-css-inputs {
