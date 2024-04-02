@@ -114,6 +114,98 @@ div#js_code {
   place-content: center;
 }
 
+/* start CSS */
+#css_editor {
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border-radius: 10px;
+  height: 70vh;
+  width: 70vw;
+  background: #263238;
+  box-sizing: border-box;
+  overflow: hidden;
+  outline: 3px solid white;
+}
+div#css_code {
+  height: inherit;
+  width: inherit;
+  background: #263238;
+  display:grid;
+}
+.css_header {
+  display: flex;
+  background: #263238;
+  text-align: center;
+  place-items: center;
+  color: white;
+  padding: 20px;
+  place-content: center;
+  gap: 10px;
+}
+.css_header button {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  background: #263238;
+  border: 2px solid white;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+/*end CSS*/
+
+
+
+
+/* start Section */
+#section_editor {
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border-radius: 10px;
+  height: 70vh;
+  width: 70vw;
+  background: #263238;
+  box-sizing: border-box;
+  overflow: hidden;
+  outline: 3px solid white;
+}
+div#section_code {
+  height: inherit;
+  width: inherit;
+  background: #263238;
+  display:grid;
+}
+.section_header {
+  display: flex;
+  background: #263238;
+  text-align: center;
+  place-items: center;
+  color: white;
+  padding: 20px;
+  place-content: center;
+  gap: 10px;
+}
+.section_header button {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  background: #263238;
+  border: 2px solid white;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+/*end Section*/
+
+
 div#editor-css {
   z-index: 999999;
   position: fixed;

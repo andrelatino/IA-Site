@@ -89,7 +89,7 @@
           <div id="holder">
             <div id="empty-section"></div>
             <div id="grid-wrapper">
-              <div id="grid" class="grid-page"></div>
+                <div id="grid" class="grid-page" data-type="body"></div>
             </div>
           </div>
         </div>
@@ -194,6 +194,27 @@
       </div>
       <div id="js_code"></div>
     </div>
+
+    <div id="css_editor" style="visibility:hidden;">
+      <div class="css_header">
+        <div class="css_title">Css</div>
+        <button onclick="css_update()">S</button>
+        <button onclick="css_clean()">B</button>
+        <button class="css_close" onclick="css_close()">X</buton>
+      </div>
+      <div id="css_code"></div>
+    </div>
+
+    <div id="section_editor" style="visibility:hidden;">
+      <div class="section_header">
+        <div class="section_title">Section</div>
+        <button onclick="section_update()">S</button>
+        <button onclick="section_clean()">B</button>
+        <button class="section_close" onclick="section_close()">X</buton>
+      </div>
+      <div id="section_code"></div>
+    </div>
+    
     
     <div id="preloaderModal" class="modal">
       <div id="apiPreloader" class="preloader"></div>
@@ -214,10 +235,11 @@
 	<footer>
       <script src="./scripts.js"></script>
       <script src="../global/js/preloader.js"></script>
-      <!-- Para formatear HTML -->
-      <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
-      <!-- Para formatear JavaScript -->
-      <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify.js"></script>
+     <!-- Para formatear HTML -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>  
+
 
     </footer>
   </body>

@@ -78,13 +78,12 @@
 
 // Llamar a la función con el ID de la sección para obtener su ID de estilo y actualizar el contenido del <span>
 
-
-
-
-
-
-
-
+function overlay_open() {
+  document.getElementById("overlay_overlay").style.display = "block";
+}
+function overlay_close() {
+  document.getElementById("overlay_overlay").style.display = "none";
+}
 
   function deleteSection() {
 

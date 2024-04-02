@@ -102,38 +102,38 @@ function pageSaveData() {
     pageUpdateData(newJsonContent);
 }
 
-function detectDoubleKeyPress() {
-    let lastKeyPressTime = 0;
-    let zeroKeyPressCount = 0;
-    const doubleKeyPressInterval = 300; // Adjust this value as needed (in milliseconds)
+// function detectDoubleKeyPress() {
+//     let lastKeyPressTime = 0;
+//     let zeroKeyPressCount = 0;
+//     const doubleKeyPressInterval = 300; // Adjust this value as needed (in milliseconds)
 
-    document.addEventListener('keydown', function(event) {
-        const currentTime = new Date().getTime();
+//     document.addEventListener('keydown', function(event) {
+//         const currentTime = new Date().getTime();
 
-        if (event.key === "0" && event.code === "Numpad0") {
-            if (currentTime - lastKeyPressTime <= doubleKeyPressInterval) {
-                zeroKeyPressCount++;
+//         if (event.key === "0" && event.code === "Numpad0") {
+//             if (currentTime - lastKeyPressTime <= doubleKeyPressInterval) {
+//                 zeroKeyPressCount++;
 
-                if (zeroKeyPressCount === 2) {
-                    pageSaveData();
-                    console.log("The number '0' was pressed twice.");
-                    zeroKeyPressCount = 0;
-                    lastKeyPressTime = 0;
-                }
-            } else {
-                zeroKeyPressCount = 1;
-            }
+//                 if (zeroKeyPressCount === 2) {
+//                     pageSaveData();
+//                     console.log("The number '0' was pressed twice.");
+//                     zeroKeyPressCount = 0;
+//                     lastKeyPressTime = 0;
+//                 }
+//             } else {
+//                 zeroKeyPressCount = 1;
+//             }
 
-            lastKeyPressTime = currentTime;
-        } else {
-            zeroKeyPressCount = 0;
-            lastKeyPressTime = 0;
-        }
-    });
-}
+//             lastKeyPressTime = currentTime;
+//         } else {
+//             zeroKeyPressCount = 0;
+//             lastKeyPressTime = 0;
+//         }
+//     });
+// }
 
-// Call the function to start detecting double key presses
-detectDoubleKeyPress();
+// // Call the function to start detecting double key presses
+// detectDoubleKeyPress();
 
 
 //------------------------------------------------

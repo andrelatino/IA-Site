@@ -48,11 +48,6 @@ function toolsHtml(){
                   <span class="tooltiptext">Up</span>
                 </button>
 
-                <button onclick="cssEditorShow(); loadALLCss();">
-                  <img src="./assets/svg/icons/css.svg">
-                  <span class="tooltiptext">Css</span>
-                </button>
-
                 <button onclick="html_open();">
                   <img src="./assets/svg/icons/html.svg">
                   <span class="tooltiptext">Html</span>
@@ -61,6 +56,16 @@ function toolsHtml(){
                 <button onclick="js_open();">
                   <img src="./assets/svg/icons/html.svg">
                   <span class="tooltiptext">JS</span>
+                </button>
+
+                <button onclick="css_open();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">CSS</span>
+                </button>
+
+                <button onclick="section_open();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">Section</span>
                 </button>
 
               </div>

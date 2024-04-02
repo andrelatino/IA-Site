@@ -1,5 +1,9 @@
 [
-  
+  {
+    "id": "pattern",
+    "thumb": "./thumbnails/1795203691.svg",
+    "tags": "pattern"
+  },
   {
     "id": "123",
     "thumb": "./thumbnails/1795203691.svg",
