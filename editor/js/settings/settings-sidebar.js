@@ -11,6 +11,7 @@
 //   }
 // });
 
+
 function generateScriptTags(filenames) {
   return filenames.map(filename => {
       if (filename.endsWith('.css')) {
@@ -154,7 +155,7 @@ function htmlContent() {
   // Rest of your code for bodyContent generation
 
   // console.log(newSrcCss + newSrcJS);
-const grid = document.getElementById('grid');
+const grid = document.getElementById('grid-page');
 const bodyContent = grid.cloneNode(true);
 const deleteButtons = bodyContent.querySelectorAll('.toolbar-open');
 for (let i = 0; i < deleteButtons.length; i++) {
@@ -171,12 +172,19 @@ for (let i = 0; i < hiddenDivs.length; i++) {
     hiddenDivs[i].remove();
 }
 
+// Add code to remove div elements with class 'div-hidden'
+const noExport = bodyContent.querySelectorAll('.no-export');
+for (let i = 0; i < noExport.length; i++) {
+  noExport[i].remove();
+}
+
 let checkPageIs = localStorage.getItem('pageIs');
 let html;
 
 if (checkPageIs === '.widget') {
   html = `${bodyContent.innerHTML}`;
 } else {
+  
   html = `
   <!DOCTYPE html>
   <html lang="fr">
@@ -189,15 +197,20 @@ if (checkPageIs === '.widget') {
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preconnect to the Google Fonts server -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load the Material Symbols Outlined font with display=swap -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+    <!-- <script src="./video.js"></script> -->
   <script src="./scripts/header.js"></script>
   <script src="./scripts/analytics.js"></script>
   </head>
   <!-- Body -->
   <body>
-  <div class="grid-page">
+  <grid-page id="grid" class="grid-page" data-type="body">
   ${headerScripts}
   ${bodyContent.innerHTML}
-  </div>
+  </grid-page>
   </body>
   <!-- Footer -->
   <footer>
@@ -237,3 +250,18 @@ function openTab(tabName) {
     }
     document.getElementById(tabName).style.display = "block";
   }
+
+
+//   function cssPageStyles() {
+//     // const pageID = localStorage.getItem('pageID');
+//     const cssPage = `
+//         <style id="page-laptop.css" type="text/css" data-type="css" data-size="laptop" data-content="page">grid-page{background:red;}</style>
+//         <style id="page-tablet.css" type="text/css" data-type="css" data-size="tablet" data-content="page">@media screen and (min-width:641px) and (max-width:1024px){}</style>
+//         <style id="page-mobile.css" type="text/css" data-type="css" data-size="mobile" data-content="page">@media screen and (max-width:640px){}</style>
+//     `;
+    
+//     return cssPage;
+// }
+
+// const gridPage = document.getElementById('grid');
+// gridPage.insertAdjacentHTML('afterbegin', cssPageStyles());

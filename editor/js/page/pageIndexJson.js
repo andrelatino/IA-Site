@@ -33,10 +33,15 @@ async function pageLoadData() {
 
         const data = await response.json();
         processGitHubResponse(data);
+        loadStylesToGrid();
+        getImageIdOnClick();
+        // loadScriptToGrid();
+        
     } catch (error) {
         console.error('Error de red:', error);
     }
 }
+
 
 function processGitHubResponse(data) {
     const contenidoBase64 = data.content;
@@ -46,7 +51,7 @@ function processGitHubResponse(data) {
     updateLocalStorage('pageSha', data.sha);
 
     const decodedContent = decodeURIComponent(escape(contenidoDecodificado));
-    const gridElement = getDomElement('grid');
+    const gridElement = getDomElement('grid-page');
     if (gridElement) {
         gridElement.innerHTML = encodeTextNodes(decodedContent);
     }
@@ -85,6 +90,7 @@ async function pageUpdateData(content) {
         const jsonResponse = await response.json();
         updateLocalStorage('pageSha', jsonResponse.content.sha);
         showSuccess();
+        
     } catch (error) {
         showFailure();
         console.error('Error al actualizar el archivo:', error);
@@ -92,53 +98,20 @@ async function pageUpdateData(content) {
 }
 
 // Simplificación de la creación y guardado de datos
+// Function to retrieve HTML content of 'grid-wrapper' and trim it for storage or processing
 function pageCreateJson() {
-    const gridContent = getDomElement('grid').innerHTML;
+    
+    const gridContent = document.getElementById('grid-page').innerHTML;
     return gridContent.trim();
 }
 
+// Function to save data by updating existing content with newly generated JSON content
 function pageSaveData() {
     const newJsonContent = pageCreateJson();
-    pageUpdateData(newJsonContent);
+    pageUpdateData(newJsonContent); // Assuming pageUpdateData is correctly defined to handle updates
 }
 
-// function detectDoubleKeyPress() {
-//     let lastKeyPressTime = 0;
-//     let zeroKeyPressCount = 0;
-//     const doubleKeyPressInterval = 300; // Adjust this value as needed (in milliseconds)
 
-//     document.addEventListener('keydown', function(event) {
-//         const currentTime = new Date().getTime();
-
-//         if (event.key === "0" && event.code === "Numpad0") {
-//             if (currentTime - lastKeyPressTime <= doubleKeyPressInterval) {
-//                 zeroKeyPressCount++;
-
-//                 if (zeroKeyPressCount === 2) {
-//                     pageSaveData();
-//                     console.log("The number '0' was pressed twice.");
-//                     zeroKeyPressCount = 0;
-//                     lastKeyPressTime = 0;
-//                 }
-//             } else {
-//                 zeroKeyPressCount = 1;
-//             }
-
-//             lastKeyPressTime = currentTime;
-//         } else {
-//             zeroKeyPressCount = 0;
-//             lastKeyPressTime = 0;
-//         }
-//     });
-// }
-
-// // Call the function to start detecting double key presses
-// detectDoubleKeyPress();
-
-
-//------------------------------------------------
-// START: ENCODING
-//------------------------------------------------
 
 // Unifica las funciones de codificación
 function encodeToUnicodeEscape(str) {
@@ -176,8 +149,8 @@ function decodeTextNodes(element) {
 }
 
 const observer = new MutationObserver(mutations => {
-    const gridDiv = getDomElement("grid");
-    if (!gridDiv) return; // Asegúrate de que el elemento 'grid' exista
+    const gridDiv = getDomElement("grid-page");
+    if (!gridDiv) return; // Asegúrate de que el elemento 'grid-body' exista
 
     observer.disconnect();  // Desconecta el observador inicial
     decodeTextNodes(gridDiv);  // Decodifica los nodos de texto existentes
@@ -198,3 +171,208 @@ function decodeDoubleEscapedUnicode(str) {
 //------------------------------------------------
 // END: ENCODING
 //------------------------------------------------
+
+function loadStylesToGrid() {
+    const gridPage = document.getElementById("grid-page");
+
+    function createStyleIfNeeded(id, cssContent, position) {
+        let styleElement = document.getElementById(id);
+        if (!styleElement) {
+            styleElement = document.createElement("style");
+            styleElement.id = id;
+            styleElement.type = "text/css";
+            styleElement.setAttribute("data-type", "css");
+            styleElement.setAttribute("data-size", id.split('-')[1].replace('.css', ''));
+            styleElement.setAttribute("data-content", "page");
+            styleElement.textContent = cssContent;
+
+            // Insertar estilo en la posición específica
+            if (gridPage.children[position]) {
+                gridPage.insertBefore(styleElement, gridPage.children[position]);
+            } else {
+                gridPage.appendChild(styleElement);
+            }
+        } else {
+            console.log("El estilo con ID '" + id + "' ya existe y no será duplicado.");
+        }
+    }
+
+    function createGridBodyIfNeeded() {
+        if (!document.querySelector("grid-body")) {
+            const gridBody = document.createElement("grid-body");
+            gridBody.id = 'grid-body';
+            gridPage.appendChild(gridBody);
+        }
+    }
+
+    // Contenido CSS para Laptop
+    const laptopCSS = ``;
+    // Contenido CSS para Tablet
+    const tabletCSS = `@media screen and (min-width:641px) and (max-width:1024px) { /* Tablet */ }`;
+    // Contenido CSS para Móvil
+    const mobileCSS = `@media screen and (max-width:640px) { /* Mobile */ }`;
+
+    // Crear o reutilizar estilos en el orden correcto
+    createStyleIfNeeded("page-laptop.css", laptopCSS, 0); // Laptop primero
+    createStyleIfNeeded("page-tablet.css", tabletCSS, 1); // Tablet segundo
+    createStyleIfNeeded("page-mobile.css", mobileCSS, 2); // Móvil tercero
+    createGridBodyIfNeeded();
+}
+
+// Llamar a la función cuando el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", loadStylesToGrid);
+
+
+
+
+// Llamar a la función cuando el DOM esté completamente cargado
+// document.addEventListener("DOMContentLoaded", loadScriptToGrid);
+
+
+function getImageIdOnClick() {
+    const grid = document.getElementById('grid-body');
+    // Asegurar que no se dupliquen los oyentes de eventos
+    grid.removeEventListener('click', handleImageClick);
+    grid.addEventListener('click', handleImageClick);
+  }
+  
+  function handleImageClick(event) {
+    if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'image-fg' && event.target.id) {
+      sectionSingleImage(event.target.id);
+      const imgSingleID = document.getElementById('image-single-id');
+      imgSingleID.textContent = event.target.id;
+      const imgSingleType = document.getElementById('image-single-type');
+      imgSingleType.textContent = 'image-fg';
+      console.log(event.target.id);
+    }
+  }
+  
+  // Asignar el manejador de eventos una vez que la ventana esté completamente cargada
+  document.addEventListener('DOMContentLoaded', function() {
+    getImageIdOnClick();
+});
+  
+  // También podrías considerar llamar getImageIdOnClick directamente si no depende críticamente de que todas las imágenes estén cargadas.
+//   getImageIdOnClick();
+  
+  
+     
+  function sectionSingleImage(image_ID) {
+      showSingleImageModal();
+  
+      localStorage.setItem('imageIdIs', image_ID);
+      localStorage.setItem('imageTypeIs', 'image-fg');
+      // alert(pictureID);
+      loadAllSingleImage();
+      imageAllSingleButton();
+      loadUnsplashImages();
+      loadGithubImages();
+  
+  }
+    
+  function showSingleImageModal() {
+      var divModal = document.getElementById("image-modal");
+      divModal.style.display = "grid";
+  }
+  function hideSingleImageModal() {
+      var divModal = document.getElementById("image-modal");
+      divModal.style.display = "none";
+  }
+  
+  function loadAllSingleImage() {
+    const imageIdIs = localStorage.getItem('imageIdIs');
+    const imageElement = document.getElementById(imageIdIs);
+    const singleImageSrc = imageElement.getAttribute('src');
+    const showSingleImage = document.getElementById('image-all-thumbnail');
+    showSingleImage.src = singleImageSrc;
+    // showSingleImage.removeAttribute('srcset');
+  }
+  
+  function imageAllSingleButton(){
+      
+    localStorage.setItem('imageSize','All');
+    // loadAllImage();
+    
+    var imageDivAll = document.getElementById("image-all"); imageDivAll.style.visibility = "visible";
+    var imageDivM = document.getElementById("image-m"); imageDivM.style.visibility = "hidden";
+    var imageDivXs = document.getElementById("image-xs"); imageDivXs.style.visibility = "hidden";
+   
+    
+    var imageButtonAll = document.getElementById("image-btn-all"); 
+        imageButtonAll.style.background = "#007dec";
+    var imageButtonAllImg = document.querySelector("#image-btn-all img");
+        imageButtonAllImg.style.filter = "invert(1)";
+  
+    var imageButtonM = document.getElementById("image-btn-m"); 
+        imageButtonM.style.background = "white";
+    var imageButtonMImg = document.querySelector("#image-btn-m img");
+        imageButtonMImg.style.filter = "none";
+    var imageButtonMClear = document.getElementById("image-btn-m-clear"); 
+        imageButtonMClear .style.display = "none";
+   
+    var imageButtonXs = document.getElementById("image-btn-xs"); 
+        imageButtonXs.style.background = "white"; 
+    var imageButtonXsImg = document.querySelector("#image-btn-xs img");
+        imageButtonXsImg.style.filter = "none";
+    var imageButtonXsClear = document.getElementById("image-btn-xs-clear"); 
+        imageButtonXsClear .style.display = "none";
+  
+  }
+  
+
+
+(function() {
+    function modifyLinkUrl(link) {
+        // Obtener la URL actual del atributo href del enlace
+        const currentUrl = link.getAttribute('href');
+
+        // Solicitar nueva URL del enlace
+        const newUrl = prompt(`Link ID ${link.id}:`, currentUrl);
+        if (newUrl !== null) {
+            link.setAttribute('href', newUrl);
+        }
+    }
+
+    function initializeLinkEditing() {
+        document.addEventListener("dblclick", function(event) {
+            const link = event.target.closest("a");
+            if (link) {
+                event.preventDefault();
+                modifyLinkUrl(link);
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeLinkEditing();
+    });
+
+})();
+
+(function() {
+    function modifySpanText(span) {
+        // Obtener el texto actual del span sin comillas
+        const currentText = span.textContent;
+
+        // Solicitar nuevo texto para el span
+        const newText = prompt(`Span ID : ${span.id}`, currentText);
+        if (newText !== null) {
+            span.textContent = newText;
+        }
+    }
+
+    function initializeSpanEditing() {
+        document.addEventListener("dblclick", function(event) {
+            const span = event.target.closest("span[data-type='icon-fg']");
+            if (span) {
+                event.preventDefault();
+                modifySpanText(span);
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeSpanEditing();
+    });
+
+})();

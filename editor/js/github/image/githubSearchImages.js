@@ -29,8 +29,8 @@ function githubImageSearchEnter(event) {
 
   function githubSearchImages(keyword) {
     githubImagesRemoveDivs();
-    const username = "icheff";
-    const repoName = getRepoName;
+    const username = githubUser;
+    const repoName = githubRepoName;
     const folderName = "media/images/";
     const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/${folderName}`;
     // const accessToken = githubApi;

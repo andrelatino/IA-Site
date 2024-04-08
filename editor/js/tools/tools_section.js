@@ -6,8 +6,13 @@ function section_params() {
   section_editor = ace.edit("section_code"); // Ajusta el ID aquí para coincidir con tu nuevo contenedor
   section_editor.session.setMode("ace/mode/html");
   section_editor.setTheme("ace/theme/twilight");
-  section_editor.session.setUseWrapMode(true);
   section_editor.setShowPrintMargin(false);
+  // section_editor.setOptions({
+  //   readOnly: false,
+  //   autoScrollEditorIntoView:false,
+  //   useWorker:false,
+  //   enableAutoIndent:true,
+  // });
 }
 section_params();
 
@@ -61,67 +66,20 @@ function section_close() {
 function section_clean() {
   const currentHtmlContent = section_editor.session.getValue();
   const beautifiedHtmlContent = html_beautify(currentHtmlContent, {
-    // Configuración de js-beautify
-    "indent_size": "2",
-    "indent_char": " ",
-    "max_preserve_newlines": "0",
-    "preserve_newlines": false,
-    "keep_array_indentation": false,
-    "break_chained_methods": false,
-    "indent_scripts": "normal",
-    "brace_style": "expand",
-    "space_before_conditional": true,
-    "unescape_strings": false,
-    "jslint_happy": true,
-    "end_with_newline": true,
-    "wrap_line_length": "80",
-    "indent_inner_html": true,
-    "comma_first": false,
-    "e4x": false
-    // El resto de tu configuración...
+    "indent-size": "2",
+    "indent-char": " ",
+    "indent-with-tabs":false,
+    "end-with-newline":false,
+    "preserve-newlines":false,
+    "max-preserve-newlines": "1",
+    "indent-inner-html": true,
+    "brace-style":"collapse",
+    "indent-scripts":"keep",
+    "wrap-line-length":"0",
+    "wrap-attributes":"auto",
+    "wrap-attributes-min-attrs": "1",
+    "wrap-attributes-indent-size":"2",
+    "inline":""
   });
   section_editor.session.setValue(beautifiedHtmlContent);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Obtener todas las secciones
-  var sections = document.querySelectorAll('section');
-  
-  // Iterar sobre cada sección y agregar el botón
-  sections.forEach(function(section) {
-    toolbarAdd(section.id);
-  });
-});
-
-// function toolbarDelete(sectionId) {
-//   var section = document.getElementById(sectionId);
-//   if (section) {
-//     var botones = section.getElementsByClassName('toolbar-open');
-//     if (botones.length > 0) {
-//       botones[0].parentNode.removeChild(botones[0]);
-//       console.log('Botón eliminado correctamente de la sección con ID:', sectionId);
-//     } else {
-//       console.log('No se encontraron botones en la sección con ID:', sectionId);
-//     }
-//   } else {
-//     console.log('No se encontró ninguna sección con el ID proporcionado:', sectionId);
-//   }
-// }
-
-// function toolbarAdd(sectionId) {
-//   var section = document.getElementById(sectionId);
-//   if (section) {
-//     var boton = document.createElement('button');
-//     boton.className = 'toolbar-open';
-//     boton.onclick = function() {
-//       toolsOpenModal(sectionId);
-//     };
-//     var imagen = document.createElement('img');
-//     imagen.src = '../global/file/edit-section.svg';
-//     boton.appendChild(imagen);
-//     section.appendChild(boton);
-//     console.log('Botón agregado correctamente a la sección con ID:', sectionId);
-//   } else {
-//     console.log('No se encontró ninguna sección con el ID proporcionado:', sectionId);
-//   }
-// }

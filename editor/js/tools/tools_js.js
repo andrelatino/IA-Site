@@ -7,7 +7,13 @@ function js_params() {
   js_editor.session.setMode("ace/mode/javascript"); // Cambiado de "ace/mode/js" a "ace/mode/javascript"
   js_editor.setTheme("ace/theme/twilight");
   js_editor.session.setUseWrapMode(true);
-  js_editor.setShowPrintMargin(false);
+  js_editor.setOptions({
+    readOnly: false,
+    autoScrollEditorIntoView:true,
+    useWorker:true,
+    // enableAutoIndent:true,
+    showPrintMargin: false,
+  });
 }
 js_params();
 function js_get(sectionId) {
@@ -47,15 +53,15 @@ function js_clean() {
     "indent_size": "2",
     "indent_char": " ",
     "max_preserve_newlines": "0",
-    "preserve_newlines": false,
+    "preserve_newlines": true,
     "keep_array_indentation": false,
     "break_chained_methods": false,
     "indent_scripts": "normal",
-    "brace_style": "expand",
+    // "brace_style": "expand",
     "space_before_conditional": true,
     "unescape_strings": false,
     "jslint_happy": true,
-    "end_with_newline": true,
+    "end_with_newline": false,
     "wrap_line_length": "80",
     "indent_inner_html": true,
     "comma_first": false,

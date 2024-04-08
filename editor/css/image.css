@@ -21,13 +21,17 @@ input#image-all-input {
     margin: 15px;
 }
 
-p#image-single-id,
-p#image-single-type,
+
 input#image-all-input,
 button#image-btn-all,
 button#image-btn-m,
 button#image-btn-xs{
     display:none;
+}
+
+p#image-single-id,
+p#image-single-type{
+    display:block;
 }
 
 
@@ -58,6 +62,7 @@ button#image-sidebar-clean-button
     gap: 1px;
     padding: 10px;
     height: 370px;
+    width:280px;
     border-radius: 15px;
     overflow: hidden;
 }

@@ -75,23 +75,9 @@ function html_clean() {
       "wrap-attributes":"auto",
       "wrap-attributes-min-attrs": "1",
       "wrap-attributes-indent-size":"2",
-      "inline":"",
-
-      // "preserve_newlines": true,
-      // "max_preserve_newlines": "1",
-      // "keep_array_indentation": false,
-      // "break_chained_methods": false,
-      // "indent_scripts": "keep",
-      // "brace_style": "collapse",
-      // "space_before_conditional": true,
-      // "unescape_strings": true,
-      // "jslint_happy": true,
-      // "end_with_newline": true,
-      // "wrap-attributes": "force-aligned",
-      // "wrap_line_length": "100",
-      // "indent_inner_html": true,
-      // "comma_first": false,
-      // "indent_empty_lines": true,
+      "inline":""
    });
    html_editor.session.setValue(beautifiedHtmlContent);
 }
+
+// https://github.com/beautifier/js-beautify

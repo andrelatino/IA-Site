@@ -50,15 +50,20 @@ function loadDefaultVideo(){
         // Add click event listener to the image
         img.addEventListener('click', () => {
 
-            const checkContentType = localStorage.getItem('imageTypeIs');
-            const getVideoId = localStorage.getItem('imageIdIs');
-            if (checkContentType === 'vid-grid'){
+            const checkContentType = document.getElementById('video-single-type').textContent;
+            const getVideoId = document.getElementById('video-single-id').textContent;
+            
+            if (checkContentType === 'video-fg'){
               
               const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-              const videoThumb = document.getElementById('video-thumbnail');
               const videoToUpdate = document.getElementById(getVideoId);
-              videoToUpdate.src = videoGrid;
-              videoThumb.src = videoGrid;
+              videoToUpdate.src = videoGrid; // Actualiza el src del elemento <video>
+              videoToUpdate.load(); // Opcional: Carga el nuevo video
+
+              const videoThumbnail = document.getElementById('video-single-thumbnail');
+              const newVideoURL = videoGrid;
+              videoThumbnail.setAttribute('src', newVideoURL);
+              videoThumbnail.load();
               
             } else{
 
@@ -135,13 +140,15 @@ function loadSearchVideo() {
           img.setAttribute('draggable', true);
 
           // Add click event listener to the image
-        img.addEventListener('click', () => {
-          const checkContentType = localStorage.getItem('imageTypeIs');
-            const getVideoId = localStorage.getItem('imageIdIs');
-            if (checkContentType === 'vid-grid'){
+          img.addEventListener('click', () => {
+
+            const checkContentType = document.getElementById('video-single-type').textContent;
+            const getVideoId = document.getElementById('video-single-id').textContent;
+            
+            if (checkContentType === 'video-fg'){
               
               const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-              const videoThumb = document.getElementById('video-thumbnail');
+              const videoThumb = document.getElementById('video-single-thumbnail');
               const videoToUpdate = document.getElementById(getVideoId);
               videoToUpdate.src = videoGrid;
               videoThumb.src = videoGrid;
@@ -155,6 +162,7 @@ function loadSearchVideo() {
               updateVideoSrc(thumbSrc, sdVideoLink);
             
             }
+
         });
  
           gridItem.appendChild(img);
@@ -214,27 +222,29 @@ function loadNextVideos() {
           img.setAttribute('draggable', true);
 
           // Add click event listener to the image
-        img.addEventListener('click', () => {
-          const checkContentType = localStorage.getItem('imageTypeIs');
-          const getVideoId = localStorage.getItem('imageIdIs');
-          if (checkContentType === 'vid-grid'){
-            
-            const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-            const videoThumb = document.getElementById('video-thumbnail');
-            const videoToUpdate = document.getElementById(getVideoId);
-            videoToUpdate.src = videoGrid;
-            videoThumb.src = videoGrid;
-            
-          } else{
+          img.addEventListener('click', () => {
 
-            const bgSrc = document.getElementById('video-src').textContent;
-            const thumbSrc = document.getElementById('video-thumbnail').id;
-            const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-            updateVideoSrc(bgSrc, sdVideoLink);
-            updateVideoSrc(thumbSrc, sdVideoLink);
-          
-          }
+            const checkContentType = document.getElementById('video-single-type').textContent;
+            const getVideoId = document.getElementById('video-single-id').textContent;
             
+            if (checkContentType === 'video-fg'){
+              
+              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
+              const videoThumb = document.getElementById('video-single-thumbnail');
+              const videoToUpdate = document.getElementById(getVideoId);
+              videoToUpdate.src = videoGrid;
+              videoThumb.src = videoGrid;
+              
+            } else{
+
+              const bgSrc = document.getElementById('video-src').textContent;
+              const thumbSrc = document.getElementById('video-thumbnail').id;
+              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
+              updateVideoSrc(bgSrc, sdVideoLink);
+              updateVideoSrc(thumbSrc, sdVideoLink);
+            
+            }
+
         });
         
           gridItem.appendChild(img);

@@ -8,5 +8,11 @@
         "id": "pexels",
         "icon": "../global/file/pexels.svg",
         "title": "Pexels"
+    },
+
+    {
+        "id": "openai",
+        "icon": "../global/file/chatgpt.svg",
+        "title": "Openai"
     }
 ]

@@ -1,4 +1,48 @@
-  
+grid-item{
+  position:relative;
+}
+button.grid-delete-item {
+  position: absolute;
+  top: 5px;
+  width: 35px;
+  height: 35px;
+  background:black;
+  padding: 9px;
+  border-radius: 50%;
+  left: 5px;
+}
+button.grid-delete-item img,
+.button-delete-item img
+{
+  filter:invert(1);
+}
+
+.button-delete-item {
+  position: absolute;
+  top: -15px;
+  width: 35px;
+  height: 35px;
+  background: black;
+  padding: 9px;
+  border-radius: 50%;
+  left: -15px;
+}
+
+img#server-addItem {
+  background:none!important;
+}
+
+  .grid-add-item {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    place-content: center;
+    display: grid;
+    padding: 0px;
+    background: #263238;
+    color: white;
+    font-size: 20px;
+}
   div#pattern-sidebar-grid {
     padding: 2%;
     display: grid;
@@ -32,7 +76,7 @@
   p.pattern-id {
     text-align: center;
     font-family: system-ui;
-    display: none!important;
+    display: initial;
     color: #c9c9c9;
     font-size: 10px;
     background: white;

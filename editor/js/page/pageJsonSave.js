@@ -21,7 +21,11 @@ function getUrlValues(name) {
       var indexHtmlRaw = item.indexHtmlRaw;
       var indexHtmlApi = item.indexHtmlApi;
       
-      var pageTitlePath = item.indexHtmlPath;
+      var pageTitlePath = item.repoName.toLowerCase() + '-' + item.indexHtmlPath.replace(".", "-").toLowerCase();
+      localStorage.setItem('pageID', pageTitlePath.toLowerCase());
+
+
+
       var pageTitleRepo = item.repoName;
 
       var base = item.base;

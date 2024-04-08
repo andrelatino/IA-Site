@@ -52,13 +52,13 @@ function githubUploadImage() {
 
         if (useOriginalSize) {
           // Use original size and add "_original" to the filename
-          fileNameWithSize = file.name.replace(/\.(jpg|jpeg|png|gif|bmp)$/i, `_original.$1`);
+          fileNameWithSize = file.name.replace(/\.(jpg|jpeg|png|gif|svg)$/i, `_original.$1`);
           tempCanvas.width = image.width;
           tempCanvas.height = image.height;
           tempCtx.drawImage(image, 0, 0, image.width, image.height);
         } else {
           // Use specified size and add the size to the filename
-          fileNameWithSize = file.name.replace(/\.(jpg|jpeg|png|gif|bmp)$/i, `_${width}x${height}.$1`);
+          fileNameWithSize = file.name.replace(/\.(jpg|jpeg|png|gif|svg)$/i, `_${width}x${height}.$1`);
           tempCanvas.width = width;
           tempCanvas.height = height;
           tempCtx.drawImage(image, 0, 0, width, height);

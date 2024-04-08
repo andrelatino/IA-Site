@@ -33,7 +33,7 @@ function openGithubImageSidebar() {
   }
 
   function loadGithubImages() {
-    const repoName = getRepoName;
+    const repoName = githubRepoName;
 
     removeAllContent();
 

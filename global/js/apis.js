@@ -102,3 +102,4 @@ if (window.location.pathname !== '/servers/' && window.location.pathname !== '/d
         document.body.appendChild(overlay);
     }
 }
+

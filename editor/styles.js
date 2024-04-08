@@ -24,10 +24,14 @@ function loadCSS(href) {
   loadCSS("./css/modals.css");
   loadCSS("./css/mobile.css");
   loadCSS("./js/tools/tools.css");
-  loadCSS("./js/chatgpt/chatgpt.css");
+  loadCSS("./js/tools/tools-page.css");
+  loadCSS("./js/tools/tools-page-js.css");
+  loadCSS("./js/ask-ia/ask_ia.css");
   loadCSS("./js/menu/menu.css");
   loadCSS("./js/video/video.css");
   loadCSS("./js/color/color.css");
   loadCSS("./js/settings/settings.css");
   loadCSS("./js/color/coloris.min.css");
   loadCSS("./js/pattern/pattern.css");
+
+  loadCSS("./js/global/singleVideos.css");

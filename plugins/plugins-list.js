@@ -2,7 +2,7 @@
 // Create a map to associate functions with plugin IDs
 const pluginFunctions = {
   "unsplash": unsplash_check_api,
-  "github": github_check_api,
+  "openai": openai_check_api,
   "pexels": pexels_check_api,
 };
 

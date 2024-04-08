@@ -1,3 +1,6 @@
+
+
+
 function toolsHtml(){
     var modalHtml = `
       <div id="toolbarModal" class="flip-card mobile-box">
@@ -38,6 +41,11 @@ function toolsHtml(){
                   <span class="tooltiptext">Bg</span>
                 </button>
 
+                <button class="image-section" onclick="showPicker()">
+                  <img src="./assets/svg/icons/image.svg">
+                  <span class="tooltiptext">Overlay</span>
+                </button>
+
                 <button class="move-down-section" onclick="moveDownSection()">
                   <img src="./assets/svg/icons/down.svg">
                   <span class="tooltiptext">Down</span>
@@ -58,15 +66,38 @@ function toolsHtml(){
                   <span class="tooltiptext">JS</span>
                 </button>
 
-                <button onclick="css_open();">
+                <button onclick="css_open('laptop','section');">
                   <img src="./assets/svg/icons/html.svg">
                   <span class="tooltiptext">CSS</span>
                 </button>
+
+                
 
                 <button onclick="section_open();">
                   <img src="./assets/svg/icons/html.svg">
                   <span class="tooltiptext">Section</span>
                 </button>
+
+                
+                <button onclick="cssEditorShow();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">Properties</span>
+                </button>
+
+                <!--
+
+                <button onclick="props_open();">
+                  <img src="./assets/svg/icons/html.svg">
+                  <span class="tooltiptext">Props</span>
+                </button>
+
+                <button onclick="ia_openModal();">
+                  <img src="./assets/svg/icons/magic.png">
+                  <span class="tooltiptext">Ask IA</span>
+                </button>
+                -->
+
+
 
               </div>
         </div>

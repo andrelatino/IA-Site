@@ -257,13 +257,13 @@ height: 50px;
 background: white;
 }
 
-.toolbar-open {
+/* .toolbar-open {
     position: absolute;
     left: 0;
     top: 0;
     height: 50px;
     width: 50px;
-}
+} */
 
 
 .section-toolbar {
@@ -330,13 +330,13 @@ div#fixed-sidebar {
     background: white;
     z-index: 99999;
 }
-/* div#admin {
+div#admin {
 display: grid;
 grid-template-columns: 1fr;
 place-content: center;
-background: #ebebeb;
+background: inherit;
 min-height: 100vh;
-} */
+}
 
 section{
 position: relative;
@@ -517,14 +517,14 @@ margin-top: -25px;
 z-index: 10;
 position: relative;
 }
-#page {
+/* #page {
     position: relative;
     transition: transform 0.5s;
     margin: 0;
     width: 100%;
     display: grid;
     place-content: start center;
-}
+} */
 p#site-title a {
     color: #9d9d9d!important;
     text-underline-position: under;
@@ -652,10 +652,10 @@ color: white;
 text-decoration: none;
 padding: 5px 10px;
 }
-.active {
+/* .active {
 outline: 10px solid blue;
 position: relative;
-}
+} */
 ul.list {
 height: 225px;
 width: 225px;

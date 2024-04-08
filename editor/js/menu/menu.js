@@ -64,14 +64,14 @@ gridWrapper.appendChild(overlay); // Append the overlay to the grid-wrapper
 
   openBtn.addEventListener('click', function() {
     popup.style.display = 'block';
-    overlay.style.display = 'block'; // Show the overlay
+    // overlay.style.display = 'block'; // Show the overlay
     openBtn.style.display = 'none';
     closeBtn.style.display = 'grid';
   });
 
   closeBtn.addEventListener('click', function() {
     popup.style.display = 'none';
-    overlay.style.display = 'none'; // Hide the overlay
+    // overlay.style.display = 'none'; // Hide the overlay
     openBtn.style.display = 'grid';
     closeBtn.style.display = 'none';
   });

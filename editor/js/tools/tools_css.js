@@ -7,36 +7,52 @@ function css_params() {
   css_editor.session.setMode("ace/mode/css"); // Cambiado de "ace/mode/js" a "ace/mode/javascript"
   css_editor.setTheme("ace/theme/twilight");
   css_editor.session.setUseWrapMode(true);
-  css_editor.setShowPrintMargin(false);
-  css_editor.setOption("useWorker", false);
-  css_editor.resize(true);
+  // css_editor.setShowPrintMargin(false);
+  css_editor.resize(false);
+  css_editor.setOptions({
+    readOnly: false,
+    autoScrollEditorIntoView:false,
+    useWorker:false,
+    // enableAutoIndent:true,
+    showPrintMargin: false,
+    maxLines: 30,
+    
+  });
 }
 css_params();
-function css_get(sectionId) {
+
+function css_get(sectionId, cssSize) {
   const section = document.getElementById(sectionId);
-  const rawHtmlElements = section.querySelectorAll('[data-type="css"]');
-  if (rawHtmlElements.length > 0) {
-    const htmlContent = rawHtmlElements[0].innerHTML;
-    css_editor.session.setValue(htmlContent); // Usa session.setValue en lugar de setValue directamente
+  const rawCssElements = section.querySelectorAll(`[data-type="css"][data-size="${cssSize}"][data-content="section"]`);
+  if (rawCssElements.length > 0) {
+    const htmlContent = rawCssElements[0].innerHTML;
+    css_editor.session.setValue(htmlContent);
   }
 }
+
 function css_update() {
+  const cssSize = document.getElementById('css_size').textContent;
+  // alert(cssSize);
   const sectionID = document.getElementById("toolbarSectionID").textContent;
   const section = document.getElementById(sectionID);
-  const rawHtmlElement = section.querySelector('[data-type="css"]');
-  if (rawHtmlElement) {
+  const rawCssElements = section.querySelector(`[data-type="css"][data-size="${cssSize}"][data-content="section"]`);
+  if (rawCssElements) {
     const newHtmlContent = css_editor.session.getValue(); // Usa session.getValue
-    rawHtmlElement.innerHTML = newHtmlContent;
+    rawCssElements.innerHTML = newHtmlContent;
     pageSaveData(); // Asume que esta función está definida en otra parte de tu código
   }
 }
-function css_open() {
+function css_open(cssSize) {
+  
+  
   overlay_open(); // Asume que esta función está definida en otra parte de tu código
   // css_params();
+  document.getElementById('css_size').textContent = cssSize;
+  document.getElementById('css_title').textContent = 'Css '+cssSize;
   document.getElementById("css_editor").style.visibility = "visible";
   const getSectionID = document.getElementById("toolbarSectionID").textContent;
-  css_get(getSectionID);
-  css_clean()
+  css_get(getSectionID, cssSize);
+  css_clean();
 }
 function css_close() {
   overlay_close(); // Asume que esta función está definida en otra parte de tu código

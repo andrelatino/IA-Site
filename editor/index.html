@@ -1,17 +1,25 @@
 <!doctype html>
 <html lang="en" id="builder">
   <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" type="text/css" href="../global/css/preloader.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
 		<link rel="stylesheet" href="https://codemirror.net/5/theme/material.css">
-		<link rel="stylesheet" href="https://codemirror.net/5/theme/material-darker.css">
+		<link rel="stylesheet" href="https://codemirror.net/5/theme/material-darker.css"> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>  
+
+      
 
   </head>
   <body>
@@ -29,13 +37,62 @@
     <script src="./styles.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" rel="stylesheet">
-    <script src="./video.js"></script>
+
+    <!-- Preconnect to the Google Fonts server -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Load the Material Symbols Outlined font with display=swap -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+    <!-- <script src="./video.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="./js/picker/picker.css">
+
+    <div id="picker-div" style="display:none;">
+      
+      <div class="picker" 
+      acp-color="#EFE9E7" 
+      acp-show-rgb="no"
+      acp-show-hsl="no"
+      acp-show-hex="yes"
+      acp-attach-to="picker-div"	
+      acp-show-alpha>
+      </div>
+      <button id="picker-close" onclick="closePicker()" class="picker-close">Close</button>
+      <p id="gridBoxTxt">Box ID</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/a-color-picker@1.1.8/dist/acolorpicker.js"></script>
+    <script src="./js/picker/picker.js"></script>
+    
+    
+    
+
+    <div id="ia-div-modal" class="ia-div-modal" style="display:none;">
+      <div id="ia-div-body">
+          <p id="ia-p-result"></p>
+      </div>
+      <div id="ia-div-footer">
+        <button id="ia-button-drag"><img src="./assets/svg/icons/drag-dots.svg"></button>
+        <input id="ia-imput-prompt" type="text" placeholder="Enter prompt..." />
+        <button id="ia-button-generate" onclick="generate()"><img src="./assets/svg/icons/arrow-right.svg"></button>
+        <button id="ia-button-stop" onclick="stop()"><img src="./assets/svg/icons/stop-circle.svg"></button>
+        <button id="ia-button-close" onclick="ia_closeModal()"><img src="./assets/svg/icons/close-circle.svg"></button>
+      </div>
+    </div>
 
 	<div id="editor-css" style="visibility:hidden;">
 		<div id="editor-css-content">
-		  <div id="editor-css-buttons" style="display:none;"><button id="editor-drag"><img src="./assets/svg/icons/drag.svg"></button><button id="all-button" onclick="loadALLCss()">PC</button><button id="m-button" onclick="loadMCss()">Tablet</button><button id="xs-button" onclick="loadXSCss()">Mobile</button><button id="editor-css-close" onclick="cssEditorClose()"><img src="./assets/svg/icons/close.svg"></button></div>
+		  <div id="editor-css-buttons" style="display:none;">
+        <button id="editor-drag"><img src="./assets/svg/icons/drag.svg"></button>
+        <button id="all-button" onclick="loadALLCss()">PC</button>
+        <button id="m-button" onclick="loadMCss()">Tablet</button>
+        <button id="xs-button" onclick="loadXSCss()">Mobile</button><button id="editor-css-close" onclick="cssEditorClose()"><img src="./assets/svg/icons/close.svg"></button></div>
 		  <div id="editor-css-inputs">
-			<p class="inputCssRules" id="inputCssRules"></p><textarea id="all-textarea" autocomplete="off"></textarea><textarea id="m-textarea" autocomplete="off"></textarea><textarea id="xs-textarea" autocomplete="off"></textarea>
+			<p class="inputCssRules" id="inputCssRules"></p>
+      <textarea id="all-textarea" autocomplete="off" style="display:none;"></textarea>
+      <textarea id="m-textarea" autocomplete="off" style="display:none;"></textarea>
+      <textarea id="xs-textarea" autocomplete="off" style="display:none;"></textarea>
 		  </div>
 		  <div class="editor-css-ids">
 			<p class="inputTitleColor" style="display:block;"><span>Section : </span><span id="sectionID-text"></span></p>
@@ -46,16 +103,83 @@
 		  	<button onclick="cssEditorClose()" class="editor-close">X</button>
 			<div id="editor-css-footer">	
 			  	<div id="editor-css-icons"> 
-					<button id="editor-btn-all" onclick="loadALLCss();"><img src="../global/file/pc.svg"></button>
-					<button id="editor-btn-m" onclick="loadMCss();"><img src="../global/file/tablet.svg"></button>
-					<button id="editor-btn-xs" onclick=" loadXSCss();"><img src="../global/file/mobile.svg"></button>
+					<button id="editor-btn-all" onclick="loadALLCss()" ><img src="../global/file/pc.svg"></button>
+					<button id="editor-btn-m" onclick="loadMCss()"><img src="../global/file/tablet.svg"></button>
+					<button id="editor-btn-xs" onclick="loadXSCss()" ><img src="../global/file/mobile.svg"></button>
 				</div>
 				<select id="editor-css-select"></select>
 			</div>
 		</div>
 	</div>
-    <div id="image-modal" style="display:none;"></div>
+
+    <div id="image-modal" style="display:none;">
+      <div id="image-container">
+  
+        <div id="image-github-buttons">
+        
+          <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
+          
+        </div>
+        <div id="image-responsive">
+          <div id="image-all">          
+              <img id="image-all-thumbnail" src="./assets/svg/icons/upload-empty.svg">           
+              <input type="text" id="image-all-input"> 
+              <button id="image-all-save" onclick="loadAllSingleImage();">SAVE (ALL)</button>
+          </div>
+          
+          <div id="image-m">
+              <img id="image-m-thumbnail" src="./assets/svg/icons/upload-empty.svg">
+              <input type="text" id="image-m-input">
+              <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
+          </div>
+          
+          <div id="image-xs">
+              <img id="image-xs-thumbnail" src="./assets/svg/icons/upload-empty.svg"> 
+              <input type="text" id="image-xs-input">
+              <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
+          </div>
+        </div>
+
+        <div id = "image-libraries">
+          <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
+            <span class="tooltiptext-right">Web</span>	
+          </button>
+          <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
+            <span class="tooltiptext-right">Media</span>
+          </button>
+          
+          
+        </div>
+        
+        <button onclick="hideImageModal(); closeImageSidebar(); closeAllImageSidebars()" class="video-close">
+              <img src="./assets/svg/icons/close.svg">
+        </button>
+        <button id="image-btn-all" onclick="imageAllSingleButton(); checkClearButton();">
+          <img src="../global/file/pc.svg">
+        </button>
+        <button id="image-btn-m" onclick="imageMButton(); checkClearButton();">
+          <img src="../global/file/tablet.svg">
+        </button>
+        <button id="image-btn-xs" onclick=" imageXsButton(); checkClearButton();">
+          <img src="../global/file/mobile.svg">
+        </button>
+
+        <button id="image-btn-m-clear" onclick=" imageClearM(); checkClearButton();">
+          <img src="../global/file/delete.svg">
+        </button>         
+        <button id="image-btn-xs-clear" onclick=" imageClearXs();">
+          <img src="../global/file/delete.svg">
+        </button>
+
+        <p id="image-single-id">ID</p>
+        <p id="image-single-type">Type</p>
+        
+    </div> 
+    </div>
+
+
     <div id="video-modal" style="display:none;"></div>
+    <div id="video-single-modal" style="display:none;"></div>
     <div id="color-modal" style="display:none;"></div>
     <div id="image-github-modal" style="visibility:hidden;">
       <div id="image-github-buttons"><button id="image-github-drag"><img src="./assets/svg/icons/drag.svg"></button></div>
@@ -89,7 +213,10 @@
           <div id="holder">
             <div id="empty-section"></div>
             <div id="grid-wrapper">
-                <div id="grid" class="grid-page" data-type="body"></div>
+                <!--GRID PAGE-->
+                <grid-page id="grid-page" class="grid-page" data-type="page">
+                  <!--GRID BODY-->
+                </grid-page>
             </div>
           </div>
         </div>
@@ -133,7 +260,13 @@
       <div id="image-github-sidebar-next-div"><button id="image-github-sidebar-next-button" onclick="loadNextPage();"> + </button></div>
     </div>
     <div id="settings-sidebar" style="visibility:hidden;">
-      <div id="settings-sidebar-header"><button class="tab-button" onclick="openTab('tab1')">PAGE</button><button class="tab-button" onclick="openTab('tab2')">GLOBAL</button><button type="submit" id="settings-sidebar-files" onclick="settingsCloseSidebar()"><img class="settings-close" src="./assets/svg/icons/close.svg"></button></div>
+      <div id="settings-sidebar-header">
+        <button class="tab-button" onclick="openTab('tab1')">PAGE</button>
+        <button class="tab-button" onclick="openTab('tab2')">GLOBAL</button>
+        <button type="submit" id="settings-sidebar-files" onclick="settingsCloseSidebar()">
+          <img class="settings-close" src="./assets/svg/icons/close.svg">
+        </button>
+      </div>
       <div class="tab-container">
         <div id="tab1" class="tab-content active">
           <div id="settings-sidebar-grid">
@@ -141,6 +274,8 @@
               <h2 class="tabs-title">Seo</h2>
               <p class="settings-subtitles">Title</p><input class="settings-input">
               <p class="settings-subtitles">Description</p><textarea class="settings-input"></textarea>
+              <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+
             </div>
             <div class="settings-fields">
               <h2 class="tabs-title">Scripts</h2>
@@ -149,7 +284,16 @@
             </div><button type="button" id="save-settings">SAVE PAGE SETTINGS</button>
           </div>
         </div>
-        <div id="tab2" class="tab-content"></div>
+        <div id="tab2" class="tab-content">
+          <button onclick="css_page_open('page-laptop.css','laptop');">
+            <img src="./assets/svg/icons/html.svg">
+            <span class="tooltiptext">Page CSS</span>
+          </button>
+          <button onclick="js_page_open('page-global.js','global');">
+            <img src="./assets/svg/icons/html.svg">
+            <span class="tooltiptext">Page JS</span>
+          </button>
+        </div>
       </div>
     </div>
     <div id="file-github-sidebar" style="bottom:-135px">
@@ -164,15 +308,7 @@
       <div id="template-github-sidebar-grid"></div>
       <div id="template-github-sidebar-next-div"><button id="template-github-sidebar-next-button" onclick="loadNextPage();"> + </button></div>
     </div>
-    <div id="text-openai-sidebar" style="bottom:-135px">
-      <div id="text-openai-sidebar-search">
-        <p id="text-openai-sidebar-search-input">ChatGPT</p><button type="submit" id="text-openai-sidebar-search-button" onclick="closeOpenaiTextSidebar();"><img src="./assets/svg/icons/close.svg"></button>
-      </div>
-      <div id="text-openai-textarea-container"><textarea id="promptInput" placeholder="How can i help you today?"></textarea><button id="text-openai-search-button" onclick="OpenaiFetchAPI()">SEND</button></div>
-      <div id="text-openai-sidebar-grid">
-        <div id="resultContainer"></div>
-      </div>
-    </div>
+   
     <div id="mobileMenu"></div>
 
     <div id="editorHtml" style="visibility:hidden;">
@@ -197,12 +333,66 @@
 
     <div id="css_editor" style="visibility:hidden;">
       <div class="css_header">
-        <div class="css_title">Css</div>
-        <button onclick="css_update()">S</button>
-        <button onclick="css_clean()">B</button>
-        <button class="css_close" onclick="css_close()">X</buton>
+        <div class="css_title"> 
+          <div id="css_title">Css</div>
+        </div>
+        <div class="css_buttons"> 
+          <button onclick="css_update()">S</button>
+          <button onclick="css_clean()">B</button>
+          <button onclick="css_open('laptop')"><img src="../global/file/pc.svg"></button>
+          <button onclick="css_open('tablet')"><img src="../global/file/tablet.svg"></button>
+          <button onclick="css_open('mobile')"><img src="../global/file/mobile.svg"></button>
+          <button class="css_close" onclick="css_close()">X</buton>
+        </div>
+        <p id="css_size">laptop</p>
       </div>
       <div id="css_code"></div>
+    </div>
+
+    <div id="css_page_editor" style="visibility:hidden;">
+      <div class="css_page_header">
+        <div class="css_page_title"> 
+          <div id="css_page_title">Css</div>
+        </div>
+        <div class="css_page_buttons"> 
+          <button onclick="css_page_update()">S</button>
+          <button onclick="css_page_clean()">B</button>
+          <button onclick="css_page_open('page-laptop.css','laptop')"><img src="../global/file/pc.svg"></button>
+          <button onclick="css_page_open('page-tablet.css','tablet')"><img src="../global/file/tablet.svg"></button>
+          <button onclick="css_page_open('page-mobile.css','mobile')"><img src="../global/file/mobile.svg"></button>
+          <button class="css_page_close" onclick="css_page_close()">X</buton>
+        </div>
+        <p id="css_page_id">page-laptop.css</p>
+        <p id="css_page_size">laptop</p>
+      </div>
+      <div id="css_page_code"></div>
+    </div>
+
+    <div id="js_page_editor" style="visibility:hidden;">
+      <div class="js_page_header">
+        <div class="js_page_title"> 
+          <div id="js_page_title">Css</div>
+        </div>
+        <div class="js_page_buttons"> 
+          <button onclick="js_page_update()">S</button>
+          <button onclick="js_page_clean()">B</button>          
+          <button class="js_page_close" onclick="js_page_close()">X</buton>
+        </div>
+        <p id="js_page_id">page-laptop.css</p>
+        <p id="js_page_size">laptop</p>
+      </div>
+      <div id="js_page_code"></div>
+    </div>
+
+
+    <div id="props_editor" style="visibility:hidden;">
+      <div class="props_header">
+        <div class="props_title">Props</div>
+        <button onclick="props_update()">S</button>
+        <button onclick="props_clean()">B</button>
+        <button class="props_close" onclick="props_close()">X</buton>
+      </div>
+      <div id="props_code"></div>
     </div>
 
     <div id="section_editor" style="visibility:hidden;">
@@ -232,15 +422,13 @@
     </div>
     <div id="overlay_overlay"></div>
     
-	<footer>
+    
+	  <footer>
       <script src="./scripts.js"></script>
       <script src="../global/js/preloader.js"></script>
-     <!-- Para formatear HTML -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>  
-
-
     </footer>
+
+    
+
   </body>
 </html>

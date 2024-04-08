@@ -74,13 +74,26 @@
 
         // Add a click event listener to the DivItems
         DivItems.addEventListener('click', function() {
-            console.log(api.sha)
-            const bgSrc = document.getElementById('video-src').textContent;
-            const thumbSrc = document.getElementById('video-thumbnail').id;
-            const sdVideoLink = api.download_url;
+         
 
-            updateVideoSrc(bgSrc, sdVideoLink);
-            updateVideoSrc(thumbSrc, sdVideoLink);
+            const checkContentType = document.getElementById('video-single-type').textContent;
+            const getVideoId = document.getElementById('video-single-id').textContent;
+            
+            if (checkContentType === 'video-fg'){
+              
+              const videoGrid = api.download_url;
+              const videoToUpdate = document.getElementById(getVideoId);
+              videoToUpdate.src = videoGrid; // Actualiza el src del elemento <video>
+              videoToUpdate.load(); // Opcional: Carga el nuevo video
+
+              const videoThumbnail = document.getElementById('video-single-thumbnail');
+              const newVideoURL = videoGrid;
+              videoThumbnail.setAttribute('src', newVideoURL);
+              videoThumbnail.load();
+              
+            }
+
+
       });
         videoGridList.appendChild(DivItems);
 

@@ -1,157 +1,89 @@
-function getImageIdOnClick() {
-  // Add a click event listener to the grid container
-  const grid = document.getElementById('grid');
-  grid.addEventListener('click', function(event) {
-    if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'img-grid') {
-      sectionSingleImage(event.target.id);
-      
-      const imgSingleID = document.getElementById('image-single-id');
-      imgSingleID.textContent = event.target.id;
+// function getImageIdOnClick() {
+//   const grid = document.getElementById('grid-body');
+//   // Asegurar que no se dupliquen los oyentes de eventos
+//   grid.removeEventListener('click', handleImageClick);
+//   grid.addEventListener('click', handleImageClick);
+// }
 
-      const imgSingleType = document.getElementById('image-single-type');
-      imgSingleType.textContent = 'img-grid';
+// function handleImageClick(event) {
+//   if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'image-fg' && event.target.id) {
+//     sectionSingleImage(event.target.id);
+//     const imgSingleID = document.getElementById('image-single-id');
+//     imgSingleID.textContent = event.target.id;
+//     const imgSingleType = document.getElementById('image-single-type');
+//     imgSingleType.textContent = 'image-fg';
+//     console.log(event.target.id);
+//   }
+// }
 
-    }
-  });
-}
+// // Asignar el manejador de eventos una vez que la ventana esté completamente cargada
+// window.onload = function() {
+//   getImageIdOnClick();
+// };
 
+// // También podrías considerar llamar getImageIdOnClick directamente si no depende críticamente de que todas las imágenes estén cargadas.
+// getImageIdOnClick();
 
-  getImageIdOnClick();
 
    
-function sectionSingleImage(image_ID) {
-    showSingleImageModal();
+// function sectionSingleImage(image_ID) {
+//     showSingleImageModal();
 
-    localStorage.setItem('imageIdIs', image_ID);
-    localStorage.setItem('imageTypeIs', 'img-grid');
-    // alert(pictureID);
-    var editorDiv = document.getElementById("image-modal");
-   
-    if (editorDiv) {
-      var content = `
-      
-      <div id="image-container">
-  
-            <div id="image-github-buttons">
-            
-              <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
-              
-            </div>
-            <div id="image-responsive">
-              <div id="image-all">          
-                  <img id="image-all-thumbnail" src="./assets/svg/icons/upload-empty.svg">           
-                  <input type="text" id="image-all-input"> 
-                  <button id="image-all-save" onclick="loadAllSingleImage();">SAVE (ALL)</button>
-              </div>
-              
-              <div id="image-m">
-                  <img id="image-m-thumbnail" src="./assets/svg/icons/upload-empty.svg">
-                  <input type="text" id="image-m-input">
-                  <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
-              </div>
-              
-              <div id="image-xs">
-                  <img id="image-xs-thumbnail" src="./assets/svg/icons/upload-empty.svg"> 
-                  <input type="text" id="image-xs-input">
-                  <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
-              </div>
-            </div>
-  
-            <div id = "image-libraries">
-              <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
-                <span class="tooltiptext-right">Web</span>	
-              </button>
-              <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
-                <span class="tooltiptext-right">Media</span>
-              </button>
-              
-              
-            </div>
-            
-            <button onclick="hideImageModal(); closeImageSidebar(); closeAllImageSidebars()" class="video-close">
-                  <img src="./assets/svg/icons/close.svg">
-            </button>
-            <button id="image-btn-all" onclick="imageAllSingleButton(); checkClearButton();">
-              <img src="../global/file/pc.svg">
-            </button>
-            <button id="image-btn-m" onclick="imageMButton(); checkClearButton();">
-              <img src="../global/file/tablet.svg">
-            </button>
-            <button id="image-btn-xs" onclick=" imageXsButton(); checkClearButton();">
-              <img src="../global/file/mobile.svg">
-            </button>
-  
-            <button id="image-btn-m-clear" onclick=" imageClearM(); checkClearButton();">
-              <img src="../global/file/delete.svg">
-            </button>         
-            <button id="image-btn-xs-clear" onclick=" imageClearXs();">
-              <img src="../global/file/delete.svg">
-            </button>
+//     localStorage.setItem('imageIdIs', image_ID);
+//     localStorage.setItem('imageTypeIs', 'image-fg');
+//     // alert(pictureID);
+//     loadAllSingleImage();
+//     imageAllSingleButton();
+//     // loadUnsplashImages();
+//     // loadGithubImages();
 
-            <p id="image-single-id">ID</p>
-            <p id="image-single-type">Type</p>
-            
-        </div> 
-   
-      `;
-      editorDiv.innerHTML = content;
-      var imageModal = document.querySelector("#image-modal");
-      imageModal.className = "mobile-box";
-      loadAllSingleImage();
-      imageAllSingleButton();
-      loadUnsplashImages();
-      loadGithubImages();
-      
-    } else {
-      console.error("Editor element not found.");
-    }
-}
+// }
   
-function showSingleImageModal() {
-    var divModal = document.getElementById("image-modal");
-    divModal.style.display = "grid";
-}
-function hideSingleImageModal() {
-    var divModal = document.getElementById("image-modal");
-    divModal.style.display = "none";
-}
+// function showSingleImageModal() {
+//     var divModal = document.getElementById("image-modal");
+//     divModal.style.display = "grid";
+// }
+// function hideSingleImageModal() {
+//     var divModal = document.getElementById("image-modal");
+//     divModal.style.display = "none";
+// }
 
-function loadAllSingleImage() {
-  const imageIdIs = localStorage.getItem('imageIdIs');
-  const imageElement = document.getElementById(imageIdIs);
-  const singleImageSrc = imageElement.getAttribute('src');
-  const showSingleImage = document.getElementById('image-all-thumbnail');
-  showSingleImage.src = singleImageSrc;
-  // showSingleImage.removeAttribute('srcset');
-}
+// function loadAllSingleImage() {
+//   const imageIdIs = localStorage.getItem('imageIdIs');
+//   const imageElement = document.getElementById(imageIdIs);
+//   const singleImageSrc = imageElement.getAttribute('src');
+//   const showSingleImage = document.getElementById('image-all-thumbnail');
+//   showSingleImage.src = singleImageSrc;
+//   // showSingleImage.removeAttribute('srcset');
+// }
 
-function imageAllSingleButton(){
+// function imageAllSingleButton(){
     
-  localStorage.setItem('imageSize','All');
-  // loadAllImage();
+//   localStorage.setItem('imageSize','All');
+//   // loadAllImage();
   
-  var imageDivAll = document.getElementById("image-all"); imageDivAll.style.visibility = "visible";
-  var imageDivM = document.getElementById("image-m"); imageDivM.style.visibility = "hidden";
-  var imageDivXs = document.getElementById("image-xs"); imageDivXs.style.visibility = "hidden";
+//   var imageDivAll = document.getElementById("image-all"); imageDivAll.style.visibility = "visible";
+//   var imageDivM = document.getElementById("image-m"); imageDivM.style.visibility = "hidden";
+//   var imageDivXs = document.getElementById("image-xs"); imageDivXs.style.visibility = "hidden";
  
   
-  var imageButtonAll = document.getElementById("image-btn-all"); 
-      imageButtonAll.style.background = "#007dec";
-  var imageButtonAllImg = document.querySelector("#image-btn-all img");
-      imageButtonAllImg.style.filter = "invert(1)";
+//   var imageButtonAll = document.getElementById("image-btn-all"); 
+//       imageButtonAll.style.background = "#007dec";
+//   var imageButtonAllImg = document.querySelector("#image-btn-all img");
+//       imageButtonAllImg.style.filter = "invert(1)";
 
-  var imageButtonM = document.getElementById("image-btn-m"); 
-      imageButtonM.style.background = "white";
-  var imageButtonMImg = document.querySelector("#image-btn-m img");
-      imageButtonMImg.style.filter = "none";
-  var imageButtonMClear = document.getElementById("image-btn-m-clear"); 
-      imageButtonMClear .style.display = "none";
+//   var imageButtonM = document.getElementById("image-btn-m"); 
+//       imageButtonM.style.background = "white";
+//   var imageButtonMImg = document.querySelector("#image-btn-m img");
+//       imageButtonMImg.style.filter = "none";
+//   var imageButtonMClear = document.getElementById("image-btn-m-clear"); 
+//       imageButtonMClear .style.display = "none";
  
-  var imageButtonXs = document.getElementById("image-btn-xs"); 
-      imageButtonXs.style.background = "white"; 
-  var imageButtonXsImg = document.querySelector("#image-btn-xs img");
-      imageButtonXsImg.style.filter = "none";
-  var imageButtonXsClear = document.getElementById("image-btn-xs-clear"); 
-      imageButtonXsClear .style.display = "none";
+//   var imageButtonXs = document.getElementById("image-btn-xs"); 
+//       imageButtonXs.style.background = "white"; 
+//   var imageButtonXsImg = document.querySelector("#image-btn-xs img");
+//       imageButtonXsImg.style.filter = "none";
+//   var imageButtonXsClear = document.getElementById("image-btn-xs-clear"); 
+//       imageButtonXsClear .style.display = "none";
 
-}
+// }

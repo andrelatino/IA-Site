@@ -192,7 +192,7 @@ function loadUnsplashImages(){
 
   function checkImageTypeAll(){
         const imageTypeIs = localStorage.getItem('imageTypeIs');
-        if (imageTypeIs === "img-grid"){
+        if (imageTypeIs === "image-fg"){
           clickAllSingleImage();
         } else if (imageTypeIs === "img-bg"){
           clickAllImage();

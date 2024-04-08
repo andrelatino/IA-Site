@@ -1,6 +1,9 @@
 
   
    function toolsOpenModal(button) {
+
+    
+
     
     // disableContentEditable();
 
@@ -10,6 +13,11 @@
     const addSectionID = section.id;
     const textID = document.getElementById('toolbarSectionID');
     textID.textContent = addSectionID;
+
+
+    const gridBoxId = getGridBoxIdFromSectionId(section.id);
+    const gridBoxTxt = document.getElementById('gridBoxTxt')
+    gridBoxTxt.textContent = gridBoxId;
 
     const addSectionIdToCss = document.getElementById('sectionID-text');
     const inputCssRules = document.getElementById('inputCssRules');
@@ -36,9 +44,23 @@
     const openModal = document.getElementById('toolbarModal');
     const overlay = document.getElementById('overlay');
     openModal.style.visibility='visible';
-    overlay.style.display = 'block'; 
+    overlay.style.display = 'none'; 
 
   }
+
+  function getGridBoxIdFromSectionId(sectionId) {
+    const section = document.querySelector(`section[id="${sectionId}"]`);
+    if (section) {
+      const gridBox = section.querySelector('grid-box');
+      if (gridBox) {
+        return gridBox.getAttribute('id');
+      }
+    }
+    return null;
+  }
+
+  
+
  
   
   function toolsCloseModal() {

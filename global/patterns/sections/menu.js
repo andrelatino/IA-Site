@@ -3,7 +3,7 @@
   function _menu() { 
     // alert('menu');
     //MAIN
-    const addSectionToGrid = document.getElementById("grid");
+    const addSectionToGrid = document.getElementById("grid-body");
     const section_id = generateRandomID(7);
     const section_css = section_id;
     //GRID
@@ -53,7 +53,7 @@
       
         <div id="${grid_id}" data-type="raw-html">
             <div id ="${logo_div_id}">
-              <img id="${logo_id}" src="https://raw.githubusercontent.com/icheff/energia.fr/main/media/images/logo-white.svg" data-type="img-grid" loading="lazy">
+              <img id="${logo_id}" src="https://raw.githubusercontent.com/icheff/energia.fr/main/media/images/logo-white.svg" data-type="image-fg" loading="lazy">
             </div>
 
             <div id ="${link_div_id}">
@@ -71,9 +71,7 @@
 
         <script id="acdfr1457" data-type="raw-js">function sayHello(){alert('hello')}</script>
 
-      <button class="toolbar-open" onclick="toolsOpenModal(this)">
-        <img src="../global/file/edit-section.svg" data-type="img-edit">
-      </button>
+      <button class="toolbar-open" onclick="toolsOpenModal(this)"></button>
   </section>
   
     `;
