@@ -152,14 +152,12 @@ function _grid_text_video() {
             <picture id="${generateRandomID(7)}">
               <source srcset media="(max-width:640px)">
               <source srcset media="(min-width:641px) and (max-width:1024px)">
-              <img id="${bg_img}" src="https://raw.githubusercontent.com/IAMEDIA360/images/main/1707848593-1.webp" data-type="img-bg" loading="lazy">
+              <img id="${bg_img}" src="https://raw.githubusercontent.com/IAMEDIA360/images/main/1707848593-1.webp" data-type="image-bg" loading="lazy">
             </picture>
           </div> 
           <!-- bg-video -->
           <div id="${bg_video_div}" data-type="bg-video" class="div-hidden">
-            <video id="${bg_video}" autoplay loop muted loading="lazy">
-              <source src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4" type="video/mp4">
-            </video>
+            <video id="${bg_video}" autoplay loop muted loading="lazy" data-type="video-bg" src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4"></video>
           </div> 
         </grid-bg>
 
@@ -175,9 +173,7 @@ function _grid_text_video() {
             </grid-item>
 
             <grid-item id="${item2_id}">
-              <video id="${item2_video}" class="grid-item"  autoplay loop muted data-type="video-fg" loading="lazy">
-                <source src="https://github.com/IAMEDIA360/videos/raw/main/1795203691-1.mp4" type="video/mp4">
-              </video>    
+              <video id="${item2_video}" class="grid-item"  autoplay loop muted data-type="video-fg" loading="lazy" src="https://github.com/IAMEDIA360/videos/raw/main/1795203691-1.mp4"></video>    
             </grid-item>
 
           </grid-box>

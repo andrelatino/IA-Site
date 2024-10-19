@@ -281,6 +281,7 @@ button#image-github-sidebar-delete {
     box-sizing: border-box;
     width: 10px;
     border-radius: 50%;
+    display: none;
 }
 button#image-github-sidebar-next-button {
     display: none;

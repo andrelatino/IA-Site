@@ -152,7 +152,10 @@ button#createRepoButton {
 }
 
 div#grid {
-    width: 100%;
+    width: auto;
     display: grid;
-    height: 100%;
+    height: auto;
+    max-width: 1024px;
+    overflow: scroll;
+    margin: 0 auto;
 }

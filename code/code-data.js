@@ -1,17 +1,10 @@
-// Initialize the CodeMirror editor
-var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-    lineWrapping: true,
-    lineNumbers: true,
-    theme: "material",
-});
-
-// Load data into the editor
+// Cargar los datos y mostrarlos en Highlight.js
 codeLoadData();
 
 async function codeLoadData() {
     const codeUrl = localStorage.getItem('codeUrl');
     const url = codeUrl;
-    const apiKey = githubApi; // Replace with your GitHub API key
+    const apiKey = githubApi; // Reemplaza con tu clave de API de GitHub
 
     const headers = new Headers({
         'Authorization': `token ${apiKey}`
@@ -27,7 +20,7 @@ async function codeLoadData() {
         const data = await response.json();
 
         if (response.ok) {
-            // UPDATE LOCAL STORAGE VALUES
+            // Actualizar los valores de localStorage
             const contenidoBase64 = data.content;
             localStorage.setItem('codeEncoded', contenidoBase64);
 
@@ -36,8 +29,12 @@ async function codeLoadData() {
 
             localStorage.setItem('codeSha', data.sha);
 
-            // Set the editor's content
-            editor.setValue(contenidoDecodificado);
+            // Mostrar el código en el elemento <code>
+            const codeElement = document.querySelector('pre code');
+            codeElement.textContent = contenidoDecodificado;
+
+            // Resaltar el código con Highlight.js
+            hljs.highlightElement(codeElement);
 
             console.log('Contenido del fichero:');
             console.log(contenidoDecodificado);
@@ -49,43 +46,7 @@ async function codeLoadData() {
     }
 }
 
-// Update data from the editor
-// function codeUpdateData(editorData) {
-//     showPreloader();
-//     const url = localStorage.getItem('codeUrl');
-//     const sha = localStorage.getItem('codeSha');
-//     const token = githubApi;
-//     const data = editorData;
-
-//     const updateData = {
-//         message: 'Update',
-//         content: btoa(data), // Encode the content in base64
-//         sha: sha, // SHA of the file previously obtained
-//     };
-
-//     return fetch(url, {
-//         method: 'PUT',
-//         headers: {
-//             Authorization: `token ${token}`,
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(updateData),
-//     })
-//         .then(response => {
-//             if (response.ok) {
-//                 console.log(response);
-//                 showSuccess();
-//             } else {
-//                 showFailure();
-//                 throw new Error(`Error al actualizar el archivo: ${response.statusText}`);
-//             }
-//         })
-//         .catch(error => {
-//             showFailure();
-//             throw new Error(`Error al actualizar el archivo: ${error.message}`);
-//         });
-// }
-
+// Actualizar los datos desde el editor (en este caso, el <code> no es editable)
 function codeUpdateData(editorData) {
     showPreloader();
     const url = localStorage.getItem('codeUrl');
@@ -95,8 +56,8 @@ function codeUpdateData(editorData) {
 
     const updateData = {
         message: 'Update',
-        content: btoa(data), // Encode the content in base64
-        sha: sha, // SHA of the file previously obtained
+        content: btoa(data), // Codificar el contenido en base64
+        sha: sha, // SHA del archivo obtenido previamente
     };
 
     return fetch(url, {
@@ -127,9 +88,10 @@ function codeUpdateData(editorData) {
     });
 }
 
-
+// Guardar los datos desde el área de código
 document.getElementById('editor-save').addEventListener('click', function () {
-    const editorValue = editor.getValue();
+    // Extraer el valor del código (el código no es editable en este caso)
+    const editorValue = document.querySelector('pre code').textContent;
     console.log('editorValue: ' + editorValue);
     codeUpdateData(editorValue);
 });

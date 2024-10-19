@@ -66,6 +66,8 @@ function updateMImage() {
 }
 
 function updateAllImage() {
+
+    console.log('updateAllImage()');
     
     const imageID = localStorage.getItem('imageID');
     const updateImage = document.getElementById(imageID);

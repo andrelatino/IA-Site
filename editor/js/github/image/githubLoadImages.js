@@ -33,6 +33,8 @@ function openGithubImageSidebar() {
   }
 
   function loadGithubImages() {
+    console.log('loadGithubImages()');
+
     const repoName = githubRepoName;
 
     removeAllContent();
@@ -95,7 +97,7 @@ function openGithubImageSidebar() {
         DivItems.id = api.sha;
         DivItems.className = 'image-github-sidebar-items';
         DivItems.innerHTML = `
-          <img src="${imageThumbnail}" loading="lazy" class="thumbnail" onclick="githubImageCheckSize('${imageThumbnail}')">          
+          <img src="${imageThumbnail}" loading="lazy" class="thumbnail" onclick="imageClickGithub('${imageThumbnail}')">          
           <div class="image-github-item">  
             <p class="image-github-sidebar-url">${api.name}</p>
             <p class="image-github-sidebar-dimension">${sizeText}</p>
@@ -110,6 +112,8 @@ function openGithubImageSidebar() {
       }
     });
 }
+
+loadGithubImages();
 
 function getImageSize(imageUrl, callback) {
   var image = new Image();
@@ -192,37 +196,28 @@ function removeAllContent() {
 }
 
 
-function githubImageCheckSize(imageURL){
+function imageClickGithub(imageURL){
   console.log("Clicked image URL:", imageURL);
-//     document.getElementById("image-all-input").value = imageThumbnail;
-  const getImageSize = localStorage.getItem('imageSize');
-  if (getImageSize !== null) {
-    // Remove any leading or trailing white spaces from the retrieved value
-    const imageSize = getImageSize.trim();
-    // Check the value against different image size options
-    if (imageSize === 'All') {
-      document.getElementById("image-all-input").value = imageURL;
-      clickAllSingleImage();
-    } else if (imageSize === 'Xl') {
-      document.getElementById("image-xl-input").value = imageURL;
-      clickXlImage()
-    } else if (imageSize === 'L') {
-      document.getElementById("image-l-input").value = imageURL;
-      clickLImage()
-    } else if (imageSize === 'M') {
-      document.getElementById("image-m-input").value = imageURL;
-      clickMImage()
-    } else if (imageSize === 'S') {
-      document.getElementById("image-s-input").value = imageURL;
-      clickSImage()
-    } else if (imageSize === 'Xs') {
-      document.getElementById("image-xs-input").value = imageURL;
-      clickXsImage();
-    } else {
-      console.log("Invalid image size:", imageSize);
-    }
-  } else {
-    console.log("No data found in local storage for 'imageSize'.");
-    // Handle the case where no data is found in local storage.
+  image_FG_Update(imageURL);
+
+
+}
+
+function checkImageTypeAll(){
+  const imageTypeIs = localStorage.getItem('imageTypeIs');
+  if (imageTypeIs === "image-fg"){
+    clickAllSingleImage();
+  } else if (imageTypeIs === "img-bg"){
+    clickAllImage();
   }
+
+}
+
+function checkImageTypeXs(){
+const imgSingleType = document.getElementById('image-single-type').textContent;
+if (imgSingleType === "img-grid"){
+clickXsSingleImage();
+} else {
+clickXsImage();
+}
 }

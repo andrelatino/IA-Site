@@ -1,6 +1,7 @@
 
 
   function loadGithubVideos() {
+    // alert('loadGithubVideos');
 
     removeAllVideoItems();
 
@@ -75,23 +76,25 @@
         // Add a click event listener to the DivItems
         DivItems.addEventListener('click', function() {
          
-
-            const checkContentType = document.getElementById('video-single-type').textContent;
-            const getVideoId = document.getElementById('video-single-id').textContent;
             
-            if (checkContentType === 'video-fg'){
+            // const checkContentType = document.getElementById('video-single-type').textContent;
+            // const getVideoId = document.getElementById('video-single-id').textContent;
+            
+            // if (checkContentType === 'video-fg'){
               
-              const videoGrid = api.download_url;
-              const videoToUpdate = document.getElementById(getVideoId);
-              videoToUpdate.src = videoGrid; // Actualiza el src del elemento <video>
-              videoToUpdate.load(); // Opcional: Carga el nuevo video
+            //   const videoGrid = api.download_url;
+            //   const videoToUpdate = document.getElementById(getVideoId);
+            //   videoToUpdate.src = videoGrid; // Actualiza el src del elemento <video>
+            //   videoToUpdate.load(); // Opcional: Carga el nuevo video
 
-              const videoThumbnail = document.getElementById('video-single-thumbnail');
-              const newVideoURL = videoGrid;
-              videoThumbnail.setAttribute('src', newVideoURL);
-              videoThumbnail.load();
+            //   const videoThumbnail = document.getElementById('video-single-thumbnail');
+            //   const newVideoURL = videoGrid;
+            //   videoThumbnail.setAttribute('src', newVideoURL);
+            //   videoThumbnail.load();
               
-            }
+            // }
+
+            video_FG_Update(api.download_url);
 
 
       });
@@ -103,7 +106,7 @@
     
     });
 }
-
+loadGithubVideos();
 
 // async function deleteFile(videoSha , videoPath) {
 //   const url = videoPath;

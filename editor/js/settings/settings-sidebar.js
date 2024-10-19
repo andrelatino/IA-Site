@@ -180,11 +180,25 @@ for (let i = 0; i < noExport.length; i++) {
 
 let checkPageIs = localStorage.getItem('pageIs');
 let html;
+let headerJS;
+let headerJSON;
+let footerJS;
+let footerJSON;
 
-if (checkPageIs === '.widget') {
-  html = `${bodyContent.innerHTML}`;
-} else {
-  
+if (checkPageIs === '.home') {
+  console.log('is home');
+  styleCSS = './scripts/styles.css';
+  headerJS = './scripts/header.js';
+  headerJSON = './scripts/header.json';
+  footerJS = './scripts/footer.js';
+} else if(checkPageIs === '.page'){
+  console.log('is page');
+  styleCSS = '../scripts/styles.css';
+  headerJS = '../scripts/header.js';
+  headerJSON = '../scripts/header.json';
+  footerJS = '../scripts/footer.js';
+} 
+
   html = `
   <!DOCTYPE html>
   <html lang="fr">
@@ -192,8 +206,7 @@ if (checkPageIs === '.widget') {
   <head>
   <!-- Reset CSS -->
   <style>html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0;-webkit-font-smoothing:antialiased;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}ul{list-style:none;}button,input,select{margin:0;}html{box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}img,video{height:auto;max-width:100%;}iframe{border:0;}table{border-collapse:collapse;border-spacing:0;}td,th{padding:0;}a{text-decoration:none;}a:hover{text-decoration:underline;}</style>
-  <link rel="stylesheet" type="text/css" href="./scripts/styles.css">
-  <div id="header"></div>
+  <link rel="stylesheet" type="text/css" href=${styleCSS}>
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -201,29 +214,22 @@ if (checkPageIs === '.widget') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Load the Material Symbols Outlined font with display=swap -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
-    <!-- <script src="./video.js"></script> -->
-  <script src="./scripts/header.js"></script>
-  <script src="./scripts/analytics.js"></script>
   </head>
   <!-- Body -->
   <body>
   <grid-page id="grid" class="grid-page" data-type="body">
-  ${headerScripts}
+  <div id="header"></div>
+  <script src=${headerJS}></script>
   ${bodyContent.innerHTML}
+  <div id="footer-menu"></div>
   </grid-page>
-  </body>
-  <!-- Footer -->
-  <footer>
   <div id="sidebar"></div>
   <div id="footer"></div>
-  <script async src="./scripts/scripts.js"></script>
-  <script async src="./scripts/sidebar.js"></script>
-  <script async src="./scripts/footer.js"></script>
-  ${footerScripts}
-  </footer>
+  <script src=${footerJS}></script>
+  </body>
   </html>
   `;
-}
+
 
 console.log(html);
 return html;

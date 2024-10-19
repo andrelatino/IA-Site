@@ -142,10 +142,18 @@ button#createRepoButton {
 button.nav-style.close-editor-btn img {
     transform: rotate(45deg);
 }
-
+.ai-title button {
+    width: 100%;
+    background: #efefef;
+}
+.ai-title button img {
+    width: 100%;
+    max-width: 20px;
+    background: #efefef;
+}
 .nav-style {
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     right: 27px;
     padding: 7px;
     border-radius: 50%;
@@ -156,15 +164,32 @@ button.nav-style.close-editor-btn img {
     border: none;
     border: 3px solid white;
 }
+div#popup img {
+    object-fit: contain;
+    height: 22px!important;
+    width: 22px!important;
+}
+ai-ask {
+    display: grid;
+    grid-template-columns: 1fr 70px;
+    overflow: hidden;
+    height: 40px;
+}
+#promptInput {
+    height: 40px;
+    border:none!important;
+    border-radius: 0;
+    padding: 10px;
+}
 .navigation {
     display: grid;
     background: white;
-    grid-template-columns: 30px 1fr;
-    padding: 15px;
+    grid-template-columns: 1fr;
+    padding: 0px;
     align-items: center;
     text-align: left;
     gap: 5px;
-    height: 80px;
+    height:50px;
 }
 span.editor-items {
     font-size: 1rem;
@@ -206,12 +231,12 @@ div#popup {
     display: grid;
     grid-gap: 1px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     overflow: hidden;
     z-index: 99;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
     left: 50%;
-    bottom: 70px;
+    bottom: 90px;
     transform: translateX(-50%);
     text-align: center;
 }

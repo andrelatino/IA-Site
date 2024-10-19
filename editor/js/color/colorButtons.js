@@ -6,7 +6,7 @@ function solidColorButton(){
 
     const solidGetBgId = document.getElementById('solid-bg-id');
     const solidBgId = solidGetBgId.textContent;
-
+    
     const solidSelectBG = document.getElementById(solidBgId);
     const solidGetStyle = window.getComputedStyle(solidSelectBG); // Get the computed solidGetStyles
     const solidBgColorIs = solidGetStyle.backgroundColor; // Get the background color
@@ -29,7 +29,6 @@ function solidColorButton(){
     const linearColorButton = document.getElementById('linear-color-btn');
     linearColorButton.style.textDecoration = 'none';
     linearColorButton.style.textUnderlinePosition = 'none';
-
     
 
     console.log('solidBgId: '+solidBgId);

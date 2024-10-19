@@ -1,92 +1,92 @@
-function videoSingleHtml() {
-  var editorDiv = document.getElementById("video-single-modal");
-  if (editorDiv) {
-    var content = `
+// function videoSingleHtml() {
+//   var editorDiv = document.getElementById("video-single-modal");
+//   if (editorDiv) {
+//     var content = `
     
-    <div id="video-single-container">
-        <div id="video-single-all">
-          <video id="video-single-thumbnail" autoplay="" loop="" muted="">
-            <source src="" type="video/mp4">
-          </video>
-          <input type="text" id="video-single-all-input">
-          <button id="video-single-all-save" onclick="updateAllVideo();">SAVE (ALL)</button>
-        </div>
+//     <div id="video-single-container">
+//         <div id="video-single-all">
+//           <video id="video-single-thumbnail" autoplay="" loop="" muted="">
+//             <source src="" type="video/mp4">
+//           </video>
+//           <input type="text" id="video-single-all-input">
+//           <button id="video-single-all-save" onclick="updateAllVideo();">SAVE (ALL)</button>
+//         </div>
 
-        <div id="video-single-libraries">
-          <button id="videoWebSidebar" onclick="openWebVideos()">
-            <span class="tooltiptext-right">Web</span>
-          </button>
-          <button id="videoMediaSidebar" onclick="openMediaVideos()">
-            <span class="tooltiptext-right">Media</span>
-          </button>
-        </div>
+//         <div id="video-single-libraries">
+//           <button id="videoWebSidebar" onclick="openWebVideos()">
+//             <span class="tooltiptext-right">Web</span>
+//           </button>
+//           <button id="videoMediaSidebar" onclick="openMediaVideos()">
+//             <span class="tooltiptext-right">Media</span>
+//           </button>
+//         </div>
     
-        <button onclick="hideVideoSingleModal(); closeVideoSidebars()" class="video-single-close">
-          <img src="./assets/svg/icons/close.svg">
-        </button>
+//         <button onclick="hideVideoSingleModal(); closeVideoSidebars()" class="video-single-close">
+//           <img src="./assets/svg/icons/close.svg">
+//         </button>
 
-        <p id="video-single-id">ID</p>
-        <p id="video-single-type">Type</p>
-        <p id="video-single-url">URL</p>
+//         <p id="video-single-id">ID</p>
+//         <p id="video-single-type">Type</p>
+//         <p id="video-single-url">URL</p>
 
-    </div>
-    `;
+//     </div>
+//     `;
     
-    editorDiv.innerHTML = content;
+//     editorDiv.innerHTML = content;
 
     
-  } else {
-    console.error("Editor element not found.");
-  }
-}
-videoSingleHtml();
+//   } else {
+//     console.error("Editor element not found.");
+//   }
+// }
+// videoSingleHtml();
 
-function getVideoIdOnClick() {
+// function getVideoIdOnClick() {
   
-  const grid = document.getElementById('grid-body');
-  grid.addEventListener('click', function(event) {
-    if (event.target.tagName === 'VIDEO' && event.target.getAttribute('data-type') === 'video-fg') {
-      const videoId = event.target.id;
-      const videoUrl = event.target.src;
+//   const grid = document.getElementById('grid-body');
+//   grid.addEventListener('click', function(event) {
+//     if (event.target.tagName === 'VIDEO' && event.target.getAttribute('data-type') === 'video-fg') {
+//       const videoId = event.target.id;
+//       const videoUrl = event.target.src;
 
-      const vidSingleID = document.getElementById('video-single-id');
-      vidSingleID.textContent = videoId;
+//       const vidSingleID = document.getElementById('video-single-id');
+//       vidSingleID.textContent = videoId;
 
-      const vidSingleType = document.getElementById('video-single-type');
-      vidSingleType.textContent = 'video-fg';
+//       const vidSingleType = document.getElementById('video-single-type');
+//       vidSingleType.textContent = 'video-fg';
 
-      const vidSingleUrl = document.getElementById('video-single-url');
-      vidSingleUrl.textContent = videoUrl;
+//       const vidSingleUrl = document.getElementById('video-single-url');
+//       vidSingleUrl.textContent = videoUrl;
 
-      const videoThumbnail = document.getElementById('video-single-thumbnail');
-      const newVideoURL = videoUrl;
-      videoThumbnail.setAttribute('src', newVideoURL);
-      videoThumbnail.load();
-      loadDefaultVideo();
-      loadGithubVideos();
+//       const videoThumbnail = document.getElementById('video-single-thumbnail');
+//       const newVideoURL = videoUrl;
+//       videoThumbnail.setAttribute('src', newVideoURL);
+//       videoThumbnail.load();
+//       loadDefaultVideo();
+//       loadGithubVideos();
       
-      localStorage.setItem('videoTypeIs','video-fg');
-      localStorage.setItem('videoIdIs',videoId);
-      localStorage.setItem('videoUrlIs',videoUrl);
+//       localStorage.setItem('videoTypeIs','video-fg');
+//       localStorage.setItem('videoIdIs',videoId);
+//       localStorage.setItem('videoUrlIs',videoUrl);
 
 
-      showVideoSingleModal();
+//       showVideoSingleModal();
 
-    }
-  });
-}
+//     }
+//   });
+// }
 
-document.addEventListener('load', function() {getVideoIdOnClick();});
-getVideoIdOnClick();
+// document.addEventListener('load', function() {getVideoIdOnClick();});
+// getVideoIdOnClick();
 
-  function showVideoSingleModal() {
-    var divModal = document.getElementById("video-single-modal");
-    divModal.style.display = "grid";
-  }
-  function hideVideoSingleModal() {
-    var divModal = document.getElementById("video-single-modal");
-    divModal.style.display = "none";
-  }
+//   function showVideoSingleModal() {
+//     var divModal = document.getElementById("video-single-modal");
+//     divModal.style.display = "grid";
+//   }
+//   function hideVideoSingleModal() {
+//     var divModal = document.getElementById("video-single-modal");
+//     divModal.style.display = "none";
+//   }
 
 //   function getVideoUrl() {
     

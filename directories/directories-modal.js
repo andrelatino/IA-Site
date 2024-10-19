@@ -12,7 +12,7 @@
           </div>
           <div class="sites-directoriesModal-content">
          
-            <select id="selectDirOrFile" style="display:none;>
+            <select id="selectDirOrFile">
               
               <option value="Page">Page</option>
               

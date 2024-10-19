@@ -1,24 +1,3 @@
-window.addEventListener('beforeunload', function(event) {
-  // This is primarily for cases where there's a risk of data loss.
-  var confirmationMessage = 'Are you sure you want to leave this page?';
-  
-  // Cross-browser compatibility: Show a standard confirmation dialog.
-  event.returnValue = confirmationMessage; // This is required for some browsers.
-});
-
-// Separate logic for explicitly asking the user to reload the page
-function askToReloadPage() {
-  // Use confirm to ask the user if they want to reload the page
-  var userResponse = confirm("Do you want to reload the page?");
-  
-  // Check if the user clicked "OK"
-  if (userResponse) {
-      // Force a reload of the page from the server, ignoring the cache
-      window.location.reload(true);
-  }
-}
-
-
 
 function loadScript(src) {
   var script = document.createElement('script');
@@ -27,12 +6,35 @@ function loadScript(src) {
 }
 
 window.addEventListener('load', function() {
+
+loadScript("./js/page/pageIndexJson.js");
+
+loadScript("./js/color-picker/color-picker.js");
+
+loadScript("./js/image-fg/image-fg-click.js");
+loadScript("./js/image-bg/image-bg-click.js");
+loadScript("./js/image-fg/image-fg-update.js");
+
+
+loadScript("./js/video-fg/video-fg-click.js");
+loadScript("./js/video-bg/video-bg-click.js");
+loadScript("./js/video-fg/video-fg-update.js");
+
+loadScript("./js/link/link-click.js");
+
 loadScript("../global/js/apis.js");
 loadScript("../global/patterns/patterns.js");
 loadScript("../global/patterns/items/items200x200.js");
+loadScript("../global/patterns/items/products175x100.js");
 loadScript("../global/patterns/items/itemsCercle.js");
 loadScript("../global/patterns/items/itemsButtons.js");
+loadScript("../global/patterns/items/itemsLinks.js");
 loadScript("../global/patterns/items/itemsIcons.js");
+//GRID AND FLEX
+loadScript("../global/patterns/items/flexItems.js");
+loadScript("../global/patterns/flex/flex-padding.js");
+
+loadScript("../global/patterns/items/gridItems.js");
 
 loadScript("./js/page/pageLoadFonts.js");
 
@@ -50,7 +52,7 @@ loadScript("./js/page/pageSaveAdmin.js");
 loadScript("./js/page/pageResize.js");
 loadScript("./js/page/pagePublishModal.js");
 loadScript("./js/page/pageBuilderSave.js");
-loadScript("./js/menu/menu.js");
+// loadScript("./js/menu/menu.js");
 loadScript("./js/settings/settings-modal.js");
 loadScript("./js/settings/settings-sidebar.js");
 loadScript("./js/dragElements.js");
@@ -97,24 +99,33 @@ loadScript("./js/editor-css/editor-css-select.js");
 loadScript("./js/ask-ia/ask_ia_modal.js");
 loadScript("./js/ask-ia/ask_ia_api.js");
 // loadScript("./js/global/intObserver.js");
-loadScript("./js/image/imageAlt.js");
+
+//UNSPLASH
+// loadScript("./js/image/imageAlt.js");
 loadScript("./js/image/imageModal.js");
 loadScript("./js/image/imageSearch.js");
-loadScript("./js/image/imageButtons.js");
+// loadScript("./js/image/imageButtons.js");
 loadScript("./js/image/imageUpdate.js");
 loadScript("./js/image/imageLoad.js");
 loadScript("./js/image/imageClick.js");
 loadScript("./js/image/imageClear.js");
+
 loadScript("./js/global/singleImages.js");
 
-loadScript("./js/color/coloris.min.js");
-loadScript("./js/color/colorHtml.js");
-loadScript("./js/color/colorSearch.js");
-loadScript("./js/color/colorBgIds.js");
-loadScript("./js/color/colorDefault.js");
-loadScript("./js/color/colorButtons.js");
-loadScript("./js/color/colorSolid.js");
-loadScript("./js/color/colorRadial.js");
-loadScript("./js/color/colorLinear.js");
+
+
+// loadScript("./js/color/coloris.min.js");
+// loadScript("./js/color/colorHtml.js");
+// loadScript("./js/color/colorSearch.js");
+// loadScript("./js/color/colorBgIds.js");
+// loadScript("./js/color/colorDefault.js");
+// loadScript("./js/color/colorButtons.js");
+// loadScript("./js/color/colorSolid.js");
+// loadScript("./js/color/colorRadial.js");
+// loadScript("./js/color/colorLinear.js");
+
+loadScript("./js/responsive/responsive.js");
+
+
 
 });

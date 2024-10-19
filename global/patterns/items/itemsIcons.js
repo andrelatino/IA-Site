@@ -21,7 +21,7 @@ function itemsIcons(gridBoxId, addButtonId, iconName) {
         <item-body id="${generateRandomID(7)}">
           <item-desc id="${generateRandomID(7)}" contenteditable="true">Lorem</item-title>
         </item-body>
-        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')"><img src="./assets/svg/icons/delete.svg"></button>
+        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')">-</button>
       </grid-item>
     `;
 

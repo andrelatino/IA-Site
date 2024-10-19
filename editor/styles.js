@@ -5,13 +5,19 @@ function loadCSS(href) {
     document.head.appendChild(link);
 }
   // Usage
+
+  loadCSS("../global/grid/css/grid-admin.css");
+  loadCSS("../global/grid/css/grid-web.css");
   
   loadCSS("../global/patterns/patterns.css");
   loadCSS("style.css");
   loadCSS("./css/editor.css");
+  loadCSS("./js/quickbars/quickbars.css");
   loadCSS("./js/editor-css/editor-css-styles.css");
   loadCSS("./css/toogle.css");
   loadCSS("./css/image.css");
+  loadCSS("./js/image-fg/image-fg.css");
+  loadCSS("./js/video-fg/video-fg.css");
   loadCSS("./css/color.css");
   loadCSS("./css/image-github.css");
   loadCSS("./css/template-github.css");
@@ -35,3 +41,7 @@ function loadCSS(href) {
   loadCSS("./js/pattern/pattern.css");
 
   loadCSS("./js/global/singleVideos.css");
+
+  loadCSS("./js/link/link-modal.css");
+
+  loadCSS("./js/color-picker/color-picker.css");

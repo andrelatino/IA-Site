@@ -71,7 +71,7 @@
             // const filesToExclude = ["README.md", "settings.json", "index.json"];
             const filesToExclude = 
             [
-                ".widget","index.json",".scripts","footer.js","header.js","sidebar.js","settings.json",
+                ".widget","index.json",".scripts","sidebar.js","settings.json",
             ];
             const filteredData = data.filter(api => !filesToExclude.includes(api.name));
 

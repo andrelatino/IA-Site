@@ -1,3 +1,4 @@
+
 var githubApi = localStorage.getItem('githubApi');
 var pageUrl = localStorage.getItem('pageUrl');
 
@@ -33,9 +34,17 @@ async function pageLoadData() {
 
         const data = await response.json();
         processGitHubResponse(data);
+        
         loadStylesToGrid();
-        getImageIdOnClick();
-        // loadScriptToGrid();
+        loadScriptToGrid();
+        
+        image_FG_Click();
+        video_FG_Click();
+
+        
+        
+        
+        
         
     } catch (error) {
         console.error('Error de red:', error);
@@ -57,6 +66,8 @@ function processGitHubResponse(data) {
     }
 
     console.log('Contenido del fichero:', decodedContent);
+    
+    
 }
 
 //UPDATE DATA
@@ -66,9 +77,16 @@ async function pageUpdateData(content) {
     const sha = localStorage.getItem('pageSha');
     const token = githubApi;
 
+    // Convertimos el contenido a base64 manejando UTF-8
+    function utf8ToBase64(str) {
+        let utf8Bytes = new TextEncoder().encode(str);
+        let base64String = btoa(String.fromCharCode(...utf8Bytes));
+        return base64String;
+    }
+
     const updateData = {
         message: 'Update',
-        content: btoa(content),
+        content: utf8ToBase64(content),  // Usamos la función utf8ToBase64 aquí
         sha: sha,
     };
 
@@ -91,11 +109,13 @@ async function pageUpdateData(content) {
         updateLocalStorage('pageSha', jsonResponse.content.sha);
         showSuccess();
         
+
     } catch (error) {
         showFailure();
         console.error('Error al actualizar el archivo:', error);
     }
 }
+
 
 // Simplificación de la creación y guardado de datos
 // Function to retrieve HTML content of 'grid-wrapper' and trim it for storage or processing
@@ -109,6 +129,7 @@ function pageCreateJson() {
 function pageSaveData() {
     const newJsonContent = pageCreateJson();
     pageUpdateData(newJsonContent); // Assuming pageUpdateData is correctly defined to handle updates
+    console.log (newJsonContent);
 }
 
 
@@ -223,59 +244,63 @@ function loadStylesToGrid() {
 document.addEventListener("DOMContentLoaded", loadStylesToGrid);
 
 
+function loadScriptToGrid() {
+    const gridPage = document.getElementById("grid-page");
 
+    function createScriptIfNeeded(id, jsContent) {
+        // Buscar el script por ID
+        let existingScript = document.getElementById(id);
+        
+        // Si el script ya existe, no hacer nada
+        if (existingScript) {
+            console.log("El script con ID '" + id + "' ya existe y no será duplicado.");
+            return;
+        }
+        
+        // Crear y configurar el nuevo script
+        const scriptElement = document.createElement("script");
+        scriptElement.id = id;
+        scriptElement.type = "text/javascript";
+        scriptElement.setAttribute("data-type", "js");
+        scriptElement.textContent = jsContent;
 
-// Llamar a la función cuando el DOM esté completamente cargado
-// document.addEventListener("DOMContentLoaded", loadScriptToGrid);
-
-
-function getImageIdOnClick() {
-    const grid = document.getElementById('grid-body');
-    // Asegurar que no se dupliquen los oyentes de eventos
-    grid.removeEventListener('click', handleImageClick);
-    grid.addEventListener('click', handleImageClick);
-  }
-  
-  function handleImageClick(event) {
-    if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'image-fg' && event.target.id) {
-      sectionSingleImage(event.target.id);
-      const imgSingleID = document.getElementById('image-single-id');
-      imgSingleID.textContent = event.target.id;
-      const imgSingleType = document.getElementById('image-single-type');
-      imgSingleType.textContent = 'image-fg';
-      console.log(event.target.id);
+        // Insertar el script en la posición deseada (al final si no se especifica posición)
+        gridPage.appendChild(scriptElement);
     }
-  }
-  
-  // Asignar el manejador de eventos una vez que la ventana esté completamente cargada
-  document.addEventListener('DOMContentLoaded', function() {
-    getImageIdOnClick();
+
+    // Contenido JavaScript para el script global
+    const globalJS = ``;
+
+    // Crear o reutilizar el script global
+    createScriptIfNeeded("page-global.js", globalJS);
+}
+
+// Ejecutar la función cuando el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", function() {
+    loadScriptToGrid();
 });
-  
-  // También podrías considerar llamar getImageIdOnClick directamente si no depende críticamente de que todas las imágenes estén cargadas.
-//   getImageIdOnClick();
-  
-  
+
+
      
   function sectionSingleImage(image_ID) {
-      showSingleImageModal();
+      show_Image_Modal();
   
       localStorage.setItem('imageIdIs', image_ID);
       localStorage.setItem('imageTypeIs', 'image-fg');
       // alert(pictureID);
       loadAllSingleImage();
       imageAllSingleButton();
-      loadUnsplashImages();
-      loadGithubImages();
+    //   loadUnsplashImages();
+    //   loadGithubImages();
   
   }
     
-  function showSingleImageModal() {
-      var divModal = document.getElementById("image-modal");
+  function show_Image_Modal() {
+      var divModal = document.getElementById("image-fg-modal");
       divModal.style.display = "grid";
   }
-  function hideSingleImageModal() {
-      var divModal = document.getElementById("image-modal");
+  function hide_FG_Modal() {
+      var divModal = document.getElementById("image-fg-modal");
       divModal.style.display = "none";
   }
   
@@ -319,35 +344,35 @@ function getImageIdOnClick() {
   
   }
   
+  
 
+// (function() {
+//     function modifyLinkUrl(link) {
+//         // Obtener la URL actual del atributo href del enlace
+//         const currentUrl = link.getAttribute('href');
 
-(function() {
-    function modifyLinkUrl(link) {
-        // Obtener la URL actual del atributo href del enlace
-        const currentUrl = link.getAttribute('href');
+//         // Solicitar nueva URL del enlace
+//         const newUrl = prompt(`Link ID ${link.id}:`, currentUrl);
+//         if (newUrl !== null) {
+//             link.setAttribute('href', newUrl);
+//         }
+//     }
 
-        // Solicitar nueva URL del enlace
-        const newUrl = prompt(`Link ID ${link.id}:`, currentUrl);
-        if (newUrl !== null) {
-            link.setAttribute('href', newUrl);
-        }
-    }
+//     function initializeLinkEditing() {
+//         document.addEventListener("dblclick", function(event) {
+//             const link = event.target.closest("a");
+//             if (link) {
+//                 event.preventDefault();
+//                 modifyLinkUrl(link);
+//             }
+//         });
+//     }
 
-    function initializeLinkEditing() {
-        document.addEventListener("dblclick", function(event) {
-            const link = event.target.closest("a");
-            if (link) {
-                event.preventDefault();
-                modifyLinkUrl(link);
-            }
-        });
-    }
+//     document.addEventListener("DOMContentLoaded", function() {
+//         initializeLinkEditing();
+//     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        initializeLinkEditing();
-    });
-
-})();
+// })();
 
 (function() {
     function modifySpanText(span) {

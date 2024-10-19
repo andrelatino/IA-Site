@@ -18,6 +18,7 @@ function ia_openModal() {
   // hideToolbar.style.visibility="hidden";
 }
 
+
 function ia_closeModal(){
   localStorage.removeItem('sectionHtml');
   const closeChatModal = document.getElementById('ia-div-modal');

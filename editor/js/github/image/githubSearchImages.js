@@ -1,4 +1,5 @@
-
+// loadUnsplashImages();
+// loadGithubImages();
 function getRepoNameFromUrlParam(name) {
   const repoParams = new URLSearchParams(window.location.search);
   const repoEncoded = repoParams.get(name);
@@ -67,7 +68,7 @@ function githubImageSearchEnter(event) {
 
                         DivItems.innerHTML = `
                         
-                        <img src="${image.download_url}" loading="lazy" class="thumbnail" onclick="githubImageCheckSize('${image.download_url}')">
+                        <img src="${image.download_url}" loading="lazy" class="thumbnail" onclick="imageClickGithub('${image.download_url}')">
                         <div class="image-github-item">  
                             <p class="image-github-sidebar-url">${image.name}</p>
                             <p class="image-github-sidebar-dimension">${sizeText}</p>

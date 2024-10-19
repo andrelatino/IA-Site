@@ -4,7 +4,7 @@ function radialColorBgIsSelected() {
     const getColorID = document.getElementById('color-id').textContent;
     const parentDiv = document.getElementById(getColorID);
     if (parentDiv) {
-      const radialColorDiv = parentDiv.querySelector('[data-type="radial-color"]');
+      const radialColorDiv = parentDiv.querySelector('[data-type="grid-radial-color"]');
       if (radialColorDiv) {
         radialColorDiv.classList.remove("div-hidden");
         radialColorDiv.classList.add("div-visible");
@@ -22,7 +22,7 @@ function radialColorBgIsSelected() {
   function radialColorThumbIsSelected() {
     const parentDiv = document.getElementById('color-modal-box');
     if (parentDiv) {
-      const radialColorDiv = parentDiv.querySelector('[data-type="radial-color"]');
+      const radialColorDiv = parentDiv.querySelector('[data-type="grid-radial-color"]');
       if (radialColorDiv) {
         radialColorDiv.classList.remove("div-hidden");
         radialColorDiv.classList.add("div-visible");

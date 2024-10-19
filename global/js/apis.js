@@ -4,8 +4,8 @@ var githubRepoName = localStorage.getItem('githubRepoName');
 var githubUser = localStorage.getItem('githubUser');
 var githubApi = localStorage.getItem('githubApi');
 var githubEmail = localStorage.getItem('githubEmail');
-
-
+var iconAssistant= '../global/file/assistant.svg';
+var iconShortcuts= '../global/file/shortcuts.svg';
 
 console.log ('-----------------------Github')
 console.log("githubBaseUrl:", githubBaseUrl);

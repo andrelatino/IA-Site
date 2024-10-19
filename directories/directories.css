@@ -68,10 +68,10 @@ select#selectDirOrFile {
 }
 h2.directories-txt {
     background: white;
-    padding-bottom:0px;
-    font-size: 33px;
-    font-weight: 200;
-    color:black;
+    padding-bottom: 0px;
+    font-size: clamp(19px, 2vw, 24px);
+    font-weight: 400;
+    color: black;
 }
 .directories-content {
     position: relative;

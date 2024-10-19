@@ -1,6 +1,8 @@
  
 function sectionImage() {
 
+  console.log ('sectionImage()')
+
   showImageModal();
   loadUnsplashImages();
   loadGithubImages();
@@ -104,7 +106,11 @@ function sectionImage() {
             <img src="../global/file/delete.svg">
           </button>
 
-          
+          <p id="image-single-id">${imageID}</p>
+          <p id="image-single-type">image-bg</p>
+          <p id="image-single-url">URL</p>
+          <p id="is-BG">is BG</p>
+
       </div> 
  
     `;

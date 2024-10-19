@@ -1,3 +1,13 @@
+function generateRandomID() {
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var id = '';
+  for (var i = 0; i < 7; i++) {
+    var randomIndex = Math.floor(Math.random() * characters.length);
+    id += characters.charAt(randomIndex);
+  }
+  return id;
+}
+
 var videoPage = 1;
 var videoPerPage = 20;
 var videoCount= 1; 
@@ -6,6 +16,8 @@ var nextButton = document.getElementById('video-sidebar-next-button');
 var pexelsApi = localStorage.getItem('pexelsApi');
 
 function loadDefaultVideo(){
+
+  console.log('loadDefaultVideo()');
 
   videoPage = 1;
   videoPerPage = 20;
@@ -48,36 +60,14 @@ function loadDefaultVideo(){
         img.setAttribute('draggable', true);
 
         // Add click event listener to the image
-        img.addEventListener('click', () => {
+        img.addEventListener('click', () => { 
 
-            const checkContentType = document.getElementById('video-single-type').textContent;
-            const getVideoId = document.getElementById('video-single-id').textContent;
-            
-            if (checkContentType === 'video-fg'){
+              const videoURL = item.video_files.find(file => file.quality === 'hd').link;
+              console.log(videoURL);
+              video_FG_Update(videoURL);
               
-              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-              const videoToUpdate = document.getElementById(getVideoId);
-              videoToUpdate.src = videoGrid; // Actualiza el src del elemento <video>
-              videoToUpdate.load(); // Opcional: Carga el nuevo video
-
-              const videoThumbnail = document.getElementById('video-single-thumbnail');
-              const newVideoURL = videoGrid;
-              videoThumbnail.setAttribute('src', newVideoURL);
-              videoThumbnail.load();
-              
-            } else{
-
-              const bgSrc = document.getElementById('video-src').textContent;
-              const thumbSrc = document.getElementById('video-thumbnail').id;
-              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-              updateVideoSrc(bgSrc, sdVideoLink);
-              updateVideoSrc(thumbSrc, sdVideoLink);
-            
-            }
 
         });
-
-
 
           gridItem.appendChild(img);
           container.appendChild(gridItem);
@@ -89,7 +79,7 @@ function loadDefaultVideo(){
       }
   });
 }
-// loadDefaultVideo();
+loadDefaultVideo();
 
 
 function loadSearchVideo() { 
@@ -142,26 +132,8 @@ function loadSearchVideo() {
           // Add click event listener to the image
           img.addEventListener('click', () => {
 
-            const checkContentType = document.getElementById('video-single-type').textContent;
-            const getVideoId = document.getElementById('video-single-id').textContent;
-            
-            if (checkContentType === 'video-fg'){
-              
-              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-              const videoThumb = document.getElementById('video-single-thumbnail');
-              const videoToUpdate = document.getElementById(getVideoId);
-              videoToUpdate.src = videoGrid;
-              videoThumb.src = videoGrid;
-              
-            } else{
-
-              const bgSrc = document.getElementById('video-src').textContent;
-              const thumbSrc = document.getElementById('video-thumbnail').id;
-              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-              updateVideoSrc(bgSrc, sdVideoLink);
-              updateVideoSrc(thumbSrc, sdVideoLink);
-            
-            }
+              const videoURL = item.video_files.find(file => file.quality === 'hd').link;
+              video_FG_Update(videoURL);
 
         });
  
@@ -224,26 +196,9 @@ function loadNextVideos() {
           // Add click event listener to the image
           img.addEventListener('click', () => {
 
-            const checkContentType = document.getElementById('video-single-type').textContent;
-            const getVideoId = document.getElementById('video-single-id').textContent;
-            
-            if (checkContentType === 'video-fg'){
-              
-              const videoGrid = item.video_files.find(file => file.quality === 'sd').link;
-              const videoThumb = document.getElementById('video-single-thumbnail');
-              const videoToUpdate = document.getElementById(getVideoId);
-              videoToUpdate.src = videoGrid;
-              videoThumb.src = videoGrid;
-              
-            } else{
-
-              const bgSrc = document.getElementById('video-src').textContent;
-              const thumbSrc = document.getElementById('video-thumbnail').id;
-              const sdVideoLink = item.video_files.find(file => file.quality === 'sd').link;
-              updateVideoSrc(bgSrc, sdVideoLink);
-              updateVideoSrc(thumbSrc, sdVideoLink);
-            
-            }
+            const videoURL = item.video_files.find(file => file.quality === 'hd').link;
+            console.log(videoURL);
+            video_FG_Update(videoURL);
 
         });
         

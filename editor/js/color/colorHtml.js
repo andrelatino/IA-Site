@@ -8,7 +8,7 @@ function colorHtml() {
       
       <div id="color-modal-box">
             
-            <div id="solid-color-thumbnail" data-type="solid-color">
+            <div id="solid-color-thumbnail" data-type="grid-solid-color">
                 <div id = "solid-color-picker">
                     <div id="solid-coloris" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="solid-coloris-btn"></button>
@@ -17,7 +17,7 @@ function colorHtml() {
                 </div>
             </div>
 
-            <div id="radial-color-thumbnail" data-type="radial-color">
+            <div id="radial-color-thumbnail" data-type="grid-radial-color">
                 <div id = "radial-color-picker1">
                     <div id="radial-coloris1" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="radial-coloris-btn1"></button>
@@ -33,7 +33,7 @@ function colorHtml() {
                 </div>
             </div>
 
-            <div id="linear-color-thumbnail" data-type="linear-color">
+            <div id="linear-color-thumbnail" data-type="grid-linear-color">
                 <div id = "linear-color-picker1">
                     <div id="linear-coloris1" class="clr-field" style="color: rgb(255, 0, 0);">
                         <button id="linear-coloris-btn1"></button>

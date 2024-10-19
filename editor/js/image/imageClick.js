@@ -5,6 +5,8 @@ var imagePlaceholder = 'Image URL (optional)';
 
 function clickAllImage() {
 
+    console.log ('clickAllImage()');
+
     const imageID = localStorage.getItem('imageID');
     const clickImage = document.getElementById(imageID);
     const inputElement = document.getElementById('image-all-input');
@@ -14,52 +16,24 @@ function clickAllImage() {
 
     if (inputValue === '') {
         // alert ('input is empty');
-        thumbBG.srcset = imageEmpty;
+        thumbBG.src = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
         clickImage.setAttribute("src", );
         
         
     } else {
         // alert ('input is not empty');
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
         clickImage.setAttribute("src", inputValue);
     }
 
     
 }
 
-// function clickAllSingleImage() {
-
-//     const imageGetID = document.getElementById("image-single-id");
-//     const imageID = imageGetID.textContent;
-//     const clickImage = document.getElementById(imageID);
-//     const inputElement = document.getElementById('image-all-input');
-//     const inputValue = inputElement.value;
-//     const inputPlaceHolder = document.getElementById('image-all-input');
-//     const thumbBG = document.getElementById('image-all-thumbnail');
-
-//     if (inputValue === '') {
-//         // alert ('input is empty');
-//         thumbBG.srcset = imageEmpty;
-//         inputPlaceHolder.setAttribute('placeholder', 'Image URL (mandatory)');
-//         clickImage.setAttribute("src", );
-        
-        
-//     } else {
-//         // alert ('input is not empty');
-//         thumbBG.srcset = inputValue;
-//         var imgElement = document.getElementById(imageID);
-//         var newSrc = inputValue;
-//         // Replace the src attribute
-//         imgElement.src = newSrc;
-//     }
-
-    
-// }
-
 function clickAllSingleImage() {
+    console.log ('clickAllSingleImage()');
     // Se simplifica la obtención del ID de la imagen y del elemento imagen directamente.
-    const imageID = document.getElementById("image-single-id").textContent;
+    const imageID = document.getElementById("image-fg-id").textContent;
     const imgElement = document.getElementById(imageID);
     const inputElement = document.getElementById('image-all-input');
     const inputValue = inputElement.value;
@@ -69,11 +43,11 @@ function clickAllSingleImage() {
     if (inputValue === '') {
         // Si está vacío, configura el thumbnail y el placeholder adecuadamente.
         // Asumimos que 'imageEmpty' es una variable definida en otro lugar del código.
-        thumbBG.srcset = imageEmpty || 'path/to/default/image.png'; // Proporciona una ruta de imagen predeterminada.
+        thumbBG.src = imageEmpty || 'path/to/default/image.png'; // Proporciona una ruta de imagen predeterminada.
         inputElement.placeholder = 'Image URL (mandatory)'; // Actualiza directamente el placeholder del elemento de entrada.
     } else {
         // Si no está vacío, actualiza el thumbnail y el src de la imagen.
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
         imgElement.src = inputValue; // Actualiza directamente el src de la imagen.
     }
 }
@@ -90,11 +64,11 @@ function clickXsImage() {
     const thumbBG = document.getElementById('image-xs-thumbnail');
 
     if (inputValue.trim() === '') {
-        thumbBG.srcset = imageEmpty;
+        thumbBG.src = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
     }else{
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
     }
     
     if (pictureElement) {
@@ -102,7 +76,7 @@ function clickXsImage() {
 
         for (let i = 0; i < sourceElements.length; i++) {
             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-                sourceElements[i].setAttribute('srcset', inputValue);
+                sourceElements[i].setAttribute('src', inputValue);
                 break;
             }
         }
@@ -122,11 +96,11 @@ function clickXsSingleImage() {
     const thumbBG = document.getElementById('image-xs-thumbnail');
 
     if (inputValue.trim() === '') {
-        thumbBG.srcset = imageEmpty;
+        thumbBG.src = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
     }else{
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
     }
     
     if (pictureElement) {
@@ -134,7 +108,7 @@ function clickXsSingleImage() {
 
         for (let i = 0; i < sourceElements.length; i++) {
             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-                sourceElements[i].setAttribute('srcset', inputValue);
+                sourceElements[i].setAttribute('src', inputValue);
                 break;
             }
         }
@@ -153,11 +127,11 @@ function clickXsSingleImage() {
 //     const thumbBG = document.getElementById('image-s-thumbnail');
 
 //     if (inputValue.trim() === '') {
-//         thumbBG.srcset = imageEmpty;
+//         thumbBG.src = imageEmpty;
 //         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
 //     }else{
-//         thumbBG.srcset = inputValue;
+//         thumbBG.src = inputValue;
 //     }
     
 //     if (pictureElement) {
@@ -165,7 +139,7 @@ function clickXsSingleImage() {
 
 //         for (let i = 0; i < sourceElements.length; i++) {
 //             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-//                 sourceElements[i].setAttribute('srcset', inputValue);
+//                 sourceElements[i].setAttribute('src', inputValue);
 //                 break;
 //             }
 //         }
@@ -186,11 +160,11 @@ function clickMImage() {
     const thumbBG = document.getElementById('image-m-thumbnail');
 
     if (inputValue.trim() === '') {
-        thumbBG.srcset = imageEmpty;
+        thumbBG.src = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
     }else{
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
     }
     
     if (pictureElement) {
@@ -198,7 +172,7 @@ function clickMImage() {
 
         for (let i = 0; i < sourceElements.length; i++) {
             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-                sourceElements[i].setAttribute('srcset', inputValue);
+                sourceElements[i].setAttribute('src', inputValue);
                 break;
             }
         }
@@ -217,11 +191,11 @@ function clickMImage() {
 //     const thumbBG = document.getElementById('image-l-thumbnail');
 
 //     if (inputValue.trim() === '') {
-//         thumbBG.srcset = imageEmpty;
+//         thumbBG.src = imageEmpty;
 //         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
 //     }else{
-//         thumbBG.srcset = inputValue;
+//         thumbBG.src = inputValue;
 //     }
     
 //     if (pictureElement) {
@@ -229,7 +203,7 @@ function clickMImage() {
 
 //         for (let i = 0; i < sourceElements.length; i++) {
 //             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-//                 sourceElements[i].setAttribute('srcset', inputValue);
+//                 sourceElements[i].setAttribute('src', inputValue);
 //                 break;
 //             }
 //         }
@@ -248,11 +222,11 @@ function clickXlImage() {
     const thumbBG = document.getElementById('image-xl-thumbnail');
 
     if (inputValue.trim() === '') {
-        thumbBG.srcset = imageEmpty;
+        thumbBG.src = imageEmpty;
         inputPlaceHolder.setAttribute('placeholder', imagePlaceholder);
         
     }else{
-        thumbBG.srcset = inputValue;
+        thumbBG.src = inputValue;
     }
     
     if (pictureElement) {
@@ -260,7 +234,7 @@ function clickXlImage() {
 
         for (let i = 0; i < sourceElements.length; i++) {
             if (sourceElements[i].getAttribute('media') === mediaQuery) {
-                sourceElements[i].setAttribute('srcset', inputValue);
+                sourceElements[i].setAttribute('src', inputValue);
                 break;
             }
         }

@@ -14,8 +14,8 @@ function itemsButtons(gridBoxId, addButtonId) {
     const itemsButtons =  generateRandomID(7);
     const customItemHTML = `  
     <grid-item id="${itemsButtons}">
-        <a id="${generateRandomID(7)}" href="#" contenteditable="true">Lorem ipsum</a>
-        <button class="no-export button-delete-item" onclick="deleteItem('${itemsButtons}')"><img src="./assets/svg/icons/delete.svg"></button>
+        <a id="${generateRandomID(7)}" href="#" data-type="a-link">Lorem ipsum</a>
+        <button class="no-export button-delete-item" onclick="deleteItem('${itemsButtons}')">-</button>
     </grid-item>
     `;
 

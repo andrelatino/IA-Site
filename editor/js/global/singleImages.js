@@ -27,7 +27,7 @@
 
    
 // function sectionSingleImage(image_ID) {
-//     showSingleImageModal();
+//     show_Image_Modal();
 
 //     localStorage.setItem('imageIdIs', image_ID);
 //     localStorage.setItem('imageTypeIs', 'image-fg');
@@ -39,7 +39,7 @@
 
 // }
   
-// function showSingleImageModal() {
+// function show_Image_Modal() {
 //     var divModal = document.getElementById("image-modal");
 //     divModal.style.display = "grid";
 // }

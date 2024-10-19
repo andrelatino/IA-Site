@@ -91,6 +91,8 @@ imageTypeInput.addEventListener('input', function() {
 
 
 function loadUnsplashImages(){
+    removeExistingItems();
+    console.log('loadUnsplashImages()');
     
     clientId = unsplashApi;
     page = '1'
@@ -113,7 +115,7 @@ function loadUnsplashImages(){
           DivItems.className = 'image-sidebar-items';
           DivItems.innerHTML = `              
                   
-            <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageCheckSize('${imageBig}')">          
+            <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageClickUnsplash('${imageBig}')">          
             <div class="image-sidebar-alt">  
               <p class="image-sidebar-url">${api.alt_description}</p>
             </div>
@@ -122,7 +124,7 @@ function loadUnsplashImages(){
         }
     });
 }
-// loadUnsplashImages();
+loadUnsplashImages();
 
   function loadImages(){
     
@@ -146,7 +148,7 @@ function loadUnsplashImages(){
           DivItems.className = 'image-sidebar-items';
           DivItems.innerHTML = `              
                   
-          <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageCheckSize('${imageBig}')">          
+          <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageClickUnsplash('${imageBig}')">          
           <div class="image-sidebar-alt">  
             <p class="image-sidebar-url">${api.alt_description}</p>
           </div>
@@ -158,56 +160,32 @@ function loadUnsplashImages(){
   }
 
 
-  function imageCheckSize(imageURL){
-    
+  function imageClickUnsplash(imageURL){
+    console.log('imageClickUnsplash(imageURL)');
     console.log("Clicked image URL:", imageURL);
-//     document.getElementById("image-all-input").value = imageThumbnail;
-    const getImageSize = localStorage.getItem('imageSize');
-    if (getImageSize !== null) {
-      // Remove any leading or trailing white spaces from the retrieved value
-      const imageSize = getImageSize.trim();
-      // Check the value against different image size options
-      if (imageSize === 'All') {
-        document.getElementById("image-all-input").value = imageURL;
-        checkImageTypeAll()
-      } else if (imageSize === 'Xl') {
-        document.getElementById("image-xl-input").value = imageURL;
-        clickXlImage();
-      } else if (imageSize === 'M') {
-        document.getElementById("image-m-input").value = imageURL;
-        clickMImage();
-      } else if (imageSize === 'Xs') {
-        document.getElementById("image-xs-input").value = imageURL;
-        clickXsImage();
-      } else {
-        // Handle the case where the value is not one of the valid options
-        console.log("Invalid image size:", imageSize);
-       
-      }
-    } else {
-      console.log("No data found in local storage for 'imageSize'.");
-      // Handle the case where no data is found in local storage.
-    }
+    image_FG_Update(imageURL);
   }
 
-  function checkImageTypeAll(){
-        const imageTypeIs = localStorage.getItem('imageTypeIs');
-        if (imageTypeIs === "image-fg"){
-          clickAllSingleImage();
-        } else if (imageTypeIs === "img-bg"){
-          clickAllImage();
-        }
+//   function checkImageTypeAll(){
+//     console.log('checkImageTypeAll()');
+    
+//         const imageTypeIs = localStorage.getItem('imageTypeIs');
+//         if (imageTypeIs === "image-fg"){
+//           clickAllSingleImage();
+//         } else if (imageTypeIs === "img-bg"){
+//           clickAllImage();
+//         }
       
-  }
+//   }
 
-  function checkImageTypeXs(){
-    const imgSingleType = document.getElementById('image-single-type').textContent;
-    if (imgSingleType === "img-grid"){
-      clickXsSingleImage();
-    } else {
-      clickXsImage();
-    }
-}
+//   function checkImageTypeXs(){
+//     const imgSingleType = document.getElementById('image-single-type').textContent;
+//     if (imgSingleType === "img-grid"){
+//       clickXsSingleImage();
+//     } else {
+//       clickXsImage();
+//     }
+// }
 
     
 function loadNextPage() { 
@@ -232,7 +210,7 @@ function loadNextPage() {
           DivItems.className = 'image-sidebar-items';
           DivItems.innerHTML = `              
                   
-          <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageCheckSize('${imageBig}')">          
+          <img src="${imageThumbnail}" loading="lazy" width="170px" onclick="imageClickUnsplash('${imageBig}')">          
           <div class="image-sidebar-alt">  
             <p class="image-sidebar-url">${api.alt_description}</p>
           </div>

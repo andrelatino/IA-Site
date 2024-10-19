@@ -18,7 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>  
-
       
 
   </head>
@@ -33,7 +32,7 @@
       cssLink.href = urlCSS;
       document.head.appendChild(cssLink);
     </script>
-    <script src="./js/page/pageIndexJson.js"></script>
+    <!-- <script src="./js/page/pageIndexJson.js"></script> -->
     <script src="./styles.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" rel="stylesheet">
@@ -112,73 +111,102 @@
 		</div>
 	</div>
 
-    <div id="image-modal" style="display:none;">
-      <div id="image-container">
-  
-        <div id="image-github-buttons">
-        
-          <button id="image-drag"><img src="./assets/svg/icons/drag.svg"></button>
-          
-        </div>
-        <div id="image-responsive">
+    <div id="image-fg-modal" style="display:none;">
+      <div id="image-fg-container">
+     
+        <div id="image-fg-responsive">
           <div id="image-all">          
               <img id="image-all-thumbnail" src="./assets/svg/icons/upload-empty.svg">           
-              <input type="text" id="image-all-input"> 
-              <button id="image-all-save" onclick="loadAllSingleImage();">SAVE (ALL)</button>
-          </div>
-          
-          <div id="image-m">
-              <img id="image-m-thumbnail" src="./assets/svg/icons/upload-empty.svg">
-              <input type="text" id="image-m-input">
-              <button id="image-m-save" onclick="updateMImage();">SAVE (M)</button>    
-          </div>
-          
-          <div id="image-xs">
-              <img id="image-xs-thumbnail" src="./assets/svg/icons/upload-empty.svg"> 
-              <input type="text" id="image-xs-input">
-              <button id="image-xs-save" onclick="updateXsImage();">SAVE (XS)</button>    
           </div>
         </div>
 
-        <div id = "image-libraries">
+        <div id = "image-fg-libraries">
           <button id="imageWebSidebarButton" onclick="sidebarOpenClose(this)">
             <span class="tooltiptext-right">Web</span>	
           </button>
           <button id="imageGithubSidebarButton" onclick="sidebarOpenClose(this)">
             <span class="tooltiptext-right">Media</span>
           </button>
-          
-          
+
         </div>
         
-        <button onclick="hideImageModal(); closeImageSidebar(); closeAllImageSidebars()" class="video-close">
+        <button onclick="hide_FG_Modal(); closeImageSidebar(); closeAllImageSidebars()" class="video-close">
               <img src="./assets/svg/icons/close.svg">
         </button>
-        <button id="image-btn-all" onclick="imageAllSingleButton(); checkClearButton();">
-          <img src="../global/file/pc.svg">
-        </button>
-        <button id="image-btn-m" onclick="imageMButton(); checkClearButton();">
-          <img src="../global/file/tablet.svg">
-        </button>
-        <button id="image-btn-xs" onclick=" imageXsButton(); checkClearButton();">
-          <img src="../global/file/mobile.svg">
-        </button>
 
-        <button id="image-btn-m-clear" onclick=" imageClearM(); checkClearButton();">
-          <img src="../global/file/delete.svg">
-        </button>         
-        <button id="image-btn-xs-clear" onclick=" imageClearXs();">
-          <img src="../global/file/delete.svg">
-        </button>
+        <p id="image-fg-id">ID</p>
+        <p id="image-fg-type">Type</p>
+        <p id="image-fg-url">Url</p>
 
-        <p id="image-single-id">ID</p>
-        <p id="image-single-type">Type</p>
-        
-    </div> 
+      </div> 
     </div>
 
+    <div id="video-fg-modal" style="display:none;">
+      <div id="video-fg-container">
+     
+        <div id="video-fg-responsive">
+          <div id="video-all">          
+            <video id="video-all-thumbnail" autoplay loop muted loading="lazy" src="https://github.com/IAMEDIA360/videos/raw/main/1795203691-1.mp4"></video>           
+          </div>
+        </div>
+
+        <div id = "video-fg-libraries">
+          <button onclick="openWebVideos()"><span class="tooltiptext-right">Web</span></button>
+          <button onclick="openMediaVideos()"><span class="tooltiptext-right">Media</span></button>
+
+        </div>
+        
+        <button onclick="hide_Video_Modal(); closeVideoSidebars()" class="video-close">
+              <img src="./assets/svg/icons/close.svg">
+        </button>
+
+        <p id="video-fg-id">ID</p>
+        <p id="video-fg-type">Type</p>
+        <p id="video-fg-url">Url</p>
+
+      </div> 
+    </div>
+
+    
+    <div id="linkEditorModal" style="display:none;">
+      <div id="link-form">
+        <div id="link-header">
+          <button id="link-drag"><img src="../global/file/drag.svg"></button>
+					<div id="link-title">Edit link</div>
+          <button id="cancelEdit"><img src="../global/file/close.svg"></button>
+        </div>
+        <div id="link-body">
+             
+                <label for="linkTitle">Title</label>
+                <input type="text" id="linkTitle">
+          
+                <label for="linkUrl">Link</label>
+                <input type="text" id="linkUrl">
+
+                <label for="linkTarget">Target</label>
+                <select id="linkTarget">
+                    <option value="_self">Same tab</option>
+                    <option value="_blank">New tab</option>
+                </select>
+
+                <label for="linkClass">Class (optional)</label>
+                <input type="text" id="linkClass">
+
+                <button id="saveChanges">Update</button>
+           
+        </div>
+        <div id="link-footer">
+            
+            
+        </div>
+      </div>
+  </div>
+  
 
     <div id="video-modal" style="display:none;"></div>
+
+
+
     <div id="video-single-modal" style="display:none;"></div>
     <div id="color-modal" style="display:none;"></div>
     <div id="image-github-modal" style="visibility:hidden;">
@@ -207,6 +235,7 @@
       </div>
     </div>
     <div id="admin">
+      
       <div id="page">
         <p id="site-title" class="site-title"></p>
         <div id="content">
@@ -214,10 +243,41 @@
             <div id="empty-section"></div>
             <div id="grid-wrapper">
                 <!--GRID PAGE-->
-                <grid-page id="grid-page" class="grid-page" data-type="page">
-                  <!--GRID BODY-->
-                </grid-page>
+                <grid-editor-header>
+                  <div id="editor-css-icons"> 
+                    <button id="editor-btn-all" onclick="changeViewMode('pc')"><img src="../global/file/pc.svg"></button>
+                    <button id="editor-btn-m" onclick="changeViewMode('tablet')"><img src="../global/file/tablet.svg"></button>
+                    <button id="editor-btn-xs" onclick="changeViewMode('mobile')"><img src="../global/file/mobile.svg"></button>
+                    <!-- <button id="editor-switch" onclick="editorSwitch()"><img src="../global/file/mobile.svg"></button> -->
+                    <!--
+                    <a 
+                    id="responsive" 
+                    data-text="Try" 
+                    href="javascript:void((function(d){if(self!=top||d.getElementById('toolbar')&amp;&amp;d.getElementById('toolbar').getAttribute('data-resizer'))return false;d.write('<!DOCTYPE HTML><html style=&quot;opacity:0;&quot;><head><meta charset=&quot;utf-8&quot;/></head><body>
+                      
+                      
+                      
+                      <a data-viewport=&quot;1280x720&quot; data-icon=&quot;display&quot; class=&quot;active&quot;>Old PC</a>
+                      <a data-viewport=&quot;375x677&quot; data-icon=&quot;mobile&quot; class=&quot;inactive&quot;>Mobile</a>
+
+                      <script src=&quot;./js/responsive/resizer.js&quot;></script></body></html>')})(document));">
+                    </a>-->
+                
+                  </div> 
+                </grid-editor-header>
+                
+                
+                
+                
+                  <grid-page id="grid-page" contenteditable="false" class="grid-page" data-type="page">
+                    <grid-body id="grid-body"></grid-body>
+                  </grid-page>
+
+                
+              
+              
             </div>
+            
           </div>
         </div>
       </div>
@@ -231,12 +291,25 @@
       <div id="image-sidebar-grid"></div>
     </div>
     <div id="video-web-sidebar">
-      <div id="video-sidebar-header"><input type="text" id="video-sidebar-input" placeholder="Search..." required><button type="submit" id="video-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button><button type="submit" id="video-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button><button type="submit" id="video-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button><button id="video-sidebar-next-button" onclick="loadNextVideos();">next</button></div>
+      <div id="video-sidebar-header">
+        <input type="text" id="video-sidebar-input" placeholder="Search..." required>
+        <button type="submit" id="video-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button>
+        <button type="submit" id="video-sidebar-show-button" onclick="cleanView();"><img src="./assets/svg/icons/show.svg"></button>
+        <button type="submit" id="video-sidebar-clean-button" onclick="cleanShow();"><img src="./assets/svg/icons/hide.svg"></button>
+        <button id="video-sidebar-next-button" onclick="loadNextVideos()"><img src="./assets/svg/icons/next.svg"></button>
+        <button id="video-sidebar-close-button" onclick="closeWebVideos()"><img src="./assets/svg/icons/close-black.svg"></button>
+      </div>
       <p id="video-sidebar-total"></p>
       <div id="video-sidebar-grid"></div>
     </div>
     <div id="video-media-sidebar">
-      <div id="video-media-sidebar-header"><input type="text" id="video-media-sidebar-input" placeholder="Search..." required><button type="submit" id="video-media-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button><button id="video-media-sidebar-next-button" onclick="loadNextVideos();">next</button><button id="video-media-sidebar-upload-button" onclick="githubUploadVideo()"><img src="./assets/svg/icons/upload=black.svg"></button></div>
+      <div id="video-media-sidebar-header">
+        <input type="text" id="video-media-sidebar-input" placeholder="Search..." required>
+        <button type="submit" id="video-media-sidebar-search-button" onclick="searchVideos();"><img src="./assets/svg/icons/search-right.svg"></button>
+        <button id="video-media-sidebar-next-button" onclick="loadNextVideos();">next</button>
+        <button id="video-media-sidebar-upload-button" onclick="githubUploadVideo()"><img src="./assets/svg/icons/upload=black.svg"></button>
+        <button id="video-media-close-button" onclick="closeMediaVideos()"><img src="./assets/svg/icons/close-black.svg"></button>
+      </div>
       <p id="video-media-sidebar-total"></p>
       <div id="video-media-sidebar-grid"></div>
     </div>
@@ -422,8 +495,106 @@
     </div>
     <div id="overlay_overlay"></div>
     
+    <!-- Color Picker Modal -->
+    <template id="picker_colorModalTemplate">
+      <div id="picker_colorModal" class="picker_modal">
+        <div class="picker_modal-content">
+          <span class="picker_close" onclick="picker_closeModal()">&times;</span>
+          <p id="picker_modalHeader">ID: <span id="picker_elementId"></span></p>
+          <input type="color" id="picker_colorPicker" oninput="picker_previewColor()"><br><br>
+          <label for="picker_alphaRange">Transparencia: <span id="picker_alphaPercentage">100%</span></label><br>
+          <input type="range" id="picker_alphaRange" min="0" max="1" step="0.01" value="1" oninput="picker_previewColor()"><br><br>
+        </div>
+      </div>
+    </template>
+
+    <template id="quickbar-editor">
+      <div class="template-header">
+        <p class="template-tag" style="text-transform:lowercase;"></p>
+        <p class="template-id"></p>
+      </div>
+      <div class="template-body">
+
+        <button onclick="askAI()" class="quickbar-item askAI"><img class="ai-icon" src="../global/file/assistant.svg"> AI Assistant</button>
+        <button onclick="applySpan()" class="quickbar-item">Add ID</button>
+        <button onclick="removeSpan()" class="quickbar-item">Remove ID</button>
+        <!-- <button onclick="deleteElement()" class="quickbar-item">delete Element</button>
+        <button onclick="selectAllElements()" class="quickbar-item">Select All</button>
+        <button onclick="clearStyles()" class="quickbar-item">Clear Styles</button>
+        <button onclick="clearAll()" class="quickbar-item">Clear All</button>
+        <button onclick="applyColor()" class="quickbar-item">Color</button> -->
     
+        <!-- <select id="alignSelector" onchange="applyAlign(this.value)" class="quickbar-item">
+            <option value="" disabled selected>Align</option>  
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+            <option value="justify">Justify</option>
+        </select> -->
+
+        
+        <!-- <select id="lineHeightSelector" onchange="applyLineHeight(this.value)" class="quickbar-item">
+          <option value="" disabled selected>Line H.</option>
+          <option value="1">1</option>
+          <option value="1.1">1.1</option>
+          <option value="1.2">1.2</option>
+          <option value="1.3">1.3</option>
+          <option value="1.4">1.4</option>
+          <option value="1.5">1.5</option>
+          <option value="1.6">1.6</option>
+          <option value="1.7">1.7</option>
+          <option value="1.8">1.8</option>
+          <option value="1.9">1.9</option>
+          <option value="2">2</option>
+      </select> -->
+
+      
+      <!-- <select id="textSelector" onchange="applyText(this.value)" class="quickbar-item">
+        <option value="" disabled selected>Texte</option>
+        <option value="p">p</option>
+        <option value="h1">H1</option>
+        <option value="h2">H2</option>
+        <option value="h3">H3</option>
+        <option value="h4">H4</option>
+        <option value="h5">H5</option>
+        <option value="h6">H6</option>
+    </select> -->
+    
+        <!-- <select id="formatSelector" onchange="applyFormat(this.value)" class="quickbar-item">
+            <option value="" disabled selected>Format</option>  
+            <option value="bold">Bold</option>
+            <option value="italic">Italic</option>
+            <option value="underline">Underline</option>
+            <option value="strikethrough">Strikethrough</option>
+        </select>
+         -->
+        
+  
+        
+      </div>
+    </template>
+
+    <template id="quickbar-elements">
+      <div class="template-header">
+        <p class="template-tag" style="text-transform:lowercase;"></p>
+        <p class="template-id"></p>
+      </div>
+      <div class="template-body">
+
+        <button onclick="applySpan()" class="quickbar-item">Add Span</button>
+        <button onclick="removeSpan()" class="quickbar-item">Remove Span</button>
+        <button onclick="deleteElement()" class="quickbar-item">delete Element</button>
+
+      </div>
+    </template>
+  
+
+
 	  <footer>
+      <script src="./js/quickbars/quickbars-editor.js" defer></script>
+      <script src="./js/quickbars/quickbars-elements.js" defer></script>
+      <script type="module" src="./js/quickbars/quickbars-assistant.js" defer></script>
+      <script src="./js/menu/menu.js" defer></script>
       <script src="./scripts.js"></script>
       <script src="../global/js/preloader.js"></script>
     </footer>

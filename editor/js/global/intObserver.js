@@ -7,7 +7,7 @@
 //     }
 
 //     // Función para manejar clics en las imágenes
-//     function handleImageClick(event) {
+//     function image_FG_Event(event) {
 //       console.log('Clic detectado en un elemento:', event.target);
 //       if (event.target.tagName === 'IMG' && event.target.getAttribute('data-type') === 'image-fg' && event.target.id) {
 //         console.log('Image ID:', event.target.id);
@@ -17,7 +17,7 @@
 //     // Asigna manejadores de clic a todas las imágenes existentes
 //     const existingImages = grid.querySelectorAll('img[data-type="image-fg"]');
 //     existingImages.forEach(img => {
-//       img.addEventListener('click', handleImageClick);
+//       img.addEventListener('click', image_FG_Event);
 //       console.log('Manejador de clic asignado a imagen existente:', img);
 //     });
 
@@ -29,7 +29,7 @@
 //           console.log('Nuevo nodo detectado:', node);
 //           if (node.tagName === 'IMG' && node.getAttribute('data-type') === 'image-fg') {
 //             console.log('Agregando listener de clic a imagen:', node);
-//             node.addEventListener('click', handleImageClick);
+//             node.addEventListener('click', image_FG_Event);
 //           }
 //         });
 //       });

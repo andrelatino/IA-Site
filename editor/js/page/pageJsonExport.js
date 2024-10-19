@@ -1,6 +1,6 @@
 function pageJsonExport() {
   const pageID = generatepageID();
-  const gridContent = document.getElementById('grid').innerHTML.replace(/\n\s+/g, '');
+  const gridContent = document.getElementById('grid-body').innerHTML.replace(/\n\s+/g, '');
 
   const data = {
     pageId: pageID,

@@ -27,7 +27,7 @@ function _grid_items_200() {
     width: 100%;
     height: 100%;
     padding: 3%;
-    place-content:center;
+    place-content: center start;
   }
   grid-bg#${grid_bg} {
     position: absolute;
@@ -109,6 +109,18 @@ function _grid_items_200() {
     width:100%;
     object-fit:cover;
   }
+  grid-box#${grid_box_id} a[data-type="a-link"] {
+    border: 3px solid white;
+    padding: 0 15px;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    text-underline-position: under;
+    height: 35px;
+    width: fit-content;
+    display: grid;
+    place-content: center;
+  }
   `;
   const tabletCss = `
   grid-box#${grid_box_id} {
@@ -151,14 +163,12 @@ function _grid_items_200() {
             <picture id="${generateRandomID(7)}">
               <source srcset media="(max-width:640px)">
               <source srcset media="(min-width:641px) and (max-width:1024px)">
-              <img id="${bg_img}" src="https://raw.githubusercontent.com/IAMEDIA360/images/main/1707848593-1.webp" data-type="img-bg" loading="lazy">
+              <img id="${bg_img}" src="https://raw.githubusercontent.com/IAMEDIA360/images/main/1707848593-1.webp" data-type="image-bg" loading="lazy">
             </picture>
           </div> 
           <!-- bg-video -->
           <div id="${bg_video_div}" data-type="bg-video" class="div-hidden">
-            <video id="${bg_video}" autoplay loop muted loading="lazy">
-              <source src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4" type="video/mp4">
-            </video>
+            <video id="${bg_video}" autoplay loop muted loading="lazy" data-type="video-bg" src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4"></video>
           </div> 
         </grid-bg>
 

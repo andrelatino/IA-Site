@@ -290,9 +290,11 @@ p.sites-template
     display: none;
 }
 h2.sites-title {
-    font-size: xx-large;
-    margin-bottom: 15px;
-    font-weight: 300;
+    background: white;
+    padding-bottom: 0px;
+    font-size: clamp(19px, 2vw, 24px);
+    font-weight: 400;
+    color: black;
 }
 .sites-buttons {
     margin: 20px 0px;

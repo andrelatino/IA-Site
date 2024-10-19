@@ -86,8 +86,8 @@ function _grid_menu_center() {
   grid-item#${item_img_box}{
     display: grid;
     place-content: center;
-    padding: 15px;
-    gap: 15px;
+    padding: 0px;
+    gap: 0px;
     height: auto;
   }
 
@@ -165,14 +165,12 @@ function _grid_menu_center() {
             <picture id="${generateRandomID(7)}">
               <source srcset media="(max-width:640px)">
               <source srcset media="(min-width:641px) and (max-width:1024px)">
-              <img id="${bg_img}" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwyM3x8Zm9vZHxlbnwwfDB8fHwxNzE2ODM1NjIzfDA&ixlib=rb-4.0.3&w=1280&h=720&fit=crop" data-type="img-bg" loading="lazy">
+              <img id="${bg_img}" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=M3wzOTcwOTd8MHwxfHNlYXJjaHwyM3x8Zm9vZHxlbnwwfDB8fHwxNzE2ODM1NjIzfDA&ixlib=rb-4.0.3&w=1280&h=720&fit=crop" data-type="image-bg" loading="lazy">
             </picture>
           </div> 
           <!-- bg-video -->
           <div id="${bg_video_div}" data-type="bg-video" class="div-hidden">
-            <video id="${bg_video}" autoplay loop muted loading="lazy">
-              <source src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4" type="video/mp4">
-            </video>
+            <video id="${bg_video}" autoplay loop muted loading="lazy" data-type="video-bg" src="https://github.com/IAMEDIA360/videos/raw/main/empty.mp4"></video>
           </div> 
         </grid-bg>
 
@@ -185,7 +183,7 @@ function _grid_menu_center() {
             </grid-item>
 
             <grid-item id="${item_img_box}">
-                <img id="${item_img_item}" src="https://raw.githubusercontent.com/icheff/energia.fr/main/media/images/logo-white.svg" data-type="image-fg" loading="lazy">
+                <img id="${item_img_item}" src="../global/file/logo-site-white.svg" data-type="image-fg" loading="lazy">
             </grid-item>
 
             <grid-item id="${item_right_menu}">

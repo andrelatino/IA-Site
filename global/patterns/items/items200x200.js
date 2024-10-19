@@ -21,8 +21,9 @@ function items200x200(gridBoxId, addButtonId, gridItemImage) {
         <item-body id="${generateRandomID(7)}">
           <item-title id="${generateRandomID(7)}" contenteditable="true">Lorem ipsum</item-title>
           <item-desc id="${generateRandomID(7)}" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit</item-desc>
+          <a id="${generateRandomID(7)}" href="#" data-type="a-link">Lorem </a>
         </item-body>
-        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')"><img src="./assets/svg/icons/delete.svg"></button>
+        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')">-</button>
       </grid-item>
     `;
 

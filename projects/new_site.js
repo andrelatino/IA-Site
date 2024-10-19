@@ -63,39 +63,56 @@ const createFilesInRepo = async (repo) => {
     { path: "index.json", content: '' },
     //SCRIPTS
     { path: "scripts/.scripts", content: '' },
-    { path: "scripts/analytics.js", content: '' },
+    
     { 
       path: "scripts/styles.css",
-      content: `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');body { font-family: 'Poppins', sans-serif; }`
+      content: `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');body { font-family: 'Poppins', sans-serif; } body,
+      grid-page {
+        background: #263238;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        position: absolute;
+      }
+      
+      grid-body {
+        display: grid;
+        min-height: 100vh;
+        padding: 35px;
+        max-width: 100%;
+        margin: 0 auto;
+        gap: 0px;
+        align-content: start;
+      }
+      
+      section {
+        position: relative;
+        height: fit-content;
+        z-index: 0;
+        border-radius:0px;
+        overflow: hidden;
+      }
+      `
     },
-    { path: "scripts/scripts.js", content: '' },
+    
     { path: "scripts/settings.json", content: '' },
-    { 
-      path: "scripts/header.js", 
-      content: `fetch('./header').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(headerData => document.getElementById('header').innerHTML = headerData).catch(error => console.error(error.message));`
-    },
-    { 
-      path: "scripts/sidebar.js", 
-      content: `fetch('./sidebar').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(sidebarData => document.getElementById('sidebar').innerHTML = sidebarData).catch(error => console.error(error.message));`
-    },
-    { 
-      path: "scripts/footer.js", 
-      content: `fetch('./footer').then(response => response.ok ? response.text() : Promise.reject('Not found')).then(footerData => document.getElementById('footer').innerHTML = footerData).catch(error => console.error(error.message));`
-    },
-    //HEADER
-    { path: "header/.widget", content: '' },
-    { path: "header/index.html", content: '' },
-    { path: "header/index.json", content: '' },
-    //FOOTER
-    { path: "footer/.widget", content: '' },
-    { path: "footer/index.html", content: '' },
-    { path: "footer/index.json", content: '' },
-    //SIDEBAR
-    { path: "sidebar/.widget", content: '' },
-    { path: "sidebar/index.html", content: '' },
-    { path: "sidebar/index.json", content: '' },
+    { path: "scripts/header.js", content: ''},
+    { path: "scripts/footer.js", content: ''},
+    // //HEADER
+    // { path: "header/.widget", content: '' },
+    // { path: "header/index.html", content: '' },
+    // { path: "header/index.json", content: '' },
+    // //FOOTER
+    // { path: "footer/.widget", content: '' },
+    // { path: "footer/index.html", content: '' },
+    // { path: "footer/index.json", content: '' },
+    // //SIDEBAR
+    // { path: "sidebar/.widget", content: '' },
+    // { path: "sidebar/index.html", content: '' },
+    // { path: "sidebar/index.json", content: '' },
 
-    // ... Agrega aquí otros archivos y contenidos según sea necesario
+    // // ... Agrega aquí otros archivos y contenidos según sea necesario
   ];
 
   for (const file of files) {

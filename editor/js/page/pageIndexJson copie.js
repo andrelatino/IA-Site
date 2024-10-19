@@ -113,6 +113,7 @@ async function pageUpdateData(content) {
         const newSha = jsonResponse.content.sha;
         console.log('Nuevo SHA:', newSha);
         localStorage.setItem('pageSha', newSha);
+        console.log(jsonResponse);
         showSuccess();
     } catch (error) {
         showFailure();
@@ -127,6 +128,7 @@ function pageCreateJson() {
 function pageSaveData() {
     const newJsonContent = pageCreateJson();
     pageUpdateData(newJsonContent);
+    console.log(newJsonContent);
 }
 
 

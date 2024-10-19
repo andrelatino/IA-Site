@@ -14,14 +14,14 @@ function itemsCercle(gridBoxId, addButtonId, gridItemSize, gridItemImage) {
   
     const gridItem = generateRandomID(7);
     const customItemHTML = `  
-      <grid-item id="${gridItem}">
+      <grid-item id="${gridItem}" class="clickable-div">
         <item-head id="${generateRandomID(7)}">
           <img id="${generateRandomID(7)}" src="${gridItemImage}" height="${gridItemSize}" width="${gridItemSize}" data-type="image-fg" loading="lazy">
         </item-head>
         <item-body id="${generateRandomID(7)}">
-          <item-desc id="${generateRandomID(7)}" contenteditable="true">Lorem</item-title>
+          <a id="${generateRandomID(7)}" href="#" data-type="a-link">Lorem</a>
         </item-body>
-        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')"><img src="./assets/svg/icons/delete.svg"></button>
+        <button class="no-export grid-delete-item" onclick="deleteItem('${gridItem}')">-</button>
       </grid-item>
     `;
 

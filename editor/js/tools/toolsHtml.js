@@ -21,20 +21,16 @@ function toolsHtml(){
 
               <div id="toolbar-buttons"> 
 
-                <button class="delete-section" onclick="deleteSection()">
-                  <img src="./assets/svg/icons/delete.svg">
-                  <span class="tooltiptext">Delete</span>
-                </button> 
+              <button class="export-section" onclick="deleteSection()">
+                <img src="./assets/svg/icons/delete.svg">
+                <span class="tooltiptext">Delete</span>
+              </button>
 
                 <button class="export-section" onclick="exportSection()">
                   <img src="./assets/svg/icons/export.svg">
                   <span class="tooltiptext">Export</span>
                 </button>
 
-                <button class="duplicate-section" onclick="duplicateSection()">
-                  <img src="./assets/svg/icons/duplicate.svg">
-                  <span class="tooltiptext">Clone</span>
-                </button>
 
                 <button class="image-section" onclick="flipCardOnClick()">
                   <img src="./assets/svg/icons/image.svg">
@@ -78,10 +74,9 @@ function toolsHtml(){
                   <span class="tooltiptext">Section</span>
                 </button>
 
-                
-                <button onclick="cssEditorShow();">
-                  <img src="./assets/svg/icons/html.svg">
-                  <span class="tooltiptext">Properties</span>
+                <button onclick="ia_openModal();">
+                  <img src="./assets/svg/icons/magic.png">
+                  <span class="tooltiptext">Ask IA</span>
                 </button>
 
                 <!--
@@ -91,10 +86,7 @@ function toolsHtml(){
                   <span class="tooltiptext">Props</span>
                 </button>
 
-                <button onclick="ia_openModal();">
-                  <img src="./assets/svg/icons/magic.png">
-                  <span class="tooltiptext">Ask IA</span>
-                </button>
+                
                 -->
 
 
@@ -229,30 +221,8 @@ function selectBgColor() {
 }
 function editBgColor() {
 
-        showColorModal();
-        colorGetBgIds();
-
-    const getColorType =   document.getElementById("color-selected-data").textContent;
-
-    if (getColorType === 'solid-color'){
-        solidDefaultColor();
-        solidColorBgIsSelected();
-        solidColorThumbIsSelected();
-    } else if (getColorType === 'radial-color'){
-        radialDefaultColor();
-        radialColorBgIsSelected();
-        radialColorThumbIsSelected();
-    } else if (getColorType === 'linear-color'){
-        linearDefaultColor();
-        linearColorBgIsSelected();
-        linearColorThumbIsSelected();
-    } else {
-      console.log('No color found');
-    }
-
-    // showColorModal();
-    // getBackgroundColor();
-    // solidReadOnlyTrue();
+    const getColorID = document.getElementById('color-id').textContent;
+    picker_openModal(getColorID);
     
 }
 
@@ -274,12 +244,34 @@ function selectBgImage() {
   videoSelected.className = 'div-hidden';
 }
 function editBgImage() {
-  sectionImage();
-  imageAllButton();
-  checkClearButton();
- 
-    //IMAGE
+  // Obtén el ID de la sección desde el elemento con ID 'toolbarSectionID'
+  const sectionID = document.getElementById('toolbarSectionID').textContent.trim();
+  console.log('sectionID: ' + sectionID);
+  
+  // Encuentra la sección correspondiente en el documento
+  const section = document.getElementById(sectionID);
+
+  // Verifica que la sección exista
+  if (section) {
+    // Encuentra la imagen dentro de la sección que tiene el atributo data-type="image-bg"
+    const img = section.querySelector('img[data-type="image-bg"]');
+
+    // Verifica que la imagen exista
+    if (img) {
+      const getImageID = img.id;       // Obtén el ID de la imagen
+      const getImageURL = img.src;     // Obtén la URL de la imagen
+
+      // Llama a la función image_BG_Click con los valores obtenidos
+      image_BG_Click(getImageID, 'image-bg', getImageURL);
+    } else {
+      console.log('No se encontró ninguna imagen con data-type="image-bg" en la sección.');
+    }
+  } else {
+    console.log('No se encontró ninguna sección con el ID: ' + sectionID);
+  }
 }
+
+
 function selectBgVideo() {
   //COLOR  
   const colorID = document.getElementById('color-id').textContent;
@@ -298,40 +290,73 @@ function selectBgVideo() {
   videoSelected.className = 'div-visible';
 }
 
+// function editBgVideo() {
+//     //VIDEO
+//     videoModal();
+//     getVideoUrl();
+//     loadDefaultVideo();
+//     loadGithubVideos();
+// }
+
 function editBgVideo() {
-    //VIDEO
-    videoModal();
-    getVideoUrl();
-    loadDefaultVideo();
-    loadGithubVideos();
+
+  // Obtén el ID de la sección desde el elemento con ID 'toolbarSectionID'
+  const sectionID = document.getElementById('toolbarSectionID').textContent.trim();
+  console.log('sectionID: ' + sectionID);
+  
+  // Encuentra la sección correspondiente en el documento
+  const section = document.getElementById(sectionID);
+
+  // Verifica que la sección exista
+  if (section) {
+    // Encuentra la imagen dentro de la sección que tiene el atributo data-type="image-bg"
+    const video = section.querySelector('video[data-type="video-bg"]');
+
+    // Verifica que la imagen exista
+    if (video) {
+      const getVideoID = video.id;       // Obtén el ID de la imagen
+      const getVideoURL = video.src;     // Obtén la URL de la imagen
+      console.log('getVideoID :'+getVideoID);
+      console.log('getVideoURL :'+getVideoURL);
+
+      // Llama a la función image_BG_Click con los valores obtenidos
+      video_BG_Click(getVideoID, 'video-bg', getVideoURL);
+
+    } else {
+      console.log('No se encontró ninguna video con data-type="video-bg" en la sección.');
+    }
+  } else {
+    console.log('No se encontró ninguna sección con el ID: ' + sectionID);
+  }
+  
 }
 
 function colorID() {
   const sectionId = document.getElementById('toolbarSectionID')?.textContent;
-  const colorID = document.querySelector(`#${sectionId} div[data-type="bg-color"]`)?.id || 'No ID found';
-  const colorMessage = document.getElementById('color-id');
-  colorMessage.textContent = colorID;
+  const colorID = document.querySelector(`#${sectionId} grid-bg-color[data-type="grid-bg-color"]`)?.id || 'No ID found';
+  const colorIDText = document.getElementById('color-id');
+  colorIDText.textContent = colorID;
 
-  const colorSelectedDiv = document.getElementById(colorID);
-  const colorSelectedID = colorSelectedDiv.querySelector(".div-visible");
-  const colorSelectedTxt = document.getElementById('color-selected-id');
-  colorSelectedTxt.textContent = colorSelectedID.id;
+  // const colorSelectedDiv = document.getElementById(colorID);
+  // const colorSelectedID = colorSelectedDiv.querySelector(".div-visible");
+  // const colorSelectedTxt = document.getElementById('color-selected-id');
+  // colorSelectedTxt.textContent = colorSelectedID.id;
 
   
-  const colorDataTypeID = document.getElementById(colorSelectedID.id);
-  const colorDataType = colorDataTypeID.getAttribute("data-type");
-  const colorDataTypeTxt = document.getElementById('color-selected-data');
-  colorDataTypeTxt.textContent = colorDataType;
+  // const colorDataTypeID = document.getElementById(colorSelectedID.id);
+  // const colorDataType = colorDataTypeID.getAttribute("data-type");
+  // const colorDataTypeTxt = document.getElementById('color-selected-data');
+  // colorDataTypeTxt.textContent = colorDataType;
 
-  const colorBgID = document.getElementById(colorSelectedID.id);
-  const colorCurrentRgb = window.getComputedStyle(colorBgID).getPropertyValue("background-color");
-  const colorCurrentTxt = document.getElementById('color-current-bg');
-  colorCurrentTxt.textContent = colorCurrentRgb;
+  // const colorBgID = document.getElementById(colorSelectedID.id);
+  // const colorCurrentRgb = window.getComputedStyle(colorBgID).getPropertyValue("background-color");
+  // const colorCurrentTxt = document.getElementById('color-current-bg');
+  // colorCurrentTxt.textContent = colorCurrentRgb;
 }
 
 function imageID() {
   const sectionId = document.getElementById('toolbarSectionID')?.textContent;
-  const imageID = document.querySelector(`#${sectionId} div[data-type="bg-image"]`)?.id || 'No ID found';
+  const imageID = document.querySelector(`#${sectionId} grid-bg-image[data-type="grid-bg-image"]`)?.id || 'No ID found';
   const imageMessage = document.getElementById('image-id');
   imageMessage.textContent = imageID;
 }
@@ -339,7 +364,7 @@ function imageID() {
 function videoID() {
 
   const sectionId = document.getElementById('toolbarSectionID')?.textContent;
-  const videoID = document.querySelector(`#${sectionId} div[data-type="bg-video"]`)?.id || 'No ID found';
+  const videoID = document.querySelector(`#${sectionId} grid-bg-video[data-type="grid-bg-video"]`)?.id || 'No ID found';
   const videoMessage = document.getElementById('video-id');
   videoMessage.textContent = videoID;
 

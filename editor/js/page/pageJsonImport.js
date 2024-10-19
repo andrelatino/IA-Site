@@ -2,7 +2,7 @@ function importPage() {
   var fileInput = document.createElement('input');
   fileInput.type = 'file';
   fileInput.accept = '.json';
-  fileInput.multiple = true; // Allow multiple file selection
+  fileInput.multiple = true; // Permitir la selección de múltiples archivos
   fileInput.onchange = function(event) {
     var files = event.target.files;
     Array.from(files).forEach(function(file) {
@@ -11,59 +11,38 @@ function importPage() {
         var sectionData = JSON.parse(event.target.result);
         var sectionsHtml = sectionData.pageHtml;
 
-        var container = document.createElement('div'); // Create a temporary container
+        var container = document.createElement('div'); // Crear un contenedor temporal
         container.innerHTML = sectionsHtml;
 
-        var sections = container.querySelectorAll('section'); // Retrieve all sections from the container
+        var sections = container.querySelectorAll('section'); // Obtener todas las secciones
+        console.log('Secciones encontradas:', sections.length);
 
-        // Loop through each section
-        Array.from(sections).forEach(function(section) {
+        // Obtener el contenedor "grid-body"
+        var grid = document.getElementById('grid-body');
+        
+        // Eliminar todas las secciones dentro de "grid-body"
+        if (grid) {
+          grid.innerHTML = ''; // Esto eliminará todas las secciones existentes
+          console.log('Secciones existentes eliminadas');
+        }
+
+        // Recorrer cada sección y añadirla al "grid-body"
+        Array.from(sections).forEach(function(section, index) {
+          console.log('Procesando sección', index + 1);
           var sectionHtml = section.innerHTML;
-          var newSectionId = generateRandomID(7);
+
+          // Crear una nueva sección con el mismo ID y contenido
           var newSection = document.createElement('section');
-          newSection.id = newSectionId;
+          newSection.id = section.id;
           newSection.innerHTML = sectionHtml;
 
-          // Generate new IDs for the section and its child elements
-          var oldIds = new Set();
-          newSection.querySelectorAll('[id]').forEach(function(element) {
-            oldIds.add(element.id);
-          });
-          var newIds = new Map();
-          oldIds.forEach(function(oldId) {
-            var newId = generateRandomID(7);
-            newIds.set(oldId, newId);
-          });
-
-          // Update the IDs in the section and its child elements
-          newSection.querySelectorAll('[id]').forEach(function(element) {
-            var oldId = element.id;
-            var newId = newIds.get(oldId) || generateRandomID(7);
-            element.id = newId;
-          });
-          newSectionId = newIds.get(newSectionId) || newSectionId;
-
-          // Update the CSS styles with the new IDs
-          var style = newSection.querySelector('style');
-          if (style) {
-            var oldCssText = style.textContent;
-            var newCssText = oldCssText;
-            newIds.forEach(function(newId, oldId) {
-              newCssText = newCssText.replace(new RegExp(oldId, 'g'), newId);
-            });
-            style.textContent = newCssText;
-          }
-
-          // Add the new section to the "grid" div
-          var grid = document.getElementById('grid');
+          // Agregar la nueva sección al contenedor "grid-body"
           if (grid) {
             grid.appendChild(newSection);
+            console.log('Sección añadida con ID:', newSection.id);
           }
 
-          // Add custom HTML code at the end of the new section
-          var customHtml = sectionButtons();
-          addCustomHTMLToImportedSection(newSectionId, customHtml);
-          //savePage();
+          //savePage(); // Guarda la página si es necesario
         });
       };
       reader.readAsText(file);
@@ -71,5 +50,3 @@ function importPage() {
   };
   fileInput.click();
 }
-
-

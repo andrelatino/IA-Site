@@ -37,19 +37,6 @@ function getUrlValues(name) {
       var prodJsonRaw = item.prodJsonRaw;
       var prodJsonApi = item.prodJsonApi;
       
-      // INCREASE NAME + 1
-      // var originalUrl = devJsonApi; //URL HERE
-      // var currentFilename = originalUrl.match(/index-(\d+)\.json/)[1];
-      // var newFilenameNumber = parseInt(currentFilename) + 1;
-      // var newFilename = "index-" + newFilenameNumber + ".json";
-      // var newUrl = originalUrl.replace(/index-\d+\.json/, newFilename);
-      
-      // console.log("encodedRaw: "+devJsonRaw);
-      // console.log("encodedApi: "+devJsonApi);
-
-      // console.log("current: "+originalUrl);
-      // console.log("new url: "+newUrl);
-      
   }
  
   console.log(decodedValues);
